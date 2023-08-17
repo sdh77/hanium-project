@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리스트 출력</title>
+  <link rel="stylesheet" href="list_style.css?ver1" />
+</head>
+<body>
+  <nav>
+    <button><a class="action_button" href="index.html">돌아가기</a></button>
+    <button><a class="action_button" href="update.php">리스트 수정</a></button>
+  <?php
+    $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
+
+    echo "<table>";
+    echo "<tr><th>번호</th><th>이름</th><th>가격</th><th>구분</th><th>추천</th><th>신제품</th><th>맵기</th><th>주문수</th></tr>";
+    $sql = "select * from menu order by id";
+    $result = pg_query($conn,$sql);
+    if($result){
+      if(pg_num_rows($result)>0){
+        while($row = pg_fetch_assoc($result)){
+          echo "<tr><td>". $row["id"]. "</td><td>". $row["name"]. "</td><td>". $row["price"]. "</td><td>". $row["div"]. "</td><td>";
+          echo ($row["recommend"] === 't' ? '☆':'');
+          echo "</td><td>";
+          echo ($row["new"] === 't' ? '✔️':'');
+          echo"</td><td>". $row["spicy"]. "</td><td>". $row["cnt"] . "</td></tr>";
+        }
+      }
+    else{
+      echo "<tr><td colspan = '4'>no item</td></tr>";
+    }
+    echo "<table>";
+  }
+  else{
+    echo "오류 발생: " . pg_last_error($conn);
+  }
+  pg_close($conn);
+  ?>
+</nav>
+</body>
+</html>
