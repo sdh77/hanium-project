@@ -14,7 +14,7 @@
 <div class="button_div">
 <button class="action_button"><a href="index.html">돌아가기</a></button>
 <button class="action_button"><a href="list.php">리스트 확인</a></button>
-    <form action="arr2.php" method="post" style=" display: flex;     align-items: center;">
+    <form action="arr.php" method="post" style=" display: flex;     align-items: center;">
       <select name="menu_div">
          <option value="파스타" ' . ($row["div"] == "파스타" ? "selected" : "") . '>파스타</option>
          <option value="샐러드" ' . ($row["div"] == "샐러드" ? "selected" : "") . '>샐러드</option>
@@ -26,7 +26,7 @@
          <option value="와인" ' . ($row["div"] == "와인" ? "selected" : "") . '>와인</option>
          <option value="주류" ' . ($row["div"] == "주류" ? "selected" : "") . '>주류</option>
        </select>
-     <button class="action_button" href="arr.php">배치하기</button>
+     <button class="action_button">배치하기</button>
   </form>
 </div>
 <?php
