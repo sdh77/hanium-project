@@ -19,7 +19,7 @@ if (isset($_POST['apply'])) {
     $menu_id = $_POST["menu_id"];
     $new_index = $_POST["new_index"];
     $menu_div = $_POST["menu_div"];
-
+    echo "asd";
     if ($menu_div !== 'none') {
         // 해당 메뉴 종류($menu_div)에 해당하는 모든 메뉴의 인덱스를 변경하는 쿼리
         $sql2 = "UPDATE menu SET index = $new_index WHERE id = '$menu_id'";
