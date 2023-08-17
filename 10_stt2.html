@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Order UI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="10_style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body> 
+    <div id="orderArea">
+    	<div class="order-box">Order</div>
+    </div> 
+
+    <div id="menuArea" style="display: none;">
+    	<div class="navbar-area">
+   	    <ul>
+	    	<li><a href="#" data-type="" class="active">ALL</a></li>
+	    	<li><a href="#" data-type="salad&soup">Soup&Salad</a></li>
+	    	<li><a href="#" data-type="pasta">Pasta</a></li>
+	    	<li><a href="#" data-type="risotto">Risotto</a></li>
+	    	<li><a href="#" data-type="pizza">Pizza</a></li>
+	    	<li><a href="#" data-type="beverage">Beverage</a></li>
+	    	<li><a href="#pick">CEO's pick</a></li>
+	    	<li><a href="#asc">Order asc</a></li>
+	    	<li><a href="#service">Service</a></li>
+	    	<li style="float:right"><a href="#AdminMode">Admin Mode</a></li>
+    	    </ul>
+    	</div>
+
+	<div class="db-area" id= "dbArea"></div> <!-- imenu-container은 php파일에서 생성 -->
+	
+	<div class= "shop-area" id="shop-area">
+            <div id="item-container">
+                <div id="order-number-area">
+                    <span id="order-number-text">OrderID </span>
+                    <span id="order-number"></span>
+                </div>
+                <div id="cart">
+                    <div class="cart-item" style="display: none;">
+                        <div class="menu-name"></div>
+                        <div class="quantity-area">
+                            <p class="quantity">1</p>
+                            <button class="decrease">-</button>
+                            <button class="increase">+</button>
+                        </div>
+                        <p class="single-price" style="display:none;"></p>
+                        <p class="item-price"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="checkout-area">
+                <div id="total-price-area">
+		    <span id="total-text">Total: </span>
+                    <span id="total-price">0</span>
+                </div>
+                <button id="orderButton">Order</button>
+            </div>
+        </div>
+
+	<div class="chat-area">
+	    <div class="voice-box">Voice Chat</div>
+	</div>
+	<div class="chatdisplay-area" style="display: none;">
+	    <div class="chat-message">
+	    </div>
+	    <div class="chat-input">
+		<input type="text" id="userMessage" placeholder="Input Message..">
+		<button id="sendMessage">send</button>
+		<button id="startRecording">record</button>
+		<button id="stopRecording">stop</button>
+	    </div>
+	</div>
+
+
+	<div class="admin-container">
+	    <div class="admin-area" id= "admin-area">
+	    	<button id="insertButton">Insert</button>
+	    	<button id="alterButton">Alter</button>
+	    	<button id="deleteButton">Delete</button>
+		<button id="orderdeleteButton" style="float:right">OrderList Delete</button>
+	    </div>
+	    <!-- 입력 폼-->
+	    <div class="admin-area" id="inputForm">
+	    	<input type="text" id="menuInput" placeholder="menu">
+	    	<input type="number" id="priceInput" placeholder="price">
+	    	<select id="typeInput">
+		    <option value="salad&soup">salad&soup</option>
+		    <option value="pasta">pasta</option>
+		    <option value="risotto">risotto</option>
+		    <option value="pizza">pizza</option>
+		    <option value="beverage">beverage</option>
+	    	</select>
+	        <button id="addMenuButton">Insert</button>
+	    </div>
+	    <div class="admin-table"></div>
+	</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
+    <script src="10_script2.js"></script>
+    <script src="10_stt.js"></script>
+</body>
+
+</html>
