@@ -1,0 +1,15 @@
+@import "reset.css";
+
+body {
+  text-align: center; /* 페이지 전체의 요소를 가운데 정렬합니다. */
+}
+h1 {
+  font-size: 100px;
+}
+nav {
+  margin: 20px auto; /* 상하 여백은 20px이고 가로 여백은 자동으로 조정하여 가운데에 위치시킵니다. */
+}
+.action_button {
+  font-size: 30px;
+}
+
