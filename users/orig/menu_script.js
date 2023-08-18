@@ -35,14 +35,14 @@ function clear_order(){
 page = 0;
 function uppage(){
   page++;
-  loadpage();
+  loadpage_list();
 }
 
 function downpage(){
   if(page > 0){
     page--;
   }
-  loadpage();
+  loadpage_list();
 }
 
 //목차 변경
@@ -50,7 +50,7 @@ type = "all";
 function set_type(newtype){
   type = newtype;
   page = 0;
-  loadpage();
+  loadpage_list();
 }
 
 //정렬기준 변경
@@ -63,7 +63,13 @@ function set_order(neworder){
   else
     order = neworder;
   page = 0;
-  loadpage();
+  loadpage_list();
+}
+
+//버튼으로 인한 페이지 변경
+function changepage(num){
+  page = num;
+  loadpage_list();
 }
 
 //검색 기능
@@ -81,10 +87,8 @@ function mysearch(){
   });
 }
 
-
-
-//링크 변경
-function loadpage(){
+//로드 페이지
+function loadpage_list(){
   var params = {
     newpage: page,
     newtype: type,
@@ -98,7 +102,5 @@ function loadpage(){
     $('#menupage').html(data);
   });
 }
-
-
 
 

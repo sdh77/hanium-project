@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>menu select</title>
 
-  <link rel="stylesheet" href ="list_div.css?ver5" />
+  <link rel="stylesheet" href ="list_div.css?ver7" />
 
 </head>
+
 <div class="grid">
 
 <?php
@@ -61,6 +62,7 @@
 
   $result = pg_query($conn, $sql);
   if($result){
+    $totalpage = pg_num_rows($result);
     if(pg_num_rows($result)>0){
       $viewcnt = 0;//화면에 출력된 매뉴의 개수
       while($row = pg_fetch_assoc($result)){
@@ -80,12 +82,28 @@
     }
   }
 
+  echo'</div>';
+
+  echo '<div class="pagebuttons"><button class="up" onclick="downpage();"><</button>';
+  if($totalpage%9 == 0)
+    $totalpage = $totalpage/9-1;
+  else
+    $totalpage = $totalpage/9;
+  
+  for($i = 0; $i<$totalpage;$i++){
+    echo'<button class="pagebutton"';
+    if($i == $pagenum)
+      echo'id="thispage"';
+    echo' onclick="changepage('.$i.')">-</button>';
+  }
+  echo '<button class="down" onclick="uppage();">></button></div>';
+
+
   echo'<script>
         window.onload = function(){
           window.parent.postMessage('.$cnt .', "*");
         }</script>';
 
-echo'</div>';
 
 ?>
 </html>

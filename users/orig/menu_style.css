@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;  
 }
 
 .menu_select .middle_long{
@@ -55,11 +56,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;  
   
 }
 .orderselect .searchtext{
   width: 10vw;
   height: 3vh;
+  cursor: text;  
 }
 
 .orderselect a:hover{
@@ -84,21 +87,6 @@
   border:none;
 }
 
-.main .list .pagebutton{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 4vh;
-}
-
-.main .list .pagebutton button{
-  font-size: 3vw;
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-}
-
 .main .list .pagebutton .point{
   font-size: 3vw;
 }
@@ -111,3 +99,25 @@
   width: 26vw;
   height: 70vh;
 }
+
+#serv-bottom {
+  position: absolute;  
+  bottom: 25vh; 
+}
+
+#serv-button {  
+  display: block;  
+  background-color: #555;  
+  color: white; 
+  border: none;  
+  border-radius: 25px; /*둥글게!*/  
+  cursor: pointer;  
+  text-align: center;
+  font-size: 1em;
+  height: 60px;
+}
+
+#serv-button:hover { 
+  background-color: hotpink;
+}
+

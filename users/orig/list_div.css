@@ -36,3 +36,31 @@
   grid-column:1/4;
   grid-row:1/4;
 }
+
+.pagebuttons{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 30px;
+  margin-top : 3vh;
+}
+
+.pagebuttons button{
+  font-size: 3vw;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  background-color:red;
+}
+
+.up,.down,.pagebutton{
+  background-color: #333;
+  border-radius:25px;
+}
+
+#thispage{
+  background-color: #fff;
+  border-radius:25px;
+}
+

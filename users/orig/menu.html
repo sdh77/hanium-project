@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>menu select</title>
 
-  <link rel="stylesheet" href ="menu_style.css?ver3" />
+  <link rel="stylesheet" href ="menu_style.css?ver4" />
 
 </head>
 
@@ -30,16 +30,12 @@
       <a class="order" onclick="change_order(); set_order('추천');">추천</a>
       <a class="order" onclick="change_order(); set_order('판매량');">판매량</a>
       <a class="order" onclick="change_order(); set_order('맵기');">맵기순</a>
-    </div>
-
-    <div class="list">
-      <div class="item_grid" id="menupage">
-      </div>  <div class="pagebutton">
-      <button onclick="downpage();"><</button>
-<p class="point">●○</p>
-
-        <button onclick="uppage();">></button>
+      <div id="serv-bottom"> 
+        <button class="order" id="serv-button">직원 호출</button>
       </div>
+    </div>
+    <div class="list">
+      <div class="item_grid" id="menupage"></div> 
     </div>
 
 
