@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>menu select</title>
 
-  <link rel="stylesheet" href ="list_div.css?ver7" />
+  <link rel="stylesheet" href ="list_div.css?ver8" />
 
 </head>
 
@@ -84,7 +84,10 @@
 
   echo'</div>';
 
-  echo '<div class="pagebuttons"><button class="up" onclick="downpage();"><</button>';
+  echo '<div class="pagebuttons"><button class="up"';
+  if($pagenum != 0)
+   echo' onclick="downpage();"';
+  echo'><</button>';
   if($totalpage%9 == 0)
     $totalpage = $totalpage/9-1;
   else

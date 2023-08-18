@@ -19,16 +19,16 @@
   align-items: center;
   justify-content: center;
   text-align : center;
-  font-size: 1vw;
+  font-size: 1.5vw;
 }
 
 .grid_item img{
   width: auto;
   height: auto;
   max-width: 28vw;
-  max-height: 15vh;
+  max-height: 12vh;
   margin-top : 1vh;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
 }
 
 .error{
