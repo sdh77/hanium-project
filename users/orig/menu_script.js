@@ -1,10 +1,11 @@
-$.ajax({
-  url: "list_div.php",
-  type:"get"
-}).done(function(data){
-  $('#menupage').html(data);
+$(document).ready(function() {
+  $.ajax({
+    url: "list_div.php",
+    type:"get"
+  }).done(function(data){
+    $('#menupage').html(data);
+  });
 });
-
 
 function change_check(){
   var clicklists = document.querySelectorAll('.menu');
@@ -67,27 +68,37 @@ function set_order(neworder){
 
 //검색 기능
 function mysearch(){
-//  var searchtext = document.getElementsByClassName('searchtext').value;
-  var searchtext = document.getElementById('searchtext').value;
-
-  loadpage_search(searchtext);
+  var search_text = document.getElementById('searchtext').value;
+  var params = {
+    newsearch: search_text,
+  }
+  $.ajax({
+    url: "list_div.php",
+    type:"get",
+    data: params,
+  }).done(function(data){
+    $('#menupage').html(data);
+  });
 }
 
-function loadpage_search(search_text){
-  const menupage = document.getElementById('menupage');
-  menupage.src = 'list_div.php?search=' + search_text;
-}
+
 
 //링크 변경
 function loadpage(){
-  const menupage = document.getElementById('menupage');
-  menupage.src = 'list_div.php?pagenum=' + page + '&type=' + type + '&order=' + order;
+  var params = {
+    newpage: page,
+    newtype: type,
+    neworder: order,
+  }
+  $.ajax({
+    url: "list_div.php",
+    type:"get",
+    data: params,
+  }).done(function(data){
+    $('#menupage').html(data);
+  });
 }
 
-window.addEventListener('message', receiveDataFromChild, false);
-function receiveDataFromChild(event) {
-  if (event.origin !== 'null') {
-    var data = event.data;  
-    console.log('부모가 자식으로부터 받은 데이터:', data);
-  }
-}
+
+
+

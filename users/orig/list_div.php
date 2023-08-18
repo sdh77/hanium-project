@@ -13,9 +13,52 @@
 
 <?php
   $cnt = 0;
-  $pagenum = 1;
+  $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
+  $order_type = isset($_GET['neworder']) ? $_GET['neworder'] : "";
+  $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
+  $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
+
   $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
-  $sql = 'select * from menu';
+
+
+  if($search != "")
+    $sql = "select * from menu where name like '%".$search."%' order by new desc, id";
+  
+  else if($order_type == "추천"){
+    if($type == "술")
+      $sql = "select * from menu where div in ('주류','와인') order by recommend desc, new desc, id";
+    else if($type == "all")
+      $sql = "select * from menu order by recommend desc, new desc, id";
+    else
+      $sql = "select * from menu where div ='" .$type. "' order by recommend desc, new desc, id";
+  }
+  else if($order_type == "판매량"){
+    if($type == "술")
+      $sql = "select * from menu where div in ('주류','와인') order by cnt, new desc, id";
+    else if($type == "all")
+      $sql = "select * from menu order by cnt, new desc, id";
+    else
+      $sql = "select * from menu where div ='" .$type. "' order by cnt, new desc, id";
+  }
+
+  else if($order_type == "맵기"){
+    if($type == "술")
+      $sql = "select * from menu where div in ('주류','와인') order by spicy desc, new desc, id";
+    else if($type == "all")
+      $sql = "select * from menu order by spicy desc, new desc, id";
+    else
+      $sql = "select * from menu where div ='" .$type. "' order by spicy desc, new desc, id";
+  }
+
+  else{
+    if($type == "술")
+      $sql = "select * from menu where div in ('주류','와인') order by new desc, id";
+    else if($type == "all")
+      $sql = "select * from menu order by new desc, id";
+    else
+      $sql = "select * from menu where div ='" .$type. "' order by new desc, id";
+  }
+
   $result = pg_query($conn, $sql);
   if($result){
     if(pg_num_rows($result)>0){
