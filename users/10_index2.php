@@ -1,14 +1,8 @@
 <?php
 // DB 연결 정보 설정
-$host = "www.ddhye.com";
-$port = "5432";
-$dbname = "mytableorder";
-$user = "dodo";
-$password = "net123";
 
 // PostgreSQL 연결
-$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-
+$conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
 if(!$conn) {
     die("PostgreSQL 연결 실패");
 }

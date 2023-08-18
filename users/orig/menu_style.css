@@ -1,7 +1,4 @@
-*{
-  margin: 0;
-  padding: 0;
-}
+@import "reset.css";
 
 /*매뉴선택 부분*/
 .menu_select{

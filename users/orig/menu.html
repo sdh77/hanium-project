@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>menu select</title>
 
-  <link rel="stylesheet" href ="menu_style.css?ver2" />
+  <link rel="stylesheet" href ="menu_style.css?ver3" />
 
 </head>
 
@@ -33,18 +33,20 @@
     </div>
 
     <div class="list">
-      <iframe class="item_grid" id="menupage"  src="list_div.php"></iframe>
-      <div class="pagebutton">
-        <button onclick="downpage();"><</button>
+      <div class="item_grid" id="menupage">
+      </div>  <div class="pagebutton">
+      <button onclick="downpage();"><</button>
 <p class="point">●○</p>
+
         <button onclick="uppage();">></button>
       </div>
     </div>
-    <iframe class="chat" src="chat.php"></iframe>
-  </div>
-  <iframe class="checklist" src="checklist.php"></iframe>
 
-  <script src=menu_script.js?ver1></script>
+
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src=menu_script.js?ver2></script>
 
 </body>
 </html>

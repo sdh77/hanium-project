@@ -1,3 +1,11 @@
+$.ajax({
+  url: "list_div.php",
+  type:"get"
+}).done(function(data){
+  $('#menupage').html(data);
+});
+
+
 function change_check(){
   var clicklists = document.querySelectorAll('.menu');
   clicklists.forEach(function(clicklist){
