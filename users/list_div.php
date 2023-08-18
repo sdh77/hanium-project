@@ -88,7 +88,7 @@
   if($totalpage%9 == 0)
     $totalpage = $totalpage/9-1;
   else
-    $totalpage = (int)($totalpage/9);
+    $totalpage = $totalpage/9;
   
   for($i = 0; $i<=$totalpage;$i++){
     echo'<button class="pagebutton"';
@@ -96,10 +96,7 @@
       echo'id="thispage"';
     echo' onclick="changepage('.$i.')">-</button>';
   }
-  echo '<button class="down" ';
-  if($pagenum<$totalpage)
-    echo'onclick="uppage()"';
-  echo '>></button></div>';
+  echo '<button class="down" onclick="uppage();">></button></div>';
 
 
   echo'<script>

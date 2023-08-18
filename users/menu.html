@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu select</title>
+
+  <link rel="stylesheet" href ="menu_style.css?ver4" />
+
+</head>
+
+<body>
+  <div class="menu_select">
+    <a class="menu click" onclick="change_check(); set_type('all');">전체</a>
+    <a class="menu" onclick="change_check(); set_type('파스타');">파스타</a>
+    <a class="menu" onclick="change_check(); set_type('라이스');">라이스</a>
+    <a class="menu" onclick="change_check(); set_type('샐러드');">샐러드</a>
+    <a class="menu" onclick="change_check(); set_type('피자');">피자</a>
+    <a class="menu middle_long" onclick="change_check(); set_type('스테이크');">스테이크</a>
+    <a class="menu" onclick="change_check(); set_type('사이드');">사이드</a>
+    <a class="menu" onclick="change_check(); set_type('음료');">음료</a>
+    <a class="menu long" onclick="change_check(); set_type('술');">와인 및 주류</a>
+  </div>
+
+  <div class="main">
+    <div class="orderselect">
+      <input class="searchtext" id="searchtext"></input>
+      <a class="order" onclick="change_order(); mysearch();">검색</a>
+      <a class="order" onclick="change_order(); set_order('추천');">추천</a>
+      <a class="order" onclick="change_order(); set_order('판매량');">판매량</a>
+      <a class="order" onclick="change_order(); set_order('맵기');">맵기순</a>
+      <div id="serv-bottom"> 
+        <button class="order" id="serv-button">직원 호출</button>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item_grid" id="menupage"></div> 
+    </div>
+
+
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src=menu_script.js?ver2></script>
+
+</body>
+</html>

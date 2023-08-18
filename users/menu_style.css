@@ -1,0 +1,123 @@
+@import "reset.css";
+
+/*매뉴선택 부분*/
+.menu_select{
+  display: flex;
+  background-color: #bbb;
+  border:none;
+}
+
+.menu_select a{
+  margin: 10px;
+  font-size: 1.5vw;
+  width: 8vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;  
+}
+
+.menu_select .middle_long{
+  width: 12vw;
+}
+
+.menu_select .long{
+  width: 18vw;
+}
+
+.click,.menu_select a:hover{
+  background-color: #333;
+  color: white;
+}
+
+.click{
+  background-color: #333;
+  color: white;
+}
+
+
+/*정렬부분*/
+.orderselect{
+  display: flex;
+  flex-direction: column;
+  background-color:#bbb;
+  width: 15vw;
+  align-items: center;
+  font-size: 2vw;
+  border:none;
+  height : 70vh;
+}
+
+.orderselect *{
+  margin:10px;
+  width: 10vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;  
+  
+}
+.orderselect .searchtext{
+  width: 10vw;
+  height: 3vh;
+  cursor: text;  
+}
+
+.orderselect a:hover{
+  background-color: #333;
+  color: white;
+}
+
+/*본문 사이즈 및 배열*/
+.main{
+  display: flex;
+  height: 70vh;
+}
+
+/*list 및 버튼 배열*/
+
+.main .list{
+  width: 60vw;
+}
+.main .list .item_grid{
+  width: 60vw;
+  height: 65vh;
+  border:none;
+}
+
+.main .list .pagebutton .point{
+  font-size: 3vw;
+}
+/*php관련 iframe 태두리 지우기*/
+.chat,.checklist{
+  border: none;
+}
+
+.chat{
+  width: 26vw;
+  height: 70vh;
+}
+
+#serv-bottom {
+  position: absolute;  
+  bottom: 25vh; 
+}
+
+#serv-button {  
+  display: block;  
+  background-color: #555;  
+  color: white; 
+  border: none;  
+  border-radius: 25px; /*둥글게!*/  
+  cursor: pointer;  
+  text-align: center;
+  font-size: 1em;
+  height: 60px;
+}
+
+#serv-button:hover { 
+  background-color: hotpink;
+}
+
