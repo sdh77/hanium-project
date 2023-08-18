@@ -12,6 +12,9 @@
     <button><a class="action_button" href="index.html">돌아가기</a></button>
     <button><a class="action_button" href="update.php">리스트 수정</a></button>
   <?php
+    $totalnum;
+    $pagenum = isset($_GET['pagenum']) ? $_GET['pagenum'] : 0;
+    echo $pagenum;
     $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
 
     echo "<table>";
@@ -19,13 +22,18 @@
     $sql = "select * from menu order by id";
     $result = pg_query($conn,$sql);
     if($result){
-      if(pg_num_rows($result)>0){
+      $totalnum = pg_num_rows($result);
+      if($totalnum>0){
+        $cnt = 0;
         while($row = pg_fetch_assoc($result)){
-          echo "<tr><td>". $row["id"]. "</td><td>". $row["name"]. "</td><td>". $row["price"]. "</td><td>". $row["div"]. "</td><td>";
-          echo ($row["recommend"] === 't' ? '☆':'');
-          echo "</td><td>";
-          echo ($row["new"] === 't' ? '✔️':'');
-          echo"</td><td>". $row["spicy"]. "</td><td>". $row["cnt"] . "</td></tr>";
+          if($cnt >=$pagenum*25  && $cnt<25*($pagenum + 1)){
+            echo "<tr><td>". $row["id"]. "</td><td>". $row["name"]. "</td><td>". $row["price"]. "</td><td>". $row["div"]. "</td><td>";
+            echo ($row["recommend"] === 't' ? '☆':'');
+            echo "</td><td>";
+            echo ($row["new"] === 't' ? '✔️':'');
+            echo"</td><td>". $row["spicy"]. "</td><td>". $row["cnt"] . "</td></tr>";
+          }
+          $cnt++;
         }
       }
     else{
@@ -38,6 +46,7 @@
   }
   pg_close($conn);
   ?>
-</nav>
+
+</script>
 </body>
 </html>
