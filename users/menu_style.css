@@ -1,49 +1,8 @@
 @import "reset.css";
 
-/* do: menu_select. 상단 메뉴바 */
-.menu_select{
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 85vw;
-  height: 66.5px;
-  display: flex;
-  color: white;
-  background-color: #a6a5b8;
-  border:none;
-}
-.menu_select a{
-  margin: 10px;
-  width: 8vw;
-  height: 5vh;
-  background-color: #76758a;
-  border-radius: 25px; /*둥글게!*/  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;  
-}
-.menu_select .middle_long{
-  width: 12vw;
-}
-.menu_select .long{
-  width: 18vw;
-}
-.click,.menu_select a:hover{
-  color: #3d272f;
-  background-color: white;
-}
-.click{
-  background-color: #333;
-  color: white;
-}
-
-
-/* do: main. orderselect, list, shop-area */
-.main{
-  display: flex;
-  height: 70vh;
-  top: 67px;
+.bodymain{
+  display:flex;
+  flex-direction: row;
 }
 /* do: orderselect. 좌측 메뉴바 */
 .orderselect{
@@ -68,33 +27,79 @@
 .orderselect .searchtext{
   width: 10vw;
   height: 3vh;
-  cursor: text;  
+  cursor: text;
 }
 .orderselect a:hover{
   background-color: #333;
   color: white;
 }
-/* do: list. 디비 출력 */
-.main .list{
-  position: fixed;
-  width: 60vw;
-  height: calc(100vh - 212px);
-  top: 67px;
-  left: 15vw;
+
+.main{
+  width:85vw;
+  display: flex;
+  flex-direction: column;
 }
-.main .list .item_grid{
+
+/* do: menu_select. 상단 메뉴바 */
+.menu_select{
+  width: 85vw;
+  height: 8vh;
+  display: flex;
+  color: white;
+  background-color: #a6a5b8;
+  border:none;
+}
+.menu_select a:hover{
+  color: #3d272f;
+  background-color: white;
+}
+
+.menu_select .click{
+  color: #3d272f;
+  background-color: white;
+}
+
+.menu_select a{
+  margin: 10px;
+  width: 8vw;
+  height: 5vh;
+  background-color: #76758a;
+  border-radius: 25px; /*둥글게!*/  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;  
+}
+.menu_select .middle_long{
+  width: 12vw;
+}
+.menu_select .long{
+  width: 18vw;
+}
+
+
+/*중간 부분*/
+.middlearea{
+  display:flex;
+  flex-direction: row;
+  height: 70vh;
+}
+
+/* do: list. 디비 출력 */
+.main .middlearea .list{
+  width: 60vw;
+  height: 70vh;
+}
+.main .middlearea .list .item_grid{
   width: 60.37vw;
-  height: 65vh;
+  height: 70vh;
   border:none;
 }
 
-.main .list .pagebutton .point{
+.main .middlearea .list .pagebutton .point{
   font-size: 3vw;
 }
-/*php관련 iframe 태두리 지우기*/
-.chat,.checklist{
-  border: none;
-}
+
 
 .chat{
   width: 26vw;
@@ -129,11 +134,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: fixed;
-    width: 24.4vw;
-    height: calc(100vh - 239.5px);
-    top: 67px;
-    right: 0;
+    width: 26vw;
+    height: calc(70vh-8px);
     /*background-color: rgba(46,60,102, 0.8);*/
     background-color: #76758a;
     border: 4px solid #76758a;
@@ -192,19 +194,16 @@
 
 
 /* 장바구니 */
-.shop-area{             /* 장바구니 */
-    background-color: white;
-    position: fixed;
-    width: 84.75vw;
-    height: 160px;
-    bottom: 0;
-    right: 0;
-    overflow-x: auto;
-    z-index: 99;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid #777;
+.shop-area{            /* 장바구니 */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+/*
+  border: 2px solid #777;
+  border-left: none;
+*/
+  height:22vh;
+  width: 85vw;
 }
 .table-number-area {
     background-color: black;
@@ -248,14 +247,9 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    position: fixed;
-    width: 7vw;
-    height: 160px;
-    bottom: 0;
-    right: 0;
     background-color: #777;
     border: 2px solid #777;
-    z-index: 90;
+    width:10vw;
 }
 #total-price-area {
     display: flex;

@@ -3,21 +3,23 @@
 /* do: 색상, 크기, 간격 조정 */
 
 .grid{
-  padding: 2vw;
   display: grid;
   grid-template-columns: repeat(3,33.3%);
   grid-template-rows: repeat(2, 50%);
-  height: 62vh;
-  grid-gap: 1rem;
+  grid-gap: 2vh;
   align-items: center;
   justify-content: center;
   background-color: #a6a5b8;
+  padding-left:3vw;
+  padding-right:3vw;
+  padding-top:3vh;
+  padding-bottom:3vh;
+
 }
 
 .grid_item{
   background-color: white;
-  border: 0.2px solid #76758a;
-  height: 30vh;
+  height: 27vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,23 +46,26 @@
 .pagebuttons{
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 30px;
+  align-content:center;
+  height: 8vh;
   background-color: #a6a5b8;
 }
 
 .pagebuttons button{
   font-size: 3vw;
+  height: 30px;
   border: none;
   background-color: transparent;
   display: flex;
   align-items: center;
   background-color: white;
+  margin-top: 2vh;
 }
 
 .up,.down,.pagebutton{
   background-color: #333;
   border-radius:25px;
+  height: 30px;
 }
 
 #thispage{

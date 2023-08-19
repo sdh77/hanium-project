@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>menu select</title>
 
-  <link rel="stylesheet" href ="list_div.css?ver7" />
+  <link rel="stylesheet" href ="list_div.css?ver9" />
 
 </head>
 
 <div class="grid">
 
 <?php
+  $totalnum;
   $cnt = 0;
   $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
   $order_type = isset($_GET['neworder']) ? $_GET['neworder'] : "";
   $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
   $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
 
-  $conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
+//  $conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
+  $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
 
 
   if($search != "")
@@ -68,8 +70,11 @@
       while($row = pg_fetch_assoc($result)){
         $cnt++;
         if(($cnt > (6 * $pagenum)) && ($cnt <= (6 *($pagenum +1)))){
-          echo'<div class="grid_item"><img id="menu-img" src="/sdhMain2/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
-	  $viewcnt++;
+//          echo'<div class="grid_item"><img id="menu-img" src="/sdhMain2/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
+
+          echo'<div class="grid_item"><img id="menu-img" src="/hanium_Order_Table/image/이미지(jpg)/' . $row["name"] .'.jpg" alt="'.$row["name"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
+
+          $viewcnt++;
         }
       }
       for(;$viewcnt<6;$viewcnt++){
@@ -84,11 +89,12 @@
 
   echo'</div>';
 
-  echo '<div class="pagebuttons"><button class="up" onclick="downpage();"><</button>';
-  if($totalpage%9 == 0)
-    $totalpage = $totalpage/9-1;
-  else
-    $totalpage = $totalpage/9;
+  echo '<div class="pagebuttons"><button class="up"';
+  if($pagenum !=0){
+    echo 'onclick="downpage();"';
+  }
+  echo'><</button>';
+  $totalpage = $totalpage/6;
   
   for($i = 0; $i<$totalpage;$i++){
     echo'<button class="pagebutton"';
@@ -96,15 +102,14 @@
       echo'id="thispage"';
     echo' onclick="changepage('.$i.')">-</button>';
   }
-  echo '<button class="down" onclick="uppage();">></button></div>';
-
-
+  echo '<button class="down"';
+  if($pagenum < $totalpage-1)
+    echo'onclick="uppage();"';
+  echo'>></button></div>';
   echo'<script>
-        window.onload = function(){
-          window.parent.postMessage('.$cnt .', "*");
-        }</script>';
-
-
+    window.onload = function(){
+      window.parent.postMessage('.$cnt .', "*");
+    }</script>';
 ?>
 </html>
 
