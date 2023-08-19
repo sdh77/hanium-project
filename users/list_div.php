@@ -19,7 +19,7 @@
   $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
   $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
 
-  $conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
+  $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
 
 
   if($search != "")
@@ -67,12 +67,12 @@
       $viewcnt = 0;//화면에 출력된 매뉴의 개수
       while($row = pg_fetch_assoc($result)){
         $cnt++;
-        if(($cnt > (6 * $pagenum)) && ($cnt <= (6 *($pagenum +1)))){
-          echo'<div class="grid_item"><img id="menu-img" src="/sdhMain2/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
-	  $viewcnt++;
+        if(($cnt > (9 * $pagenum)) && ($cnt <= (9 *($pagenum +1)))){
+          echo'<div class="grid_item"><img src="/hanium_Order_Table/image/이미지(jpg)/'.$row["name"] .'.jpg" alt="'.$row["name"].'"></img>'. $row["name"].'<br>'.$row["price"] . '</div>';
+          $viewcnt++;
         }
       }
-      for(;$viewcnt<6;$viewcnt++){
+      for(;$viewcnt<9;$viewcnt++){
         echo'<div class="grid_item"></div>';
       }
         
@@ -90,7 +90,7 @@
   else
     $totalpage = $totalpage/9;
   
-  for($i = 0; $i<$totalpage;$i++){
+  for($i = 0; $i<=$totalpage;$i++){
     echo'<button class="pagebutton"';
     if($i == $pagenum)
       echo'id="thispage"';
