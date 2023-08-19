@@ -1,0 +1,266 @@
+@import "reset.css";
+
+/* do: menu_select. 상단 메뉴바 */
+.menu_select{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85vw;
+  height: 66.5px;
+  display: flex;
+  color: white;
+  background-color: #a6a5b8;
+  border:none;
+}
+.menu_select a{
+  margin: 10px;
+  width: 8vw;
+  height: 5vh;
+  background-color: #76758a;
+  border-radius: 25px; /*둥글게!*/  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;  
+}
+.menu_select .middle_long{
+  width: 12vw;
+}
+.menu_select .long{
+  width: 18vw;
+}
+.click,.menu_select a:hover{
+  color: #3d272f;
+  background-color: white;
+}
+.click{
+  background-color: #333;
+  color: white;
+}
+
+
+/* do: main. orderselect, list, shop-area */
+.main{
+  display: flex;
+  height: 70vh;
+  top: 67px;
+}
+/* do: orderselect. 좌측 메뉴바 */
+.orderselect{
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  height: 100vh;
+  background-color: white;
+  align-items: center;
+  border-right: 2px solid #555;
+}
+.orderselect *{
+  margin:10px;
+  width: 10vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;  
+  
+}
+.orderselect .searchtext{
+  width: 10vw;
+  height: 3vh;
+  cursor: text;  
+}
+.orderselect a:hover{
+  background-color: #333;
+  color: white;
+}
+/* do: list. 디비 출력 */
+.main .list{
+  position: fixed;
+  width: 60vw;
+  height: calc(100vh - 212px);
+  top: 67px;
+  left: 15vw;
+}
+.main .list .item_grid{
+  width: 60.37vw;
+  height: 65vh;
+  border:none;
+}
+
+.main .list .pagebutton .point{
+  font-size: 3vw;
+}
+/*php관련 iframe 태두리 지우기*/
+.chat,.checklist{
+  border: none;
+}
+
+.chat{
+  width: 26vw;
+  height: 70vh;
+}
+
+#serv-bottom {
+  position: absolute;  
+  bottom: 5vh; 
+}
+
+#serv-button {  
+  display: block;  
+  cursor: pointer;  
+  text-align: center;
+  font-size: 1em bold;
+  height: 60px;
+  color: white; 
+  background-color: #555;  
+  border-radius: 25px; /*둥글게!*/  
+  border: 4px solid #555;
+}
+
+#serv-button:hover { 
+  color : #4d4a41;
+  background-color: #fcefbb;
+}
+
+
+/* chatbot 영역 */
+.chat-area, .chatdisplay-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    width: 24.4vw;
+    height: calc(100vh - 239.5px);
+    top: 67px;
+    right: 0;
+    /*background-color: rgba(46,60,102, 0.8);*/
+    background-color: #76758a;
+    border: 4px solid #76758a;
+    overflow-y: auto;
+    z-index: 80;
+}
+.voice-box {
+    width: 100px;
+    height: 50px;
+    top: 500px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    margin: auto;
+    color: ghostwhite; 
+    border: 2px solid ghostwhite;
+    /*border: 2px solid ghostwhite;*/
+}
+.voice-box:hover{
+    /*background-color: darkslateblue;*/
+    color: rgba(46,60,102, 0.8);
+    background-color: #fcefbb
+}
+.chatdisplay-area {
+    background-color: white;
+}
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.user, .bot {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    max-width: 80%;
+}
+.user {
+    background-color: white;
+    border: 2px solid #ccc;
+    align-self: flex-end;
+}
+.bot {
+    color: white;
+    background-color: rgba(46,60,102, 0.8);
+    border: 2px solid #ccc;
+    align-self: flex-start;
+}
+.chat-input {
+    position: flex;
+    bottom: 0;
+}
+
+
+/* 장바구니 */
+.shop-area{             /* 장바구니 */
+    background-color: white;
+    position: fixed;
+    width: 84.75vw;
+    height: 160px;
+    bottom: 0;
+    right: 0;
+    overflow-x: auto;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #777;
+}
+.table-number-area {
+    background-color: black;
+}
+#cart {
+    display: flex;
+    flex-direction: row;
+}
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+    border: 1px solid #333;
+}
+.menu-imgsrc {
+    width: 100px;
+    height: 100px;
+}
+.menu-name {
+    flex-basis: 50%;
+}
+.cart-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.quantity-area {
+    display: flex;
+}
+#item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+#checkout-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    width: 7vw;
+    height: 160px;
+    bottom: 0;
+    right: 0;
+    background-color: #777;
+    border: 2px solid #777;
+    z-index: 90;
+}
+#total-price-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+

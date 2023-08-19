@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu select</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href ="menu_style.css?ver4" />
+
+</head>
+
+<body>
+  <div class="menu_select">
+    <a class="menu click" onclick="change_check(); set_type('all');">전체</a>
+    <a class="menu" onclick="change_check(); set_type('파스타');">파스타</a>
+    <a class="menu" onclick="change_check(); set_type('라이스');">라이스</a>
+    <a class="menu" onclick="change_check(); set_type('샐러드');">샐러드</a>
+    <a class="menu" onclick="change_check(); set_type('피자');">피자</a>
+    <a class="menu middle_long" onclick="change_check(); set_type('스테이크');">스테이크</a>
+    <a class="menu" onclick="change_check(); set_type('사이드');">사이드</a>
+    <a class="menu" onclick="change_check(); set_type('음료');">음료</a>
+    <a class="menu long" onclick="change_check(); set_type('술');">와인 및 주류</a>
+  </div>
+
+  <div class="main">
+    <div class="orderselect">
+      <input class="searchtext" id="searchtext"></input>
+      <a class="order" onclick="change_order(); mysearch();">검색</a>
+      <a class="order" onclick="change_order(); set_order('추천');">추천</a>
+      <a class="order" onclick="change_order(); set_order('판매량');">판매량</a>
+      <a class="order" onclick="change_order(); set_order('맵기');">맵기순</a>
+      <div id="serv-bottom"> 
+        <button class="order" id="serv-button">직원 호출</button>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item_grid" id="menupage"></div> 
+    </div>
+
+    <!-- 채팅 -->
+    <div class="chat-area">
+        <div class="voice-box">Voice Chat</div>
+    </div>
+    <div class="chatdisplay-area" style="display: none;">
+        <div class="chat-message">
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userMessage" placeholder="Input Message..">
+            <button id="sendMessage">send</button>
+            <button id="startRecording">record</button>
+            <button id="stopRecording">stop</button>
+        </div>
+    </div>
+
+    <!-- 장바구니 -->
+    <div class= "shop-area" id="shop-area">
+        <div id="item-container">
+            <div id="table-number-area">
+                <span id="table-number-text">TableID </span>
+                <span id="table-number"></span>
+            </div>
+            <div id="cart">
+                <div class="cart-item" style="display: none;">
+		    <img class="menu-imgsrc" src="" alt="Menu Image">
+		    <div class="menu-name"></div>
+		    <div class="cart-item-bottom">
+		    	<div class="quantity-area">
+                            <p class="quantity">1</p>
+                            <button class="decrease">-</button>
+                            <button class="increase">+</button>
+                    	</div>
+                    	<p class="single-price" style="display:none;"></p>
+                    	<p class="item-price"></p>
+		    </div>
+                </div>
+            </div>
+       	</div>
+            <div id="checkout-area">
+                <div id="total-price-area">
+                    <span id="total-text">Total: </span>
+                    <span id="total-price">0</span>
+                </div>
+                <button id="orderButton">Order</button>
+            </div>
+        </div>
+
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
+  <script src=menu_script.js?ver2></script>
+  <script src=stt.js></script>
+
+</body>
+</html>
