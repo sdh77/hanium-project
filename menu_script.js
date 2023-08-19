@@ -45,7 +45,7 @@ $(document).ready(function() {
         var cartItems = $(".cart-item");
 
         var order = {
-            tableid: $('#order-number').text(),
+            tableid: $('#table-number').text(),
             items: []
         };
 
@@ -70,11 +70,6 @@ $(document).ready(function() {
                 console.log(error);
             }
         });
-/*
-        // 초기 화면으로
-        $('.cart-item').not(':first').remove();
-        $('#total-price').text(0);
-        window.location.href = "index.html";*/
     });
 });
 
