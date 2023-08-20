@@ -3,9 +3,9 @@
 body{
   border-top: 5vh solid gray;
   border-bottom: 5vh solid gray;
-  border-left: 5vw solid gray;
-  border-right: 5vw solid gray;
-  width: 91vw;
+  border-left: 5vh solid gray;
+  border-right: 5vh solid gray;
+  width: calc(100vw -10vh);
   height: 91vh;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ body{
 }
 
 h1 {
-  font-size: 3vw;
+  font-size: 5vh;
   text-align: center;
 }
 
@@ -23,3 +23,14 @@ h1 {
   text-align:center;
   margin-top:7vh;
 }
+
+#touch img{
+  width: auto;
+  height: 70vh;
+}
+
+
+
+
+
+
