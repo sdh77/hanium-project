@@ -1,0 +1,71 @@
+@import "reset.css"
+
+body{
+  width : 100vw;
+  height : 100vh;
+}
+
+.searchArea{
+  display : flex;
+  justify-content: center;
+  flex-direction : row;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.searchArea input{
+  width: 50vw;
+  height: 5vh;
+  margin: 0px 10px 0px 0px;
+}
+
+.searchArea button{
+  width: 10vw;
+  height: 5vh;
+  border-radius: 10px;
+  border : none;
+  font-size:3vh;
+}
+
+.listselect{
+  display:flex;
+  margin: 20px 0 20px 0;
+  justify-content: center;
+}
+
+.listselect a{
+  width: 8vw;
+  text-align:center;
+  background-color:gray;
+  border-radius: 10px;
+  margin:0px 5px 0px 5px;
+  font-size: 2.5vh;
+  padding:10px;
+}
+
+.list{
+  display: grid;
+  grid-template-columns: 10vw 50vw 10vw 10vw;
+  justify-content: center;
+  text-align: center;
+}
+
+.list div{
+  border: 1px solid gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
