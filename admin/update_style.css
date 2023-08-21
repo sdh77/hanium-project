@@ -1,43 +1,104 @@
 @import "reset.css";
 
-*{
-  font-size: 30px;
-}
 body{
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   height: 100vh; /* 화면 높이의 100%를 차지 */
   text-align: center; /* 페이지 전체의 요소를 가운데 정렬합니다. */
 }
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  font-size: 30px;
-  width: auto;
+.totalArea{
+  display:flex;
+  flex-direction : column;
+  align-items: center;
 }
-button {
-  width: 60px; /* 버튼의 너비 */
-  height: 40px; /* 버튼의 높이 */
-  font-size: 20px; /* 버튼 내부 텍스트 크기 */
-}     
-nav {
-  margin: 20px auto; /* 상하 여백은 20px이고 가로 여백은 자동으로 조정하여 가운데에 위치시킵니다. */
+.topArea{
+  margin:30px 0 0 0;
+  display: flex;
+  flex-direction : row;
+  width: 100vw;
+  height: 20vh;
+  align-items: center;
 }
-select {
-  width: 120px; /* 버튼의 너비 */
-  height: 40px;
-}
-#price[type="text"] {
-  width: 200px;
-}
-.action_button {
-  font-size: 30px;
-  width: auto;
+
+.topArea .action_button button{
+  width : 15vw;
+  height: 10vh;
+  font-size: 4vh;
+  border-radius:10px;
+  border : none;
   margin: 10px; /* 각 버튼 사이의 간격 조정 */
 }
-.button_div{
-  height: 100px;
-  display: flex; /* 버튼들을 가로로 한 줄로 배열 */
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
+.topArea a{
+  border-radius: 10px;
+}
+.topArea .title{
+  width: 70vw;
+  font-size: 13vh;
+}
+.mainArea{
+  display:flex;
+  align-items: center;
+  flex-direction : column;
+  width: 90vw;
+  height : 80vh;
+}
+.middleArea{
+  display:flex;
+  flex-direction : row;
+  align-items: center;
+
+}
+.middleArea .action_button button{
+  height: 8vh;
+  width: 10vw;
+  font-size: 3vh;
+  border-radius:10px;
+  border : none;
+  background-color: rgb(124,137,166);
+  color: white;
+  margin: 10px; /* 각 버튼 사이의 간격 조정 */
+}
+.middleArea .selectArea{
+  width: 70vw;
+  display:flex;
+  justify-content: right;
+}
+.middleArea .selectArea select{
+  height: 8vh;
+  border:none;
+  background-color:rgb(192,192,192);
+  appearance: none;
+  font-size:3vh;
+  text-align-last:center;
+  border-radius: 10px;
+}
+table{
+  width: 90vw;
+}
+th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 4vh;
+  width: auto;
+  padding: 2px;
+  font-size: 3vh;
+}
+
+#price[type="text"] {
+  width: 7vw;
+}
+
+th *, td *{
+  border:none;
+  appearance: none;
+}
+
+td .leftButton{
+  margin-right:10px;
+}
+.gridbutton{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction : row;
 }

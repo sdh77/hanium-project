@@ -1,8 +1,25 @@
 @import "reset.css";
 
-*{
-  font-size: 30px;
+.toparea{
+  display: flex;
+  flex-direction : row;
+  font-size: 5vh;
 }
+
+.toparea button{
+  width: 20vw;
+}
+
+.toparea .left{
+  
+}
+.toparea .title{
+  width : 50vw;
+}
+.toparea .right{
+  
+}
+
 table, th, td{
   border : 1px solid black;
   border-collapse: collapse;

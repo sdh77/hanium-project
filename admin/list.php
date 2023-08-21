@@ -5,12 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>리스트 출력</title>
-  <link rel="stylesheet" href="list_style.css?ver1" />
+  <link rel="stylesheet" href="list_style.css?ver2" />
 </head>
 <body>
   <nav>
-    <button><a class="action_button" href="index.html">돌아가기</a></button>
-    <button><a class="action_button" href="update.php">리스트 수정</a></button>
+    <div class="toparea">
+    <button class="left"><a class="action_button" href="index.html">돌아가기</a></button>
+    <p class="title">관리자 모드</p>    
+    <button class="right"><a class="action_button" href="update.php">리스트 수정</a></button>
+    </div>
+
   <?php
     $totalnum;
     $pagenum = isset($_GET['pagenum']) ? $_GET['pagenum'] : 0;
