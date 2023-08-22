@@ -78,7 +78,6 @@ table{
 th, td {
   border: 1px solid black;
   border-collapse: collapse;
-  font-size: 4vh;
   width: auto;
   padding: 2px;
   font-size: 3vh;
@@ -90,7 +89,6 @@ th, td {
 
 th *, td *{
   border:none;
-  appearance: none;
 }
 
 td .leftButton{
@@ -101,4 +99,14 @@ td .leftButton{
   justify-content: center;
   align-items: center;
   flex-direction : row;
+}
+.gridbutton button{
+  font-size:3vh;
+}
+td select{
+  appearance: none;
+  font-size:3vh;
+}
+td input{
+  font-size:3vh;
 }
