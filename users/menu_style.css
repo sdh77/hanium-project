@@ -24,16 +24,17 @@
   cursor: pointer;  
   
 }
+
 .orderselect .searchtext{
   width: 10vw;
   height: 3vh;
   cursor: text;
 }
-.orderselect a:hover{
-  background-color: #333;
-  color: white;
-}
 
+.bodymain .orderselect .click{
+  color: #3d272f;
+  background-color: white;
+}
 .main{
   width:85vw;
   display: flex;
