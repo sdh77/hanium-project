@@ -37,10 +37,15 @@ body{
   width: 8vw;
   text-align:center;
   background-color:gray;
+  color:white;
   border-radius: 10px;
   margin:0px 5px 0px 5px;
-  font-size: 2.5vh;
+  font-size: 2vh;
   padding:10px;
+}
+
+.listselect .click{
+  background-color:blue;
 }
 
 .list{
@@ -52,11 +57,20 @@ body{
 
 .list div{
   border: 1px solid gray;
+  font-size:5vh;
 }
 
+.list .btn{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
-
+.list div button{
+  border:none;
+  font-size:3vh;
+  border-radius:10px;
+}
 
 
 

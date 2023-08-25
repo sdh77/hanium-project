@@ -78,7 +78,7 @@
         }
       }
       for(;$viewcnt<6;$viewcnt++){
-        echo'<div class="grid_item"></div>';
+        echo'<div class="grid_item" style="opacity:0"></div>';
       }
         
     }

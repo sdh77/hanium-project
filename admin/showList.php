@@ -1,0 +1,38 @@
+<?php
+  $totalnum;
+  $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
+  $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
+  $search = $_GET['newsearch'];
+  $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
+//  echo $pagenum. $type. $search;
+  if($search != "")
+    $sql = "select * from menu where name  like '%". $search ."%' order by id";
+  else{
+    if($type == "술")
+      $sql = "select * from menu where div in ('주류','와인') order by id";
+    else if($type == "all") 
+      $sql = "select * from menu order by id";
+    else
+      $sql = "select * from menu where div ='" .$type. "' order by id";
+  }
+  $result = pg_query($conn,$sql);
+
+  echo "<div>번호</div><div>이름</div><div>수정</div><div>품절</div>";
+  if($result){
+    $totalnum = pg_num_rows($result);
+    if($totalnum>0){
+      $cnt = 0;
+      while($row = pg_fetch_assoc($result)){
+        if($cnt >=$pagenum*25  && $cnt<25*($pagenum + 1)){
+          echo "<div>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><input type='checkbox'></input></div>";
+        }
+        $cnt++;
+      }
+    }
+  }
+  else{
+    echo "오류 발생: " . pg_last_error($conn);
+  }
+  pg_close($conn);
+?>
+
