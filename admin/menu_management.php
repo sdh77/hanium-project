@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>메뉴관리 화면</title>
-  <link rel="stylesheet" href="CSS/management_style.css?ver4" />
+  <link rel="stylesheet" href="CSS/management_style.css?ver6" />
 </head>
 
 <body>
@@ -29,12 +29,10 @@
   <div class="list">
   </div>
 
-  <iframe name="none"></iframe>
   <iframe style="width:0px; height: 0px; border:0px;" name="none"></iframe>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="JS/menu_list_script.js?ver1"></script>
   <script src="JS/menu_search.js?ver1"></script>
-  <script src="JS/send_sold_out.js?ver1"></script>
   <script src="JS/div_select.js?ver1"></script>
 
 </body>

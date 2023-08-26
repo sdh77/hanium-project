@@ -1,3 +1,4 @@
+
 <?php
   $totalnum;
   $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
@@ -17,16 +18,19 @@
   }
   $result = pg_query($conn,$sql);
 
-  echo "<form><div>번호</div><div>이름</div><div>수정</div><div>품절</div></form>";
+  echo "<span><div>번호</div><div>이름</div><div>수정</div><div>품절</div></span>";
   if($result){
     $totalnum = pg_num_rows($result);
     if($totalnum>0){
       $cnt = 0;
       while($row = pg_fetch_assoc($result)){
         if($cnt >=$pagenum*25  && $cnt<25*($pagenum + 1)){
-          echo "<form>
-                  <div>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><input id='newSoldOut' type='checkbox' onchange='alterSoldOut(". $row["id"] .")'></input></div>
-                </form>";
+          echo "<span><div class='id'>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><button class='newSoldOut'>";
+          if($row["soldout"] == "t")
+            echo"품절";
+          else if($row["soldout"] == "f")
+            echo"판매중";
+          echo"</button></div></span>";
         }
         $cnt++;
       }
@@ -37,4 +41,4 @@
   }
   pg_close($conn);
 ?>
-
+<script src="JS/send_sold_out.js?ver3"></script>

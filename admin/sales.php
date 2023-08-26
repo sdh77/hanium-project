@@ -11,7 +11,7 @@
 <body>
   <?php
     $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin pas    sword=aaa') or die('Could not connect: ' . pg_last_error());
-    $sql = select * from menu;
-  >
+    $sql = "select * from menu";
+  ?>
 </body>
 </html>
