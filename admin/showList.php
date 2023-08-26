@@ -22,7 +22,7 @@
     $totalnum = pg_num_rows($result);
     if($totalnum>0){
       while($row = pg_fetch_assoc($result)){
-        echo "<span><div class='id'>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><button class='newSoldOut'>";
+        echo "<span><div class='id'>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button class='update'>수정</button></div><div class='btn'><button class='newSoldOut'>";
         if($row["soldout"] == "t")
           echo"품절";
         else if($row["soldout"] == "f")
@@ -37,3 +37,4 @@
   pg_close($conn);
 ?>
 <script src="JS/send_sold_out.js?ver3"></script>
+<script src="JS/popup.js?ver2"></script>

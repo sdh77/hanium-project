@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 화면</title>
+  <link rel="stylesheet" href="a.css?ver3" />
+</head>
+<body>
+    <div class="left">
+      <button onclick="hide()">닫기</button>
+    </div>
+    <div class="popupmain">
+    <div><p>이름</p><input placeholder="이름"></input></div>
+    <div><p>가격</p><input placeholder="가격"></input></div>
+    <div><p>구분</p><select name="menu_div">
+        <option value="파스타" ' . ($row["div"] == "파스타" ? "selected" : "") . '>파스타</option>
+        <option value="샐러드" ' . ($row["div"] == "샐러드" ? "selected" : "") . '>샐러드</option>
+        <option value="피자" ' . ($row["div"] == "피자" ? "selected" : "") . '>피자</option>
+        <option value="스테이크" ' . ($row["div"] == "스테이크" ? "selected" : "") . '>스테이크</option>
+        <option value="라이스" ' . ($row["div"] == "라이스" ? "selected" : "") . '>라이스</option>
+        <option value="사이드" ' . ($row["div"] == "사이드" ? "selected" : "") . '>사이드</option>
+        <option value="음료" ' . ($row["div"] == "음료" ? "selected" : "") . '>음료</option>
+        <option value="와인" ' . ($row["div"] == "와인" ? "selected" : "") . '>와인</option>
+        <option value="주류" ' . ($row["div"] == "주류" ? "selected" : "") . '>주류</option>
+    </select></div>
+    <div><p>추천</p><input type="checkbox"></input><input type="checkbox"></input></div>
+    <div><p>new</p><input type="checkbox"></input><input type="checkbox"></input></div>
+    <div> 
+        <p>맵기</p>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="popupbottom">
+    <div>삭제</div>
+    <div>수정</div>
+    </div>
+    </div>
+  </body>
+</html>
+
