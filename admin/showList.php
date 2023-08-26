@@ -17,14 +17,16 @@
   }
   $result = pg_query($conn,$sql);
 
-  echo "<div>번호</div><div>이름</div><div>수정</div><div>품절</div>";
+  echo "<form><div>번호</div><div>이름</div><div>수정</div><div>품절</div></form>";
   if($result){
     $totalnum = pg_num_rows($result);
     if($totalnum>0){
       $cnt = 0;
       while($row = pg_fetch_assoc($result)){
         if($cnt >=$pagenum*25  && $cnt<25*($pagenum + 1)){
-          echo "<div>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><input type='checkbox'></input></div>";
+          echo "<form>
+                  <div>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><input id='newSoldOut' type='checkbox' onchange='alterSoldOut(". $row["id"] .")'></input></div>
+                </form>";
         }
         $cnt++;
       }
