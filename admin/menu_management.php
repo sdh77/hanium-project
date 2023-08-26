@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>메뉴관리 화면</title>
-  <link rel="stylesheet" href="CSS/management_style.css?ver6" />
+  <link rel="stylesheet" href="CSS/management_style.css?ver7" />
 </head>
 
 <body>
@@ -27,6 +27,13 @@
   </div>
 
   <div class="list">
+  </div>
+  <div class="background">
+    <div class="window">
+      <div class="popup">
+        <button onclick="hide()">asd</button>
+      </div>
+    </div>
   </div>
 
   <iframe style="width:0px; height: 0px; border:0px;" name="none"></iframe>

@@ -1,0 +1,14 @@
+.left{
+    display:flex;
+    float: right;
+}
+
+.popupmain{
+    display:flex;
+    flex-direction: column;
+}
+
+.popupmain div{
+    display: flex;
+    flex-direction: row;
+}
