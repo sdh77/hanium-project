@@ -4,6 +4,7 @@
 
 .grid{
   display: grid;
+  height: 60vh;
   grid-template-columns: repeat(3,33.3%);
   grid-template-rows: repeat(2, 50%);
   grid-gap: 2vh;
@@ -47,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-content:center;
-  height: 8vh;
+  height: 6vh;
   background-color: #a6a5b8;
 }
 

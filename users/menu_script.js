@@ -17,28 +17,32 @@ $(document).ready(function() {
             const menuImg = $(this).find('#menu-img').attr('src');
             const menuName = $(this).find('.menu').text();
             const menuPrice = Number($(this).find('.price').text());
-            addToCart2(menuImg,menuName,menuPrice);
+	    // 이미 장바구니에 담은 메뉴라면?
+	    let isExist = false;
+	    $('#cart .cart-item:visible').each(function() {
+	    	if ($(this).find('.menu-name').text() == menuName) {
+		    increaseQuantity($(this).find('.quantity'));
+		    isExist = true;
+		    return false;
+		}
+	    });
+            if (!isExist) {
+		addToCart2(menuImg,menuName,menuPrice);
+	    } else {
+		console.log('장바구니에 이미 있음');
+	    }
         });
     });
-
-    // do: 장바구니 수량 조절 (삭제버튼 넣어야함)
+    // do: 장바구니 수량 조절 
     $('#cart').on('click', '.increase', function() {
-        let quantityElement = $(this).siblings('.quantity');
-        let quantity = parseInt(quantityElement.text());
-        quantityElement.text(quantity + 1);
-
-        updatePrice();
+	increaseQuantity($(this).siblings('.quantity'));
     });
     $('#cart').on('click', '.decrease', function() {
-        let quantityElement = $(this).siblings('.quantity');
-        let quantity = parseInt(quantityElement.text());
-        if (quantity > 1) {
-            quantityElement.text(quantity - 1);
-        } else {
-            $(this).closest('.cart-item').remove();
-        }
-
-        updatePrice();
+	decreaseQuantity($(this).siblings('.quantity'));
+    });
+    // 장바구니 아이템 삭제 버튼
+    $('#cart').on('click', '.cart-item-delete', function() {
+	$(this).closest('.cart-item').remove();
     });
     // do: 주문
     $('#orderButton').click(function() {
@@ -223,18 +227,6 @@ function generateTableNumber() {
     return Math.floor(Math.random() * 10)+1;
 }
 // 장바구니에 메뉴 추가
-function addToCart(menuName, menuPrice) {
-    let cartItem = $('#cart .cart-item').first().clone(true);
-
-    cartItem.find('.menu-name').text(menuName);
-    cartItem.find('.item-price').text(menuPrice);
-    cartItem.find('.single-price').text(menuPrice);
-
-    $('#cart').append(cartItem);
-
-    cartItem.show();
-    updatePrice();
-}
 function addToCart2(menuImg, menuName, menuPrice) {
     let cartItem = $('#cart .cart-item').first().clone(true);
 
@@ -246,6 +238,21 @@ function addToCart2(menuImg, menuName, menuPrice) {
     $('#cart').append(cartItem);
 
     cartItem.show();
+    updatePrice();
+}
+// 장바구니 수량 증감
+function increaseQuantity(quantityElement) {
+    let quantity = parseInt(quantityElement.text());
+    quantityElement.text(quantity + 1);
+    updatePrice();
+}
+function decreaseQuantity(quantityElement) {
+    let quantity = parseInt(quantityElement.text());
+    if (quantity > 1) {
+	quantityElement.text(quantity - 1);
+    } else {
+	quantityElement.closest('.cart-item').remove();
+    }
     updatePrice();
 }
 // 장바구니 가격 업데이트
