@@ -83,7 +83,7 @@
         
     }
     else{
-      echo '<div class="grid_item error"> no item </div>';
+      echo '<div class="grid_item_error"> no item </div>';
     }
   }
 
