@@ -1,5 +1,4 @@
 let type = "all";
-let page = 0;
 let searchNone = "";
 function setType(newtype){
   type = newtype;
@@ -11,7 +10,6 @@ window.onload = loadpageList();
 //로드 페이지
 function loadpageList(){
   let params = {
-    newpage: page,
     newtype: type,
     newsearch: searchNone,
   }

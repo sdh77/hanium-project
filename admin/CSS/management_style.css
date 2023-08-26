@@ -58,6 +58,10 @@ body{
 .list span div{
   border: 1px solid gray;
   font-size:5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .list span .btn{

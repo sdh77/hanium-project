@@ -1,7 +1,6 @@
 
 <?php
   $totalnum;
-  $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
   $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
   $search = $_GET['newsearch'];
   $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: '.pg_last_error());
@@ -22,17 +21,13 @@
   if($result){
     $totalnum = pg_num_rows($result);
     if($totalnum>0){
-      $cnt = 0;
       while($row = pg_fetch_assoc($result)){
-        if($cnt >=$pagenum*25  && $cnt<25*($pagenum + 1)){
-          echo "<span><div class='id'>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><button class='newSoldOut'>";
-          if($row["soldout"] == "t")
-            echo"품절";
-          else if($row["soldout"] == "f")
-            echo"판매중";
-          echo"</button></div></span>";
-        }
-        $cnt++;
+        echo "<span><div class='id'>". $row["id"]. "</div><div>". $row["name"]. "</div><div class='btn'><button>수정</button></div><div class='btn'><button class='newSoldOut'>";
+        if($row["soldout"] == "t")
+          echo"품절";
+        else if($row["soldout"] == "f")
+          echo"판매중";
+        echo"</button></div></span>";
       }
     }
   }
