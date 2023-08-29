@@ -2,57 +2,53 @@
 
 /* do: 색상, 크기, 간격 조정 */
 
-.grid{
+.grid {
   display: grid;
   height: 60vh;
-  grid-template-columns: repeat(3,33.3%);
+  grid-template-columns: repeat(3, 33.3%);
   grid-template-rows: repeat(2, 50%);
   grid-gap: 2vh;
   align-items: center;
   justify-content: center;
   background-color: #a6a5b8;
-  padding-left:3vw;
-  padding-right:3vw;
-  padding-top:3vh;
-  padding-bottom:3vh;
-
+  padding: 3vh 3vw;
 }
 
-.grid_item{
+.grid_item {
   background-color: white;
   height: 27vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align : center;
+  text-align: center;
   font-size: 1vw;
 }
 
-.grid_item img{
+.grid_item img {
   width: auto;
   height: auto;
   max-width: 28vw;
   max-height: 15vh;
-  margin-top : 1vh;
+  margin-top: 1vh;
   margin-bottom: 2vh;
 }
 
-.error{
+.error {
   font-size: 18vw;
-  grid-column:1/4;
-  grid-row:1/4;
+  grid-column: 1/4;
+  grid-row: 1/4;
 }
 
-.pagebuttons{
+.pagebuttons {
   display: flex;
   justify-content: center;
-  align-content:center;
+  align-content: center;
   height: 6vh;
   background-color: #a6a5b8;
 }
 
-.pagebuttons button{
+.pagebuttons button {
   font-size: 3vw;
   height: 30px;
   border: none;
@@ -63,14 +59,15 @@
   margin-top: 2vh;
 }
 
-.up,.down,.pagebutton{
+.down,
+.pagebutton,
+.up {
   background-color: #333;
-  border-radius:25px;
+  border-radius: 25px;
   height: 30px;
 }
 
-#thispage{
+#thispage {
   background-color: #fcefbb;
-  border-radius:25px;
+  border-radius: 25px;
 }
-

@@ -1,81 +1,86 @@
 @import "reset.css";
 
-body{
+body {
   display: flex;
-  justify-content: center; /* 수평 가운데 정렬 */
-  height: 100vh; /* 화면 높이의 100%를 차지 */
-  text-align: center; /* 페이지 전체의 요소를 가운데 정렬합니다. */
+  justify-content: center;
+  /* 수평 가운데 정렬 */
+  height: 100vh;
+  /* 화면 높이의 100%를 차지 */
+  text-align: center;
+  /* 페이지 전체의 요소를 가운데 정렬합니다. */
 }
-.totalArea{
-  display:flex;
-  flex-direction : column;
+.totalArea {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
-.topArea{
-  margin:30px 0 0 0;
+.topArea {
+  margin: 30px 0 0;
   display: flex;
-  flex-direction : row;
+  flex-direction: row;
   width: 100vw;
   height: 20vh;
   align-items: center;
 }
 
-.topArea .action_button button{
-  width : 15vw;
+.topArea .action_button button {
+  width: 15vw;
   height: 10vh;
   font-size: 4vh;
-  border-radius:10px;
-  border : none;
-  margin: 10px; /* 각 버튼 사이의 간격 조정 */
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+  /* 각 버튼 사이의 간격 조정 */
 }
-.topArea a{
+.topArea a {
   border-radius: 10px;
 }
-.topArea .title{
+.topArea .title {
   width: 70vw;
   font-size: 13vh;
 }
-.mainArea{
-  display:flex;
+.mainArea {
+  display: flex;
   align-items: center;
-  flex-direction : column;
+  flex-direction: column;
   width: 90vw;
-  height : 80vh;
+  height: 80vh;
 }
-.middleArea{
-  display:flex;
-  flex-direction : row;
+.middleArea {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-
 }
-.middleArea .action_button button{
+.middleArea .action_button button {
   height: 8vh;
   width: 10vw;
   font-size: 3vh;
-  border-radius:10px;
-  border : none;
-  background-color: rgb(124,137,166);
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(124, 137, 166);
   color: white;
-  margin: 10px; /* 각 버튼 사이의 간격 조정 */
+  margin: 10px;
+  /* 각 버튼 사이의 간격 조정 */
 }
-.middleArea .selectArea{
+.middleArea .selectArea {
   width: 70vw;
-  display:flex;
+  display: flex;
   justify-content: right;
 }
-.middleArea .selectArea select{
+.middleArea .selectArea select {
   height: 8vh;
-  border:none;
-  background-color:rgb(192,192,192);
+  border: none;
+  background-color: rgb(192, 192, 192);
   appearance: none;
-  font-size:3vh;
-  text-align-last:center;
+  font-size: 3vh;
+  text-align-last: center;
   border-radius: 10px;
 }
-table{
+table {
   width: 90vw;
 }
-th, td {
+td,
+th {
   border: 1px solid black;
   border-collapse: collapse;
   width: auto;
@@ -87,26 +92,27 @@ th, td {
   width: 7vw;
 }
 
-th *, td *{
-  border:none;
+td *,
+th * {
+  border: none;
 }
 
-td .leftButton{
-  margin-right:10px;
+td .leftButton {
+  margin-right: 10px;
 }
-.gridbutton{
-  display:flex;
+.gridbutton {
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction : row;
+  flex-direction: row;
 }
-.gridbutton button{
-  font-size:3vh;
+.gridbutton button {
+  font-size: 3vh;
 }
-td select{
+td select {
   appearance: none;
-  font-size:3vh;
+  font-size: 3vh;
 }
-td input{
-  font-size:3vh;
+td input {
+  font-size: 3vh;
 }

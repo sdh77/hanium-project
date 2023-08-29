@@ -11,7 +11,9 @@
 
 <body>
   <div class="searchArea">
-    <div><input></input></div>
+    <div>
+      <input></input>
+    </div>
     <button onclick="search();">검색</button>
   </div>
 
@@ -26,8 +28,7 @@
     <a onclick="setType('술'); change_check();">와인 및 주류</a>
   </div>
 
-  <div class="list">
-  </div>
+  <div class="list"></div>
   <div class="background">
     <div class="window">
       <div class="popup">
@@ -43,4 +44,5 @@
   <script src="JS/div_select.js?ver1"></script>
 
 </body>
+
 </html>

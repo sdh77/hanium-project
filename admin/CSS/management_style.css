@@ -1,213 +1,209 @@
 @import "reset.css";
 
-body{
-  width : 100vw;
-  height : 100vh;
+body {
+  width: 100vw;
+  height: 100vh;
 }
 
-.searchArea{
-  display : flex;
+.searchArea {
+  display: flex;
   justify-content: center;
-  flex-direction : row;
+  flex-direction: row;
   align-items: center;
   padding-top: 20px;
 }
 
-.searchArea input{
+.searchArea input {
   width: 50vw;
   height: 5vh;
-  margin: 0px 10px 0px 0px;
+  margin: 0 10px 0 0;
 }
 
-.searchArea button{
+.searchArea button {
   width: 10vw;
   height: 5vh;
   border-radius: 10px;
-  border : none;
-  font-size:3vh;
+  border: none;
+  font-size: 3vh;
 }
 
-.listselect{
-  display:flex;
-  margin: 20px 0 20px 0;
+.listselect {
+  display: flex;
+  margin: 20px 0;
   justify-content: center;
 }
 
-.listselect a{
+.listselect a {
   width: 8vw;
-  text-align:center;
-  background-color:gray;
-  color:white;
+  text-align: center;
+  background-color: gray;
+  color: white;
   border-radius: 10px;
-  margin:0px 5px 0px 5px;
+  margin: 0 5px;
   font-size: 2vh;
-  padding:10px;
+  padding: 10px;
 }
 
-.listselect .click{
-  background-color:blue;
+.listselect .click {
+  background-color: blue;
 }
 
-.list span{
+.list span {
   display: grid;
   grid-template-columns: 10vw 50vw 10vw 10vw;
   justify-content: center;
   text-align: center;
 }
 
-.list span div{
+.list span div {
   border: 1px solid gray;
-  font-size:5vh;
+  font-size: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.list span .btn{
-  display:flex;
+.list span .btn {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.list span div button{
-  border:none;
-  font-size:3vh;
-  border-radius:10px;
+.list span div button {
+  border: none;
+  font-size: 3vh;
+  border-radius: 10px;
 }
 
-.background{
+.background {
   position: fixed;
   top: 0;
   left: 0;
-  width : 100vw;
+  width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 1000;
 
   z-index: -1;
   opacity: 0;
 }
 
-.window{
+.window {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.popup{
+.popup {
   position: absolute;
   top: 50%;
-  left : 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
-  box-shadow: 0 2px 7px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 
   width: 50vw;
   height: 70vh;
-  
-  transform: translate(-50%, -40%);
 
+  transform: translate(-50%, -40%);
 }
 
-.show{
+.show {
   opacity: 1;
   z-index: 1000;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
-.show .popup{
+.show .popup {
   transform: (-50%, -50%);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
-.popup .left{
-  display:flex;
+.popup .left {
+  display: flex;
   float: right;
 }
 
-.popup .header{
-  display:flex;
+.popup .header {
+  display: flex;
   justify-content: center;
-  font-size:5vh;
-  margin:3vh;
+  font-size: 5vh;
+  margin: 3vh;
 }
 
-.popup .left button{
-  border:none;
-  background-color:gray;
-  font-size:3vh;
-  margin:0.5vh;
+.popup .left button {
+  border: none;
+  background-color: gray;
+  font-size: 3vh;
+  margin: 0.5vh;
 }
 
-.popup .popupmain{
-  display:flex;
+.popup .popupmain {
+  display: flex;
   flex-direction: column;
 }
 
-.popup .popupmain div{
+.popup .popupmain div {
   display: flex;
   flex-direction: row;
-  padding:1.5vh;
+  padding: 1.5vh;
   align-items: center;
 }
-.popup .popupmain div p{
-  width : 6vw;
+.popup .popupmain div p {
+  width: 6vw;
 }
-.popup .popupmain div input{
+.popup .popupmain div input {
   font-size: 3vh;
 }
-.popup .popupmain div p{
-  font-size:4vh;
-  margin-right:20px;
-
+.popup .popupmain div p {
+  font-size: 4vh;
+  margin-right: 20px;
 }
-.popup .popupmain div .spicy{
-  background-color:gray;
+.popup .popupmain div .spicy {
+  background-color: gray;
   font-size: 2vh;
 }
 
-.popup .popupmain div .thisSpicy{
-  color:red;
-  
+.popup .popupmain div .thisSpicy {
+  color: red;
 }
-.popup .popupmain div select{
+.popup .popupmain div select {
   appearance: none;
-  font-size:2.5vh;
-  text-align-last:center;
+  font-size: 2.5vh;
+  text-align-last: center;
 }
-.popup .popupbottom{
-  font-size:3vh;
+.popup .popupbottom {
+  font-size: 3vh;
   position: absolute;
   width: 100%;
   box-sizing: border-box;
   justify-content: space-between;
-  bottom:1px;
+  bottom: 1px;
 }
 
-.popup .popupbottom div{
-  border:none;
+.popup .popupbottom div {
+  border: none;
   background-color: gray;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
   display: none;
 }
-input[type="checkbox"] + label{
+input[type="checkbox"] + label {
   display: inline-block;
   width: 30px;
   height: 30px;
-  border:3px solid #707070;
+  border: 3px solid #707070;
   position: relative;
 }
 input[id="newCheck"]:checked + label::after,
-input[id="recoCheck"]:checked + label::after{
-  content:'✔';
+input[id="recoCheck"]:checked + label::after {
+  content: "✔";
   font-size: 25px;
   width: 30px;
   height: 30px;
   text-align: center;
   position: absolute;
   left: 0;
-  top:0;
+  top: 0;
 }

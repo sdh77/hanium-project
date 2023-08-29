@@ -1,19 +1,19 @@
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    height: 100vh;
-    background-color: ghostwhite;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  background-color: ghostwhite;
+  justify-content: center;
+  align-items: center;
 }
 
 #finish-button {
-    width: 200px;
-    height: 100px;
-    text-align: center;
-    color: white;
-    background-color: #76758a;
-    border-radius: 10px;
-    border: none;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  color: white;
+  background-color: #76758a;
+  border-radius: 10px;
+  border: none;
 }

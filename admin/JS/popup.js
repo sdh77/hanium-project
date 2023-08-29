@@ -1,33 +1,30 @@
-const updateBtns = document.querySelectorAll('.list span .btn .update');
+const updateBtns = document.querySelectorAll(".list span .btn .update");
 const popup = document.querySelector(".background");
 console.log(updateBtns);
-function show(target){
+function show(target) {
   let id = target.parentNode.parentNode.querySelector(".id").innerText;
   popup.classList.add("show");
-  loadUpdatePage(id)
+  loadUpdatePage(id);
 }
 
-function hide(){
+function hide() {
   popup.classList.remove("show");
 }
 
 //로드 페이지
-function loadUpdatePage(id){
+function loadUpdatePage(id) {
   let params = {
     newid: id,
-  }
-  $.ajax({
-    url: "update.php",
-    type:"get",
-    data: params,
-  }).done(function(data){
-    $('.popup').html(data);
+  };
+  $.ajax({ url: "update.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $(".popup").html(data);
   });
 }
 
-updateBtns.forEach((target) =>{
-  target.addEventListener("click",function(){
+updateBtns.forEach((target) => {
+  target.addEventListener("click", function () {
     show(target);
-  })
+  });
 });
-

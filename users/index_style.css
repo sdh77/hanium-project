@@ -1,16 +1,16 @@
 @import "reset.css";
 
-body{
-  border-top: 5vh solid rgb(235,235,235);
-  border-bottom: 5vh solid rgb(235,235,235);;
-  border-left: 5vh solid rgb(235,235,235);;
-  border-right: 5vh solid rgb(235,235,235);;
+body {
+  border-top: 5vh solid rgb(235, 235, 235);
+  border-bottom: 5vh solid rgb(235, 235, 235);
+  border-left: 5vh solid rgb(235, 235, 235);
+  border-right: 5vh solid rgb(235, 235, 235);
   width: calc(100vw -10vh);
   height: 91vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 
 h1 {
@@ -18,19 +18,13 @@ h1 {
   text-align: center;
 }
 
-#touch{
+#touch {
   font-size: 3vw;
-  text-align:center;
-  margin-top:7vh;
+  text-align: center;
+  margin-top: 7vh;
 }
 
-#touch img{
+#touch img {
   width: auto;
   height: 70vh;
 }
-
-
-
-
-
-

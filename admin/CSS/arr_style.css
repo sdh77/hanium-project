@@ -1,9 +1,11 @@
 @import "reset.css";
 
-*{
+* {
   font-size: 30px;
 }
-table, th, td {
+table,
+td,
+th {
   border: 1px solid black;
   border-collapse: collapse;
   font-size: 30px;
@@ -11,24 +13,31 @@ table, th, td {
 }
 body {
   display: flex;
-  justify-content: center; /* 수평 가운데 정렬 */
-  height: 100vh; /* 화면 높이의 100%를 차지 */
-  text-align: center; /* 페이지 전체의 요소를 가운데 정렬합니다. */
+  justify-content: center;
+  /* 수평 가운데 정렬 */
+  height: 100vh;
+  /* 화면 높이의 100%를 차지 */
+  text-align: center;
+  /* 페이지 전체의 요소를 가운데 정렬합니다. */
 }
 nav {
-  margin: 20px auto; /* 상하 여백은 20px이고 가로 여백은 자동으로 조정하여 가운데에 위치시킵니다. */
+  margin: 20px auto;
+  /* 상하 여백은 20px이고 가로 여백은 자동으로 조정하여 가운데에 위치시킵니다. */
 }
 .action_button {
   font-size: 30px;
 }
 button {
-  height: 40px; /* 버튼의 높이 */
-  font-size: 20px; /* 버튼 내부 텍스트 크기 */
+  height: 40px;
+  /* 버튼의 높이 */
+  font-size: 20px;
+  /* 버튼 내부 텍스트 크기 */
 }
 #numberSelect {
   height: 30px;
   width: 100%;
   font-size: 20px;
   display: flex;
-  text-align: center; /* 페이지 전체의 요소를 가운데 정렬합니다. */
+  text-align: center;
+  /* 페이지 전체의 요소를 가운데 정렬합니다. */
 }
