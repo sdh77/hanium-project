@@ -1,9 +1,14 @@
-@import "reset.css";
-
 /* do: 색상, 크기, 간격 조정 */
+
+.gridmain {
+  background-color: #a6a5b8;
+  display: flex;
+  align-items: center;
+}
 
 .grid {
   display: grid;
+  width: 95vw;
   height: 60vh;
   grid-template-columns: repeat(3, 33.3%);
   grid-template-rows: repeat(2, 50%);
@@ -11,7 +16,7 @@
   align-items: center;
   justify-content: center;
   background-color: #a6a5b8;
-  padding: 3vh 3vw;
+  padding: 3vh 2vw;
 }
 
 .grid_item {
@@ -49,25 +54,37 @@
 }
 
 .pagebuttons button {
-  font-size: 3vw;
+  font-size: 1.35vw;
   height: 30px;
+  width: 2vw;
   border: none;
   background-color: transparent;
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: #a6a5b8;
   margin-top: 2vh;
 }
 
-.down,
-.pagebutton,
-.up {
-  background-color: #333;
-  border-radius: 25px;
-  height: 30px;
+#thispage {
+  color: red;
 }
 
-#thispage {
-  background-color: #fcefbb;
-  border-radius: 25px;
+.leftimg {
+  width: 4vw;
+  height: 33vh;
+  background-image: url("왼쪽.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.25;
+}
+
+.rightimg {
+  width: 4vw;
+  height: 33vh;
+  background-image: url("오른쪽.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.25;
 }
