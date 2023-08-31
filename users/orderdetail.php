@@ -1,4 +1,5 @@
 <?php
+/*
 // orderlist 데이터베이스에 값을 넣는 기능
 $host = "www.ddhye.com";
 $port = "5432";
@@ -7,10 +8,13 @@ $user = "dodo";
 $password = "net123";
 
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
-
 if (!$conn) {
   die("PostgreSQL 연결 실패");
 }
+*/
+
+$conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: ' . pg_last_error());
+
 
 // 클라이언트로부터 받은 JSON 데이터를 디코딩
 $order = json_decode(file_get_contents('php://input'), true);
