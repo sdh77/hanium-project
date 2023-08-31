@@ -1,13 +1,5 @@
-function change_spicy() {
-  const spicys = document.getElementsByClassName("spicy");
-  const spicysArray = Array.from(spicys); // Convert HTMLCollection to Array
-
-  spicysArray.forEach(spicy => spicy.classList.remove('thisSpicy'));
-  event.currentTarget.classList.add("thisSpicy");
-}
-
-function thisUpdate(id) {
-  const popUp = document.getElementById("updatePopup");
+function sendInsert(){
+  const popUp = document.getElementById("insertPopup");
 
   const name = popUp.querySelector("div .nameInput");
   const price = popUp.querySelector("div .priceInput");
@@ -16,13 +8,9 @@ function thisUpdate(id) {
   const selectNew = popUp.querySelector("div #newCheck");
   const spicy = popUp.querySelector("div .thisSpicy").innerText;
 
-  let newName;
-  if (!name.value) newName = name.placeholder;
-  else newName = name.value;
+  let newName = name.value;
 
-  let newPrice;
-  if (!price.value) newPrice = price.placeholder;
-  else newPrice = price.value;
+  let newPrice = price.value;
 
   let newDiv = div.options[div.selectedIndex].value;
 
@@ -37,7 +25,6 @@ function thisUpdate(id) {
   if (isNaN(price.value)) alert("가격에 숫자만 입력하세요!!!!!");
   else {
     let params = {
-      newid: id,
       newName: newName,
       newPrice: newPrice,
       newDiv: newDiv,
@@ -45,9 +32,10 @@ function thisUpdate(id) {
       newMenu: newMenu,
       newSpicy: spicy,
     };
-    $.ajax({ url: "updateDo.php", type: "get", data: params });
-    alert("수정 완료");
+    $.ajax({ url: "insertDo.php", type: "get", data: params });
+    alert("추가 완료");
     hide();
     loadpageList();
   }
+
 }

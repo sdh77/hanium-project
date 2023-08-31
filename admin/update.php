@@ -56,7 +56,7 @@ if ($row["spicy"] == 2)
 echo '" onclick="change_spicy()" >2</a></div>
     </div>
     <div class="popupbottom">
-      <div>삭제</div>
+      <div><a onclick="thisDelete(' . $id . ')">삭제</a></div>
       <div><a onclick="thisUpdate(' . $id . ')">수정</button></div>
     </div>
   </div>';
