@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "list_div.css";
 
 .bodymain {
   display: flex;
@@ -91,7 +92,7 @@
   height: 72vh;
 }
 .main .middlearea .list .item_grid {
-  width: 60.37vw;
+  width: 60vw;
   height: 72vh;
   border: none;
 }
