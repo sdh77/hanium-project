@@ -28,3 +28,12 @@ updateBtns.forEach((target) => {
     show(target);
   });
 });
+
+function loadInsertPage() {
+  popup.classList.add("show");
+  $.ajax({ url: "insert.php" }).done(function (
+    data
+  ) {
+    $(".popup").html(data);
+  });
+}

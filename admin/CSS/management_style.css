@@ -25,6 +25,7 @@ body {
   border-radius: 10px;
   border: none;
   font-size: 3vh;
+  margin-left : 10px;
 }
 
 .listselect {
@@ -159,12 +160,13 @@ body {
   font-size: 4vh;
   margin-right: 20px;
 }
-.popup .popupmain div .spicy {
+.popup .popupmain div div .spicy {
   background-color: gray;
-  font-size: 2vh;
+  font-size: 3vh;
+  padding: 1vh;
 }
 
-.popup .popupmain div .thisSpicy {
+.popup .popupmain div div .thisSpicy {
   color: red;
 }
 .popup .popupmain div select {
