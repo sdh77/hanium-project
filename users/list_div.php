@@ -61,7 +61,7 @@ if ($result) {
       if (($cnt > (6 * $pagenum)) && ($cnt <= (6 * ($pagenum + 1)))) {
         //          echo'<div class="grid_item"><img id="menu-img" src="/sdhMain2/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
 
-        echo '<div class="grid_item"><img id="menu-img" src="/hanium_Order_Table/image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>' . '<p class="menu">' . $row["name"] . '</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
+        echo '<div class="grid_item"><img id="menu-img" src="/hanium_Order_Table/admin/image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>' . '<p class="menu">' . $row["name"] . '</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
 
         $viewcnt++;
       }

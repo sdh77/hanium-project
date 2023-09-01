@@ -11,6 +11,7 @@ echo '
     </div>
     <div class="header">세부 수정</div>
     <div class="popupmain" id="updatePopup">
+    <div class="popupcenter">
     <div><p>이름</p><input class="nameInput" placeholder="' . $row["name"] . '"></input></div>
     <div><p>가격</p><input class="priceInput" placeholder="' . $row["price"] . '"></input></div>
     <div><p>구분</p><select class="divselect" name="menu_div">
@@ -38,7 +39,6 @@ else
   echo '<input id="newCheck" type="checkbox"><label for="newCheck"></label>';
 echo '
     </div>
-
     <div> 
       <p>맵기</p>
       <div>
@@ -55,10 +55,14 @@ if ($row["spicy"] == 2)
   echo 'thisSpicy';
 echo '" onclick="change_spicy()" >2</a></div>
     </div>
-    <div class="popupbottom">
-      <div><a onclick="thisDelete(' . $id . ')">삭제</a></div>
-      <div><a onclick="thisUpdate(' . $id . ')">수정</button></div>
     </div>
+    <div class="popupimg">
+      <img src="/hanium_Order_Table/admin/image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>
+      <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
+    </div>    
+  <div class="popupbottom">
+    <div><a onclick="thisDelete(' . $id . ')">삭제</a></div>
+    <div><a onclick="thisUpdate(' . $id . ')">수정</button></div>
   </div>';
 pg_close($conn);
 ?>
