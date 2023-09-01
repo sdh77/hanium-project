@@ -141,50 +141,78 @@ body {
 
 .popup .popupmain {
   display: flex;
+  flex-direction: row;
+}
+
+.popup .popupmain .popupcenter{
+  display: flex;
   flex-direction: column;
 }
 
-.popup .popupmain div {
+.popup .popupmain .popupcenter div {
   display: flex;
   flex-direction: row;
   padding: 1.5vh;
   align-items: center;
 }
-.popup .popupmain div p {
+.popup .popupmain .popupcenter div p {
   width: 6vw;
 }
-.popup .popupmain div input {
+.popup .popupmain .popupcenter div input {
   font-size: 3vh;
 }
-.popup .popupmain div p {
+.popup .popupmain .popupcenter div p {
   font-size: 4vh;
   margin-right: 20px;
 }
-.popup .popupmain div div .spicy {
+.popup .popupmain .popupcenter div div .spicy {
   background-color: gray;
   font-size: 3vh;
   padding: 1vh;
 }
 
-.popup .popupmain div div .thisSpicy {
+.popup .popupmain .popupcenter div div .thisSpicy {
   color: red;
 }
-.popup .popupmain div select {
+.popup .popupmain .popupcenter div select {
   appearance: none;
   font-size: 2.5vh;
   text-align-last: center;
 }
+
+.popup .popupmain .popupimg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 20vw;
+}
+
+.popup .popupmain .popupimg img{
+  width: 15vw;
+}
+
+.popup .popupmain .popupimg div{
+  font-size: 1vw;
+  text-align: center;
+}
+
 .popup .popupbottom {
+  display: flex;
+  width: 87vw;
   font-size: 3vh;
   position: absolute;
-  width: 100%;
   box-sizing: border-box;
   justify-content: space-between;
   bottom: 1px;
+  padding: 1vw;
 }
 
 .popup .popupbottom div {
+  width: 5vw;
+  text-align: center;
   border: none;
+  padding: 0.5vw;
   background-color: gray;
 }
 

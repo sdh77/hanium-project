@@ -47,7 +47,30 @@ function thisUpdate(id) {
     };
     $.ajax({ url: "updateDo.php", type: "get", data: params });
     alert("수정 완료");
+    changeImg(newName);
     hide();
     loadpageList();
   }
 }
+
+function changeImg(newName){
+
+  let formData = new FormData();
+  formData.append("newName", newName);
+  formData.append("newImg", $('#fileToUpload')[0].files[0]);
+
+  $.ajax({
+    url: "imgUpload.php", 
+    type: "post", 
+    dataType: "html",
+    enctype: "multipart/form-data",
+    processData: false,
+    contentType: false,
+    data: formData,
+    async: false,
+    cache: false,
+    timeout: 600000,
+    error: function(){ alert("실패");}
+  });
+}
+
