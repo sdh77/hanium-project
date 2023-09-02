@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "variable.css";
 
 body {
   height: 100vh;
@@ -51,7 +52,7 @@ body {
 }
 
 .bottom-area .main-area .tableOrderItem {
-  background-color: wheat;
+  background-color: var(--main-color);
 
   border: 1px solid black;
   width: 11.5vw;

@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "variable.css";
 
 body {
   width: 100vw;
@@ -25,7 +26,7 @@ body {
   border-radius: 10px;
   border: none;
   font-size: 3vh;
-  margin-left : 10px;
+  margin-left: 10px;
 }
 
 .listselect {
@@ -144,7 +145,7 @@ body {
   flex-direction: row;
 }
 
-.popup .popupmain .popupcenter{
+.popup .popupmain .popupcenter {
   display: flex;
   flex-direction: column;
 }
@@ -180,7 +181,7 @@ body {
   text-align-last: center;
 }
 
-.popup .popupmain .popupimg{
+.popup .popupmain .popupimg {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,11 +189,11 @@ body {
   width: 20vw;
 }
 
-.popup .popupmain .popupimg img{
+.popup .popupmain .popupimg img {
   width: 15vw;
 }
 
-.popup .popupmain .popupimg div{
+.popup .popupmain .popupimg div {
   font-size: 1vw;
   text-align: center;
 }
