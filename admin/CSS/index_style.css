@@ -1,4 +1,5 @@
-@import "reset.css";
+@import "/mainJS/reset.css";
+@import "/mainJS/variable.css";
 
 div {
   border-top: 5vh solid rgb(235, 235, 235);

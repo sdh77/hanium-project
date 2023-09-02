@@ -1,0 +1,107 @@
+@import "reset.css";
+@import "variable.css";
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.top-area {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 15vh;
+  text-align: center;
+  font-size: 3vw;
+}
+
+.top-area .left-area {
+  width: 10vw;
+}
+
+.top-area .header {
+  width: 80vw;
+}
+
+.top-area .change-page {
+  width: 8vw;
+  padding: 1vw;
+  border: 0;
+  font-size: 1.5vw;
+  border-radius: 20px;
+}
+
+.bottom-area {
+  width: 100vw;
+  height: 85vh;
+}
+.bottom-area .main-area {
+  width: 96vw;
+  height: 80vh;
+  background-color: white;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.bottom-area .main-area .tableOrderItem {
+  background-color: var(--main-color);
+
+  border: 1px solid black;
+  width: 11.5vw;
+  padding: 1vw;
+  height: 70vh;
+  margin: 1vw;
+}
+
+.bottom-area .main-area .tableOrderItem p {
+  white-space: normal;
+}
+
+.main-area .grid {
+  display: grid;
+  width: 90vw;
+  height: auto;
+  grid-template-columns: repeat(5, 20%);
+  grid-gap: 2vh;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 2vw;
+  position: relative;
+  top: 195%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-area .grid .soldout .ItemList {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.main-area .grid .yes {
+  opacity: 0.4;
+}
+.main-area .grid .soldout .ItemList img {
+  width: auto;
+  height: auto;
+  max-height: 20vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+
+.main-area .grid .soldout .ItemList p {
+  font-size: 1.5vw;
+}
