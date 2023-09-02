@@ -14,10 +14,10 @@ if ($result) {
         if ($oldtableId != 0)
           echo '</div>';
         echo '<div class="tableOrderItem">
-          <div>' . $row["name"] . " : " . $row["quantity"] . '</div>';
+          <p>' . $row["name"] . " : " . $row["quantity"] . '</p>';
         $oldtableId = $row["tableid"];
       } else {
-        echo '<div>' . $row["name"] . " : " . $row["quantity"] . '</div>';
+        echo '<p>' . $row["name"] . " : " . $row["quantity"] . '</p>';
       }
     }
   }
