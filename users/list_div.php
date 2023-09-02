@@ -67,11 +67,11 @@ if ($result) {
       }
     }
     for (; $viewcnt < 6; $viewcnt++) {
-      echo '<div class="grid_item" style="opacity:0"></div>';
+      echo '<div class="grid_item_none"></div>';
     }
 
   } else {
-    echo '<div class="grid_item_error"> no item </div>';
+    echo '<p class="grid_item_error"> no item </p>';
   }
 }
 echo '</div>';
