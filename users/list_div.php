@@ -6,9 +6,8 @@ $order_type = isset($_GET['neworder']) ? $_GET['neworder'] : "";
 $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
 $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
 
-//  $conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
+//$conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
-
 
 if ($search != "")
   $sql = "select * from menu where name like '%" . $search . "%' order by new desc, id";
@@ -59,9 +58,9 @@ if ($result) {
     while ($row = pg_fetch_assoc($result)) {
       $cnt++;
       if (($cnt > (6 * $pagenum)) && ($cnt <= (6 * ($pagenum + 1)))) {
-        //          echo'<div class="grid_item"><img id="menu-img" src="/sdhMain2/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
+        //echo'<div class="grid_item"><img id="menu-img" src="/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
 
-        echo '<div class="grid_item"><img id="menu-img" src="../admin/image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>' . '<p class="menu">' . $row["name"] . '</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
+        echo '<div class="grid_item"><img id="menu-img" src="/hanium_Order_Table/admin/image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>' . '<p class="menu">' . $row["name"] . '</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
 
         $viewcnt++;
       }
