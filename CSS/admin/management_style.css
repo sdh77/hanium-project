@@ -1,7 +1,4 @@
-@import "reset.css";
-@import "variable.css";
-
-body {
+.adminmain {
   width: 100vw;
   height: 100vh;
 }

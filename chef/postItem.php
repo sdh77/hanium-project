@@ -4,6 +4,7 @@ $sql = "select * from orderdetail";
 $result = pg_query($conn, $sql);
 
 $oldtableId = 0;
+$orderTime = 0;
 
 echo '<div class="main-area">';
 
@@ -13,8 +14,11 @@ if ($result) {
       if ($row["tableid"] != $oldtableId) {
         if ($oldtableId != 0)
           echo '</div>';
-        echo '<div class="tableOrderItem">
-          <p>' . $row["name"] . " : " . $row["quantity"] . '</p>';
+        echo '<div class="tableOrderItem">';
+        if ($row["tableid"] != $oldtableId) {
+          echo '<p class="orderTableId">' . $row["tableid"] . '</p>';
+        }
+        echo '<p>' . $row["name"] . " : " . $row["quantity"] . '</p>';
         $oldtableId = $row["tableid"];
       } else {
         echo '<p>' . $row["name"] . " : " . $row["quantity"] . '</p>';

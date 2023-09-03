@@ -7,7 +7,7 @@ echo '<div class="main-area">';
 
 if ($result) {
   if (pg_num_rows($result) > 0) {
-    echo '<div class="grid">';
+    echo '<div class="chefgrid">';
     while ($row = pg_fetch_assoc($result)) {
       echo '<a class="soldout';
       if ($row["soldout"] == "t") {
@@ -21,4 +21,4 @@ if ($result) {
 }
 echo '</div>';
 ?>
-<script src="JS/sendSoldOut.js"></script>
+<script src="JS/sendSoldOut.js?ver1"></script>
