@@ -1,18 +1,16 @@
-@import "reset.css";
-
-div {
+.mainselect {
   border-top: 5vh solid rgb(235, 235, 235);
   border-bottom: 5vh solid rgb(235, 235, 235);
   border-left: 5vh solid rgb(235, 235, 235);
   border-right: 5vh solid rgb(235, 235, 235);
   width: calc(100vw -10vh);
-  height: 91vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-button {
+.mainselect a button {
   background-color: rgb(127, 127, 127);
   color: white;
   border: none;

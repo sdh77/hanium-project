@@ -1,6 +1,3 @@
-@import "reset.css";
-@import "list_div.css";
-
 .bodymain {
   display: flex;
   flex-direction: row;

@@ -43,7 +43,7 @@ $(document).ready(function () {
   });
   // do: 주문
   $("#orderButton").click(function () {
-    var cartItems = $(".cart-item");
+    var cartItems = $(".cart-item:visible");
 
     var order = {
       tableid: $("#table-number").text(),

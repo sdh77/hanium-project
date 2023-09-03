@@ -1,7 +1,4 @@
-@import "reset.css";
-@import "variable.css";
-
-body {
+.chefmain {
   height: 100vh;
   width: 100vw;
 }
@@ -51,6 +48,10 @@ body {
   white-space: nowrap;
 }
 
+.bottom-area .main-area::-webkit-scrollbar {
+  display: none;
+}
+
 .bottom-area .main-area .tableOrderItem {
   background-color: var(--main-color);
 
@@ -65,7 +66,13 @@ body {
   white-space: normal;
 }
 
-.main-area .grid {
+.bottom-area .main-area .tableOrderItem .orderTableId {
+  text-align: center;
+  font-size: 2vw;
+  padding-bottom: 3vh;
+}
+
+.main-area .chefgrid {
   display: grid;
   width: 90vw;
   height: auto;
@@ -80,7 +87,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.main-area .grid .soldout .ItemList {
+.main-area .chefgrid .soldout .ItemList {
   background-color: rgba(0, 0, 0, 0.3);
   height: 30vh;
   display: flex;
@@ -91,10 +98,10 @@ body {
   font-size: 1vw;
 }
 
-.main-area .grid .yes {
+.main-area .chefgrid .yes {
   opacity: 0.4;
 }
-.main-area .grid .soldout .ItemList img {
+.main-area .chefgrid .soldout .ItemList img {
   width: auto;
   height: auto;
   max-height: 20vh;
@@ -102,6 +109,6 @@ body {
   margin-bottom: 2vh;
 }
 
-.main-area .grid .soldout .ItemList p {
+.main-area .chefgrid .soldout .ItemList p {
   font-size: 1.5vw;
 }

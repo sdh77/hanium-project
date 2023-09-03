@@ -5,6 +5,7 @@ echo '
     </div>
     <div class="header">메뉴 추가</div>
     <div class="popupmain" id="insertPopup">
+    <div class="popupcenter">
     <div><p>이름</p><input class="nameInput"></input></div>
     <div><p>가격</p><input class="priceInput"></input></div>
     <div><p>구분</p><select class="divselect" name="menu_div">
@@ -19,9 +20,9 @@ echo '
       <option value="주류">주류</option>
     </select></div>
     <div><p>추천</p>';
-  echo '<input id="recoCheck" type="checkbox"><label for="recoCheck"></label></div>';
-  echo '<div><p>new</p>';
-  echo '<input id="newCheck" type="checkbox" checked><label for="newCheck"></label>
+echo '<input id="recoCheck" type="checkbox"><label for="recoCheck"></label></div>';
+echo '<div><p>new</p>';
+echo '<input id="newCheck" type="checkbox" checked><label for="newCheck"></label>
     </div>
     <div> 
       <p>맵기</p>
@@ -30,8 +31,11 @@ echo '
       <div><a class="spicy" onclick="change_spicy()" >1</a></div>
       <div><a class="spicy" onclick="change_spicy()" >2</a></div>
     </div>
+    </div>
+    <div class="popupimg">
+    <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
+  </div>  
     <div class="popupbottom">
       <div><a onclick="sendInsert()">추가</button></div>
-    </div>
-  </div>';
+    </div>';
 ?>

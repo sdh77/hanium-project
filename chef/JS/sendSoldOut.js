@@ -1,4 +1,4 @@
-const soldOutTags = document.querySelectorAll(".main-area .grid .soldout");
+var soldOutTags = document.querySelectorAll(".main-area .chefgrid .soldout");
 
 function alterSoldOut(target) {
   let name = target.querySelector("p").innerText;
