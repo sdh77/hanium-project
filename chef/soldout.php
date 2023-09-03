@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: ' . pg_last_error());
+$conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
 $sql = "select * from menu where div in('스테이크','샐러드','파스타','피자','라이스') order by div, id";
 $result = pg_query($conn, $sql);
 

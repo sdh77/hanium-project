@@ -2,7 +2,7 @@
 $totalnum;
 $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
 $search = $_GET['newsearch'];
-$conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=food_admin password=aaa') or die('Could not connect: ' . pg_last_error());
+$conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
 //  echo $pagenum. $type. $search;
 if ($search != "")
   $sql = "select * from menu where name  like '%" . $search . "%' order by id";
