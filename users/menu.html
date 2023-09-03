@@ -25,6 +25,21 @@
       </div>
     </div>
 
+    <div class="serv-popup">
+      <div class="servtext-area">
+	<p>무엇을 도와드릴까요?</p>
+      	<button id="closepopup-button">x</button>
+      </div>
+      <div class="servTextBtn-area">
+        <button class="servText">물</button>
+        <button class="servText">수저</button>
+        <button class="servText">젓가락</button>
+        <button class="servText">앞접시</button>
+        <button class="servText">앞치마</button>
+        <button class="servText">직원 호출</button>
+      </div>
+    </div>
+
     <div class="main">
       <div class="menu_select">
         <a class="menu click" onclick="change_check(); set_type('all');">전체</a>
@@ -57,9 +72,15 @@
         </div>
       </div>
 
-      <!-- 장바구니 -->
-      <div class="bottomarea">
-        <div class="shop-area" id="shop-area">
+      <!-- Bottom -->
+      <div class="bottom-area">
+	<div class="bottomBtn-area">
+	  <button id="previous-button">이전으로</button>
+	  <button id="orderdetail-button">주문내역</button>
+	  <button id="shop-button">장바구니</button>
+	</div>
+        <!-- 장바구니 -->
+	<div class="shop-area" id="shop-area">
           <div id="item-container">
             <div id="table-number-area">
               <span id="table-number-text">TableID
@@ -90,6 +111,7 @@
               <span id="total-price">0</span>
             </div>
             <button id="orderButton">주문하기</button>
+            <button id="closeshop-button">x</button>
           </div>
         </div>
       </div>

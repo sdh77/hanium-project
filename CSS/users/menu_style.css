@@ -1,3 +1,14 @@
+@import "reset.css";
+@import "list_div.css";
+
+/* 영역 감춤, 노출 클래스 */
+.area-hidden {
+  display: none;
+}
+.area-visible {
+  display: flex;
+}
+
 .bodymain {
   display: flex;
   flex-direction: row;
@@ -36,6 +47,55 @@
   width: 85vw;
   display: flex;
   flex-direction: column;
+}
+
+/* serv-popup 창 */
+.serv-popup, .servtext-area, .servTextBtn-area {
+  justify-content: center;
+  align-items: center;
+}
+.serv-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border: 2px solid black;
+  flex-direction: column;
+  z-index: 1000;
+}
+.servtext-area {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  color: white;
+  background-color: black;
+}
+#closepopup-button {
+  margin-left: auto;
+}
+.servTextBtn-area {
+  display: flex;
+  width: 100%;
+  height: 90%;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.servText {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  color: white;
+  background-color: #777;
+  border: none;
+  border-radius: 5px;
+}
+.servText:hover {
+  background-color: black;
 }
 
 /* do: menu_select. 상단 메뉴바 */
@@ -123,7 +183,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 1vw;
 }
 
 .grid_item_none {
@@ -302,14 +362,34 @@
   bottom: 0;
 }
 
+/* Bottom Area */
+.bottom-area, .bottomBtn-area {
+  height: 20vh;
+  background-color: #a6a5b8;
+}
+.bottomBtn-area {
+  justify-content: flex-end;
+  align-items: center;
+}
+#previous-button, #orderdetail-button, #shop-button {
+  margin: 10px;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  height: 60px;
+  width: 180px;
+  color: white;
+  background-color: #76758a;
+  border: none;
+  border-radius: 25px;
+}
+
 /* 장바구니 */
 .shop-area {
-  /* 장바구니 */
-  background-color: white;
-  display: flex;
   justify-content: space-between;
   height: 20vh;
   width: 85vw;
+  background-color: white;
 }
 .table-number-area {
   background-color: black;

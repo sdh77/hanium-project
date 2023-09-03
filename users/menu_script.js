@@ -30,6 +30,17 @@ $(document).ready(function () {
       }
     });
   });
+
+  // 초기 화면에 노출되는 요소
+  $(".bottomBtn-area").addClass("area-visible");
+  $(".shop-area").addClass("area-hidden");
+  $(".serv-popup").addClass("area-hidden");
+
+  // 장바구니 숨기기, 보이기
+  $("#shop-button").click(function() {
+    $(".bottomBtn-area").removeClass("area-visible").addClass("area-hidden");
+    $(".shop-area").removeClass("area-hidden").addClass("area-visible");
+  });
   // do: 장바구니 수량 조절
   $("#cart").on("click", ".increase", function () {
     increaseQuantity($(this).siblings(".quantity"));
@@ -40,6 +51,12 @@ $(document).ready(function () {
   // 장바구니 아이템 삭제 버튼
   $("#cart").on("click", ".cart-item-delete", function () {
     $(this).closest(".cart-item").remove();
+    updatePrice();
+  });
+  // 장바구니 닫기 버튼
+  $("#closeshop-button").click(function() {
+    $(".bottomBtn-area").removeClass("area-hidden").addClass("area-visible");
+    $(".shop-area").removeClass("area-visible").addClass("area-hidden");
   });
   // do: 주문
   $("#orderButton").click(function () {
@@ -48,6 +65,7 @@ $(document).ready(function () {
     var order = {
       tableid: $("#table-number").text(),
       items: [],
+      type: "order"
     };
 
     cartItems.each(function () {
@@ -66,6 +84,34 @@ $(document).ready(function () {
       contentType: "application/json; charset=utf-8",
       success: function (response) {
         console.log(response);
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+  });
+
+  // 직원 호출 service. orderdetail DB로 전송
+  $("#serv-button").click(function () {
+    $(".serv-popup").removeClass("area-hidden").addClass("area-visible");
+  });
+  $("#closepopup-button").click(function () {
+    $(".serv-popup").removeClass("area-visible").addClass("area-hidden");
+  });
+  $(".servText").click(function () {
+    var servicetext = $(this).text();
+    var order = {
+      tableid: $("#table-number").text(),
+      serviceText: servicetext,
+      type: "service"
+    }
+    $.ajax({
+      url: "orderdetail.php",
+      type: "POST",
+      data: JSON.stringify(order),
+      contentType: "application/json; charset=utf-8",
+      success: function (response) {
+	console.log(response);
       },
       error: function (error) {
         console.log(error);
