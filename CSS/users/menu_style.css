@@ -50,7 +50,9 @@
 }
 
 /* serv-popup 창 */
-.serv-popup, .servtext-area, .servTextBtn-area {
+.serv-popup,
+.servtext-area,
+.servTextBtn-area {
   justify-content: center;
   align-items: center;
 }
@@ -183,19 +185,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1vw;
+  font-size: 1.5vw;
 }
 
 .grid_item_none {
   opacity: 0;
-  background-color: white;
   height: 27vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1vw;
 }
 
 .grid_item_error {
@@ -363,7 +358,8 @@
 }
 
 /* Bottom Area */
-.bottom-area, .bottomBtn-area {
+.user-bottom-area,
+.bottomBtn-area {
   height: 20vh;
   width: 85vw;
   background-color: #a6a5b8;
@@ -372,7 +368,9 @@
   justify-content: flex-end;
   align-items: center;
 }
-#previous-button, #orderdetail-button, #shop-button {
+#previous-button,
+#orderdetail-button,
+#shop-button {
   margin: 10px;
   display: block;
   cursor: pointer;

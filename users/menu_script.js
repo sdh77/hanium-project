@@ -37,7 +37,7 @@ $(document).ready(function () {
   $(".serv-popup").addClass("area-hidden");
 
   // 장바구니 숨기기, 보이기
-  $("#shop-button").click(function() {
+  $("#shop-button").click(function () {
     $(".bottomBtn-area").removeClass("area-visible").addClass("area-hidden");
     $(".shop-area").removeClass("area-hidden").addClass("area-visible");
   });
@@ -54,7 +54,7 @@ $(document).ready(function () {
     updatePrice();
   });
   // 장바구니 닫기 버튼
-  $("#closeshop-button").click(function() {
+  $("#closeshop-button").click(function () {
     $(".bottomBtn-area").removeClass("area-hidden").addClass("area-visible");
     $(".shop-area").removeClass("area-visible").addClass("area-hidden");
   });
@@ -65,7 +65,7 @@ $(document).ready(function () {
     var order = {
       tableid: $("#table-number").text(),
       items: [],
-      type: "order"
+      type: "order",
     };
 
     cartItems.each(function () {
@@ -103,15 +103,15 @@ $(document).ready(function () {
     var order = {
       tableid: $("#table-number").text(),
       serviceText: servicetext,
-      type: "service"
-    }
+      type: "service",
+    };
     $.ajax({
       url: "orderdetail.php",
       type: "POST",
       data: JSON.stringify(order),
       contentType: "application/json; charset=utf-8",
       success: function (response) {
-	console.log(response);
+        console.log(response);
       },
       error: function (error) {
         console.log(error);
