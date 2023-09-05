@@ -46,6 +46,8 @@
   align-items: center;
   overflow: auto;
   white-space: nowrap;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .bottom-area .main-area::-webkit-scrollbar {
@@ -56,20 +58,24 @@
   background-color: var(--main-color);
 
   border: 1px solid black;
-  width: 11.5vw;
+  min-width: 11.5vw;
+  max-width: 11.5vw;
+
   padding: 1vw;
   height: 70vh;
   margin: 1vw;
 }
 
-.bottom-area .main-area .tableOrderItem p {
-  white-space: normal;
-}
-
 .bottom-area .main-area .tableOrderItem .orderTableId {
   text-align: center;
   font-size: 2vw;
-  padding-bottom: 3vh;
+  padding-bottom: 1vh;
+}
+
+.bottom-area .main-area .tableOrderItem .tableOrderItem__time{
+  text-align: center;
+  font-size: 2vw;
+  padding-bottom: 3vh; 
 }
 
 .main-area .chefgrid {
