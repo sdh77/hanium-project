@@ -29,5 +29,4 @@ if ($result) {
 }
 echo '</div>';
 ?>
-
 <script src="JS/timer.js"></script>

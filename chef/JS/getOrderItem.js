@@ -5,11 +5,10 @@ function orderItem() {
   header.innerHTML = "주문 관리";
   $.ajax({ url: "postItem.php", type: "get" }).done(function (data) {
     $(".bottom-area").html(data);
+    set_time();
   });
   btn.removeEventListener("click", orderItem);
   btn.addEventListener("click", soldout);
-
-  set_time();
 }
 
 function soldout() {
