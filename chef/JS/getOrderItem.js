@@ -1,5 +1,6 @@
 const btn = document.querySelector(".top-area .change-page");
 const header = document.querySelector(".top-area .header");
+let mode = 1;
 function orderItem() {
   btn.innerHTML = "재고 관리";
   header.innerHTML = "주문 관리";
@@ -9,6 +10,7 @@ function orderItem() {
   });
   btn.removeEventListener("click", orderItem);
   btn.addEventListener("click", soldout);
+  mode = 0;
 }
 
 function soldout() {
@@ -19,7 +21,8 @@ function soldout() {
   });
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", orderItem);
+  mode = 1;
 }
 
 orderItem();
-setInterval(orderItem, 5000);
+if (mode) setInterval(orderItem, 5000);
