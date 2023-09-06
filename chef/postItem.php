@@ -19,10 +19,10 @@ if ($result) {
           echo '<p class="orderTableId">' . $row["tableid"] . '</p>
             <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>';
         }
-        echo '<p>' . $row["name"] . " : " . $row["quantity"] . '</p>';
+        echo '<p class="tableOrderItem__menu">' . $row["name"] . " : " . $row["quantity"] . '</p>';
         $oldtableId = $row["tableid"];
       } else {
-        echo '<p>' . $row["name"] . " : " . $row["quantity"] . '</p>';
+        echo '<p class="tableOrderItem__menu">' . $row["name"] . " : " . $row["quantity"] . '</p>';
       }
     }
   }
@@ -30,3 +30,4 @@ if ($result) {
 echo '</div>';
 ?>
 <script src="JS/timer.js"></script>
+<script src="JS/finishMenu.js"></script>

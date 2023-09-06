@@ -72,10 +72,14 @@
   padding-bottom: 1vh;
 }
 
-.bottom-area .main-area .tableOrderItem .tableOrderItem__time{
+.bottom-area .main-area .tableOrderItem .tableOrderItem__time {
   text-align: center;
   font-size: 2vw;
-  padding-bottom: 3vh; 
+  padding-bottom: 3vh;
+}
+
+.bottom-area .main-area .tableOrderItem .clear {
+  text-decoration: line-through;
 }
 
 .main-area .chefgrid {
