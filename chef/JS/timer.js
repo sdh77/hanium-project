@@ -3,6 +3,7 @@ var orderTimes = document.querySelectorAll(
 );
 
 function set_time() {
+  checkTable();
   const now = new Date();
   let h = Number(now.getHours().toString().padStart(2, "0"));
   let m = Number(now.getMinutes().toString().padStart(2, "0"));

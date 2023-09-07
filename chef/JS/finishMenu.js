@@ -16,6 +16,11 @@ localStorage.setItem("menuCnt", newCnt);
 finishMenus.forEach(function (finishMenu) {
   finishMenu.addEventListener("click", function () {
     finishMenu.classList.add("clear");
+    console.log(finishMenu.classList.item(1));
+    let params = {
+      orderId: finishMenu.classList.item(1),
+    };
+    $.ajax({ url: "clearMenu.php", type: "get", data: params });
     checkTable();
   });
 });
@@ -27,9 +32,10 @@ function checkTable() {
     finishTable
       .querySelectorAll(".tableOrderItem__menu")
       .forEach(function (checkClear) {
-        if (checkClear.classList.item(1) == "clear") check++;
+        if (checkClear.classList.item(2) == "clear") check++;
         cnt++;
       });
+    console.log(check, cnt);
     if (check == cnt) {
       finishTable.classList.add("hide");
       check = 0;

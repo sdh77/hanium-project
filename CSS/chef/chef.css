@@ -66,6 +66,11 @@
   margin: 1vw;
 }
 
+.bottom-area .main-area .hide {
+  /* display: none; */
+  background-color: red;
+}
+
 .bottom-area .main-area .tableOrderItem .orderTableId {
   text-align: center;
   font-size: 2vw;

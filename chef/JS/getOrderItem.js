@@ -11,7 +11,6 @@ function orderItem() {
   });
   btn.removeEventListener("click", orderItem);
   btn.addEventListener("click", soldout);
-
   mode = 0;
 }
 
@@ -25,6 +24,5 @@ function soldout() {
   btn.addEventListener("click", orderItem);
   mode = 1;
 }
-
 orderItem();
 setInterval(orderItem, 5000);
