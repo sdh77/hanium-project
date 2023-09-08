@@ -46,3 +46,4 @@ function checkTable() {
     }
   });
 }
+document.querySelector(".bottom-area .main-area").scrollTo(1000, 0);

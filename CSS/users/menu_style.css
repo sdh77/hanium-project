@@ -38,7 +38,7 @@
 
 .bodymain .orderselect .click {
   color: #3d272f;
-  background-color: white;
+  background-color: var(--main-color);
 }
 .main {
   width: 85vw;

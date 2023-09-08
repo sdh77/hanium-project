@@ -25,4 +25,4 @@ function soldout() {
   mode = 1;
 }
 orderItem();
-setInterval(orderItem, 5000);
+if (mode) setInterval(orderItem, 5000);
