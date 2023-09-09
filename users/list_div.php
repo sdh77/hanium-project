@@ -60,10 +60,10 @@ if ($result) {
       if (($cnt > (6 * $pagenum)) && ($cnt <= (6 * ($pagenum + 1)))) {
         //echo'<div class="grid_item"><img id="menu-img" src="/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
 
-        echo '<div class="grid_item"><div><img id="menu-img" src="/hanium_Order_Table/admin/image/이미지(jpg)/'
-         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>';
+        echo '<div class="grid_item"><img id="menu-img" src="../admin/image/이미지(jpg)/'
+         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><div class="spicy">';
         for($i = 0; $i< (int)$row["spicy"];$i++)
-          echo'<i class="fa-solid fa-pepper-hot" style="color:tomato"></i>';
+          echo'<i class="fa-solid fa-pepper-hot"></i>';
         echo'</div><p class="menu">' . $row["name"] .'</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
 
 

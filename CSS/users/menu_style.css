@@ -183,11 +183,20 @@
   justify-content: center;
   text-align: center;
   font-size: 1.5vw;
+  position: relative;
 }
 
 .grid_item_none {
   opacity: 0;
   height: 27vh;
+}
+
+.spicy{
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+  font-size: 1vw;
+  color: tomato;
 }
 
 .grid_item_error {
