@@ -1,3 +1,9 @@
+.menuManageHeader {
+  font-size: 10vh;
+  text-align: center;
+  margin: 5vh 0 1vh 0;
+}
+
 .adminmain {
   width: 100vw;
   height: 100vh;
@@ -49,9 +55,14 @@
 
 .list span {
   display: grid;
-  grid-template-columns: 10vw 50vw 10vw 10vw;
+  grid-template-columns: 10vw 60vw 10vw;
   justify-content: center;
   text-align: center;
+  height: auto;
+}
+
+.list .headerdiv {
+  height: 8vh;
 }
 
 .list span div {
@@ -60,6 +71,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 0.5vh 0;
 }
 
 .list span .btn {
@@ -67,6 +80,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.list span .update {
+  border: none;
+  background-color: white;
+}
+
+.list span div .update div {
+  border: none;
+}
+
+/* .list span div .update div .adminMenuImg {
+  width: auto;
+  height: auto;
+  max-height: 6vh;
+} */
 
 .list span div button {
   border: none;
@@ -158,6 +186,7 @@
 }
 .popup .popupmain .popupcenter div input {
   font-size: 3vh;
+  width: 20vw;
 }
 .popup .popupmain .popupcenter div p {
   font-size: 4vh;

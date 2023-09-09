@@ -61,9 +61,13 @@ if ($result) {
         //echo'<div class="grid_item"><img id="menu-img" src="/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
 
         echo '<div class="grid_item"><img id="menu-img" src="../admin/image/이미지(jpg)/'
-         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><div class="spicy">';
+         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><div class="spicyItem">';
         for($i = 0; $i< (int)$row["spicy"];$i++)
           echo'<i class="fa-solid fa-pepper-hot"></i>';
+        echo'</div><div class="newRecItem">';
+        if($row["new"] == "t") echo'<div class="newItem">new</div>';
+        if($row["recommend"] == "t") echo'<div class="recItem">추천</div>';
+
         echo'</div><p class="menu">' . $row["name"] .'</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
 
 
