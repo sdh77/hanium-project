@@ -1,0 +1,38 @@
+.toDayOrder__btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3vh;
+}
+
+.toDayOrder__btn button {
+  border: none;
+  background-color: var(--main-color);
+  border-radius: 20px;
+  font-size: 4vh;
+  padding: 1vh;
+}
+
+.toDayOrder__list {
+  font-size: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toDayOrder__data {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+.toDayOrder__name {
+  width: 40vw;
+}
+
+.toDayOrder__cnt {
+  border-left: 1px solid black;
+  width: 5vw;
+  text-align: center;
+}
