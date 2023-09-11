@@ -17,7 +17,6 @@ function loadpageOrderList() {
     Date: date,
     Sort: sort,
   };
-
   $.ajax({ url: "showtoDayOrderList.php", type: "get", data: params }).done(
     function (data) {
       $(".toDayOrder__list").html(data);

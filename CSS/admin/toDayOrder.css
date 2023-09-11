@@ -30,16 +30,23 @@
 .toDayOrder__name {
   width: 30vw;
   text-align: center;
+  padding: 1vh 0;
 }
 
 .toDayOrder__cnt {
   border-left: 1px solid black;
   width: 5vw;
   text-align: center;
+  padding: 1vh 0;
 }
 
 .toDayOrder__price {
   width: 15vw;
   border-left: 1px solid black;
   text-align: center;
+  padding: 1vh 0;
+}
+
+.toDayOrder__total {
+  border-top: 5px double black;
 }

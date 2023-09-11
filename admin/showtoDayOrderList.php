@@ -26,7 +26,7 @@ if ($result) {
       $totalCnt += $row["cnt"];
       $totalPrice += ($row["cnt"] * $row["price"]);
     }
-    echo '<div class="toDayOrder__data"><div class="toDayOrder__name">합계</div><div class="toDayOrder__cnt">'.$totalCnt.'개</div><div class="toDayOrder__price">'.number_format ($totalPrice, 0, ',', ',').'원</div></div>';;
+    echo '<div class="toDayOrder__data toDayOrder__total"><div class="toDayOrder__name">합계</div><div class="toDayOrder__cnt">'.$totalCnt.'개</div><div class="toDayOrder__price">'.number_format ($totalPrice, 0, ',', ',').'원</div></div>';;
   }
   else{
     echo "<br>주문 내역 없음!!!";
