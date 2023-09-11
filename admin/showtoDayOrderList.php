@@ -10,7 +10,6 @@ if($Sort == ""){
 else{
   $sql = "select name, count(name)as cnt from orderdetail where DATE(date) = '".$Date."' group by name order by " .$Sort;
 }
-
 $result = pg_query($conn, $sql);
 
 if ($result) {
