@@ -16,14 +16,16 @@ else {
 }
 $result = pg_query($conn, $sql);
 
-echo "<span><div>번호</div><div>이름</div><div>수정</div><div>품절</div></span>";
+echo "<span class='headerdiv'><div>번호</div><div>이름</div><div>판매현황</div></span>";
 if ($result) {
   $totalnum = pg_num_rows($result);
   if ($totalnum > 0) {
     while ($row = pg_fetch_assoc($result)) {
-      echo "<span><div class='id'>" . $row["id"] . "</div><div>" . $row["name"] . "</div><div class='btn'><button class='update'>수정</button></div><div class='btn'><button class='newSoldOut'>";
+      echo "<span><div class='id'>" . $row["id"] . "</div><div><button class='update'><div>" . $row["name"];
+      // echo"<img class='adminMenuImg' src='../admin/image/이미지(jpg)/". $row["name"] . ".jpg' alt='X'></img>";
+      echo"</div></button></div><div class='btn'><button class='newSoldOut'>";
       if ($row["soldout"] == "t")
-        echo "품절";
+        echo "판매중지";
       else if ($row["soldout"] == "f")
         echo "판매중";
       echo "</button></div></span>";

@@ -38,7 +38,7 @@
 
 .bodymain .orderselect .click {
   color: #3d272f;
-  background-color: white;
+  background-color: var(--main-color);
 }
 .main {
   width: 85vw;
@@ -183,11 +183,48 @@
   justify-content: center;
   text-align: center;
   font-size: 1.5vw;
+  position: relative;
 }
 
 .grid_item_none {
   opacity: 0;
   height: 27vh;
+}
+
+.spicyItem {
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+  font-size: 1vw;
+  color: tomato;
+}
+
+.newRecItem {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.recItem {
+  /* position: absolute;
+  top: px;
+  left: 0px; */
+  font-size: 1vw;
+  color: white;
+  padding: 0.8vh;
+  width: 2.5vw;
+  background-color: purple;
+}
+.newItem {
+  /* position: absolute;
+  top: 0px;
+  left: 0px; */
+  font-size: 1vw;
+  color: white;
+  padding: 0.8vh;
+  width: 2.5vw;
+
+  background-color: #0067a3;
 }
 
 .grid_item_error {
@@ -201,10 +238,11 @@
 .grid_item img {
   width: auto;
   height: auto;
-  max-width: 28vw;
-  max-height: 15vh;
+  /* max-width: 28vw; */
+  max-height: 14vh;
   margin-top: 1vh;
   margin-bottom: 2vh;
+  object-fit: cover;
 }
 
 .error {

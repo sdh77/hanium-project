@@ -66,16 +66,25 @@
   margin: 1vw;
 }
 
+.bottom-area .main-area .hide {
+  /* display: none; */
+  background-color: red;
+}
+
 .bottom-area .main-area .tableOrderItem .orderTableId {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 1vh;
 }
 
-.bottom-area .main-area .tableOrderItem .tableOrderItem__time{
+.bottom-area .main-area .tableOrderItem .tableOrderItem__time {
   text-align: center;
   font-size: 2vw;
-  padding-bottom: 3vh; 
+  padding-bottom: 3vh;
+}
+
+.bottom-area .main-area .tableOrderItem .clear {
+  text-decoration: line-through;
 }
 
 .main-area .chefgrid {
@@ -104,7 +113,7 @@
 }
 
 .main-area .chefgrid .yes {
-  opacity: 0.4;
+  opacity: 0.3;
 }
 .main-area .chefgrid .soldout .ItemList img {
   width: auto;

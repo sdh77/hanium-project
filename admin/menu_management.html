@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>메뉴관리 화면</title>
+  <title>메뉴 관리 화면</title>
   <link rel="stylesheet" href="../CSS/styles.css" />
 </head>
 
 <body>
+  <div class="Header">메뉴 관리</div>
   <div class="searchArea">
     <div>
       <input></input>
@@ -19,7 +20,7 @@
   </div>
 
   <div class="listselect">
-    <a onclick="setType('all'); change_check();">전체메뉴</a>
+    <a class="click" onclick="setType('all'); change_check();">전체메뉴</a>
     <a onclick="setType('샐러드'); change_check();">샐러드</a>
     <a onclick="setType('파스타'); change_check();">파스타</a>
     <a onclick="setType('라이스'); change_check();">라이스</a>

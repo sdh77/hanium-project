@@ -1,4 +1,4 @@
-const updateBtns = document.querySelectorAll(".list span .btn .update");
+const updateBtns = document.querySelectorAll(".list span .update");
 const popup = document.querySelector(".background");
 console.log(updateBtns);
 function show(target) {
@@ -31,9 +31,7 @@ updateBtns.forEach((target) => {
 
 function loadInsertPage() {
   popup.classList.add("show");
-  $.ajax({ url: "insert.php" }).done(function (
-    data
-  ) {
+  $.ajax({ url: "insert.php" }).done(function (data) {
     $(".popup").html(data);
   });
 }
