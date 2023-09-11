@@ -3,36 +3,11 @@
   width: 100vw;
 }
 
-.top-area {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width: 100vw;
-  height: 15vh;
-  text-align: center;
-  font-size: 3vw;
-}
-
-.top-area .left-area {
-  width: 10vw;
-}
-
-.top-area .header {
-  width: 80vw;
-}
-
-.top-area .change-page {
-  width: 8vw;
-  padding: 1vw;
-  border: 0;
-  font-size: 1.5vw;
-  border-radius: 20px;
-}
-
 .bottom-area {
   width: 100vw;
   height: 85vh;
 }
+
 .bottom-area .main-area {
   width: 96vw;
   height: 80vh;
@@ -115,6 +90,7 @@
 .main-area .chefgrid .yes {
   opacity: 0.3;
 }
+
 .main-area .chefgrid .soldout .ItemList img {
   width: auto;
   height: auto;
