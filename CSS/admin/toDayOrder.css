@@ -28,11 +28,18 @@
 }
 
 .toDayOrder__name {
-  width: 40vw;
+  width: 30vw;
+  text-align: center;
 }
 
 .toDayOrder__cnt {
   border-left: 1px solid black;
   width: 5vw;
+  text-align: center;
+}
+
+.toDayOrder__price {
+  width: 15vw;
+  border-left: 1px solid black;
   text-align: center;
 }

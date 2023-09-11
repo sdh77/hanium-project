@@ -238,10 +238,11 @@
 .grid_item img {
   width: auto;
   height: auto;
-  max-width: 28vw;
-  max-height: 15vh;
+  /* max-width: 28vw; */
+  max-height: 14vh;
   margin-top: 1vh;
   margin-bottom: 2vh;
+  object-fit: cover;
 }
 
 .error {

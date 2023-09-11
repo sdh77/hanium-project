@@ -7,6 +7,7 @@ const btn__order = document.querySelector(".toDayOrder__btn .btn__order");
 function changeSort() {
   if (sort == "cnt") sort = "";
   else sort = "cnt";
+  console.log(sort);
   loadpageOrderList();
 }
 

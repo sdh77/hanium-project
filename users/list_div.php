@@ -68,7 +68,7 @@ if ($result) {
         if($row["new"] == "t") echo'<div class="newItem">new</div>';
         if($row["recommend"] == "t") echo'<div class="recItem">추천</div>';
 
-        echo'</div><p class="menu">' . $row["name"] .'</p>' . '<br>' . '<p class="price">' . $row["price"] . '</p></div>';
+        echo'</div><p class="menu">' . $row["name"] .'</p>' . '<br>' . '<p class="price">' .number_format ($row["price"], 0, ',', ',') . '</p></div>';
 
 
         $viewcnt++;
