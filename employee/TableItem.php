@@ -65,7 +65,6 @@
             $cnt++;
           }
         }
-        echo $time;
         echo'</div>';
       }
       else{
