@@ -19,18 +19,31 @@ function customItems() {
 function soldout() {
   btn.innerHTML = "주문 현황";
   header.innerHTML = "재고 관리";
-  getTableItem();
+  soldOutPage();
   btn.removeEventListener("click", soldout);
-  btn.addEventListener("click", orderItem);
+  btn.addEventListener("click", customItems);
   mode = 1;
 }
 
 getTableItem();
+btn.addEventListener("click", customItems);
+
 function getTableItem() {
   let params = {
     Date: date,
   };
   $.ajax({ url: "TableItem.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $(".main-screen").html(data);
+  });
+}
+
+function soldOutPage() {
+  let params = {
+    Date: date,
+  };
+  $.ajax({ url: "soldout.php", type: "get", data: params }).done(function (
     data
   ) {
     $(".main-screen").html(data);
