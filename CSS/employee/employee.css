@@ -45,3 +45,7 @@
   grid-template-columns: repeat(5, 1fr);
 
 }
+
+.table-info__orderTime {
+  display: none;
+}
