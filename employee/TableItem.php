@@ -69,7 +69,7 @@
       }
     }
     echo'</div>
-      </div>';
+      </div></div>';
   }
   pg_close($conn);
 ?>

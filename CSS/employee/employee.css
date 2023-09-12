@@ -6,7 +6,7 @@
 .table-info {
   width: 15vw;
   height: 25vh;
-  margin: 1.5vh
+  margin: 1.5vh;
 }
 
 .table-info__row {
@@ -30,12 +30,18 @@
   width: 7.5vw;
 }
 
-
 .table-info__column:first-child {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.table-info__food-info,
-.table-info__drink-info {
+.table-info__drink-info,
+.table-info__food-info {
   margin-top: 0.5vw;
+}
+
+.main-screen {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+
 }
