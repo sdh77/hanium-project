@@ -60,8 +60,14 @@ if ($result) {
       if (($cnt > (6 * $pagenum)) && ($cnt <= (6 * ($pagenum + 1)))) {
         //echo'<div class="grid_item"><img id="menu-img" src="/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
 
-        echo '<div class="grid_item"><img id="menu-img" src="../admin/image/이미지(jpg)/'
-         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><div class="spicyItem">';
+        echo '<div class="grid_item ';
+        if($row["soldout"] == "t") echo'SoldOut';
+        else echo'noSoldOut';
+        echo'"><img id="menu-img" src="../admin/image/이미지(jpg)/'
+         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>';
+        if($row["soldout"] == "t")
+          echo '<div class="soldOutTag"><p class="soldOutLetter">Sold Out</p></div>';
+        echo'<div class="spicyItem">';
         for($i = 0; $i< (int)$row["spicy"];$i++)
           echo'<i class="fa-solid fa-pepper-hot"></i>';
         echo'</div><div class="newRecItem">';

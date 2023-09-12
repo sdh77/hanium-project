@@ -9,8 +9,8 @@ $(document).ready(function () {
     $("#menupage").html(data);
 
     // do: 메뉴 클릭 이벤트 핸들러 (메뉴 장바구니에 담기)
-    $(document).off("click", ".grid_item");
-    $(document).on("click", ".grid_item", function () {
+    $(document).off("click", ".noSoldOut");
+    $(document).on("click", ".noSoldOut", function () {
       const menuImg = $(this).find("#menu-img").attr("src");
       const menuName = $(this).find(".menu").text();
       const menuPrice = Number($(this).find(".price").text());
