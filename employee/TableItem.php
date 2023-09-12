@@ -33,6 +33,12 @@
         }
         echo'</div>';
       }
+      else{
+        echo'<div class="table-info__info">
+        <div class="table-info__column">
+          <div class="table-info__food">음식</div>
+            <div class="table-info__food-info"></div></div>';
+      }
     }
     $sql = "SELECT orderdetail.name, menu.div
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
@@ -54,6 +60,12 @@
           }
         }
         echo'</div>';
+      }
+      else{
+        echo'<div class="table-info__info">
+        <div class="table-info__column">
+          <div class="table-info__drink">음식</div>
+            <div class="table-info__drink-info"></div></div>';
       }
     }
     echo'</div>
