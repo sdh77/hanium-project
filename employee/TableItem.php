@@ -77,7 +77,7 @@
     }
     echo'</div>
       <div class="table-info__orderTime">'.$time.'</div>
-      </div>';
+      </div></div>';
   }
   pg_close($conn);
 ?>
