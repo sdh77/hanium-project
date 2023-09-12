@@ -37,6 +37,7 @@
 .table-info__drink-info,
 .table-info__food-info {
   margin-top: 0.5vw;
+  font-size: 1.5vh;
 }
 
 .main-screen {

@@ -21,11 +21,13 @@ function soldout() {
   header.innerHTML = "재고 관리";
   getTableItem();
   btn.removeEventListener("click", soldout);
-  btn.addEventListener("click", orderItem);
+  btn.addEventListener("click", customItems);
   mode = 1;
 }
 
 getTableItem();
+btn.addEventListener("click", customItems);
+
 function getTableItem() {
   let params = {
     Date: date,
