@@ -6,6 +6,7 @@
   $time = 0;
   $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
 
+
   for($tableID = 1; $tableID <=15; $tableID++){
     $time = 0;
     echo'<div class="table-info">
@@ -53,7 +54,8 @@
       if (pg_num_rows($result) > 0) {
         while ($row = pg_fetch_assoc($result)) {
           if($cnt == 0){
-            echo'<div class="table-info__drink">주류</div>
+            echo'<div class="table-info__column">
+            <div class="table-info__drink">주류</div>
               <div class="table-info__drink-info">'.$row["name"].'</div>';
             ($time < ((int)substr($row["date"], 11, 2)*3600 + (int)substr($row["date"], 14, 2)*60 + (int)substr($row["date"], 17, 2))) ? $time :(int)substr($row["date"], 11, 2)*3600 + (int)substr($row["date"], 14, 2)*60 + (int)substr($row["date"], 17, 2);
             $cnt++;

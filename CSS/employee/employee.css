@@ -6,7 +6,7 @@
 .table-info {
   width: 18vw;
   height: 26vh;
-  margin: 1.0vh;
+  margin: 1vh;
 }
 
 .table-info__row {
@@ -47,7 +47,6 @@
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(5, 1fr);
-
 }
 
 .table-info__orderTime {
