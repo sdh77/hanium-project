@@ -1,0 +1,51 @@
+.main-screen {
+  height: 92vh;
+  width: 100vw;
+}
+
+.table-info {
+  width: 15vw;
+  height: 25vh;
+  margin: 1.5vh;
+}
+
+.table-info__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.table-info__info {
+  height: 20vh;
+  background-color: var(--main-color);
+  border-radius: 5px;
+  display: flex;
+}
+
+.table-info__column {
+  flex-direction: column;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  width: 7.5vw;
+}
+
+.table-info__column:first-child {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.table-info__drink-info,
+.table-info__food-info {
+  margin-top: 0.5vw;
+}
+
+.main-screen {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+
+}
+
+.table-info__orderTime {
+  display: none;
+}

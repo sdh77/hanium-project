@@ -1,5 +1,5 @@
-const btn = document.querySelector(".top-area .change-page");
-const header = document.querySelector(".top-area .header");
+const btn = document.querySelector(".Header .change-page");
+const header = document.querySelector(".Header .Header-column span");
 let mode = 1;
 
 function orderItem() {

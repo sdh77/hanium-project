@@ -1,7 +1,7 @@
 @import "reset.css";
 @import "variable.css";
 
-@import "same/same.css";
+@import "conponents/Header.css";
 
 @import "main/index_style.css";
 
@@ -13,6 +13,8 @@
 
 @import "users/index_style.css";
 @import "users/menu_style.css";
+
+@import "employee/employee.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
 

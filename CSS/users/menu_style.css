@@ -186,6 +186,23 @@
   position: relative;
 }
 
+.SoldOut *:not(.soldOutTag, .soldOutLetter) {
+  opacity: 0.3;
+}
+
+.soldOutTag {
+  position: absolute;
+  font-size: 4vh;
+  display: flex;
+  align-items: center;
+}
+
+.soldOutTag .soldOutLetter {
+  color: red;
+  width: 15vw;
+  text-align: center;
+}
+
 .grid_item_none {
   opacity: 0;
   height: 27vh;
