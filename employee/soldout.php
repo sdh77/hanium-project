@@ -3,11 +3,10 @@ $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski p
 $sql = "select * from menu where div in('주류','와인','음료') order by div, id";
 $result = pg_query($conn, $sql);
 
-echo '<div class="main-area">';
-
+echo'<div class="soldOutarea">';
 if ($result) {
   if (pg_num_rows($result) > 0) {
-    echo '<div class="chefgrid">';
+    echo '<div class="soldOutgrid">';
     while ($row = pg_fetch_assoc($result)) {
       echo '<a class="soldout';
       if ($row["soldout"] == "t") {
@@ -19,6 +18,6 @@ if ($result) {
     echo '</div>';
   }
 }
-echo '</div>';
+echo'</div>';
 ?>
 <script src="JS/sendSoldOut.js?ver1"></script>
