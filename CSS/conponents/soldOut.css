@@ -1,0 +1,43 @@
+.soldOutarea {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.soldOutgrid {
+  display: grid;
+  width: 90vw;
+  height: auto;
+  grid-template-columns: repeat(5, 20%);
+  grid-gap: 2vh;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 2vw;
+}
+
+.soldOutgrid .soldout .ItemList {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.soldOutgrid .yes {
+  opacity: 0.3;
+}
+
+.soldOutgrid .soldout .ItemList img {
+  width: auto;
+  height: auto;
+  max-height: 20vh;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+
+.soldOutgrid .soldout .ItemList p {
+  font-size: 1.5vw;
+}
