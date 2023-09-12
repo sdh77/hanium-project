@@ -3,30 +3,29 @@ let selectMonth = String(new Date().getMonth() + 1).padStart(2, "0");
 let selectDate = String(new Date().getDate()).padStart(2, "0");
 let date = `${selectYear}-${selectMonth}-${selectDate}`;
 
-/*
-var soldOutTags = document.querySelectorAll(".main-area .chefgrid .soldout");
+const btn = document.querySelector(".Header .change-page");
+const header = document.querySelector(".Header .Header-column span");
+let mode = 1;
 
-function alterSoldOut(target) {
-  let name = target.querySelector("p").innerText;
-  let soldout = target.classList.item(1);
-  if (soldout == "yes") {
-    target.classList.remove("yes");
-    console.log(target.className);
-    getTableItem();
-  } else {
-    target.classList.add("yes");
-    console.log(target.className);
-    getTableItem();
-  }
+function customItems() {
+  btn.innerHTML = "재고 관리";
+  header.innerHTML = "주문 현황";
+  getTableItem();
+  btn.removeEventListener("click", customItems);
+  btn.addEventListener("click", soldout);
+  mode = 0;
 }
-soldOutTags.forEach((target) => {
-  target.addEventListener("click", function () {
-    alterSoldOut(target);
-  });
-});
-*/
-getTableItem();
 
+function soldout() {
+  btn.innerHTML = "주문 현황";
+  header.innerHTML = "재고 관리";
+  getTableItem();
+  btn.removeEventListener("click", soldout);
+  btn.addEventListener("click", orderItem);
+  mode = 1;
+}
+
+getTableItem();
 function getTableItem() {
   let params = {
     Date: date,
