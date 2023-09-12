@@ -32,15 +32,17 @@ $(document).ready(function () {
   });
 
   // 초기 화면에 노출되는 요소
-  $(".bottomBtn-area").addClass("area-visible");
-  $(".shop-area").addClass("area-hidden");
+  //$(".bottomBtn-area").addClass("area-visible");
+  //$(".shop-area").addClass("area-hidden");
+  $(".shop-area").addClass("area-visible"); // 장바구니 숨기는 기능 취소
   $(".serv-popup").addClass("area-hidden");
 
   // 장바구니 숨기기, 보이기
+  /*
   $("#shop-button").click(function () {
     $(".bottomBtn-area").removeClass("area-visible").addClass("area-hidden");
     $(".shop-area").removeClass("area-hidden").addClass("area-visible");
-  });
+  });*/
   // do: 장바구니 수량 조절
   $("#cart").on("click", ".increase", function () {
     increaseQuantity($(this).siblings(".quantity"));
@@ -54,10 +56,11 @@ $(document).ready(function () {
     updatePrice();
   });
   // 장바구니 닫기 버튼
+  /*
   $("#closeshop-button").click(function () {
     $(".bottomBtn-area").removeClass("area-hidden").addClass("area-visible");
     $(".shop-area").removeClass("area-visible").addClass("area-hidden");
-  });
+  });*/
   // do: 주문
   $("#orderButton").click(function () {
     var cartItems = $(".cart-item:visible");
