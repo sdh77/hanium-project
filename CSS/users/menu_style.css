@@ -192,16 +192,13 @@
 
 .soldOutTag {
   position: absolute;
-  font-size: 3vh;
-  width: 15vw;
-  height: 15vw;
-  border-radius: 50%;
-  background-color: red;
+  font-size: 4vh;
   display: flex;
   align-items: center;
 }
 
 .soldOutTag .soldOutLetter {
+  color: red;
   width: 15vw;
   text-align: center;
 }
