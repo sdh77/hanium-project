@@ -146,11 +146,11 @@
 }
 
 /* list. 디비 출력 */
-.main .middlearea .list {
+.main .middlearea .menu-list {
   width: 60vw;
   height: 72vh;
 }
-.main .middlearea .list .item_grid {
+.main .middlearea .menu-list .item_grid {
   width: 60vw;
   height: 72vh;
   border: none;
@@ -315,7 +315,7 @@
   opacity: 0.25;
 }
 
-.main .middlearea .list .pagebutton .point {
+.main .middlearea .menu-list .pagebutton .point {
   font-size: 3vw;
 }
 

@@ -13,7 +13,7 @@ $(document).ready(function () {
     $(document).on("click", ".noSoldOut", function () {
       const menuImg = $(this).find("#menu-img").attr("src");
       const menuName = $(this).find(".menu").text();
-      const menuPrice = Number($(this).find(".price").text());
+      const menuPrice = Number($(this).find(".price").text().replace(",", ""));
       // 이미 장바구니에 담은 메뉴라면?
       let isExist = false;
       $("#cart .cart-item:visible").each(function () {
@@ -267,8 +267,12 @@ function addToCart2(menuImg, menuName, menuPrice) {
 
   cartItem.find(".menu-imgsrc").attr("src", menuImg);
   cartItem.find(".menu-name").text(menuName);
-  cartItem.find(".item-price").text(menuPrice);
-  cartItem.find(".single-price").text(menuPrice);
+  cartItem
+    .find(".item-price")
+    .text(menuPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+  cartItem
+    .find(".single-price")
+    .text(menuPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
   $("#cart").append(cartItem);
 
@@ -296,14 +300,21 @@ function updatePrice() {
 
   $(".cart-item").each(function () {
     const quantity = parseInt($(this).find(".quantity").text());
-    const singlePrice = parseInt($(this).find(".single-price").text());
+    const singlePrice = parseInt(
+      $(this).find(".single-price").text().replace(",", "")
+    );
     const totalPrice = singlePrice * quantity;
 
     if (!isNaN(totalPrice)) {
-      $(this).find(".item-price").text(totalPrice);
+      $(this)
+        .find(".item-price")
+        .text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
       grandTotal += totalPrice;
+      console.log(grandTotal);
     }
   });
 
-  $("#total-price").text(grandTotal);
+  $("#total-price").text(
+    grandTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  );
 }
