@@ -28,17 +28,20 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 2.5vh;
 }
 
 .orderselect .searchtext {
   width: 10vw;
   height: 3vh;
   cursor: text;
+  font-size: 2vh;
 }
 
 .bodymain .orderselect .click {
   color: #3d272f;
   background-color: var(--main-color);
+  border-radius: 20px;
 }
 .main {
   width: 85vw;

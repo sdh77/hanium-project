@@ -1,8 +1,6 @@
 <?php
 $target_dir = "image/이미지(jpg)/";
-$img = $target_dir . basename($_FILES["newImg"]["name"]);
 $uploadOk = 1;
-// $imageFileType = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 $imageFileType = "jpg";
 $newimg = $target_dir . $_POST['newName'] . "." . $imageFileType;
 

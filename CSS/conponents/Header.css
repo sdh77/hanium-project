@@ -14,12 +14,14 @@
   width: 100vw;
   z-index: 1000;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .Header {
   font-size: 10vh;
   text-align: center;
-  margin: 5vh 0 1vh 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +38,7 @@
 
 .Header-column:nth-child(2) {
   text-align: center;
+  margin-top: 2vh;
 }
 
 .Header-column:last-child {

@@ -31,7 +31,8 @@
 .main-screen .main-area .tableOrderItem {
   background-color: var(--main-color);
 
-  border: 1px solid black;
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  border: 0.5px solid black;
   min-width: 11.5vw;
   max-width: 11.5vw;
 

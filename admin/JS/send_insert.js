@@ -1,4 +1,4 @@
-function sendInsert(){
+function sendInsert() {
   const popUp = document.getElementById("insertPopup");
 
   const name = popUp.querySelector("div .nameInput");
@@ -33,9 +33,31 @@ function sendInsert(){
       newSpicy: spicy,
     };
     $.ajax({ url: "insertDo.php", type: "get", data: params });
+    inputImg(newName);
     alert("추가 완료");
     hide();
     loadpageList();
   }
+}
 
+function inputImg(newName) {
+  let formData = new FormData();
+  formData.append("newName", newName);
+  formData.append("newImg", $("#fileToUpload")[0].files[0]);
+
+  $.ajax({
+    url: "newimgUpload.php",
+    type: "post",
+    dataType: "html",
+    enctype: "multipart/form-data",
+    processData: false,
+    contentType: false,
+    data: formData,
+    async: false,
+    cache: false,
+    timeout: 600000,
+    error: function () {
+      alert("실패");
+    },
+  });
 }
