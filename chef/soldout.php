@@ -12,7 +12,7 @@ if ($result) {
       if ($row["soldout"] == "t") {
         echo ' yes';
       }
-      echo '"><div class="ItemList"><img id="menu-img" src="/hanium_Order_Table/admin/image/이미지(jpg)/'
+      echo '"><div class="ItemList"><img id="menu-img" src="../admin/image/이미지(jpg)/'
         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><p>' . $row["name"] . '</p></div></a>';
     }
     echo '</div>';

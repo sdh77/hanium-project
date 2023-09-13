@@ -1,5 +1,5 @@
 var orderTimes = document.querySelectorAll(
-  ".bottom-area .main-area .tableOrderItem .tableOrderItem__time"
+  ".main-screen .main-area .tableOrderItem .tableOrderItem__time"
 );
 
 function set_time() {

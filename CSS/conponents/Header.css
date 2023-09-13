@@ -5,14 +5,23 @@
   font-size: 1.5vw;
   border-radius: 20px;
   background-color: var(--main-color);
-  margin-right: 1.0vw;
+  margin-right: 1vw;
+}
+
+.Header-fix {
+  position: fixed;
+  height: 14vh;
+  width: 100vw;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .Header {
-  height: 8vh;
   font-size: 10vh;
   text-align: center;
-  margin: 5vh 0 1vh 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,10 +38,18 @@
 
 .Header-column:nth-child(2) {
   text-align: center;
+  margin-top: 2vh;
 }
 
 .Header-column:last-child {
   margin-left: auto;
   display: flex;
   justify-content: flex-end;
+}
+
+.main-screen {
+  position: relative;
+  top: 14vh;
+  height: 86vh;
+  width: 100vw;
 }
