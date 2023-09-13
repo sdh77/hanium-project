@@ -6,7 +6,7 @@ function orderItem() {
   btn.innerHTML = "재고 관리";
   header.innerHTML = "주문 관리";
   $.ajax({ url: "postItem.php", type: "get" }).done(function (data) {
-    $(".bottom-area").html(data);
+    $(".main-screen").html(data);
     set_time();
   });
   btn.removeEventListener("click", orderItem);
@@ -18,7 +18,7 @@ function soldout() {
   btn.innerHTML = "주문 관리";
   header.innerHTML = "재고 관리";
   $.ajax({ url: "soldout.php", type: "get" }).done(function (data) {
-    $(".bottom-area").html(data);
+    $(".main-screen").html(data);
   });
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", orderItem);

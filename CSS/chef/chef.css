@@ -1,14 +1,13 @@
 .chefmain {
-  height: 100vh;
   width: 100vw;
 }
 
-.bottom-area {
+.main-screen {
   width: 100vw;
   height: 85vh;
 }
 
-.bottom-area .main-area {
+.main-screen .main-area {
   width: 96vw;
   height: 80vh;
   background-color: white;
@@ -25,11 +24,11 @@
   white-space: nowrap;
 }
 
-.bottom-area .main-area::-webkit-scrollbar {
+.main-screen .main-area::-webkit-scrollbar {
   display: none;
 }
 
-.bottom-area .main-area .tableOrderItem {
+.main-screen .main-area .tableOrderItem {
   background-color: var(--main-color);
 
   border: 1px solid black;
@@ -41,23 +40,23 @@
   margin: 1vw;
 }
 
-.bottom-area .main-area .hide {
+.main-screen .main-area .hide {
   /* display: none; */
   background-color: red;
 }
 
-.bottom-area .main-area .tableOrderItem .orderTableId {
+.main-screen .main-area .tableOrderItem .orderTableId {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 1vh;
 }
 
-.bottom-area .main-area .tableOrderItem .tableOrderItem__time {
+.main-screen .main-area .tableOrderItem .tableOrderItem__time {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 3vh;
 }
 
-.bottom-area .main-area .tableOrderItem .clear {
+.main-screen .main-area .tableOrderItem .clear {
   text-decoration: line-through;
 }

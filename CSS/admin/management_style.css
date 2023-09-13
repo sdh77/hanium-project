@@ -44,7 +44,8 @@
 }
 
 .listselect .click {
-  background-color: blue;
+  background-color: var(--main-color);
+  color: black;
 }
 
 .list span {

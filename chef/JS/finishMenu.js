@@ -1,9 +1,9 @@
 var finishMenus = document.querySelectorAll(
-  ".bottom-area .main-area .tableOrderItem .tableOrderItem__menu"
+  ".main-screen .main-area .tableOrderItem .tableOrderItem__menu"
 );
 
 var finishTables = document.querySelectorAll(
-  ".bottom-area .main-area .tableOrderItem"
+  ".main-screen .main-area .tableOrderItem"
 );
 
 var newCnt = finishMenus.length;
@@ -46,4 +46,4 @@ function checkTable() {
     }
   });
 }
-document.querySelector(".bottom-area .main-area").scrollTo(1000, 0);
+document.querySelector(".main-screen .main-area").scrollTo(1000, 0);
