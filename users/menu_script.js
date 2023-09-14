@@ -92,6 +92,9 @@ $(document).ready(function () {
         console.log(error);
       },
     });
+    $("#total-price").text(0);
+    $(".cart-item").not(":first").remove();
+    alert("주문 완료!!!");
   });
 
   // 직원 호출 service. orderdetail DB로 전송
@@ -247,8 +250,8 @@ function getBotResponse(message) {
         document.querySelector(".chat-message").innerHTML = "";
         document.querySelector(".chat-area").style.display = "block";
         document.querySelector(".chatdisplay-area").style.display = "none";
-        $("#total-price").text(0);
-        $(".cart-item").not(":first").remove();
+        // $("#total-price").text(0);
+        // $(".cart-item").not(":first").remove();
       }, 3000);
       return "주문이 완료되었습니다!";
       break;

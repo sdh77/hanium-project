@@ -6,7 +6,7 @@ $result = pg_query($conn, $sql);
 $row = pg_fetch_assoc($result);
 
 echo '
-    <div class="left">
+    <div class="right">
       <button onclick="hide()">닫기</button>
     </div>
     <div class="header">세부 수정</div>
@@ -25,21 +25,7 @@ echo '
       <option value="와인" ' . ($row["div"] == "와인" ? "selected" : "") . '>와인</option>
       <option value="주류" ' . ($row["div"] == "주류" ? "selected" : "") . '>주류</option>
     </select></div>
-    <div><p>추천</p>';
-
-
-if ($row["recommend"] == "t")
-  echo '<input id="recoCheck" type="checkbox" checked><label for="recoCheck"></label></div>';
-else
-  echo '<input id="recoCheck" type="checkbox"><label for="recoCheck"></label></div>';
-echo '<div><p>new</p>';
-if ($row["new"] == "t")
-  echo '<input id="newCheck" type="checkbox" checked><label for="newCheck"></label>';
-else
-  echo '<input id="newCheck" type="checkbox"><label for="newCheck"></label>';
-echo '
-    </div>
-    <div> 
+        <div> 
       <p>맵기</p>
       <div>
       <a class="spicy ';
@@ -55,14 +41,30 @@ if ($row["spicy"] == 2)
   echo 'thisSpicy';
 echo '" onclick="change_spicy()" >2</a></div>
     </div>
+    <div><p>추천</p>';
+
+
+if ($row["recommend"] == "t")
+  echo '<input id="recoCheck" type="checkbox" checked><label for="recoCheck"></label></div>';
+else
+  echo '<input id="recoCheck" type="checkbox"><label for="recoCheck"></label></div>';
+echo '<div><p>new</p>';
+if ($row["new"] == "t")
+  echo '<input id="newCheck" type="checkbox" checked><label for="newCheck"></label>';
+else
+  echo '<input id="newCheck" type="checkbox"><label for="newCheck"></label>';
+echo '
+    </div>
+
     </div>
     <div class="popupimg">
       <img src= "image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>
-      <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
+      <div><label class="addPhoto" for="fileToUpload">🔥Add Photo</label>
+      <input type="file" name="fileToUpload" id="fileToUpload"></div>
     </div>    
   <div class="popupbottom">
     <div><a onclick="thisDelete(' . $id . ')">삭제</a></div>
-    <div><a onclick="thisUpdate(' . $id . ')">수정</button></div>
+    <div><a onclick="thisUpdate(' . $id . ')">수정</a></div>
   </div>';
 pg_close($conn);
 ?>

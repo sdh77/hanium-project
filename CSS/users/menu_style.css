@@ -51,8 +51,8 @@
 
 /* serv-popup 창 */
 .serv-popup,
-.servtext-area,
-.servTextBtn-area {
+.servtext-area {
+  /* .servTextBtn-area { */
   justify-content: center;
   align-items: center;
 }
@@ -77,24 +77,34 @@
 }
 #closepopup-button {
   margin-left: auto;
+  height: 100%;
+  width: 2vw;
+  border: none;
+  font-size: 2.5vh;
 }
+
 .servTextBtn-area {
-  display: flex;
+  display: grid;
   width: 100%;
   height: 90%;
+  grid-template-columns: repeat(3, 30%);
+  gap: 7px 14px;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
 }
+
 .servText {
   display: block;
   cursor: pointer;
   text-align: center;
-  width: 150px;
-  height: 100px;
+  width: 100%;
+  height: 90%;
   color: white;
   background-color: #777;
   border: none;
   border-radius: 5px;
+  font-size: 4vh;
 }
 .servText:hover {
   background-color: black;
@@ -120,8 +130,9 @@
 }
 
 .menu_select a {
-  margin: 10px;
-  width: 8vw;
+  margin: 0.7vw;
+  /* width: 8vw; */
+  width: auto;
   height: 5vh;
   background-color: #76758a;
   border-radius: 25px;
@@ -131,12 +142,16 @@
   align-items: center;
   cursor: pointer;
 }
-.menu_select .middle_long {
+.menu_select a p {
+  margin: 1vh 2.5vw;
+}
+
+/* .menu_select .middle_long {
   width: 12vw;
 }
 .menu_select .long {
   width: 18vw;
-}
+} */
 
 /*중간 부분*/
 .middlearea {
@@ -469,7 +484,16 @@
   position: absolute;
   top: 0;
   right: 0;
+  border: none;
+  background-color: var(--main-color);
+  text-align: center;
+  height: 2.5vh;
+  width: 2.5vh;
 }
+.cart-item-delete p {
+  margin-top: 0.25vh;
+}
+
 .menu-name {
   flex-basis: 50%;
 }
@@ -481,7 +505,24 @@
 }
 .quantity-area {
   display: flex;
+  height: 2vh;
 }
+
+.quantity-area .quantity {
+  margin-right: 10px;
+  justify-content: center;
+}
+
+.quantity-area button {
+  border: none;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  text-align: center;
+  height: 2vh;
+  width: 2vh;
+  margin-right: 1px;
+}
+
 #item-container {
   display: flex;
   width: 75vw;

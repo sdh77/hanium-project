@@ -117,7 +117,7 @@
 
 .list span .update div,
 .list span .update div div {
-  border: none
+  border: none;
 }
 
 /* .list span div .update div .adminMenuImg {
@@ -176,7 +176,7 @@
   /* transition: all 0.5s; */
 }
 
-.popup .left {
+.popup .right {
   display: flex;
   float: right;
 }
@@ -188,7 +188,7 @@
   margin: 3vh;
 }
 
-.popup .left button {
+.popup .right button {
   border: none;
   background-color: gray;
   font-size: 3vh;
@@ -198,6 +198,8 @@
 .popup .popupmain {
   display: flex;
   flex-direction: row;
+  height: 59vh;
+  position: relative;
 }
 
 .popup .popupmain .popupcenter {
@@ -208,17 +210,22 @@
 .popup .popupmain .popupcenter div {
   display: flex;
   flex-direction: row;
-  padding: 1.5vh;
+  padding: 1.5vh 1.5vh 1.5vh 0;
   align-items: center;
+  height: 5vh;
 }
 
 .popup .popupmain .popupcenter div p {
+  padding-left: 1.5vh;
   width: 6vw;
 }
 
 .popup .popupmain .popupcenter div input {
   font-size: 3vh;
   width: 20vw;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  text-align: center;
 }
 
 .popup .popupmain .popupcenter div p {
@@ -238,7 +245,7 @@
 
 .popup .popupmain .popupcenter div select {
   appearance: none;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
   text-align-last: center;
 }
 
@@ -257,17 +264,18 @@
 .popup .popupmain .popupimg div {
   font-size: 1vw;
   text-align: center;
+  padding: 20px;
 }
 
 .popup .popupbottom {
   display: flex;
-  width: 87vw;
+  width: 100%;
   font-size: 3vh;
   position: absolute;
   box-sizing: border-box;
   justify-content: space-between;
   bottom: 1px;
-  padding: 1vw;
+  padding: 0.5vh;
 }
 
 .popup .popupbottom div {
@@ -282,7 +290,7 @@ input[type="checkbox"] {
   display: none;
 }
 
-input[type="checkbox"]+label {
+input[type="checkbox"] + label {
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -290,8 +298,8 @@ input[type="checkbox"]+label {
   position: relative;
 }
 
-input[id="newCheck"]:checked+label::after,
-input[id="recoCheck"]:checked+label::after {
+input[id="newCheck"]:checked + label::after,
+input[id="recoCheck"]:checked + label::after {
   content: "✔";
   font-size: 25px;
   width: 30px;
@@ -300,4 +308,14 @@ input[id="recoCheck"]:checked+label::after {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+#fileToUpload {
+  display: none;
+}
+
+.addPhoto {
+  background-color: var(--main-color);
+  padding: 10px;
+  border-radius: 20px;
 }

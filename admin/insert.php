@@ -1,6 +1,6 @@
 <?php
 echo '
-    <div class="left">
+    <div class="right">
       <button onclick="hide()">닫기</button>
     </div>
     <div class="header">메뉴 추가</div>
@@ -19,23 +19,27 @@ echo '
       <option value="와인">와인</option>
       <option value="주류">주류</option>
     </select></div>
+    <div> 
+      <p>맵기</p>
+      <div>
+        <a class="spicy thisSpicy" onclick="change_spicy()">0</a></div>
+        <div><a class="spicy" onclick="change_spicy()" >1</a></div>
+        <div><a class="spicy" onclick="change_spicy()" >2</a></div>
+      </div>
     <div><p>추천</p>';
 echo '<input id="recoCheck" type="checkbox"><label for="recoCheck"></label></div>';
 echo '<div><p>new</p>';
 echo '<input id="newCheck" type="checkbox" checked><label for="newCheck"></label>
     </div>
-    <div> 
-      <p>맵기</p>
-      <div>
-      <a class="spicy thisSpicy" onclick="change_spicy()">0</a></div>
-      <div><a class="spicy" onclick="change_spicy()" >1</a></div>
-      <div><a class="spicy" onclick="change_spicy()" >2</a></div>
     </div>
-    </div>
+
     <div class="popupimg">
-    <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
-  </div>  
+      <div>
+        <label class="addPhoto" for="fileToUpload">🔥Add Photo</label>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+      </div>
+    </div>  
     <div class="popupbottom">
-      <div><a onclick="sendInsert()">추가</button></div>
+      <div><a onclick="sendInsert()">추가</a></div>
     </div>';
 ?>

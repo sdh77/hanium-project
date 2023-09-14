@@ -27,7 +27,6 @@
 
     <div class="serv-popup">
       <div class="servtext-area">
-        <p>무엇을 도와드릴까요?</p>
         <button id="closepopup-button">x</button>
       </div>
       <div class="servTextBtn-area">
@@ -42,15 +41,33 @@
 
     <div class="main">
       <div class="menu_select">
-        <a class="menu click" onclick="change_check(); set_type('all');">전체</a>
-        <a class="menu" onclick="change_check(); set_type('파스타');">파스타</a>
-        <a class="menu" onclick="change_check(); set_type('라이스');">라이스</a>
-        <a class="menu" onclick="change_check(); set_type('샐러드');">샐러드</a>
-        <a class="menu" onclick="change_check(); set_type('피자');">피자</a>
-        <a class="menu middle_long" onclick="change_check(); set_type('스테이크');">스테이크</a>
-        <a class="menu" onclick="change_check(); set_type('사이드');">사이드</a>
-        <a class="menu" onclick="change_check(); set_type('음료');">음료</a>
-        <a class="menu long" onclick="change_check(); set_type('술');">와인 및 주류</a>
+        <a class="menu click" onclick="change_check(); set_type('all');">
+          <p>전체</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('파스타');">
+          <p>파스타</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('라이스');">
+          <p>라이스</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('샐러드');">
+          <p>샐러드</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('피자');">
+          <p>피자</p>
+        </a>
+        <a class="menu middle_long" onclick="change_check(); set_type('스테이크');">
+          <p>스테이크</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('사이드');">
+          <p>사이드</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('음료');">
+          <p>음료</p>
+        </a>
+        <a class="menu long" onclick="change_check(); set_type('술');">
+          <p>와인 및 주류</p>
+        </a>
       </div>
       <div class="middlearea">
         <div class="menu-list">
@@ -92,13 +109,19 @@
           <div id="cart">
             <div class="cart-item" style="display: none;">
               <img class="menu-imgsrc" src="" alt="Menu Image">
-              <button class="cart-item-delete">X</button>
+              <button class="cart-item-delete">
+                <p>X</p>
+              </button>
               <p class="menu-name"></p>
               <div class="cart-item-bottom">
                 <div class="quantity-area">
                   <p class="quantity">1</p>
-                  <button class="decrease">-</button>
-                  <button class="increase">+</button>
+                  <button class="decrease">
+                    -
+                  </button>
+                  <button class="increase">
+                    +
+                  </button>
                 </div>
                 <p class="single-price" style="display:none;"></p>
                 <p class="item-price"></p>
@@ -113,7 +136,9 @@
             <span id="total-price">0</span>
           </div>
           <button id="orderButton">주문하기</button>
-          <button id="closeshop-button">x</button>
+          <button id="closeshop-button">
+            <p>x</p>
+          </button>
         </div>
       </div>
       <!--
