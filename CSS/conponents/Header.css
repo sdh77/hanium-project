@@ -12,7 +12,7 @@
   position: fixed;
   height: 14vh;
   width: 100vw;
-  z-index: 1000;
+  z-index: 900;
   background-color: white;
   display: flex;
   flex-direction: column;

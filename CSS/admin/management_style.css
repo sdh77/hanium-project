@@ -2,7 +2,7 @@
   position: fixed;
   height: 28vh;
   width: 100vw;
-  z-index: 1000;
+  z-index: 900;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@
 
 .list span {
   display: grid;
-  grid-template-columns: 10vw 60vw 10vw;
+  grid-template-columns: 60vw 10vw;
   justify-content: center;
   text-align: center;
   height: auto;
@@ -89,7 +89,7 @@
   height: 8vh;
 }
 
-.list span div {
+.list span div:not(.id) {
   border: 1px solid gray;
   font-size: 5vh;
   display: flex;
@@ -97,6 +97,10 @@
   align-items: center;
   text-align: center;
   padding: 0.5vh 0;
+}
+
+.id {
+  display: none;
 }
 
 .list span .btn {
@@ -108,10 +112,12 @@
 .list span .update {
   border: none;
   background-color: white;
+  border: 1px solid gray;
 }
 
-.list span div .update div {
-  border: none;
+.list span .update div,
+.list span .update div div {
+  border: none
 }
 
 /* .list span div .update div .adminMenuImg {
@@ -162,12 +168,12 @@
 .show {
   opacity: 1;
   z-index: 1000;
-  transition: all 0.5s;
+  /* transition: all 0.5s; */
 }
 
 .show .popup {
   transform: (-50%, -50%);
-  transition: all 0.5s;
+  /* transition: all 0.5s; */
 }
 
 .popup .left {
@@ -205,17 +211,21 @@
   padding: 1.5vh;
   align-items: center;
 }
+
 .popup .popupmain .popupcenter div p {
   width: 6vw;
 }
+
 .popup .popupmain .popupcenter div input {
   font-size: 3vh;
   width: 20vw;
 }
+
 .popup .popupmain .popupcenter div p {
   font-size: 4vh;
   margin-right: 20px;
 }
+
 .popup .popupmain .popupcenter div div .spicy {
   background-color: gray;
   font-size: 3vh;
@@ -225,6 +235,7 @@
 .popup .popupmain .popupcenter div div .thisSpicy {
   color: red;
 }
+
 .popup .popupmain .popupcenter div select {
   appearance: none;
   font-size: 2.5vh;
@@ -270,15 +281,17 @@
 input[type="checkbox"] {
   display: none;
 }
-input[type="checkbox"] + label {
+
+input[type="checkbox"]+label {
   display: inline-block;
   width: 30px;
   height: 30px;
   border: 3px solid #707070;
   position: relative;
 }
-input[id="newCheck"]:checked + label::after,
-input[id="recoCheck"]:checked + label::after {
+
+input[id="newCheck"]:checked+label::after,
+input[id="recoCheck"]:checked+label::after {
   content: "✔";
   font-size: 25px;
   width: 30px;

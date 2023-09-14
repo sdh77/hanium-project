@@ -57,7 +57,7 @@ echo '" onclick="change_spicy()" >2</a></div>
     </div>
     </div>
     <div class="popupimg">
-      <img src="/hanium_Order_Table/admin/image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>
+      <img src= "image/이미지(jpg)/' . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>
       <div><input type="file" name="fileToUpload" id="fileToUpload"></div>
     </div>    
   <div class="popupbottom">
