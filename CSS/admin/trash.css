@@ -1,0 +1,60 @@
+.popupHeader {
+  width: 100%;
+  height: 20%;
+  font-size: 8vh;
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.popupRight {
+  position: absolute;
+  right: 0.5vh;
+  top: 0.5vh;
+  background-color: gray;
+}
+
+.popupRight button {
+  border: none;
+  font-size: 3vh;
+  width: 5vw;
+}
+.scroll {
+  overflow: auto;
+  white-space: nowrap;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.trashGrid {
+  place-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  row-gap: 2vh;
+}
+
+.trash__div {
+  width: 90%;
+  height: auto;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.trash__div div {
+  justify-items: center;
+}
+
+#trash-img {
+  width: 10vh;
+  height: 10vh;
+  margin: 0 25%;
+}
+.trash__div .trash__menu {
+  font-size: 2vh;
+  border: none;
+}

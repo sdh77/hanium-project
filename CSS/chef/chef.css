@@ -20,8 +20,6 @@
   align-items: center;
   overflow: auto;
   white-space: nowrap;
-  overflow: auto;
-  white-space: nowrap;
 }
 
 .main-screen .main-area::-webkit-scrollbar {

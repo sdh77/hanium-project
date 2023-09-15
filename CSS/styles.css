@@ -11,6 +11,7 @@
 @import "admin/index_style.css";
 @import "admin/management_style.css";
 @import "admin/toDayOrder.css";
+@import "admin/trash.css";
 
 @import "users/index_style.css";
 @import "users/menu_style.css";

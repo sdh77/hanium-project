@@ -5,17 +5,16 @@ $search = $_GET['newsearch'];
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
 //  echo $pagenum. $type. $search;
 if ($search != "")
-  $sql = "select * from menu where name  like '%" . $search . "%' order by id";
+  $sql = "select * from menu where trash = false and name  like '%" . $search . "%' order by id";
 else {
   if ($type == "술")
-    $sql = "select * from menu where div in ('주류','와인') order by id";
+    $sql = "select * from menu where trash = false and div in ('주류','와인') order by id";
   else if ($type == "all")
-    $sql = "select * from menu order by id";
+    $sql = "select * from menu where trash = false order by id";
   else
-    $sql = "select * from menu where div ='" . $type . "' order by id";
+    $sql = "select * from menu where trash = false and div ='" . $type . "' order by id";
 }
 $result = pg_query($conn, $sql);
-
 echo "<span class='headerdiv'><div>이름</div><div>판매현황</div></span>";
 if ($result) {
   $totalnum = pg_num_rows($result);

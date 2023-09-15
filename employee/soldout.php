@@ -1,6 +1,6 @@
 <?php
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
-$sql = "select * from menu where div in('주류','와인','음료') order by div, id";
+$sql = "select * from menu where trash = false and div in('주류','와인','음료') order by div, id";
 $result = pg_query($conn, $sql);
 
 echo'<div class="soldOutarea">';
