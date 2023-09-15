@@ -171,10 +171,10 @@
   /* transition: all 0.5s; */
 }
 
-.show .popup {
+/* .show .popup {
   transform: (-50%, -50%);
-  /* transition: all 0.5s; */
-}
+  transition: all 0.5s;
+} */
 
 .popup .right {
   display: flex;
@@ -193,6 +193,7 @@
   background-color: gray;
   font-size: 3vh;
   margin: 0.5vh;
+  width: 5vw;
 }
 
 .popup .popupmain {
@@ -318,4 +319,15 @@ input[id="recoCheck"]:checked + label::after {
   background-color: var(--main-color);
   padding: 10px;
   border-radius: 20px;
+}
+
+.trash {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border: 0;
+  font-size: 2vh;
+}
+.trash div {
+  margin: 3vh;
 }

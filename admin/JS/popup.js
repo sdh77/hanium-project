@@ -1,9 +1,10 @@
 const updateBtns = document.querySelectorAll(".list span .update");
 const popup = document.querySelector(".background");
-console.log(updateBtns);
+
 function show(target) {
-  let id = target.parentNode.parentNode.querySelector(".id").innerText;
+  let id = target.parentNode.querySelector(".id").innerText;
   popup.classList.add("show");
+
   loadUpdatePage(id);
 }
 
@@ -32,6 +33,13 @@ updateBtns.forEach((target) => {
 function loadInsertPage() {
   popup.classList.add("show");
   $.ajax({ url: "insert.php" }).done(function (data) {
+    $(".popup").html(data);
+  });
+}
+
+function trashPage() {
+  popup.classList.add("show");
+  $.ajax({ url: "trashList.php" }).done(function (data) {
     $(".popup").html(data);
   });
 }

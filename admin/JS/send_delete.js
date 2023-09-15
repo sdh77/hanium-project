@@ -3,8 +3,10 @@ function thisDelete(id) {
     let params = {
       newid: id,
     };
-    $.ajax({ url: "deleteDo.php", type: "get", data: params });
+    $.ajax({ url: "gotoTrash.php", type: "get", data: params });
     // alert("삭제 완료");
+    new KeyboardEvent("keydown", { keyCode: 13 });
+
     hide();
     loadpageList();
   }
