@@ -106,23 +106,12 @@ $(document).ready(function () {
   });
   $(".servText").click(function () {
     var servicetext = $(this).text();
+
     var order = {
       tableid: $("#table-number").text(),
       serviceText: servicetext,
-      type: "service",
     };
-    $.ajax({
-      url: "orderdetail.php",
-      type: "POST",
-      data: JSON.stringify(order),
-      contentType: "application/json; charset=utf-8",
-      success: function (response) {
-        console.log(response);
-      },
-      error: function (error) {
-        console.log(error);
-      },
-    });
+    $.ajax({ url: "callSend.php", type: "get", data: order });
   });
 });
 

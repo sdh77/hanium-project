@@ -44,6 +44,9 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+.table-info__callList {
+  width: 13vw;
+}
 .table-info__orderTime {
   display: none;
 }
