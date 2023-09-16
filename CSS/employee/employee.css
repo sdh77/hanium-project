@@ -44,9 +44,27 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+@keyframes bounce {
+  0% {
+    transform: 0;
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+
+  100% {
+    transform: 0;
+  }
+
+}
+
 .table-info__callList {
   width: 13vw;
+  animation: bounce 1s linear infinite;
+  font-size: 2.3vh;
 }
+
 .table-info__orderTime {
   display: none;
 }

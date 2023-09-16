@@ -21,7 +21,7 @@
           $call = trim($row["name"]);
           if($call == "숟가락") echo '<i class="fa-solid fa-spoon"></i>';
           else if($call == "물") echo'<i class="fa-solid fa-glass-water"></i>';
-          else if($call == "젓가락") echo '<i class="fa-solid fa-equals" style="transform: rotate(45deg)"></i>';
+          else if($call == "젓가락") echo '<i class="fa-solid fa-equals" style="transform: rotate(-45deg)"></i>';
           else if($call == "앞접시") echo '<i class="fa-solid fa-circle"></i>';
           else if($call == "앞치마") echo '<i class="fa-solid fa-shirt"></i>';
           else if($call == "직원 호출") echo '<i class="fa-regular fa-bell"></i>';
