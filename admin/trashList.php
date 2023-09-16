@@ -8,6 +8,10 @@ echo'
 <div class="popupRight">
   <button onclick="hide()">닫기</button>
 </div>
+<div class="selectMenu">
+<button onclick="recoverAll()">모두 복구</button>
+<button onclick="deleteAll()">모두 삭제</button>
+</div>
 <div class="scroll">
 <div class="trashGrid">';
 
@@ -15,9 +19,9 @@ if ($result) {
   $totalnum = pg_num_rows($result);
   if ($totalnum > 0) {
     while ($row = pg_fetch_assoc($result)) {
-      echo '<div class="trash__div"><div><img id="trash-img" src="../admin/image/이미지(jpg)/'
+      echo '<div class="trash__div"> <button class="trash__menu"><div><img id="trash-img" src="../admin/image/이미지(jpg)/'
       . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img></div><div class="id">' 
-      . $row["id"] . '</div> <button class="trash__menu"><div>' . $row["name"] . '</div></button></div>';
+      . $row["id"] . '</div><div>' . $row["name"] . '</div></button></div>';
     }
   }
 } else {
@@ -26,3 +30,5 @@ if ($result) {
 echo'</div></div>';
 pg_close($conn);
 ?>
+
+<script src="JS/deleteOrRecover.js"></script>

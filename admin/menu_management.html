@@ -10,14 +10,19 @@
 </head>
 
 <body>
+
   <div class="menu-fix">
     <div class="menu__Header">메뉴 관리</div>
+
     <div class="searchArea">
       <div>
         <input></input>
       </div>
       <button onclick="search();">검색</button>
       <button onclick="loadInsertPage();">메뉴추가</button>
+      <!-- <button class="trash" onclick="trashPage()">
+        <i class="fa-regular fa-trash-can"></i>
+      </button> -->
     </div>
 
     <div class="listselect">
@@ -40,9 +45,10 @@
   </div>
 
   <button class="trash" onclick="trashPage()">
-    <div>휴지통</div>
+    <i class="fa-regular fa-trash-can"></i>
   </button>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>
   <script src="JS/menu_list_script.js?ver1"></script>
   <script src="JS/menu_search.js?ver1"></script>
   <script src="JS/div_select.js?ver1"></script>

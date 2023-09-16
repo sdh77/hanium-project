@@ -33,6 +33,7 @@ if ($result) {
 } else {
   echo "오류 발생: " . pg_last_error($conn);
 }
+echo"<span class='lastDiv'><div></div><div></div></span>";
 pg_close($conn);
 ?>
 <script src="JS/send_sold_out.js?ver3"></script>

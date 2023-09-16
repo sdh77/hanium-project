@@ -32,7 +32,7 @@
 .trashGrid {
   place-items: center;
   display: grid;
-  grid-template-columns: repeat(3, 33%);
+  grid-template-columns: repeat(3, 15vw);
   row-gap: 2vh;
 }
 
@@ -47,6 +47,7 @@
 
 .trash__div div {
   justify-items: center;
+  width: 15vw;
 }
 
 #trash-img {

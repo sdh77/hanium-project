@@ -6,5 +6,6 @@ $sql = "delete from menu where id = " . $id;
 
 echo $sql;
 pg_query($conn, $sql);
-
+pg_close($conn);
+ 
 ?>
