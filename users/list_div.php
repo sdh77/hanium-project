@@ -73,10 +73,24 @@ if ($result) {
         echo'</div><div class="newRecItem">';
         if($row["new"] == "t") echo'<div class="newItem">new</div>';
         if($row["recommend"] == "t") echo'<div class="recItem">추천</div>';
-
-        echo'</div><p class="menu">' . $row["name"] .'</p>' . '<br>' . '<p class="price">' .number_format ($row["price"], 0, ',', ',') . '</p></div>';
-
-
+        echo'</div>';
+        if((strlen($row["name"])<=16*2) && ($row['div'] !="와인")){
+          echo '<p class="menu">'.$row["name"].'</p><br>';
+        }
+        else if((strlen($row["name"])<=32*2) && ($row['div'] !="와인")){
+          echo '<p class="menu">'.$row["name"].'</p>';
+        }
+        else if((strlen($row["name"])<=16) && ($row['div'] =="와인")) {
+          echo '<p class="menu">'.$row["name"].'</p><br>';
+        }
+        else if((strlen($row["name"])<=30) && ($row['div'] =="와인")){
+          echo '<p class="menu">'.$row["name"].'</p>';
+        }
+        else{
+          echo '<p class="menu" style="font-size:1vw">'.$row["name"].'</p>';
+        }
+        echo '<p class="price">' .number_format ($row["price"], 0, ',', ',') . '</p></div>';
+// 16
         $viewcnt++;
       }
     }
