@@ -1,5 +1,5 @@
 var finishMenus = document.querySelectorAll(
-  ".main-screen .main-area .tableOrderItem .tableOrderItem__menu"
+  ".main-screen .main-area .tableOrderItem .orderdetail_list"
 );
 
 var finishTables = document.querySelectorAll(
@@ -29,11 +29,13 @@ function checkTable() {
   let check = 0;
   let cnt = 0;
   finishTables.forEach(function (finishTable) {
+    console.log(finishTable);
     finishTable
-      .querySelectorAll(".tableOrderItem__menu")
+      .querySelectorAll(".orderdetail_list")
       .forEach(function (checkClear) {
         if (checkClear.classList.item(2) == "clear") check++;
         cnt++;
+        console.log(cnt, check);
       });
     console.log(check, cnt);
     if (check == cnt) {

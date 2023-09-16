@@ -26,6 +26,26 @@
   display: none;
 }
 
+.main-screen .main-area .orderdetail_list {
+  display: flex;
+  font-size: 2.5vh;
+}
+
+.main-screen .main-area hr {
+  border-width: 1px 0 0 0;
+  border-color: #000;
+}
+
+.main-screen .main-area .orderdetail_list .tableOrderItem__menu {
+  width: 2vw;
+}
+
+.main-screen .main-area .orderdetail_list .orderdetail_name {
+  width: 13vw;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
 .main-screen .main-area .tableOrderItem {
   background-color: var(--main-color);
 
