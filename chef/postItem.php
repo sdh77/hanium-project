@@ -1,7 +1,8 @@
 <?php
 $today = $_GET['today'];
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
-$sql = "select * from orderdetail where DATE(date) = '" .$today."' order by orderdetail_id";
+$sql = "select * from orderdetail left join menu on orderdetail.name = menu.name 
+where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and DATE(date) = '" .$today."' order by orderdetail_id";
 $result = pg_query($conn, $sql);
 $id = 1;
 $oldtableId = 0;
