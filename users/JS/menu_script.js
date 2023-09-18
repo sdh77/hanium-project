@@ -310,3 +310,5 @@ function updatePrice() {
     grandTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   );
 }
+
+setInterval(loadpage_list, 10000);

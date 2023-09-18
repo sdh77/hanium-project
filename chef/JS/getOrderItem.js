@@ -11,19 +11,12 @@ let mode = 1;
 function orderItem() {
   btn.innerHTML = "재고 관리";
   header.innerHTML = "주문 관리";
-  let params = {
-    today: date,
-  };
-  $.ajax({ url: "postItem.php", type: "get", data: params }).done(function (
-    data
-  ) {
-    $(".main-screen").html(data);
-    set_time();
-  });
+
+  getOrderItem();
   btn.removeEventListener("click", orderItem);
   btn.addEventListener("click", soldout);
   // window.scrollTo(100);
-  mode = 0;
+  mode = 1;
 }
 
 function soldout() {
@@ -34,7 +27,19 @@ function soldout() {
   });
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", orderItem);
-  mode = 1;
+  mode = 0;
+}
+
+function getOrderItem() {
+  let params = {
+    today: date,
+  };
+  $.ajax({ url: "postItem.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $(".main-screen").html(data);
+    set_time();
+  });
 }
 orderItem();
-if (mode) setInterval(orderItem, 10000);
+if (mode) setInterval(getOrderItem, 10000);
