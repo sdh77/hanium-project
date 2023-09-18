@@ -22,6 +22,7 @@ function orderItem() {
   });
   btn.removeEventListener("click", orderItem);
   btn.addEventListener("click", soldout);
+  // window.scrollTo(100);
   mode = 0;
 }
 
