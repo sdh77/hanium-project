@@ -1,9 +1,17 @@
 .popupHeader {
   width: 100%;
-  height: 20%;
+  height: 15%;
   font-size: 8vh;
   margin-top: 2vh;
   text-align: center;
+}
+
+.selectMenu button {
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 2vh;
+  background-color: var(--main-color);
 }
 
 .popupRight {
