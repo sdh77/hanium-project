@@ -375,8 +375,8 @@
 }
 
 /* chatbot 영역 */
-.chat-area,
-.chatdisplay-area {
+.chatArea,
+.chatdisplayArea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -389,7 +389,7 @@
   z-index: 80;
 }
 
-.voice-box {
+.chatArea-voicebox {
   width: 100px;
   height: 50px;
   top: 500px;
@@ -402,17 +402,17 @@
   /*border: 2px solid ghostwhite;*/
 }
 
-.voice-box:hover {
+.chatArea-voicebox:hover {
   /*background-color: darkslateblue;*/
   color: rgba(46, 60, 102, 0.8);
   background-color: #fcefbb;
 }
 
-.chatdisplay-area {
+.chatdisplayArea {
   background-color: white;
 }
 
-.chat-message {
+.chatdisplayArea-messageDiv {
   display: flex;
   flex-direction: column;
   max-height: 500px;
@@ -442,7 +442,7 @@
   align-self: flex-start;
 }
 
-.chat-input {
+.chatdisplayArea-messageInput {
   position: flex;
   bottom: 0;
 }
