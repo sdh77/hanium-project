@@ -76,17 +76,19 @@
           <div class="item_grid" id="menupage"></div>
         </div>
 
-        <!-- 채팅 -->
-        <div class="chat-area">
-          <div class="voice-box">Voice Chat</div>
+	<!-- 채팅 -->
+        <div class="chatArea">
+          <div class="chatArea-voicebox">Voice Chat</div>
         </div>
-        <div class="chatdisplay-area" style="display: none;">
-          <div class="chat-message"></div>
-          <div class="chat-input">
-            <input type="text" id="userMessage" placeholder="Input Message..">
-            <button id="sendMessage">send</button>
+        <div class="chatdisplayArea" style="display: none;">
+          <div class="chatdisplayArea-messageDiv"></div>
+          <div class="chatdisplayArea-messageInput">
+            <input type="text" class="chatdisplayArea-messageInput-text" placeholder="Input Message..">
+            <button class="chatdisplayArea-messageInput-sendBtn">send</button>
             <button id="startRecording">record</button>
             <button id="stopRecording">stop</button>
+            <button id="stopChromeSTT">stopChromeSTT</button>
+            <audio id="audioPlayer" controls></audio>
           </div>
         </div>
       </div>
@@ -147,10 +149,12 @@
       </div>-->
     </div>
   </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
   <script src="JS/menu_script.js?ver2"></script>
-  <script src="JS/stt.js"></script>
+  <script src="JS/chat_script.js"></script>
+  <script src="JS/stt_script.js"></script>
+  <script src="JS/tts_script.js"></script>
   <script src="JS/call.js"></script>
 </body>
 

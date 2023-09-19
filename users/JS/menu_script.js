@@ -204,10 +204,12 @@ function loadpage_list() {
 }
 
 // do: 채팅 기능 chat-area 화면 전환 버튼
-document.querySelector(".voice-box").addEventListener("click", function () {
-  document.querySelector(".chat-area").style.display = "none";
-  document.querySelector(".chatdisplay-area").style.display = "block";
+document.querySelector(".chatArea-voicebox").addEventListener("click", function () {
+  document.querySelector(".chatArea").style.display = "none";
+  document.querySelector(".chatdisplayArea").style.display = "block";
 });
+
+/*
 // 채팅 기능 (chat-bot)
 document.querySelector("#sendMessage").addEventListener("click", function () {
   const userMessage = document.querySelector("#userMessage").value;
@@ -247,7 +249,7 @@ function getBotResponse(message) {
     default:
       return "무슨 말인지 모르겠어요.";
   }
-}
+}*/
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
