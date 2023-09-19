@@ -1,6 +1,8 @@
 <?php
+$today = $_GET['today'];
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
-$sql = "select * from orderdetail order by orderdetail_id";
+$sql = "select * from orderdetail left join menu on orderdetail.name = menu.name 
+where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and DATE(date) = '" .$today."' order by orderdetail_id";
 $result = pg_query($conn, $sql);
 $id = 1;
 $oldtableId = 0;
@@ -20,17 +22,19 @@ if ($result) {
             <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>';
             $id = 1;
         }
-        echo '<p class="tableOrderItem__menu '.$row["orderdetail_id"];
+        echo '<div class="orderdetail_list  '.$row["orderdetail_id"];
         if($row["clear"] == "t")
           echo' clear';
-        echo '">'.$id .". ". $row["name"] . " : " . $row["quantity"] . '</p>';
+        echo '"><p class="tableOrderItem__menu">'.$id .".</p><div class='orderdetail_name'>". $row["name"] . "</div><p> : " . $row["quantity"] . '</p></div>
+        <hr>';
         $oldtableId = $row["tableid"];
         $id++;
       } else {
-        echo '<p class="tableOrderItem__menu '.$row["orderdetail_id"];
+        echo '<div class="orderdetail_list  '.$row["orderdetail_id"];
         if($row["clear"] == "t")
           echo' clear ';
-        echo '">'.$id .". ". $row["name"] . " : " . $row["quantity"] . '</p>';
+        echo '"><p class="tableOrderItem__menu">'.$id .".</p><div class='orderdetail_name'>". $row["name"] . "</div><p> : " . $row["quantity"] . '</p></div>
+        <hr>';
         $id++;
       }
     }

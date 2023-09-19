@@ -11,8 +11,30 @@
     $time = 0;
     echo'<div class="table-info">
       <div class="table-info__row">
-        <div class="table-info__number">'.$tableID.'</div>
-        <div class="table-info__time">경과 시간</div>
+        <div class="table-info__number">'.$tableID.'</div>';
+    $newCall = "select * from call where table_id = " .$tableID;
+    $result = pg_query($conn, $newCall);
+    echo '<div class="table-info__callList">';
+    if ($result) {
+      if (pg_num_rows($result) > 0) {
+        while ($row = pg_fetch_assoc($result)) {
+          $call = trim($row["name"]);
+          if($call == "숟가락") echo '<i class="fa-solid fa-spoon"></i>';
+          else if($call == "물") echo'<i class="fa-solid fa-glass-water"></i>';
+          else if($call == "젓가락") echo '<i class="fa-solid fa-equals" style="transform: rotate(-45deg)"></i>';
+          else if($call == "앞접시") echo '<i class="fa-solid fa-circle"></i>';
+          else if($call == "앞치마") echo '<i class="fa-solid fa-shirt"></i>';
+          else if($call == "직원 호출") echo '<i class="fa-regular fa-bell"></i>';
+          else if($call == "물티슈") echo '<i class="fa-solid fa-box-tissue"></i>';
+          else if($call == "휴지") echo '<i class="fa-solid fa-toilet-paper"></i>';
+
+        }
+      }
+    }
+    echo'</div>';
+        
+
+    echo'<div class="table-info__time">경과 시간</div>
       </div>';
     $sql = "SELECT orderdetail.name, menu.div, orderdetail.date
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
@@ -82,3 +104,4 @@
 ?>
 
 <script src="JS/changeTime.js"></script>
+<script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>

@@ -13,7 +13,7 @@ function customItems() {
   getTableItem();
   btn.removeEventListener("click", customItems);
   btn.addEventListener("click", soldout);
-  mode = 0;
+  mode = 1;
 }
 
 function soldout() {
@@ -22,7 +22,7 @@ function soldout() {
   soldOutPage();
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", customItems);
-  mode = 1;
+  mode = 0;
 }
 
 getTableItem();
@@ -49,3 +49,6 @@ function soldOutPage() {
     $(".main-screen").html(data);
   });
 }
+
+customItems();
+if (mode) setInterval(getTableItem, 10000);
