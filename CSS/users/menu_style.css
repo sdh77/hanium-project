@@ -389,6 +389,7 @@
   overflow-y: auto;
   z-index: 80;
 }
+
 .chatArea-voicebox {
   width: 100px;
   height: 50px;
@@ -401,14 +402,17 @@
   border: 2px solid ghostwhite;
   /*border: 2px solid ghostwhite;*/
 }
+
 .chatArea-voicebox:hover {
   /*background-color: darkslateblue;*/
   color: rgba(46, 60, 102, 0.8);
   background-color: #fcefbb;
 }
+
 .chatdisplayArea {
   background-color: white;
 }
+
 .chatdisplayArea-messageDiv {
   display: flex;
   flex-direction: column;
@@ -436,6 +440,7 @@
   border: 2px solid #ccc;
   align-self: flex-start;
 }
+
 .selector {
   border: 1px solid #ccc;
 }

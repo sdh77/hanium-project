@@ -41,6 +41,7 @@ $(document).ready(function () {
             addMessageToChat('selector', "3. 취향대로 추천해줘");
             addMessageToChat('selector', "4. 주문 도와줘");
             addMessageToChat('selector', "5. 직원 호출해 줘");
+
 	    ListeningUserMessage = true;
 	  } else if (ListeningUserMessage) {
 	    addMessageToChat('user', transcript);
@@ -74,6 +75,7 @@ $(document).ready(function () {
 });
 
 // 챗봇, 유저, 선택지 출력
+
 function addMessageToChat(sender, message) {
   const messageDiv = $("<div>").addClass(sender).text(message);
   $(".chatdisplayArea-messageDiv").append(messageDiv);
