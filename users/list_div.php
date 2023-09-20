@@ -12,12 +12,14 @@ $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski p
 if ($search != "")
   $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
 else if ($order_type == "추천") {
-  if ($type == "술")
-    $sql = "select * from menu where trash = false and div in ('주류','와인') order by recommend desc, new desc, id";
-  else if ($type == "all")
-    $sql = "select * from menu where trash = false order by recommend desc, new desc, id";
-  else
-    $sql = "select * from menu where trash = false and div ='" . $type . "' order by recommend desc, new desc, id";
+    $sql = "select * from menu where trash = false and recommend = true order by new desc, id";
+
+  // if ($type == "술")
+  //   $sql = "select * from menu where trash = false and div in ('주류','와인') order by recommend desc, new desc, id";
+  // else if ($type == "all")
+  //   $sql = "select * from menu where trash = false order by recommend desc, new desc, id";
+  // else
+  //   $sql = "select * from menu where trash = false and div ='" . $type . "' order by recommend desc, new desc, id";
 } else if ($order_type == "판매량") {
   if ($type == "술")
     $sql = "select * from menu where trash = false and div in ('주류','와인') order by cnt, new desc, id";
