@@ -79,4 +79,8 @@ $(document).ready(function () {
 function addMessageToChat(sender, message) {
   const messageDiv = $("<div>").addClass(sender).text(message);
   $(".chatdisplayArea-messageDiv").append(messageDiv);
+  const messageArea = document.querySelector(".main .middlearea .chatdisplayArea .chatdisplayArea-messageDiv");
+  messageArea.scrollTop = messageArea.scrollHeight;
+  
 }
+
