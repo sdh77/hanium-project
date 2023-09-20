@@ -11,6 +11,10 @@ $(document).ready(function () {
     // do: 메뉴 클릭 이벤트 핸들러 (메뉴 장바구니에 담기)
     $(document).off("click", ".noSoldOut");
     $(document).on("click", ".noSoldOut", function () {
+      // 애니메이션 효과
+      $(this).animate({opacity: 0.3}, 200, function () {
+        $(this).animate({opacity: 1}, 300);
+      });
       const menuImg = $(this).find("#menu-img").attr("src");
       const menuName = $(this).find(".menu").text();
       const menuPrice = Number($(this).find(".price").text().replace(",", ""));

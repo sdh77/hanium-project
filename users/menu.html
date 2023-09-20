@@ -78,18 +78,24 @@
 
 	<!-- 채팅 -->
         <div class="chatArea">
-          <div class="chatArea-voicebox">Voice Chat</div>
+          <div class="chatArea-voicebox" style="width: 100px; height: 150px;">주문이 어렵다면 "키오스키야"를 불러주세요!</div>
         </div>
         <div class="chatdisplayArea" style="display: none;">
           <div class="chatdisplayArea-messageDiv"></div>
           <div class="chatdisplayArea-messageInput">
-            <input type="text" class="chatdisplayArea-messageInput-text" placeholder="Input Message..">
-            <button class="chatdisplayArea-messageInput-sendBtn">send</button>
-            <button id="startRecording">record</button>
-            <button id="stopRecording">stop</button>
-            <button id="stopChromeSTT">stopChromeSTT</button>
-            <audio id="audioPlayer" controls></audio>
-          </div>
+            <div class="chatdisplayArea-messageInput-group">
+              <div class="chatdisplayArea-messageInput-1">
+                <input type="text" class="chatdisplayArea-messageInput-text" style="width: 350px;" placeholder="Input Message..">
+                <button class="chatdisplayArea-messageInput-sendBtn">send</button>
+	      </div>
+              <div class="chatdisplayArea-messageInput-2">
+	        <button id="startRecording">record</button>
+                <button id="stopRecording">stop</button>
+                <button id="stopChromeSTT">stopChromeSTT</button>
+                <audio id="audioPlayer" controls style="display: none;"></audio>
+              </div>
+	    </div>
+	  </div>
         </div>
       </div>
 

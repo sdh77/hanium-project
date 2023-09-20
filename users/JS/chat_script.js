@@ -35,7 +35,12 @@ $(document).ready(function () {
   	    document.querySelector(".chatdisplayArea").style.display = "block"; // jQuery 왜안됨
 
             // 메시지를 chatbox에 추가
-            addMessageToChat('bot', "네, 부르셨어요?");
+            addMessageToChat('bot', "어서오세요! 주문을 도와드리는 키오스키입니다^_^");
+            addMessageToChat('selector', "1. 메뉴 검색해줘");
+            addMessageToChat('selector', "2. 추천메뉴 알려줘");
+            addMessageToChat('selector', "3. 취향대로 추천해줘");
+            addMessageToChat('selector', "4. 주문 도와줘");
+            addMessageToChat('selector', "5. 직원 호출해 줘");
 	    ListeningUserMessage = true;
 	  } else if (ListeningUserMessage) {
 	    addMessageToChat('user', transcript);
@@ -68,6 +73,7 @@ $(document).ready(function () {
 
 });
 
+// 챗봇, 유저, 선택지 출력
 function addMessageToChat(sender, message) {
   const messageDiv = $("<div>").addClass(sender).text(message);
   $(".chatdisplayArea-messageDiv").append(messageDiv);

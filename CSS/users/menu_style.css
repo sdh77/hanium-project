@@ -2,7 +2,6 @@
 .area-hidden {
   display: none;
 }
-
 .area-visible {
   display: flex;
 }
@@ -374,6 +373,7 @@
   background-color: #fcefbb;
 }
 
+
 /* chatbot 영역 */
 .chatArea,
 .chatdisplayArea {
@@ -381,14 +381,14 @@
   flex-direction: column;
   justify-content: space-between;
   width: 26vw;
-  height: calc(70vh-8px);
+  /* height: calc(70vh-8px); */
+  height: 71.1vh;  /* 테두리값 뺀거임! */
   /*background-color: rgba(46,60,102, 0.8);*/
   background-color: #76758a;
   border: 4px solid #76758a;
   overflow-y: auto;
   z-index: 80;
 }
-
 .chatArea-voicebox {
   width: 100px;
   height: 50px;
@@ -401,26 +401,23 @@
   border: 2px solid ghostwhite;
   /*border: 2px solid ghostwhite;*/
 }
-
 .chatArea-voicebox:hover {
   /*background-color: darkslateblue;*/
   color: rgba(46, 60, 102, 0.8);
   background-color: #fcefbb;
 }
-
 .chatdisplayArea {
   background-color: white;
 }
-
 .chatdisplayArea-messageDiv {
   display: flex;
   flex-direction: column;
-  max-height: 500px;
+  height: calc(71.1vh - 9.8vh);
+  top: 0;
   overflow-y: auto;
   padding: 10px;
   border: 1px solid #ccc;
 }
-
 .bot,
 .user {
   padding: 5px;
@@ -428,24 +425,35 @@
   border-radius: 5px;
   max-width: 80%;
 }
-
 .user {
   background-color: white;
   border: 2px solid #ccc;
   align-self: flex-end;
 }
-
 .bot {
   color: white;
   background-color: rgba(46, 60, 102, 0.8);
   border: 2px solid #ccc;
   align-self: flex-start;
 }
-
-.chatdisplayArea-messageInput {
-  position: flex;
-  bottom: 0;
+.selector {
+  border: 1px solid #ccc;
 }
+.chatdisplayArea-messageInput {
+  position: sticky;
+  bottom: 0;
+  height: 7vh;
+  background-color: #76758a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px; 
+}
+.chatdisplayArea-messageInput-1, .chatdisplayArea-messageInput-2 {
+  display: flex;
+}
+
 
 /* Bottom Area */
 .user-bottom-area,
