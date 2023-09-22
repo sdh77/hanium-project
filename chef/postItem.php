@@ -41,6 +41,8 @@ if ($result) {
   }
 }
 echo '</div></div>';
+pg_close($conn);
+
 ?>
 
 <script src="JS/timer.js"></script>

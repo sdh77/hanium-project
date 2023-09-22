@@ -12,8 +12,8 @@ $(document).ready(function () {
     $(document).off("click", ".noSoldOut");
     $(document).on("click", ".noSoldOut", function () {
       // 애니메이션 효과
-      $(this).animate({opacity: 0.3}, 200, function () {
-        $(this).animate({opacity: 1}, 300);
+      $(this).animate({ opacity: 0.3 }, 200, function () {
+        $(this).animate({ opacity: 1 }, 300);
       });
       const menuImg = $(this).find("#menu-img").attr("src");
       const menuName = $(this).find(".menu").text();
@@ -208,10 +208,12 @@ function loadpage_list() {
 }
 
 // do: 채팅 기능 chat-area 화면 전환 버튼
-document.querySelector(".chatArea-voicebox").addEventListener("click", function () {
-  document.querySelector(".chatArea").style.display = "none";
-  document.querySelector(".chatdisplayArea").style.display = "block";
-});
+document
+  .querySelector(".chatArea-voicebox")
+  .addEventListener("click", function () {
+    document.querySelector(".chatArea").style.display = "none";
+    document.querySelector(".chatdisplayArea").style.display = "block";
+  });
 
 /*
 // 채팅 기능 (chat-bot)

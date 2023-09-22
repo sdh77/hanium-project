@@ -125,5 +125,8 @@ echo '<script>
     window.onload = function(){
       window.parent.postMessage(' . $cnt . ', "*");
     }</script>';
+
+pg_close($conn);
+
 ?>
 <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>

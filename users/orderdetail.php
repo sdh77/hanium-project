@@ -29,5 +29,7 @@ if ($order['type'] === 'order') {
 //   $result = pg_execute($conn, "insert_service_query", array($order['tableid'], $order['serviceText']));
 //   echo 'Service request saved successfully.';
 }
+pg_close($conn);
+
 
 ?>

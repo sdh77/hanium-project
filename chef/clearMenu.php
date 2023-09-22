@@ -8,5 +8,6 @@ else{
   echo $sql;
   $result = pg_query($conn, $sql);
 }
+pg_close($conn);
 
 ?>

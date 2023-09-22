@@ -9,5 +9,6 @@ $sql = "insert into call values('" . $serviceText . "', false ," . $tableid . ")
 echo $sql;
 
 pg_query($conn, $sql);
+pg_close($conn);
 
 ?>

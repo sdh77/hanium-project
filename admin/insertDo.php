@@ -13,5 +13,6 @@ $sql = "insert into menu(name, price, div, recommend, spicy, new) values('" . $n
 echo $sql;
 
 pg_query($conn, $sql);
+pg_close($conn);
 
 ?>

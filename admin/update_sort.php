@@ -9,4 +9,6 @@ $result = pg_query($conn, $sql);
 if (!$result)
   echo "오류";
 
+pg_close($conn);
+
 ?>

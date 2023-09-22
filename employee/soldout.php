@@ -19,5 +19,7 @@ if ($result) {
   }
 }
 echo'</div>';
+pg_close($conn);
+
 ?>
 <script src="JS/sendSoldOut.js?ver1"></script>
