@@ -32,14 +32,7 @@
   padding-top: 20px;
 }
 
-.searchArea input {
-  width: 50vw;
-  height: 5vh;
-  margin: 0 10px 0 0;
-  font-size: 4vh;
-}
-
-.searchArea button:not(.trash) {
+.searchArea .addMenu {
   width: 10vw;
   height: 5vh;
   border-radius: 10px;

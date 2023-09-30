@@ -1,0 +1,58 @@
+.adminSearchDiv {
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+}
+.userSearchDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.adminSearchDiv input {
+  height: 5vh;
+  font-size: 4vh;
+  width: 90%;
+}
+
+.userSearchDiv input {
+  height: 4vh;
+  font-size: 2vh;
+  width: 80%;
+}
+
+.adminSearchDiv input,
+.userSearchDiv input {
+  margin: 0 0 0 2%;
+  border-radius: 30px 0 0 30px;
+  background: transparent;
+  border: 1px solid black;
+  border-right: none;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: text;
+}
+
+.adminSearchDiv .searchBtn {
+  height: 5vh;
+  width: 8%;
+}
+
+.userSearchDiv .searchBtn {
+  height: 4vh;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminSearchDiv .searchBtn,
+.userSearchDiv .searchBtn {
+  background-color: white;
+  border-radius: 0 30px 30px 0;
+  background: whitesmoke;
+  font-size: 2.5vh;
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+}

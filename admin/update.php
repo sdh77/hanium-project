@@ -12,7 +12,7 @@ echo '
     <div class="header">세부 수정</div>
     <div class="popupmain" id="updatePopup">
     <div class="popupcenter">
-    <div><p>이름</p><input class="nameInput" placeholder="' . $row["name"] . '"></input></div>
+    <div><p>이름</p><input class="nameInput" placeholder="' . $row["name"] . '" autofocus></input></div>
     <div><p>가격</p><input class="priceInput" placeholder="' . $row["price"] . '"></input></div>
     <div><p>구분</p><select class="divselect" name="menu_div">
       <option value="파스타" ' . ($row["div"] == "파스타" ? "selected" : "") . '>파스타</option>

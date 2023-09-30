@@ -6,7 +6,7 @@ echo '
     <div class="header">메뉴 추가</div>
     <div class="popupmain" id="insertPopup">
     <div class="popupcenter">
-    <div><p>이름</p><input class="nameInput"></input></div>
+    <div><p>이름</p><input class="nameInput" autofocus></input></div>
     <div><p>가격</p><input class="priceInput"></input></div>
     <div><p>구분</p><select class="divselect" name="menu_div">
       <option value="파스타">파스타</option>

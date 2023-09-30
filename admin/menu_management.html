@@ -15,11 +15,13 @@
     <div class="menu__Header">메뉴 관리</div>
 
     <div class="searchArea">
-      <div>
-        <input></input>
+      <div class="adminSearchDiv">
+        <input placeholder="검색"></input>
+        <button class="searchBtn" onclick="search();">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
-      <button onclick="search();">검색</button>
-      <button onclick="loadInsertPage();">메뉴추가</button>
+      <button class="addMenu" onclick="loadInsertPage();">메뉴추가</button>
       <button class="trash" onclick="trashPage()">
         <i class="fa-regular fa-trash-can"></i>
       </button>
