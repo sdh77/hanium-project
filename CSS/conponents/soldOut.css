@@ -28,7 +28,6 @@
 
 .soldOutgrid .yes {
   opacity: 0.4;
-
 }
 
 .soldOutgrid .soldout .ItemList img {
@@ -41,4 +40,8 @@
 
 .soldOutgrid .soldout .ItemList p {
   font-size: 1.5vw;
+}
+
+.soldOutgrid .soldout .ItemList .longMenu {
+  font-size: 1.4vw;
 }

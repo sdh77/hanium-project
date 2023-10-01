@@ -6,9 +6,10 @@ let selectMonth = String(new Date().getMonth() + 1).padStart(2, "0");
 let selectDate = String(new Date().getDate()).padStart(2, "0");
 let date = `${selectYear}-${selectMonth}-${selectDate}`;
 
-let mode = 1;
+localStorage.setItem("chefMode", 1);
 
 function orderItem() {
+  localStorage.setItem("chefMode", 1);
   btn.innerHTML = "재고 관리";
   header.innerHTML = "주문 관리";
 
@@ -16,10 +17,10 @@ function orderItem() {
   btn.removeEventListener("click", orderItem);
   btn.addEventListener("click", soldout);
   // window.scrollTo(100);
-  mode = 1;
 }
 
 function soldout() {
+  localStorage.setItem("chefMode", 0);
   btn.innerHTML = "주문 관리";
   header.innerHTML = "재고 관리";
   $.ajax({ url: "soldout.php", type: "get" }).done(function (data) {
@@ -27,19 +28,20 @@ function soldout() {
   });
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", orderItem);
-  mode = 0;
 }
 
 function getOrderItem() {
-  let params = {
-    today: date,
-  };
-  $.ajax({ url: "postItem.php", type: "get", data: params }).done(function (
-    data
-  ) {
-    $(".main-screen").html(data);
-    set_time();
-  });
+  if (localStorage.getItem("chefMode") == 1) {
+    let params = {
+      today: date,
+    };
+    $.ajax({ url: "postItem.php", type: "get", data: params }).done(function (
+      data
+    ) {
+      $(".main-screen").html(data);
+      set_time();
+    });
+  }
 }
 orderItem();
-if (mode) setInterval(getOrderItem, 10000);
+setInterval(getOrderItem, 1000);

@@ -18,7 +18,7 @@ if ($result) {
           echo '</div>';
         echo '<div class="tableOrderItem">';
         if ($row["tableid"] != $oldtableId) {
-          echo '<p class="orderTableId">' . $row["tableid"] . '</p>
+          echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>
             <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>';
             $id = 1;
         }

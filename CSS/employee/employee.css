@@ -84,4 +84,5 @@
 }
 .table-info__time {
   width: 5vw;
+  text-align: right;
 }
