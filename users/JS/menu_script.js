@@ -8,6 +8,8 @@ $(document).ready(function () {
   $.ajax({ url: "list_div.php", type: "get" }).done(function (data) {
     $("#menupage").html(data);
 
+    let menuImg, menuName, menuPrice, menuQuantity;
+
     // do: 메뉴 클릭 이벤트 핸들러 (메뉴 장바구니에 담기)
     $(document).off("click", ".noSoldOut");
     $(document).on("click", ".noSoldOut", function () {
@@ -15,23 +17,67 @@ $(document).ready(function () {
       $(this).animate({ opacity: 0.3 }, 200, function () {
         $(this).animate({ opacity: 1 }, 300);
       });
-      const menuImg = $(this).find("#menu-img").attr("src");
-      const menuName = $(this).find(".menu").text();
-      const menuPrice = Number($(this).find(".price").text().replace(",", ""));
+
+      $(".shoppingCart-popup").removeClass("area-hidden").addClass("area-visible");
+
+      menuImg = $(this).find("#menu-img").attr("src");
+      menuName = $(this).find(".menu").text();
+      menuPrice = Number($(this).find(".price").text().replace(",", ""));
+      menuQuantity = 1;
+
+      // 장바구니 팝업창
+      $(".shoppingCart-popup-closeBtn").click(function (){
+        $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
+        $(".shoppingCart-popup-informQuantity").text("1");
+        $(".shoppingCart-popup-quantityInt").text("1");
+      });
+      $(".shoppingCart-popup-img").attr("src", menuImg);
+      $(".shoppingCart-popup-informMenuDB").text(menuName);
+      $(".shoppingCart-popup-quantityIncrease").off("click").on("click", function () {
+	console.log("1");
+        popupincreaseQuantity($(this).siblings(".shoppingCart-popup-quantityInt"));
+	menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
+        popupincreaseQuantity($(this).closest(".shoppingCart-popup-4").siblings(".shoppingCart-popup-3").find(".shoppingCart-popup-informQuantity"));
+      });
+      $(".shoppingCart-popup-quantityDecrease").click(function () {
+        popupdecreaseQuantity($(this).siblings(".shoppingCart-popup-quantityInt"));
+	menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
+        popupdecreaseQuantity($(this).closest(".shoppingCart-popup-4").siblings(".shoppingCart-popup-3").find(".shoppingCart-popup-informQuantity"));
+      });
+    });
+    $(".shoppingCart-popup-okBtn").off("click").on("click", function () {
       // 이미 장바구니에 담은 메뉴라면?
       let isExist = false;
+      let cartquantity, newitemprice, olditemprice;
       $("#cart .cart-item:visible").each(function () {
         if ($(this).find(".menu-name").text() == menuName) {
-          increaseQuantity($(this).find(".quantity"));
+	  let totalPriceText = $("#total-price").text();
+  	  let totalPrice = parseInt(totalPriceText.replace(/,/g, ''));
+	  cartquantity = parseInt($(this).find(".quantity").text());
+	  olditemprice = parseInt($(this).find(".item-price").text().replace(",",""));
+
+	  cartquantity += menuQuantity;
+	  newitemprice = menuPrice * menuQuantity;
+	  olditemprice += newitemprice;
+	  totalPrice += newitemprice
+	  console.log("crazy::", totalPrice);
+
+	  $(this).find(".quantity").text(cartquantity);
+	  $(this).find(".item-price").text(olditemprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	  $(this).find(".single-price").text(olditemprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	  $("#total-price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
           isExist = true;
           return false;
         }
       });
       if (!isExist) {
-        addToCart2(menuImg, menuName, menuPrice);
+        addToCart3(menuImg, menuName, menuPrice, menuQuantity);
       } else {
         console.log("장바구니에 이미 있음");
       }
+      $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
+      $(".shoppingCart-popup-informQuantity").text("1");
+      $(".shoppingCart-popup-quantityInt").text("1");
     });
   });
 
@@ -39,6 +85,7 @@ $(document).ready(function () {
   //$(".bottomBtn-area").addClass("area-visible");
   //$(".shop-area").addClass("area-hidden");
   $(".shop-area").addClass("area-visible"); // 장바구니 숨기는 기능 취소
+  $(".shoppingCart-popup").addClass("area-hidden");
   $(".serv-popup").addClass("area-hidden");
 
   // 장바구니 숨기기, 보이기
@@ -98,6 +145,8 @@ $(document).ready(function () {
     });
     $("#total-price").text(0);
     $(".cart-item").not(":first").remove();
+    document.querySelector(".chatArea").style.display= "block";
+    document.querySelector(".chatdisplayArea").style.display= "none";
     alert("주문 완료!!!");
   });
 
@@ -207,83 +256,59 @@ function loadpage_list() {
   });
 }
 
-// do: 채팅 기능 chat-area 화면 전환 버튼
+// do: 채팅 기능 chat-area 화면 전환 버튼 -> chat_script.js
 document
-  .querySelector(".chatArea-voicebox")
-  .addEventListener("click", function () {
-    document.querySelector(".chatArea").style.display = "none";
-    document.querySelector(".chatdisplayArea").style.display = "block";
-  });
-
-/*
-// 채팅 기능 (chat-bot)
-document.querySelector("#sendMessage").addEventListener("click", function () {
-  const userMessage = document.querySelector("#userMessage").value;
-
-  if (userMessage.trim() !== "") {
-    addMessageToChat("user", userMessage);
-    const botResponse = getBotResponse(userMessage);
-    addMessageToChat("bot", botResponse);
-  }
-
-  document.querySelector("#userMessage").value = "";
+.querySelector(".chatArea-voicebox")
+.addEventListener("click", function () {
+  document.querySelector(".chatArea").style.display = "none";
+  document.querySelector(".chatdisplayArea").style.display = "block";
 });
-function addMessageToChat(sender, message) {
-  const chatMessage = document.querySelector(".chat-message");
-  const messageDiv = document.createElement("div");
-  messageDiv.className = sender;
-  messageDiv.textContent = message;
-  chatMessage.appendChild(messageDiv);
-}
-function getBotResponse(message) {
-  switch (message) {
-    case "안녕":
-      return "안녕하세요!";
-    case "추천메뉴 알려줘":
-      return "오늘의 추천메뉴는 부채살 스테이크입니다.";
-    case "주문.":
-      setTimeout(function () {
-        $("#orderButton").trigger("click");
-        document.querySelector(".chat-message").innerHTML = "";
-        document.querySelector(".chat-area").style.display = "block";
-        document.querySelector(".chatdisplay-area").style.display = "none";
-        // $("#total-price").text(0);
-        // $(".cart-item").not(":first").remove();
-      }, 3000);
-      return "주문이 완료되었습니다!";
-      break;
-    default:
-      return "무슨 말인지 모르겠어요.";
-  }
-}*/
+
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
   return Math.floor(Math.random() * 10) + 1;
 }
 // 장바구니에 메뉴 추가
-function addToCart2(menuImg, menuName, menuPrice) {
+function addToCart3(menuImg, menuName, menuPrice, menuQuantity) {
   let cartItem = $("#cart .cart-item").first().clone(true);
+  let totalPriceText = $("#total-price").text();
+  let totalPrice = parseInt(totalPriceText.replace(/,/g, ''));
+  let cartEachPrice = 0;
+  console.log(menuQuantity);
 
   cartItem.find(".menu-imgsrc").attr("src", menuImg);
   cartItem.find(".menu-name").text(menuName);
+  cartItem.find(".quantity").text(menuQuantity);
+  cartEachPrice = menuPrice * menuQuantity;
+  console.log(cartEachPrice);
   cartItem
     .find(".item-price")
-    .text(menuPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    .text(cartEachPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   cartItem
     .find(".single-price")
+    .text(cartEachPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+  cartItem
+    .find(".fixed-price")
     .text(menuPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-
+  totalPrice += cartEachPrice;
+  $("#total-price").text(
+    totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  );
   $("#cart").append(cartItem);
 
   cartItem.show();
-  updatePrice();
 }
+
 // 장바구니 수량 증감
 function increaseQuantity(quantityElement) {
   let quantity = parseInt(quantityElement.text());
   quantityElement.text(quantity + 1);
   updatePrice();
+}
+function popupincreaseQuantity(quantityElement) {
+  let quantity = parseInt(quantityElement.text());
+  quantityElement.text(quantity + 1);
 }
 function decreaseQuantity(quantityElement) {
   let quantity = parseInt(quantityElement.text());
@@ -294,23 +319,27 @@ function decreaseQuantity(quantityElement) {
   }
   updatePrice();
 }
+function popupdecreaseQuantity(quantityElement) {
+  let quantity = parseInt(quantityElement.text());
+  quantityElement.text(quantity - 1);
+}
+
 // 장바구니 가격 업데이트
 function updatePrice() {
   let grandTotal = 0;
 
   $(".cart-item").each(function () {
     const quantity = parseInt($(this).find(".quantity").text());
-    const singlePrice = parseInt(
-      $(this).find(".single-price").text().replace(",", "")
+    const fixedPrice = parseInt(
+      $(this).find(".fixed-price").text().replace(",", "")
     );
-    const totalPrice = singlePrice * quantity;
+    const totalPrice = fixedPrice * quantity;
 
     if (!isNaN(totalPrice)) {
       $(this)
         .find(".item-price")
         .text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
       grandTotal += totalPrice;
-      console.log(grandTotal);
     }
   });
 

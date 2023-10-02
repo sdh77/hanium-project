@@ -45,6 +45,7 @@
       </div>
     </div>
 
+
     <div class="main">
       <div class="menu_select">
         <a class="menu click" onclick="change_check(); set_type('all');">
@@ -78,6 +79,27 @@
       <div class="middlearea">
         <div class="menu-list">
           <div class="item_grid" id="menupage"></div>
+	  <!-- 메뉴 클릭하면 장바구니에 담기 전, 팝업 -->
+	  <div class="shoppingCart-popup">
+      	    <div class="shoppingCart-popup-1">
+       	      <button class="shoppingCart-popup-closeBtn">x</button>
+      	    </div>
+      	    <div class="shoppingCart-popup-2">
+              <img class="shoppingCart-popup-img" src="" alt="Menu Image">
+	    </div>
+      	    <div class="shoppingCart-popup-3">
+              <p class="shoppingCart-popup-informMenuDB"></p>
+	      <p class="shoppingCart-popup-informQuantity">1</p>
+	      <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+      	    </div>
+      	    <div class="shoppingCart-popup-4">
+              <p class="shoppingCart-popup-quantityText">수량 </p>
+              <p class="shoppingCart-popup-quantityInt">1</p>
+              <button class="shoppingCart-popup-quantityIncrease">+</button>
+              <button class="shoppingCart-popup-quantityDecrease">-</button>
+       	      <button class="shoppingCart-popup-okBtn">장바구니</button>
+      	    </div>
+    	  </div>
         </div>
 
         <!-- 채팅 -->
@@ -130,6 +152,7 @@
                   </button>
                 </div>
                 <p class="single-price" style="display:none;"></p>
+                <p class="fixed-price" style="display:none;"></p>
                 <p class="item-price"></p>
               </div>
             </div>
