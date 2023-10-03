@@ -9,12 +9,12 @@ $reco = $_GET['newRecommend'];
 $new = $_GET['newMenu'];
 $spicy = $_GET['newSpicy'];
 
-$sql = "select name from menu where id =".$id;
+$sql = "select name from menu where id =" . $id;
 $result = pg_query($conn, $sql);
 if ($result) {
   if (pg_num_rows($result) > 0) {
     while ($row = pg_fetch_assoc($result)) {
-      rename('../admin/image/이미지(jpg)/'.$row["name"] . '.jpg' ,'../admin/image/이미지(jpg)/'.$name . '.jpg');
+      rename('../admin/image/이미지(jpg)/' . $row["name"] . '.jpg', '../admin/image/이미지(jpg)/' . $name . '.jpg');
     }
   }
 } else {

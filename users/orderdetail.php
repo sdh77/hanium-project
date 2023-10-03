@@ -23,7 +23,7 @@ if ($order['type'] === 'order') {
     $result = pg_execute($conn, "insert_query", array($order['tableid'], $item['name'], $item['quantity']));
   }
   echo 'Order saved successfully.';
-// } 
+  // } 
 // elseif ($order['type'] === 'service') {
 //   $query = pg_prepare($conn, "insert_service_query", 'INSERT INTO orderdetail (tableid, text) VALUES ($1, $2)');
 //   $result = pg_execute($conn, "insert_service_query", array($order['tableid'], $order['serviceText']));
