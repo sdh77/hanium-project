@@ -14,11 +14,13 @@ $(document).ready(function () {
     $(document).off("click", ".noSoldOut");
     $(document).on("click", ".noSoldOut", function () {
       // 애니메이션 효과
-      $(this).animate({ opacity: 0.3 }, 200, function () {
-        $(this).animate({ opacity: 1 }, 300);
+      $(this).animate({ opacity: 0.3 }, 80, function () {
+        $(this).animate({ opacity: 1 }, 80);
       });
 
-      $(".shoppingCart-popup").removeClass("area-hidden").addClass("area-visible");
+      $(".shoppingCart-popup")
+        .removeClass("area-hidden")
+        .addClass("area-visible");
 
       menuImg = $(this).find("#menu-img").attr("src");
       menuName = $(this).find(".menu").text();
@@ -26,59 +28,93 @@ $(document).ready(function () {
       menuQuantity = 1;
 
       // 장바구니 팝업창
-      $(".shoppingCart-popup-closeBtn").click(function (){
-        $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
+      $(".shoppingCart-popup-closeBtn").click(function () {
+        $(".shoppingCart-popup")
+          .removeClass("area-visible")
+          .addClass("area-hidden");
         $(".shoppingCart-popup-informQuantity").text("1");
         $(".shoppingCart-popup-quantityInt").text("1");
       });
       $(".shoppingCart-popup-img").attr("src", menuImg);
       $(".shoppingCart-popup-informMenuDB").text(menuName);
-      $(".shoppingCart-popup-quantityIncrease").off("click").on("click", function () {
-	console.log("1");
-        popupincreaseQuantity($(this).siblings(".shoppingCart-popup-quantityInt"));
-	menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
-        popupincreaseQuantity($(this).closest(".shoppingCart-popup-4").siblings(".shoppingCart-popup-3").find(".shoppingCart-popup-informQuantity"));
-      });
+      $(".shoppingCart-popup-quantityIncrease")
+        .off("click")
+        .on("click", function () {
+          console.log("1");
+          popupincreaseQuantity(
+            $(this).siblings(".shoppingCart-popup-quantityInt")
+          );
+          menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
+          popupincreaseQuantity(
+            $(this)
+              .closest(".shoppingCart-popup-4")
+              .siblings(".shoppingCart-popup-3")
+              .find(".shoppingCart-popup-informQuantity")
+          );
+        });
       $(".shoppingCart-popup-quantityDecrease").click(function () {
-        popupdecreaseQuantity($(this).siblings(".shoppingCart-popup-quantityInt"));
-	menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
-        popupdecreaseQuantity($(this).closest(".shoppingCart-popup-4").siblings(".shoppingCart-popup-3").find(".shoppingCart-popup-informQuantity"));
+        popupdecreaseQuantity(
+          $(this).siblings(".shoppingCart-popup-quantityInt")
+        );
+        menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
+        popupdecreaseQuantity(
+          $(this)
+            .closest(".shoppingCart-popup-4")
+            .siblings(".shoppingCart-popup-3")
+            .find(".shoppingCart-popup-informQuantity")
+        );
       });
     });
-    $(".shoppingCart-popup-okBtn").off("click").on("click", function () {
-      // 이미 장바구니에 담은 메뉴라면?
-      let isExist = false;
-      let cartquantity, newitemprice, olditemprice;
-      $("#cart .cart-item:visible").each(function () {
-        if ($(this).find(".menu-name").text() == menuName) {
-	  let totalPriceText = $("#total-price").text();
-  	  let totalPrice = parseInt(totalPriceText.replace(/,/g, ''));
-	  cartquantity = parseInt($(this).find(".quantity").text());
-	  olditemprice = parseInt($(this).find(".item-price").text().replace(",",""));
+    $(".shoppingCart-popup-okBtn")
+      .off("click")
+      .on("click", function () {
+        // 이미 장바구니에 담은 메뉴라면?
+        let isExist = false;
+        let cartquantity, newitemprice, olditemprice;
+        $("#cart .cart-item:visible").each(function () {
+          if ($(this).find(".menu-name").text() == menuName) {
+            let totalPriceText = $("#total-price").text();
+            let totalPrice = parseInt(totalPriceText.replace(/,/g, ""));
+            cartquantity = parseInt($(this).find(".quantity").text());
+            olditemprice = parseInt(
+              $(this).find(".item-price").text().replace(",", "")
+            );
 
-	  cartquantity += menuQuantity;
-	  newitemprice = menuPrice * menuQuantity;
-	  olditemprice += newitemprice;
-	  totalPrice += newitemprice
-	  console.log("crazy::", totalPrice);
+            cartquantity += menuQuantity;
+            newitemprice = menuPrice * menuQuantity;
+            olditemprice += newitemprice;
+            totalPrice += newitemprice;
+            console.log("crazy::", totalPrice);
 
-	  $(this).find(".quantity").text(cartquantity);
-	  $(this).find(".item-price").text(olditemprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-	  $(this).find(".single-price").text(olditemprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-	  $("#total-price").text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-          isExist = true;
-          return false;
+            $(this).find(".quantity").text(cartquantity);
+            $(this)
+              .find(".item-price")
+              .text(
+                olditemprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              );
+            $(this)
+              .find(".single-price")
+              .text(
+                olditemprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              );
+            $("#total-price").text(
+              totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            );
+            isExist = true;
+            return false;
+          }
+        });
+        if (!isExist) {
+          addToCart3(menuImg, menuName, menuPrice, menuQuantity);
+        } else {
+          console.log("장바구니에 이미 있음");
         }
+        $(".shoppingCart-popup")
+          .removeClass("area-visible")
+          .addClass("area-hidden");
+        $(".shoppingCart-popup-informQuantity").text("1");
+        $(".shoppingCart-popup-quantityInt").text("1");
       });
-      if (!isExist) {
-        addToCart3(menuImg, menuName, menuPrice, menuQuantity);
-      } else {
-        console.log("장바구니에 이미 있음");
-      }
-      $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
-      $(".shoppingCart-popup-informQuantity").text("1");
-      $(".shoppingCart-popup-quantityInt").text("1");
-    });
   });
 
   // 초기 화면에 노출되는 요소
@@ -145,8 +181,8 @@ $(document).ready(function () {
     });
     $("#total-price").text(0);
     $(".cart-item").not(":first").remove();
-    document.querySelector(".chatArea").style.display= "block";
-    document.querySelector(".chatdisplayArea").style.display= "none";
+    document.querySelector(".chatArea").style.display = "block";
+    document.querySelector(".chatdisplayArea").style.display = "none";
     alert("주문 완료!!!");
   });
 
@@ -258,12 +294,11 @@ function loadpage_list() {
 
 // do: 채팅 기능 chat-area 화면 전환 버튼 -> chat_script.js
 document
-.querySelector(".chatArea-voicebox")
-.addEventListener("click", function () {
-  document.querySelector(".chatArea").style.display = "none";
-  document.querySelector(".chatdisplayArea").style.display = "block";
-});
-
+  .querySelector(".chatArea-voicebox")
+  .addEventListener("click", function () {
+    document.querySelector(".chatArea").style.display = "none";
+    document.querySelector(".chatdisplayArea").style.display = "block";
+  });
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
@@ -273,7 +308,7 @@ function generateTableNumber() {
 function addToCart3(menuImg, menuName, menuPrice, menuQuantity) {
   let cartItem = $("#cart .cart-item").first().clone(true);
   let totalPriceText = $("#total-price").text();
-  let totalPrice = parseInt(totalPriceText.replace(/,/g, ''));
+  let totalPrice = parseInt(totalPriceText.replace(/,/g, ""));
   let cartEachPrice = 0;
   console.log(menuQuantity);
 

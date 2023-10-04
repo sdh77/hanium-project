@@ -8,21 +8,32 @@ function changeSort() {
   if (sort == "cnt") sort = "";
   else sort = "cnt";
   console.log(sort);
-  loadpageOrderList();
+  loadpageOrderList(date);
 }
-
+function resetCalendar() {
+  loadpageOrderList(date);
+}
 //로드 페이지
-function loadpageOrderList() {
+function loadpageOrderList(newDate) {
+  // let params = {
+  //   Date: date,
+  //   Sort: sort,
+  // };
+  // $.ajax({ url: "showtoDayOrderList.php", type: "get", data: params }).done(
+  //   function (data) {
+  //     $(".toDayOrder__list").html(data);
+  //   }
+  // );
   let params = {
-    Date: date,
+    Date: newDate,
     Sort: sort,
   };
-  $.ajax({ url: "showtoDayOrderList.php", type: "get", data: params }).done(
-    function (data) {
-      $(".toDayOrder__list").html(data);
-    }
-  );
+  $.ajax({ url: "showCalendar.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $(".toDayOrder__list").html(data);
+  });
 }
 
-window.onload = loadpageOrderList();
-btn__order.addEventListener("click", changeSort);
+window.onload = loadpageOrderList(date);
+// btn__order.addEventListener("click", changeSort);

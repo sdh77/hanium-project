@@ -12,7 +12,7 @@ $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski p
 if ($search != "")
   $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
 else if ($order_type == "추천") {
-    $sql = "select * from menu where trash = false and recommend = true order by new desc, id";
+  $sql = "select * from menu where trash = false and recommend = true order by new desc, id";
 
   // if ($type == "술")
   //   $sql = "select * from menu where trash = false and div in ('주류','와인') order by recommend desc, new desc, id";
@@ -63,36 +63,36 @@ if ($result) {
         //echo'<div class="grid_item"><img id="menu-img" src="/img/' . $row["index"] .'.jpg" alt="'.$row["index"].'"></img>'. '<p class="menu">' . $row["name"].'</p>'.'<br>' . '<p class="price">'.$row["price"] .'</p></div>';
 
         echo '<div class="grid_item ';
-        if($row["soldout"] == "t") echo'SoldOut';
-        else echo'noSoldOut';
-        echo'"><img id="menu-img" src="../admin/image/이미지(jpg)/'
-         . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>';
-        if($row["soldout"] == "t")
+        if ($row["soldout"] == "t")
+          echo 'SoldOut';
+        else
+          echo 'noSoldOut';
+        echo '"><img id="menu-img" src="../admin/image/이미지(jpg)/'
+          . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img>';
+        if ($row["soldout"] == "t")
           echo '<div class="soldOutTag"><p class="soldOutLetter">Sold Out</p></div>';
-        echo'<div class="spicyItem">';
-        for($i = 0; $i< (int)$row["spicy"];$i++)
-          echo'<i class="fa-solid fa-pepper-hot"></i>';
-        echo'</div><div class="newRecItem">';
-        if($row["new"] == "t") echo'<div class="newItem">new</div>';
-        if($row["recommend"] == "t") echo'<div class="recItem">추천</div>';
-        echo'</div>';
-        if((strlen($row["name"])<=16*2) && ($row['div'] !="와인")){
-          echo '<p class="menu">'.$row["name"].'</p><br>';
+        echo '<div class="spicyItem">';
+        for ($i = 0; $i < (int) $row["spicy"]; $i++)
+          echo '<i class="fa-solid fa-pepper-hot"></i>';
+        echo '</div><div class="newRecItem">';
+        if ($row["new"] == "t")
+          echo '<div class="newItem">new</div>';
+        if ($row["recommend"] == "t")
+          echo '<div class="recItem">추천</div>';
+        echo '</div>';
+        if ((strlen($row["name"]) <= 16 * 2) && ($row['div'] != "와인")) {
+          echo '<p class="menu">' . $row["name"] . '</p><br>';
+        } else if ((strlen($row["name"]) <= 32 * 2) && ($row['div'] != "와인")) {
+          echo '<p class="menu">' . $row["name"] . '</p>';
+        } else if ((strlen($row["name"]) <= 16) && ($row['div'] == "와인")) {
+          echo '<p class="menu">' . $row["name"] . '</p><br>';
+        } else if ((strlen($row["name"]) <= 30) && ($row['div'] == "와인")) {
+          echo '<p class="menu">' . $row["name"] . '</p>';
+        } else {
+          echo '<p class="menu" style="font-size:1vw">' . $row["name"] . '</p>';
         }
-        else if((strlen($row["name"])<=32*2) && ($row['div'] !="와인")){
-          echo '<p class="menu">'.$row["name"].'</p>';
-        }
-        else if((strlen($row["name"])<=16) && ($row['div'] =="와인")) {
-          echo '<p class="menu">'.$row["name"].'</p><br>';
-        }
-        else if((strlen($row["name"])<=30) && ($row['div'] =="와인")){
-          echo '<p class="menu">'.$row["name"].'</p>';
-        }
-        else{
-          echo '<p class="menu" style="font-size:1vw">'.$row["name"].'</p>';
-        }
-        echo '<p class="price">' .number_format ($row["price"], 0, ',', ',') . '</p></div>';
-// 16
+        echo '<p class="price">' . number_format($row["price"], 0, ',', ',') . '</p></div>';
+        // 16
         $viewcnt++;
       }
     }
