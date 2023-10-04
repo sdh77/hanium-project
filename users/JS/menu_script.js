@@ -25,6 +25,9 @@ $(document).ready(function () {
       menuImg = $(this).find("#menu-img").attr("src");
       menuName = $(this).find(".menu").text();
       menuPrice = Number($(this).find(".price").text().replace(",", ""));
+      // if (menuPrice != isNaN) {
+      //   menuPrice = $(".popupPrice").text();
+      // }
       menuQuantity = 1;
 
       // 장바구니 팝업창
