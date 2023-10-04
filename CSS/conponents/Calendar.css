@@ -1,5 +1,10 @@
 .calendar {
   text-align: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
 }
 
 .calendar_grid {
@@ -7,7 +12,6 @@
   grid-template-columns: repeat(7, 13vw);
   grid-template-rows: 6vh 8vh repeat(6, 11.5vh);
   border: 0px solid rgba(0, 0, 0, 0.4);
-  width: 91vw;
   height: 75vh;
   gap: 5px;
   border: none;
@@ -34,6 +38,20 @@
   border: none;
   font-size: 6vh;
 }
+.Month .yearMonth {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  justify-content: center;
+}
+.Month .yearMonth .resetCalendar {
+  position: absolute;
+  right: -50px;
+  font-size: 4vh;
+  width: auto;
+}
+
 .Month * {
   border: none;
 }

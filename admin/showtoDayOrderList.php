@@ -1,29 +1,18 @@
 <?php
 $Date = $_GET['Date'];
-// $Sort = $_GET['Sort'];
-$Sort = "cnt";
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
 
 $totalCnt = 0;
 $totalPrice = 0;
-echo $Date;
-if ($Sort == "cnt") {
-  $sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price,
+echo '<p class="salesTodayHeader">' . $Date . '</p>';
+$sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price,
    menu.div FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name WHERE DATE(orderdetail.date) = '"
-    . $Date . "' GROUP BY orderdetail.name, menu.price, menu.div  order by count(menu.div) desc";
+  . $Date . "' GROUP BY orderdetail.name, menu.price, menu.div  order by count(menu.div) desc";
 
-  //  $sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price,
-  //  menu.div FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name GROUP BY orderdetail.name, menu.price, menu.div  order by count(menu.div) desc";
-} else {
-  $sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price,
-  menu.div FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name WHERE DATE(orderdetail.date) = '"
-    . $Date . "' GROUP BY orderdetail.name, menu.price, menu.div";
-
-  // $sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price,
-  // menu.div FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name GROUP BY orderdetail.name, menu.price, menu.div";
-}
 $result = pg_query($conn, $sql);
 echo '<button onclick="hide()">닫기</button>';
+
+
 
 if ($result) {
   $totalnum = pg_num_rows($result);
