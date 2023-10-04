@@ -4,7 +4,8 @@ $(document).ready(function () {
     let userMessage = $(".chatdisplayArea-messageInput-text").val();
 
     $.ajax({
-      url: "https://localhost/flask-app/chat",
+      url: "https://www.ddhye.com/flask-app/chat",
+      //url: "https://localhost/flask-app/chat",
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify({ message: userMessage }),
@@ -17,11 +18,7 @@ $(document).ready(function () {
           if (data.action === "chat-shoppingCart-popup") {
             //triggerShoppingCartPopup(data.message);
 
-            // PHP로 메뉴이름과 수량 전송.
-            // 메뉴이름으로 디비 이름과 이미지, 가격 불러오기
-            // 메뉴이름, 이미지, 가격으로 .noSoldOut만들기 -> display:none으로 해야할듯?
-            // menu_script.js의 addToCart3()함수에 인자로 이미지, 메뉴이름, 가격, 수량 넣어서 실행하기
-            // 같은 메뉴 호출하면 중복 추가되는거 추후 해결해야 함
+            // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업창 띄움
             var params = {
               menu: data.menu,
               quantity: data.quantity,
@@ -36,6 +33,7 @@ $(document).ready(function () {
                 .removeClass("area-hidden")
                 .addClass("area-visible");
               $(".shoppingCart-popup").html(data);
+	      shoppingCartPopupFunction();
             });
           }
         } else if (data.response) {
@@ -81,7 +79,8 @@ $(document).ready(function () {
             addMessageToChat("user", transcript);
             // flask 챗봇 응답
             $.ajax({
-              url: "https://localhost/flask-app/chat",
+              url: "https://www.ddhye.com/flask-app/chat",
+              //url: "https://localhost/flask-app/chat",
               method: "POST",
               contentType: "application/json",
               data: JSON.stringify({ message: transcript }),

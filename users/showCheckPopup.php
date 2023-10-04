@@ -29,7 +29,7 @@ if ($result) {
       <button class="shoppingCart-popup-quantityDecrease">-</button>
       <button class="shoppingCart-popup-okBtn">장바구니</button>
     </div>';
-      // echo'<div class="popupPrice">' . $row["price"] . '</div>';
+    echo'<div class="popupPrice" style="display: none">' . $row["price"] . '</div>';
 
     }
   }
