@@ -25,9 +25,6 @@ $(document).ready(function () {
       menuImg = $(this).find("#menu-img").attr("src");
       menuName = $(this).find(".menu").text();
       menuPrice = Number($(this).find(".price").text().replace(",", ""));
-      // if (menuPrice != isNaN) {
-      //   menuPrice = $(".popupPrice").text();
-      // }
       menuQuantity = 1;
 
       // 장바구니 팝업창
@@ -117,7 +114,7 @@ $(document).ready(function () {
           .addClass("area-hidden");
         $(".shoppingCart-popup-informQuantity").text("1");
         $(".shoppingCart-popup-quantityInt").text("1");
-      });
+    });
   });
 
   // 초기 화면에 노출되는 요소
@@ -307,83 +304,6 @@ document
 function generateTableNumber() {
   return Math.floor(Math.random() * 10) + 1;
 }
-// 장바구니에 메뉴 추가
-function addToCart3(menuImg, menuName, menuPrice, menuQuantity) {
-  let cartItem = $("#cart .cart-item").first().clone(true);
-  let totalPriceText = $("#total-price").text();
-  let totalPrice = parseInt(totalPriceText.replace(/,/g, ""));
-  let cartEachPrice = 0;
-  console.log(menuQuantity);
 
-  cartItem.find(".menu-imgsrc").attr("src", menuImg);
-  cartItem.find(".menu-name").text(menuName);
-  cartItem.find(".quantity").text(menuQuantity);
-  cartEachPrice = menuPrice * menuQuantity;
-  console.log(cartEachPrice);
-  cartItem
-    .find(".item-price")
-    .text(cartEachPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-  cartItem
-    .find(".single-price")
-    .text(cartEachPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-  cartItem
-    .find(".fixed-price")
-    .text(menuPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-  totalPrice += cartEachPrice;
-  $("#total-price").text(
-    totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  );
-  $("#cart").append(cartItem);
-
-  cartItem.show();
-}
-
-// 장바구니 수량 증감
-function increaseQuantity(quantityElement) {
-  let quantity = parseInt(quantityElement.text());
-  quantityElement.text(quantity + 1);
-  updatePrice();
-}
-function popupincreaseQuantity(quantityElement) {
-  let quantity = parseInt(quantityElement.text());
-  quantityElement.text(quantity + 1);
-}
-function decreaseQuantity(quantityElement) {
-  let quantity = parseInt(quantityElement.text());
-  if (quantity > 1) {
-    quantityElement.text(quantity - 1);
-  } else {
-    quantityElement.closest(".cart-item").remove();
-  }
-  updatePrice();
-}
-function popupdecreaseQuantity(quantityElement) {
-  let quantity = parseInt(quantityElement.text());
-  quantityElement.text(quantity - 1);
-}
-
-// 장바구니 가격 업데이트
-function updatePrice() {
-  let grandTotal = 0;
-
-  $(".cart-item").each(function () {
-    const quantity = parseInt($(this).find(".quantity").text());
-    const fixedPrice = parseInt(
-      $(this).find(".fixed-price").text().replace(",", "")
-    );
-    const totalPrice = fixedPrice * quantity;
-
-    if (!isNaN(totalPrice)) {
-      $(this)
-        .find(".item-price")
-        .text(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-      grandTotal += totalPrice;
-    }
-  });
-
-  $("#total-price").text(
-    grandTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  );
-}
 
 setInterval(loadpage_list, 10000);
