@@ -3,7 +3,7 @@ $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski p
 $sql = "select * from menu where trash = false and div in('스테이크','샐러드','파스타','피자','라이스') order by div, id";
 $result = pg_query($conn, $sql);
 
-echo'<div class="soldOutarea">';
+echo '<div class="soldOutarea">';
 if ($result) {
   if (pg_num_rows($result) > 0) {
     echo '<div class="soldOutgrid">';
@@ -18,7 +18,7 @@ if ($result) {
     echo '</div>';
   }
 }
-echo'</div>';
+echo '</div>';
 pg_close($conn);
 
 ?>

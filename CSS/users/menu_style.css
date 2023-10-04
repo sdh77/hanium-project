@@ -55,7 +55,7 @@
 
 /* serv-popup 창 */
 .serv-popup,
-.servtext-area, {
+.servtext-area {
   justify-content: center;
   align-items: center;
 }
@@ -491,13 +491,12 @@
   border-radius: 25px;
 }
 
-
 /* 장바구니 팝업창 */
 .shoppingCart-popup {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate( -50%, -50%);
+  transform: translate(-50%, -50%);
   flex-direction: column;
   width: 30vw;
   height: 50vh;

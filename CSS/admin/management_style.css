@@ -175,6 +175,26 @@
   transition: all 0.5s;
 } */
 
+.deleteMessage {
+  width: 40vw;
+  height: 20vh;
+  z-index: 1001;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6vh;
+}
+
+.hide {
+  opacity: 0;
+  z-index: 1;
+}
+
 .popup .right {
   display: flex;
   float: right;

@@ -22,7 +22,7 @@ if ($result) {
     while ($row = pg_fetch_assoc($result)) {
       echo "<span><div class='id'>" . $row["id"] . "</div><button class='update'><div><div>" . $row["name"];
       // echo"<img class='adminMenuImg' src='../admin/image/이미지(jpg)/". $row["name"] . ".jpg' alt='X'></img>";
-      echo"</div></div></button><div class='btn'><button class='newSoldOut'>";
+      echo "</div></div></button><div class='btn'><button class='newSoldOut'>";
       if ($row["soldout"] == "t")
         echo "판매중지";
       else if ($row["soldout"] == "f")
@@ -33,7 +33,7 @@ if ($result) {
 } else {
   echo "오류 발생: " . pg_last_error($conn);
 }
-echo"<span class='lastDiv'><div></div><div></div></span>";
+echo "<span class='lastDiv'><div></div><div></div></span>";
 pg_close($conn);
 ?>
 <script src="JS/send_sold_out.js?ver3"></script>

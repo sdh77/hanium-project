@@ -1,0 +1,99 @@
+.calendar {
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+}
+
+.calendar_grid {
+  display: grid;
+  grid-template-columns: repeat(7, 13vw);
+  grid-template-rows: 6vh 8vh repeat(6, 11.5vh);
+  border: 0px solid rgba(0, 0, 0, 0.4);
+  height: 75vh;
+  gap: 5px;
+  border: none;
+}
+.calendar_grid * {
+  border: 1px solid black;
+}
+
+.calendar_grid__week {
+  font-size: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar_grid__week p {
+  border: none;
+}
+
+.Month {
+  grid-column: 1/8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: none;
+  font-size: 6vh;
+}
+.Month .yearMonth {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  justify-content: center;
+}
+.Month .yearMonth .resetCalendar {
+  position: absolute;
+  right: -50px;
+  font-size: 4vh;
+  width: auto;
+}
+
+.Month * {
+  border: none;
+}
+.Month button {
+  width: 10vw;
+  height: 6vh;
+  background-color: transparent;
+  font-size: 6vh;
+}
+.showList {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showList * {
+  border: none;
+}
+.showList .calendar_grid__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showList .calendar_grid__day .calendar_grid__day__num {
+  font-size: 4vh;
+  width: 4vh;
+  height: 4vh;
+  margin-top: 10px;
+}
+.showList .calendar_grid__day .calendar_grid__day__price {
+  font-size: 4vh;
+}
+
+.showList .today {
+  border-radius: 50%;
+  background-color: tomato;
+}
+/* .sunday {
+  background-color: red;
+}
+.saturday {
+  background-color: blue;
+} */
