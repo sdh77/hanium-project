@@ -10,8 +10,37 @@ $(document).ready(function () {
       data: JSON.stringify({ message: userMessage }),
       success: function (data) {
         addMessageToChat("user", `${userMessage}`);
-        addMessageToChat("bot", `${data.response}`);
-      },
+
+        // 딕셔너리 형태의 응답 중, data가 message가 있다면
+        if (data.message) {
+          addMessageToChat("bot", `${data.message}`);
+          if (data.action === "chat-shoppingCart-popup") {
+            //triggerShoppingCartPopup(data.message);
+
+            // PHP로 메뉴이름과 수량 전송.
+            // 메뉴이름으로 디비 이름과 이미지, 가격 불러오기
+	    // 메뉴이름, 이미지, 가격으로 .noSoldOut만들기 -> display:none으로 해야할듯?
+            // menu_script.js의 addToCart3()함수에 인자로 이미지, 메뉴이름, 가격, 수량 넣어서 실행하기
+            // 같은 메뉴 호출하면 중복 추가되는거 추후 해결해야 함
+            $.ajax({
+              url: "",
+              method: "",
+              data: {
+                menu: data.menu,
+                quantity: data.quantity
+              },
+              success: function () {
+	    	$(".shoppingCart-popup").removeClass("area-hidden").addClass("area-visible");
+              },
+              error: function(error) {
+                console.error("Error sending data to PHP: ", error)
+              }
+            });
+          }
+        } else if (data.response) {             // 일반 응답
+          addMessageToChat("bot", `${data.response}`);
+        }
+      }
     });
   });
 
@@ -77,7 +106,6 @@ $(document).ready(function () {
 });
 
 // 챗봇, 유저, 선택지 출력
-
 function addMessageToChat(sender, message) {
   const messageDiv = $("<div>").addClass(sender).text(message);
   $(".chatdisplayArea-messageDiv").append(messageDiv);
@@ -85,4 +113,25 @@ function addMessageToChat(sender, message) {
     ".main .middlearea .chatdisplayArea .chatdisplayArea-messageDiv"
   );
   messageArea.scrollTop = messageArea.scrollHeight;
+}
+
+// 장바구니 기능
+function triggerShoppingCartPopup(botmessage) {
+  //const botMessage = botmessage.match(/([\w\s]+)\s\d+개/);
+  const botMessage = "페퍼로니 피자";
+  if (botMessage) {
+    //const botMessageMenu = botMessage[1];
+    const botMessageMenu = botMessage;
+    console.log("botMessageMenu", botMessageMenu);
+
+    $(".grid .noSoldOut").each(function () {
+      const noSoldOutMenuName = $(this).find(".menu").text();
+        console.log("error1", noSoldOutMenuName);
+      if (botMessageMenu === noSoldOutMenuName) {
+        console.log("error2");
+        $(this).click();
+        return false;
+      }
+    });
+  }
 }
