@@ -5,38 +5,39 @@ let date = `${selectYear}-${selectMonth}-${selectDate}`;
 
 const btn = document.querySelector(".Header .change-page");
 const header = document.querySelector(".Header .Header-column span");
-let mode = 1;
+localStorage.setItem("employeeMode", 1);
 
 function customItems() {
+  localStorage.setItem("employeeMode", 1);
   btn.innerHTML = "재고 관리";
   header.innerHTML = "주문 현황";
   getTableItem();
   btn.removeEventListener("click", customItems);
   btn.addEventListener("click", soldout);
-  mode = 1;
 }
 
 function soldout() {
+  localStorage.setItem("employeeMode", 0);
   btn.innerHTML = "주문 현황";
   header.innerHTML = "재고 관리";
   soldOutPage();
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", customItems);
-  mode = 0;
 }
 
-getTableItem();
 btn.addEventListener("click", customItems);
 
 function getTableItem() {
-  let params = {
-    Date: date,
-  };
-  $.ajax({ url: "TableItem.php", type: "get", data: params }).done(function (
-    data
-  ) {
-    $(".main-screen").html(data);
-  });
+  if (localStorage.getItem("employeeMode") == 1) {
+    let params = {
+      Date: date,
+    };
+    $.ajax({ url: "TableItem.php", type: "get", data: params }).done(function (
+      data
+    ) {
+      $(".main-screen").html(data);
+    });
+  }
 }
 
 function soldOutPage() {
@@ -51,4 +52,4 @@ function soldOutPage() {
 }
 
 customItems();
-if (mode) setInterval(getTableItem, 10000);
+setInterval(getTableItem, 10000);

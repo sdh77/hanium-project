@@ -23,7 +23,7 @@
   border-right: 2px solid #555;
 }
 
-.orderselect * {
+.orderselect *:not(.searchBtn, .searchtext, p) {
   margin: 10px;
   width: 10vw;
   height: 5vh;
@@ -34,12 +34,12 @@
   font-size: 2.5vh;
 }
 
-.orderselect .searchtext {
+/* .orderselect .searchtext {
   width: 10vw;
   height: 3vh;
   cursor: text;
   font-size: 2vh;
-}
+} */
 
 .bodymain .orderselect .click {
   color: #3d272f;
@@ -360,7 +360,7 @@
 
 .chatArea *,
 .chatdisplayArea * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* chatbot 영역 */

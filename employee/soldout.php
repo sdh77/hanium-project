@@ -13,7 +13,10 @@ if ($result) {
         echo ' yes';
       }
       echo '"><div class="ItemList"><img id="menu-img" src="../admin/image/이미지(jpg)/'
-        . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><p>' . $row["name"] . '</p></div></a>';
+        . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img><p';
+        if((strlen($row["name"])>=30))
+        echo 'class="longMenu"';
+        echo'>' . $row["name"] . '</p></div></a>';
     }
     echo '</div>';
   }

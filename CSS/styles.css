@@ -3,6 +3,7 @@
 
 @import "conponents/Header.css";
 @import "conponents/soldOut.css";
+@import "conponents/searchDiv.css";
 
 @import "main/index_style.css";
 
@@ -19,7 +20,7 @@
 @import "employee/employee.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap");
 
 *,
 body {

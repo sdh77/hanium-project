@@ -3,7 +3,7 @@ var orderTimes = document.querySelectorAll(
 );
 
 function set_time() {
-  checkTable();
+  // if (localStorage.getItem("chefMode") == 1) {
   const now = new Date();
   let h = Number(now.getHours().toString().padStart(2, "0"));
   let m = Number(now.getMinutes().toString().padStart(2, "0"));
@@ -16,6 +16,7 @@ function set_time() {
     const newS = Number(a.substr(6, 2));
     time.innerHTML = count(h - newH, m - newM, s - newS) + "분";
   });
+  // }
 }
 
 function count(h, m, s) {

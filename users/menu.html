@@ -15,8 +15,12 @@
   <div class="bodymain">
 
     <div class="orderselect">
-      <input class="searchtext" id="searchtext"></input>
-      <a class="order" onclick="change_order(); mysearch();">검색</a>
+      <div class="userSearchDiv">
+        <input class="searchtext" id="searchtext"></input>
+        <a class="searchBtn" onclick="mysearch();">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+      </div>
       <a class="order" onclick="change_order(); set_order('추천');">추천</a>
       <a class="order" onclick="change_order(); set_order('판매량');">인기순</a>
       <!-- <a class="order" onclick="change_order(); set_order('맵기');">맵기순</a> -->
@@ -123,16 +127,6 @@
         </div>
       </div>
 
-      <!-- Bottom -->
-      <!--
-      <div class="user-bottom-area">
-        <div class="bottomBtn-area">
-          <button id="previous-button">이전으로</button>
-          <button id="orderdetail-button">주문내역</button>
-          <button id="shop-button">장바구니</button>
-        </div>
-      -->
-      <!-- 장바구니 -->
       <div class="shop-area" id="shop-area">
         <div id="item-container">
           <div id="table-number-area">
@@ -171,13 +165,9 @@
             <span id="total-price">0</span>
           </div>
           <button id="orderButton">주문하기</button>
-          <!-- <button id="closeshop-button">
-            <p>x</p>
-          </button> -->
+
         </div>
       </div>
-      <!--
-      </div>-->
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -187,6 +177,7 @@
   <script src="JS/stt_script.js"></script>
   <script src="JS/tts_script.js"></script>
   <script src="JS/call.js"></script>
+  <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
