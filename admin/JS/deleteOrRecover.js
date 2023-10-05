@@ -17,6 +17,7 @@ function recoverAll() {
 
 function DeleteOrRecover(trash) {
   let trashId = trash.querySelector(".id").innerHTML;
+  console.log(trash);
   if (confirm("삭제하려면 'yes'아니면 'cancel'을 누르세요") == true) {
     let params = {
       Id: trashId,
@@ -40,4 +41,6 @@ trashes.forEach(function (trash) {
   trash.addEventListener("click", function () {
     DeleteOrRecover(trash);
   });
+
+  console.dir(trash.onclick);
 });
