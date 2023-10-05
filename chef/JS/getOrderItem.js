@@ -44,4 +44,4 @@ function getOrderItem() {
   }
 }
 orderItem();
-setInterval(getOrderItem, 1000);
+// setInterval(getOrderItem, 1000);

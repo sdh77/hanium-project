@@ -24,22 +24,62 @@ $(document).ready(function () {
           console.log(transcript);
 
           // flask 챗봇 응답
-          console.log(newURL);
+
           $.ajax({
             url: newURL,
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify({ message: transcript }),
             success: function (data) {
-              console.log(data);
+              if (data.action == "completeMenu") {
+                if (data.table == -1) {
+                  console.log("번호를 확인");
+                } else {
+                  console.log("re: " + data.table + "번 테이블");
+                  if (data.matchMenu == -1) {
+                    console.log("번호를 확인");
+                  } else {
+                    console.log(data.matchMenu + "번 완료");
+                    clearMenuNum(data.matchMenu, data.table);
+                  }
+                }
+              }
             },
           });
         }
       }
     };
-
     recognition.start();
   } else {
     console.error("Browser does not support webkitSpeechRecognition.");
   }
 });
+
+function clearMenuNum(searchnum, searchtable) {
+  // console.log(searchnum, searchtable);
+  finishTables.forEach(function (finishTable) {
+    let thisTable = finishTable.querySelector(".orderTableId");
+    if (thisTable.innerHTML == searchtable + "번 테이블") {
+      console.log(thisTable);
+      let thisTableLists =
+        thisTable.parentElement.querySelectorAll(".orderdetail_list");
+      thisTableLists.forEach(function (thisTableList) {
+        let thisItem = thisTableList.querySelector(".tableOrderItem__menu");
+        if (thisItem.innerHTML == searchnum + ".") {
+          console.log(thisItem.innerHTML);
+          // let params = {
+          //   orderId: finishMenu.classList.item(1),
+          // };
+
+          // $.ajax({
+          //   url: "clearMenu.php",
+          //   type: "get",
+          //   data: params,
+          // });
+        }
+
+        // checkTable();
+      });
+    }
+  });
+}
