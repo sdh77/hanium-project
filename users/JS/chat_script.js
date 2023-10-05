@@ -1,21 +1,11 @@
-fetch("../config.json") // 설정 파일 로드
-  .then((response) => response.json())
-  .then((data) => {
-    const host = data.Host; // API 키 가져오기
-    newURL = "https://" + host + "/flask-app/chat";
-    // 나머지 코드
-  })
-  .catch((error) => {
-    console.error("Error loading config.json:", error);
-  });
-
 $(document).ready(function () {
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
     let userMessage = $(".chatdisplayArea-messageInput-text").val();
 
     $.ajax({
-      url: newURL,
+      url: "https://www.ddhye.com/flask-app/chat",
+      //url: "https://localhost/flask-app/chat",
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify({ message: userMessage }),
@@ -43,7 +33,7 @@ $(document).ready(function () {
                 .removeClass("area-hidden")
                 .addClass("area-visible");
               $(".shoppingCart-popup").html(data);
-              shoppingCartPopupFunction();
+	      shoppingCartPopupFunction();
             });
           }
         } else if (data.response) {
@@ -88,9 +78,9 @@ $(document).ready(function () {
           } else if (ListeningUserMessage) {
             addMessageToChat("user", transcript);
             // flask 챗봇 응답
-
             $.ajax({
-              url: URL,
+              url: "https://www.ddhye.com/flask-app/chat",
+              //url: "https://localhost/flask-app/chat",
               method: "POST",
               contentType: "application/json",
               data: JSON.stringify({ message: transcript }),

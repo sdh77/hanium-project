@@ -114,7 +114,7 @@ $(document).ready(function () {
           .addClass("area-hidden");
         $(".shoppingCart-popup-informQuantity").text("1");
         $(".shoppingCart-popup-quantityInt").text("1");
-      });
+    });
   });
 
   // 초기 화면에 노출되는 요소
@@ -304,5 +304,6 @@ document
 function generateTableNumber() {
   return Math.floor(Math.random() * 10) + 1;
 }
+
 
 setInterval(loadpage_list, 10000);
