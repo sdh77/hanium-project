@@ -12,7 +12,7 @@
 
 .table-info__info {
   height: 22vh;
-  background-color: var(--main-color);
+  background-color: var(--lead-color);
   border-radius: 5px;
   display: flex;
   border: none;
@@ -82,6 +82,7 @@
   font-size: 2.6vh;
   margin-top: 5%;
 }
+
 .table-info__time {
   width: 5vw;
   text-align: right;

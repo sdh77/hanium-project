@@ -1,3 +1,7 @@
 :root {
-  --main-color: #fff200;
+  /* --main-color: #fff200; */
+  --main-color: #FFFF00;
+  --lead-color: #FFFF91;
+  --sub-color: ivory;
+  --point-color: cornflowerblue;
 }

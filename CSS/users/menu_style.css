@@ -59,6 +59,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .serv-popup {
   position: fixed;
   top: 50%;
@@ -71,6 +72,7 @@
   flex-direction: column;
   z-index: 1000;
 }
+
 .servtext-area {
   display: flex;
   width: 100%;
@@ -78,6 +80,7 @@
   color: white;
   background-color: black;
 }
+
 #closepopup-button {
   margin-left: auto;
   height: 100%;
@@ -85,6 +88,7 @@
   border: none;
   font-size: 2.5vh;
 }
+
 .servTextBtn-area {
   display: grid;
   width: 100%;
@@ -95,6 +99,7 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .servText {
   display: block;
   cursor: pointer;
@@ -107,6 +112,7 @@
   border-radius: 5px;
   font-size: 2.7vh;
 }
+
 .servText:hover {
   background-color: black;
 }
@@ -117,7 +123,7 @@
   height: 8vh;
   display: flex;
   color: white;
-  background-color: #a6a5b8;
+  background-color: var(--lead-color);
   border: none;
 }
 
@@ -169,7 +175,7 @@
 }
 
 .gridmain {
-  background-color: #a6a5b8;
+  background-color: var(--lead-color);
   display: flex;
   align-items: center;
 }
@@ -183,7 +189,7 @@
   gap: 1vh 3vh;
   align-items: center;
   justify-content: center;
-  background-color: #a6a5b8;
+  background-color: var(--lead-color);
   padding: 3vh 2vw;
 }
 
@@ -254,7 +260,6 @@
   color: white;
   padding: 0.8vh;
   width: 2.5vw;
-
   background-color: #0067a3;
 }
 
@@ -287,7 +292,7 @@
   justify-content: center;
   align-content: center;
   height: 6vh;
-  background-color: #a6a5b8;
+  background-color: var(--lead-color);
 }
 
 .pagebuttons button {
@@ -298,7 +303,8 @@
   background-color: transparent;
   display: flex;
   align-items: center;
-  background-color: #a6a5b8;
+  background-color: var(--lead-color);
+  ;
   margin-top: 2vh;
 }
 
@@ -468,7 +474,7 @@
 .bottomBtn-area {
   height: 20vh;
   width: 85vw;
-  background-color: #a6a5b8;
+  background-color: var(--lead-color);
 }
 
 .bottomBtn-area {
@@ -503,27 +509,33 @@
   background-color: white;
   border: 2px solid black;
 }
+
 .shoppingCart-popup-1 {
   display: flex;
   height: 7%;
   background-color: black;
 }
+
 .shoppingCart-popup-closeBtn {
   margin-left: auto;
 }
+
 .shoppingCart-popup-2 {
   display: flex;
   height: 69%;
 }
+
 .shoppingCart-popup-3 {
   display: flex;
   flex-direction: row;
   height: 12%;
 }
+
 .shoppingCart-popup-4 {
   display: flex;
   height: 12%;
 }
+
 /* 장바구니 */
 .shop-area {
   justify-content: space-between;
