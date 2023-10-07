@@ -7,7 +7,7 @@ var finishTables = document.querySelectorAll(
 );
 
 var newCnt = finishMenus.length;
-console.log(newCnt);
+// console.log(newCnt);
 if (newCnt != Number(localStorage.getItem("menuCnt"))) {
   alert("new");
 }
