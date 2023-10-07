@@ -40,7 +40,6 @@ $(document).ready(function () {
       $(".shoppingCart-popup-quantityIncrease")
         .off("click")
         .on("click", function () {
-          console.log("1");
           popupincreaseQuantity(
             $(this).siblings(".shoppingCart-popup-quantityInt")
           );
@@ -65,6 +64,7 @@ $(document).ready(function () {
         );
       });
     });
+
     $(".shoppingCart-popup-okBtn")
       .off("click")
       .on("click", function () {
@@ -84,7 +84,6 @@ $(document).ready(function () {
             newitemprice = menuPrice * menuQuantity;
             olditemprice += newitemprice;
             totalPrice += newitemprice;
-            console.log("crazy::", totalPrice);
 
             $(this).find(".quantity").text(cartquantity);
             $(this)
@@ -122,6 +121,7 @@ $(document).ready(function () {
   //$(".shop-area").addClass("area-hidden");
   $(".shop-area").addClass("area-visible"); // 장바구니 숨기는 기능 취소
   $(".shoppingCart-popup").addClass("area-hidden");
+  $(".shoppingCart-popup2").addClass("area-hidden");
   $(".serv-popup").addClass("area-hidden");
 
   // 장바구니 숨기기, 보이기
@@ -131,10 +131,10 @@ $(document).ready(function () {
     $(".shop-area").removeClass("area-hidden").addClass("area-visible");
   });*/
   // do: 장바구니 수량 조절
-  $("#cart").on("click", ".increase", function () {
+  $("#cart").off("click", ".increase").on("click", ".increase", function () {
     increaseQuantity($(this).siblings(".quantity"));
   });
-  $("#cart").on("click", ".decrease", function () {
+  $("#cart").off("click", ".decrease").on("click", ".decrease", function () {
     decreaseQuantity($(this).siblings(".quantity"));
   });
   // 장바구니 아이템 삭제 버튼
