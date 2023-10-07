@@ -7,6 +7,7 @@ let selectDate = String(new Date().getDate()).padStart(2, "0");
 let date = `${selectYear}-${selectMonth}-${selectDate}`;
 
 localStorage.setItem("chefMode", 1);
+localStorage.setItem("clearTableNum", 0);
 
 function orderItem() {
   localStorage.setItem("chefMode", 1);

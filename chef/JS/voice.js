@@ -56,6 +56,8 @@ $(document).ready(function () {
 });
 
 function clearMenuNum(searchnum, searchtable) {
+  let doclick = 0;
+
   // console.log(searchnum, searchtable);
   finishTables.forEach(function (finishTable) {
     let thisTable = finishTable.querySelector(".orderTableId");
@@ -63,10 +65,14 @@ function clearMenuNum(searchnum, searchtable) {
       console.log(thisTable);
       let thisTableLists =
         thisTable.parentElement.querySelectorAll(".orderdetail_list");
+      console.log(thisTableLists);
+
       thisTableLists.forEach(function (thisTableList) {
         let thisItem = thisTableList.querySelector(".tableOrderItem__menu");
-        if (thisItem.innerHTML == searchnum + ".") {
-          console.log(thisItem.innerHTML);
+        if (thisItem.innerHTML == searchnum + "." && doclick == 0) {
+          console.log(thisItem);
+          thisItem.click();
+          doclick = 1;
           // let params = {
           //   orderId: finishMenu.classList.item(1),
           // };
