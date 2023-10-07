@@ -25,26 +25,48 @@ $(document).ready(function () {
         // 딕셔너리 형태의 응답 중, data가 message가 있다면
         if (data.message) {
           addMessageToChat("bot", `${data.message}`);
-          if (data.action === "chat-shoppingCart-popup") {
-            //triggerShoppingCartPopup(data.message);
 
-            // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업창 띄움
-            var params = {
-              menu: data.menu,
-              quantity: data.quantity,
-            };
-            console.log(params);
-            $.ajax({
-              url: "showCheckPopup.php",
-              type: "get",
-              data: params,
-            }).done(function (data) {
-              $(".shoppingCart-popup")
-                .removeClass("area-hidden")
-                .addClass("area-visible");
-              $(".shoppingCart-popup").html(data);
-              shoppingCartPopupFunction();
-            });
+          switch(data.action) {
+            case "chat-shoppingCart-popup":
+              // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업
+              var params = {
+                menu: data.menu,
+                quantity: data.quantity,
+              };
+              $.ajax({
+                url: "showCheckPopup.php",
+                type: "get",
+                data: params,
+              }).done(function (data) {
+                $(".shoppingCart-popup")
+                  .removeClass("area-hidden")
+                  .addClass("area-visible");
+                $(".shoppingCart-popup").html(data);
+                shoppingCartPopupFunction();
+              });
+              break;
+            case "chat-shoppingCart-popup-Edit":
+              quantityInit = window.menuQuantity2;
+              quantityChange = data.quantity - quantityInit;
+
+              if (quantityChange > 0) {
+                for (let i=0; i<quantityChange; i++){
+                  $(".shoppingCart-popup-quantityIncrease2").trigger("click");
+                }
+              } else if (quantityChange == 0) {
+              } else {
+                for (let i=0; i>quantityChange; i--) {
+                  $(".shoppingCart-popup-quantityDecrease2").trigger("click");
+                }
+              }
+              break;
+            case "chat-shoppingCart-popup-orderBtn":
+              shoppingCartPopupOkBtn();
+              break;
+            case "chat-shoppingCart-popup-closeBtn":
+              $(".shoppingCart-popup-closeBtn").trigger("click");
+              break;
+
           }
         } else if (data.response) {
           // 일반 응답
@@ -87,8 +109,8 @@ $(document).ready(function () {
             ListeningUserMessage = true;
           } else if (ListeningUserMessage) {
             addMessageToChat("user", transcript);
-            // flask 챗봇 응답
 
+	    // flask 챗봇 응답
             $.ajax({
               url: URL,
               method: "POST",
@@ -98,19 +120,19 @@ $(document).ready(function () {
                 addMessageToChat("bot", `${data.response}`);
               },
             });
-
-            // 상시대기 STT 종료
-            $("#stopChromeSTT").click(function () {
-              recognition.stop();
-              ListeningUserMessage = false;
-              console.log("상시 대기 모드 종료");
-            });
           }
         }
       }
     };
 
     recognition.start();
+
+    // 상시대기 STT 종료
+    $("#stopChromeSTT").click(function () {
+      recognition.stop();
+      ListeningUserMessage = false;
+      console.log("상시 대기 모드 종료");
+    });
   } else {
     console.error("Browser does not support webkitSpeechRecognition.");
   }
@@ -123,26 +145,14 @@ function addMessageToChat(sender, message) {
   const messageArea = document.querySelector(
     ".main .middlearea .chatdisplayArea .chatdisplayArea-messageDiv"
   );
+  if (sender == "bot") {
+    chromeTTS(message);
+  }
   messageArea.scrollTop = messageArea.scrollHeight;
 }
-
-// 장바구니 기능
-function triggerShoppingCartPopup(botmessage) {
-  //const botMessage = botmessage.match(/([\w\s]+)\s\d+개/);
-  const botMessage = "페퍼로니 피자";
-  if (botMessage) {
-    //const botMessageMenu = botMessage[1];
-    const botMessageMenu = botMessage;
-    console.log("botMessageMenu", botMessageMenu);
-
-    $(".grid .noSoldOut").each(function () {
-      const noSoldOutMenuName = $(this).find(".menu").text();
-      console.log("error1", noSoldOutMenuName);
-      if (botMessageMenu === noSoldOutMenuName) {
-        console.log("error2");
-        $(this).click();
-        return false;
-      }
-    });
-  }
+// 크롬 TTS
+function chromeTTS(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(utterance);
 }
+

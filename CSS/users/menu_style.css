@@ -492,7 +492,7 @@
 }
 
 /* 장바구니 팝업창 */
-.shoppingCart-popup {
+.shoppingCart-popup, .shoppingCart-popup2 {
   position: absolute;
   top: 50%;
   left: 50%;
