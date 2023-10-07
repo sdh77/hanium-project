@@ -43,6 +43,13 @@ $(document).ready(function () {
                     clearMenuNum(data.matchMenu, data.table);
                   }
                 }
+              } else if (data.action == "completeTable") {
+                console.log("re: " + data.table + "번 테이블");
+                if (data.table == -1) {
+                  console.log("번호를 확인");
+                } else {
+                  clearTable(data.table);
+                }
               }
             },
           });
@@ -62,30 +69,42 @@ function clearMenuNum(searchnum, searchtable) {
   finishTables.forEach(function (finishTable) {
     let thisTable = finishTable.querySelector(".orderTableId");
     if (thisTable.innerHTML == searchtable + "번 테이블") {
-      console.log(thisTable);
+      // console.log(thisTable);
       let thisTableLists =
         thisTable.parentElement.querySelectorAll(".orderdetail_list");
-      console.log(thisTableLists);
+      // console.log(thisTableLists);
 
       thisTableLists.forEach(function (thisTableList) {
         let thisItem = thisTableList.querySelector(".tableOrderItem__menu");
         if (thisItem.innerHTML == searchnum + "." && doclick == 0) {
-          console.log(thisItem);
+          // console.log(thisItem);
           thisItem.click();
-          doclick = 1;
-          // let params = {
-          //   orderId: finishMenu.classList.item(1),
-          // };
-
-          // $.ajax({
-          //   url: "clearMenu.php",
-          //   type: "get",
-          //   data: params,
-          // });
+          let check = thisItem.parentElement.classList.item(2);
+          if (check != "clear") doclick = 1;
         }
-
-        // checkTable();
       });
+    }
+  });
+}
+
+function clearTable(searchtable) {
+  let doclick = 0;
+  finishTables.forEach(function (finishTable) {
+    let thisTable = finishTable.querySelector(".orderTableId");
+    if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
+      console.log(thisTable);
+      let thisTableLists =
+        thisTable.parentElement.querySelectorAll(".orderdetail_list");
+      console.log(thisTableLists);
+      thisTableLists.forEach(function (thisTableList) {
+        let thisItem = thisTableList.querySelector(".tableOrderItem__menu");
+        thisItem.click();
+      });
+      console.log(thisTable.parentElement);
+
+      let check = thisTable.parentElement.classList.item(1);
+      console.log(check);
+      if (check != "tableclear") doclick = 1;
     }
   });
 }

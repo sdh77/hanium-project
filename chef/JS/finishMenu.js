@@ -38,9 +38,9 @@ function checkTable() {
       .forEach(function (checkClear) {
         if (checkClear.classList.item(2) == "clear") check++;
         cnt++;
-        console.log(cnt, check);
+        // console.log(cnt, check);
       });
-    console.log(check, cnt);
+    // console.log(check, cnt);
     if (check == cnt) {
       finishTable.classList.add("hide");
       finishTable
