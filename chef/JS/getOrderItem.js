@@ -7,6 +7,7 @@ let selectDate = String(new Date().getDate()).padStart(2, "0");
 let date = `${selectYear}-${selectMonth}-${selectDate}`;
 
 localStorage.setItem("chefMode", 1);
+localStorage.setItem("clearTableNum", 0);
 
 function orderItem() {
   localStorage.setItem("chefMode", 1);
@@ -23,9 +24,7 @@ function soldout() {
   localStorage.setItem("chefMode", 0);
   btn.innerHTML = "주문 관리";
   header.innerHTML = "재고 관리";
-  $.ajax({ url: "soldout.php", type: "get" }).done(function (data) {
-    $(".main-screen").html(data);
-  });
+  loadSoldOutPage();
   btn.removeEventListener("click", soldout);
   btn.addEventListener("click", orderItem);
 }
@@ -43,5 +42,11 @@ function getOrderItem() {
     });
   }
 }
+function loadSoldOutPage() {
+  $.ajax({ url: "soldout.php", type: "get" }).done(function (data) {
+    $(".main-screen").html(data);
+  });
+}
+
 orderItem();
-setInterval(getOrderItem, 1000);
+// setInterval(getOrderItem, 1000);
