@@ -21,11 +21,3 @@ soldOutTags.forEach((target) => {
     alterSoldOut(target);
   });
 });
-
-function sendSoldOut(name, soldout) {
-  let params = {
-    Name: name,
-    soldOut: soldout,
-  };
-  $.ajax({ url: "soldOutDo.php", type: "get", data: params });
-}

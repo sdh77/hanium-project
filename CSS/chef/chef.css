@@ -58,9 +58,8 @@
   height: 70vh;
   margin: 1vw;
 }
-
-.main-screen .main-area .hide {
-  /* display: none; */
+.main-screen .main-area .tableclear {
+  opacity: 0.3;
   background-color: red;
 }
 
@@ -69,13 +68,11 @@
   font-size: 2vw;
   padding-bottom: 1vh;
 }
-
 .main-screen .main-area .tableOrderItem .tableOrderItem__time {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 3vh;
 }
-
 .main-screen .main-area .tableOrderItem .clear {
   text-decoration: line-through;
 }
