@@ -93,7 +93,6 @@ function chromeTTS(text) {
 
 // 챗봇 응답
 function flaskAjax(transcript) {
-    console.log("Flask 앱 연동");
     $.ajax({
       url: newURL,
       method: "POST",
@@ -146,6 +145,10 @@ function flaskAjax(transcript) {
             case "chat-shoppingCart-popup-closeBtn":
               $(".shoppingCart-popup-closeBtn").trigger("click");
               break;
+	    case "orderBtn-click-trigger":
+	      $("#orderButton").trigger("click");
+	      break;
+
 
           }
         } else if (data.response) {

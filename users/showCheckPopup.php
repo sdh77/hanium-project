@@ -24,7 +24,7 @@ if ($result) {
     </div>
     <div class="shoppingCart-popup-4">
       <p class="shoppingCart-popup-quantityText">수량 </p>
-      <p class="shoppingCart-popup-quantityInt">1</p>
+      <p class="shoppingCart-popup-quantityInt">' . $quantity . '</p>
       <button class="shoppingCart-popup-quantityIncrease2">+</button>
       <button class="shoppingCart-popup-quantityDecrease2">-</button>
       <button class="shoppingCart-popup-okBtn2">장바구니</button>

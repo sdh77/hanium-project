@@ -74,12 +74,11 @@ let menuImg2, menuName2, menuPrice2, menuQuantity2;
 
 // 장바구니 팝업창 기능 부여
 function shoppingCartPopupFunction () {
-  console.log("Popup(chat)");
-
   window.menuImg2 = $(".shoppingCart-popup-img").attr("src");
   window.menuName2 = $(".shoppingCart-popup-informMenuDB").text();
   window.menuPrice2 = parseInt($(".popupPrice").text());
-  window.menuQuantity2 = 1;
+  //window.menuQuantity2 = 1;
+  window.menuQuantity2 = parseInt($(".shoppingCart-popup-quantityInt").text());
 
   // 장바구니 팝업창
   $(".shoppingCart-popup-closeBtn").click(function () {
@@ -89,11 +88,8 @@ function shoppingCartPopupFunction () {
     $(".shoppingCart-popup-informQuantity").text("1");
     $(".shoppingCart-popup-quantityInt").text("1");
   });
-  //$(".shoppingCart-popup-img").attr("src", menuImg);
-  //$(".shoppingCart-popup-informMenuDB").text(menuName);
-  $(".shoppingCart-popup-quantityIncrease2")
-    .off("click")
-    .on("click", popupIncreaseClickBtn);
+  // 장바구니 팝업창 수량 증감 버튼
+  $(".shoppingCart-popup-quantityIncrease2").off("click").on("click", popupIncreaseClickBtn);
   $(".shoppingCart-popup-quantityDecrease2").off("click").on("click", popupDecreaseClickBtn); 
 }
 // 장바구니 담기 버튼
