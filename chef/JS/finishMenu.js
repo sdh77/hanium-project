@@ -32,7 +32,7 @@ function checkTable() {
   let cnt = 0;
   let tableclearNum = 0;
   finishTables.forEach(function (finishTable) {
-    console.log(finishTable);
+    // console.log(finishTable);
     finishTable
       .querySelectorAll(".orderdetail_list")
       .forEach(function (checkClear) {
@@ -67,7 +67,7 @@ scrollchef();
 function scrollchef() {
   const vh = window.innerWidth * 0.01;
   clearTableNum = localStorage.getItem("clearTableNum");
-  console.dir(vh * 16 * clearTableNum);
+  // console.dir(vh * 16 * clearTableNum);
   document
     .querySelector(".main-screen .main-area")
     .scrollTo(vh * 16 * clearTableNum, 0);
