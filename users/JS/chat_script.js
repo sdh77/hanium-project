@@ -149,6 +149,21 @@ function flaskAjax(transcript) {
           case "orderBtn-click-trigger":
             $("#orderButton").trigger("click");
             break;
+          case "call":
+            console.log(data.matchCall);
+            // console.log($("#table-number").text());
+            let matchCall = {
+              tableid: $("#table-number").text(),
+              serviceText: data.matchCall,
+            };
+            if (data.matchCall != -1)
+              $.ajax({ url: "callSend.php", type: "get", data: matchCall });
+          case "callEmployee":
+            let callEmployee = {
+              tableid: $("#table-number").text(),
+              serviceText: "직원 호출",
+            };
+            $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
         }
       } else if (data.chatbotmessage) {
         addMessageToChat("bot", `${data.chatbotmessage}`);
@@ -172,6 +187,7 @@ function flaskAjax(transcript) {
                 recommend_list = `${recommend_list}'${recommend_lists[i]}', `;
             }
             loadpage_list__voice(recommend_list);
+            localStorage.setItem("userState", 0);
             break;
         }
       } else if (data.response) {
