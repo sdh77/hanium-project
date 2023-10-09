@@ -98,7 +98,6 @@ function shoppingCartPopupOkBtn () {
     .off("click")
     .on("click", function () {
       // 이미 장바구니에 담은 메뉴라면?
-      console.log("okBtn(chat)");
       let isExist = false;
       let cartquantity, newitemprice, olditemprice;
       $("#cart .cart-item:visible").each(function () {
@@ -115,7 +114,6 @@ function shoppingCartPopupOkBtn () {
           newitemprice = window.menuPrice2 * window.menuQuantity2;
           olditemprice += newitemprice;
           totalPrice += newitemprice;
-          console.log("crazy::", totalPrice);
 
           $(this).find(".quantity").text(cartquantity);
           $(this)
@@ -185,13 +183,11 @@ function addToCart4(menuImg2, menuName2, menuPrice2, menuQuantity2) {
   let totalPriceText = $("#total-price").text();
   let totalPrice = parseInt(totalPriceText.replace(/,/g, ""));
   let cartEachPrice = 0;
-  console.log(window.menuQuantity2);
 
   cartItem.find(".menu-imgsrc").attr("src", window.menuImg2);
   cartItem.find(".menu-name").text(window.menuName2);
   cartItem.find(".quantity").text(window.menuQuantity2);
   cartEachPrice = window.menuPrice2 * window.menuQuantity2;
-  console.log(cartEachPrice);
   cartItem
     .find(".item-price")
     .text(cartEachPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));

@@ -10,6 +10,8 @@ fetch("../config.json") // 설정 파일 로드
   });
 
 $(document).ready(function () {
+  addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
+
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
     let transcript = $(".chatdisplayArea-messageInput-text").val();
@@ -148,10 +150,25 @@ function flaskAjax(transcript) {
 	    case "orderBtn-click-trigger":
 	      $("#orderButton").trigger("click");
 	      break;
-
-
           }
-        } else if (data.response) {
+        } else if (data.chatbotmessage) {
+          addMessageToChat("bot", `${data.chatbotmessage}`);
+	  
+	  switch (data.action) {
+	    case "chatbot-selector":
+              addMessageToChat("selector", "메뉴 검색");
+              addMessageToChat("selector", "오늘의 추천 메뉴");
+              addMessageToChat("selector", "메뉴 추천 서비스");
+              addMessageToChat("selector", "직원 호출");
+	      break;
+	    case "chatbot-recommend":
+	      // SDH : 추천 메뉴 기능 php
+	      break;
+	  }
+
+
+
+	} else if (data.response) {
           // 일반 응답
           addMessageToChat("bot", `${data.response}`);
         }
