@@ -131,12 +131,16 @@ $(document).ready(function () {
     $(".shop-area").removeClass("area-hidden").addClass("area-visible");
   });*/
   // do: 장바구니 수량 조절
-  $("#cart").off("click", ".increase").on("click", ".increase", function () {
-    increaseQuantity($(this).siblings(".quantity"));
-  });
-  $("#cart").off("click", ".decrease").on("click", ".decrease", function () {
-    decreaseQuantity($(this).siblings(".quantity"));
-  });
+  $("#cart")
+    .off("click", ".increase")
+    .on("click", ".increase", function () {
+      increaseQuantity($(this).siblings(".quantity"));
+    });
+  $("#cart")
+    .off("click", ".decrease")
+    .on("click", ".decrease", function () {
+      decreaseQuantity($(this).siblings(".quantity"));
+    });
   // 장바구니 아이템 삭제 버튼
   $("#cart").on("click", ".cart-item-delete", function () {
     $(this).closest(".cart-item").remove();
@@ -305,4 +309,4 @@ function generateTableNumber() {
   return Math.floor(Math.random() * 10) + 1;
 }
 
-setInterval(loadpage_list, 10000);
+// setInterval(loadpage_list, 10000);
