@@ -6,14 +6,17 @@ $order_type = isset($_GET['neworder']) ? $_GET['neworder'] : "";
 $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
 $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
 $action = isset($_GET['action']) ? $_GET['action'] : "noAction";
+$menubar = isset($_GET['menubar']) ? $_GET['menubar'] : "";
 $recommend = isset($_GET['recommend']) ? $_GET['recommend'] : "";
 
 
-//$conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
-if ($action != "noAction") {
+if ($action == "recommend") {
   $sql = "select * from menu where name in (" . $recommend . ") order by new desc, id";
-} else {
+} else if ($action == "menubar") {
+  $sql = "select * from menu where div = '{$menubar}' order by new desc, id";
+} else if ($action == "menubar") {
+}else {
   if ($search != "")
     $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
   else if ($order_type == "추천") {

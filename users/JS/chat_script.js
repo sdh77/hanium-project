@@ -149,6 +149,22 @@ function flaskAjax(transcript) {
           case "orderBtn-click-trigger":
             $("#orderButton").trigger("click");
             break;
+	  case "loadpage":
+	    loadpage_menubar__voice(data.page);
+            //localStorage.setItem("userState", 0);
+	    break;
+	  case "loadpage-recommend":
+            recommend_list = "";
+            recommend_lists = data.recommendMenus.split(",");
+            for (i = 0; i < recommend_lists.length; i++) {
+              if (i == recommend_lists.length - 1)
+                recommend_list = `${recommend_list}'${recommend_lists[i]}'`;
+              else
+                recommend_list = `${recommend_list}'${recommend_lists[i]}', `;
+            }
+            loadpage_recommend__voice(recommend_list);
+            localStorage.setItem("userState", 0);
+            break;
           case "call":
             console.log(data.matchCall);
             // console.log($("#table-number").text());
@@ -175,20 +191,6 @@ function flaskAjax(transcript) {
             addMessageToChat("selector", "메뉴 추천 서비스");
             addMessageToChat("selector", "직원 호출");
             break;
-          case "chatbot-recommend":
-            // SDH : 추천 메뉴 기능 php
-            console.log("추천 메뉴");
-            recommend_list = "";
-            recommend_lists = data.recommendMenus.split(",");
-            for (i = 0; i < recommend_lists.length; i++) {
-              if (i == recommend_lists.length - 1)
-                recommend_list = `${recommend_list}'${recommend_lists[i]}'`;
-              else
-                recommend_list = `${recommend_list}'${recommend_lists[i]}', `;
-            }
-            loadpage_list__voice(recommend_list);
-            localStorage.setItem("userState", 0);
-            break;
         }
       } else if (data.response) {
         // 일반 응답
@@ -198,7 +200,31 @@ function flaskAjax(transcript) {
   });
 }
 
-function loadpage_list__voice(recommend_list) {
+// 상단 메뉴바 페이지 출력
+function loadpage_menubar__voice(pagename) {
+/*
+  var params = {
+    action: "menubar",
+    menubar: pagename,
+  };
+  $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $("#menupage").html(data);
+  }); */
+  var $menus = $(".menu");
+
+  $menus.each(function() {
+    var onClickAttr = $(this).attr('onclick');
+
+    if (onClickAttr && onClickAttr.includes(`set_type('${pagename}')`)) {
+      change_check(this); 
+      return false;
+    }
+  });
+}
+// 추천 메뉴 페이지 출력
+function loadpage_recommend__voice(recommend_list) {
   var params = {
     action: "recommend",
     recommend: recommend_list,
