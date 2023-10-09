@@ -32,7 +32,7 @@
           const transcript = event.results[i][0].transcript.trim();
           console.log(transcript);
 
-          if (transcript.includes("키오스키야") && !ListeningUserMessage) {
+          if (transcript.includes("음성 주문") && !ListeningUserMessage) {
             start();
           };
         }

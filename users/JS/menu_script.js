@@ -209,12 +209,18 @@ $(document).ready(function () {
   });
 });
 
-function change_check() {
+function change_check(targetElement) {
   var clicklists = document.querySelectorAll(".menu");
   clicklists.forEach(function (clicklist) {
     clicklist.classList.remove("click");
   });
-  event.currentTarget.classList.add("click");
+  
+  if (targetElement) {
+    targetElement.classList.add("click");
+    targetElement.click();
+  } else if (event && event.currentTarget) {
+    event.currentTarget.classList.add("click");
+  }
 }
 
 function change_order() {
