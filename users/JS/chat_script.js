@@ -15,7 +15,7 @@ $(document).ready(function () {
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
     let transcript = $(".chatdisplayArea-messageInput-text").val();
-    
+
     flaskAjax(transcript);
   });
 
@@ -34,7 +34,7 @@ $(document).ready(function () {
           const transcript = event.results[i][0].transcript.trim();
           console.log(transcript);
 
-	  /*
+          /*
           if (transcript.includes("키오스키야") && !ListeningUserMessage) {
             document.querySelector(".chatArea").style.display = "none";
             document.querySelector(".chatdisplayArea").style.display = "block"; // jQuery 왜안됨
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
 	    flaskAjax(transcript);
           } */
-	  flaskAjax(transcript);
+          flaskAjax(transcript);
         }
       }
     };
@@ -92,86 +92,120 @@ function chromeTTS(text) {
   window.speechSynthesis.speak(utterance);
 }
 
-
 // 챗봇 응답
 function flaskAjax(transcript) {
-    $.ajax({
-      url: newURL,
-      method: "POST",
-      contentType: "application/json",
-      data: JSON.stringify({ message: transcript }),
-      success: function (data) {
-        addMessageToChat("user", `${transcript}`);
+  $.ajax({
+    url: newURL,
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({ message: transcript }),
+    success: function (data) {
+      addMessageToChat("user", `${transcript}`);
 
-        // 딕셔너리 형태의 응답 중, data가 message가 있다면
-        if (data.message) {
-          addMessageToChat("bot", `${data.message}`);
+      // 딕셔너리 형태의 응답 중, data가 message가 있다면
+      if (data.message) {
+        addMessageToChat("bot", `${data.message}`);
 
-          switch(data.action) {
-            case "chat-shoppingCart-popup":
-              // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업
-              var params = {
-                menu: data.menu,
-                quantity: data.quantity,
-              };
-              $.ajax({
-                url: "showCheckPopup.php",
-                type: "get",
-                data: params,
-              }).done(function (data) {
-                $(".shoppingCart-popup")
-                  .removeClass("area-hidden")
-                  .addClass("area-visible");
-                $(".shoppingCart-popup").html(data);
-                shoppingCartPopupFunction();
-              });
-              break;
-            case "chat-shoppingCart-popup-Edit":
-              quantityInit = window.menuQuantity2;
-              quantityChange = data.quantity - quantityInit;
+        switch (data.action) {
+          case "chat-shoppingCart-popup":
+            // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업
+            var params = {
+              menu: data.menu,
+              quantity: data.quantity,
+            };
+            $.ajax({
+              url: "showCheckPopup.php",
+              type: "get",
+              data: params,
+            }).done(function (data) {
+              $(".shoppingCart-popup")
+                .removeClass("area-hidden")
+                .addClass("area-visible");
+              $(".shoppingCart-popup").html(data);
+              shoppingCartPopupFunction();
+            });
+            break;
+          case "chat-shoppingCart-popup-Edit":
+            quantityInit = window.menuQuantity2;
+            quantityChange = data.quantity - quantityInit;
 
-              if (quantityChange > 0) {
-                for (let i=0; i<quantityChange; i++){
-                  $(".shoppingCart-popup-quantityIncrease2").trigger("click");
-                }
-              } else if (quantityChange == 0) {
-              } else {
-                for (let i=0; i>quantityChange; i--) {
-                  $(".shoppingCart-popup-quantityDecrease2").trigger("click");
-                }
+            if (quantityChange > 0) {
+              for (let i = 0; i < quantityChange; i++) {
+                $(".shoppingCart-popup-quantityIncrease2").trigger("click");
               }
-              break;
-            case "chat-shoppingCart-popup-orderBtn":
-              shoppingCartPopupOkBtn();
-              break;
-            case "chat-shoppingCart-popup-closeBtn":
-              $(".shoppingCart-popup-closeBtn").trigger("click");
-              break;
-	    case "orderBtn-click-trigger":
-	      $("#orderButton").trigger("click");
-	      break;
-          }
-        } else if (data.chatbotmessage) {
-          addMessageToChat("bot", `${data.chatbotmessage}`);
-	  
-	  switch (data.action) {
-	    case "chatbot-selector":
-              addMessageToChat("selector", "메뉴 검색");
-              addMessageToChat("selector", "오늘의 추천 메뉴");
-              addMessageToChat("selector", "메뉴 추천 서비스");
-              addMessageToChat("selector", "직원 호출");
-	      break;
-	    case "chatbot-recommend":
-	      // SDH : 추천 메뉴 기능 php
-	      break;
-	  }
-
-
-
-	} else if (data.response) {
-          // 일반 응답
-          addMessageToChat("bot", `${data.response}`);
+            } else if (quantityChange == 0) {
+            } else {
+              for (let i = 0; i > quantityChange; i--) {
+                $(".shoppingCart-popup-quantityDecrease2").trigger("click");
+              }
+            }
+            break;
+          case "chat-shoppingCart-popup-orderBtn":
+            shoppingCartPopupOkBtn();
+            break;
+          case "chat-shoppingCart-popup-closeBtn":
+            $(".shoppingCart-popup-closeBtn").trigger("click");
+            break;
+          case "orderBtn-click-trigger":
+            $("#orderButton").trigger("click");
+            break;
+          case "call":
+            console.log(data.matchCall);
+            // console.log($("#table-number").text());
+            let matchCall = {
+              tableid: $("#table-number").text(),
+              serviceText: data.matchCall,
+            };
+            if (data.matchCall != -1)
+              $.ajax({ url: "callSend.php", type: "get", data: matchCall });
+          case "callEmployee":
+            let callEmployee = {
+              tableid: $("#table-number").text(),
+              serviceText: "직원 호출",
+            };
+            $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
         }
-      },
-    });
+      } else if (data.chatbotmessage) {
+        addMessageToChat("bot", `${data.chatbotmessage}`);
+
+        switch (data.action) {
+          case "chatbot-selector":
+            addMessageToChat("selector", "메뉴 검색");
+            addMessageToChat("selector", "오늘의 추천 메뉴");
+            addMessageToChat("selector", "메뉴 추천 서비스");
+            addMessageToChat("selector", "직원 호출");
+            break;
+          case "chatbot-recommend":
+            // SDH : 추천 메뉴 기능 php
+            console.log("추천 메뉴");
+            recommend_list = "";
+            recommend_lists = data.recommendMenus.split(",");
+            for (i = 0; i < recommend_lists.length; i++) {
+              if (i == recommend_lists.length - 1)
+                recommend_list = `${recommend_list}'${recommend_lists[i]}'`;
+              else
+                recommend_list = `${recommend_list}'${recommend_lists[i]}', `;
+            }
+            loadpage_list__voice(recommend_list);
+            localStorage.setItem("userState", 0);
+            break;
+        }
+      } else if (data.response) {
+        // 일반 응답
+        addMessageToChat("bot", `${data.response}`);
+      }
+    },
+  });
+}
+
+function loadpage_list__voice(recommend_list) {
+  var params = {
+    action: "recommend",
+    recommend: recommend_list,
+  };
+  $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $("#menupage").html(data);
+  });
 }

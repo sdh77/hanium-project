@@ -1,5 +1,6 @@
 $(document).ready(function () {
   // do: 주문 시작 시 테이블 번호 생성. (지금은 랜덤이고 추후에 각각 설정)
+  localStorage.setItem("userState", 1);
   console.log("Order Start!!");
   const tableID = generateTableNumber();
   console.log(tableID);
@@ -131,12 +132,16 @@ $(document).ready(function () {
     $(".shop-area").removeClass("area-hidden").addClass("area-visible");
   });*/
   // do: 장바구니 수량 조절
-  $("#cart").off("click", ".increase").on("click", ".increase", function () {
-    increaseQuantity($(this).siblings(".quantity"));
-  });
-  $("#cart").off("click", ".decrease").on("click", ".decrease", function () {
-    decreaseQuantity($(this).siblings(".quantity"));
-  });
+  $("#cart")
+    .off("click", ".increase")
+    .on("click", ".increase", function () {
+      increaseQuantity($(this).siblings(".quantity"));
+    });
+  $("#cart")
+    .off("click", ".decrease")
+    .on("click", ".decrease", function () {
+      decreaseQuantity($(this).siblings(".quantity"));
+    });
   // 장바구니 아이템 삭제 버튼
   $("#cart").on("click", ".cart-item-delete", function () {
     $(this).closest(".cart-item").remove();
@@ -245,6 +250,7 @@ type = "all";
 function set_type(newtype) {
   type = newtype;
   page = 0;
+  localStorage.setItem("userState", 1);
   loadpage_list();
 }
 
@@ -256,6 +262,8 @@ function set_order(neworder) {
     clear_order();
   } else order = neworder;
   page = 0;
+  localStorage.setItem("userState", 1);
+
   loadpage_list();
 }
 
@@ -280,16 +288,19 @@ function mysearch() {
 
 //로드 페이지
 function loadpage_list() {
-  var params = {
-    newpage: page,
-    newtype: type,
-    neworder: order,
-  };
-  $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
-    data
-  ) {
-    $("#menupage").html(data);
-  });
+  let userState = localStorage.getItem("userState");
+  if (userState == 1) {
+    var params = {
+      newpage: page,
+      newtype: type,
+      neworder: order,
+    };
+    $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
+      data
+    ) {
+      $("#menupage").html(data);
+    });
+  }
 }
 
 // do: 채팅 기능 chat-area 화면 전환 버튼 -> chat_script.js

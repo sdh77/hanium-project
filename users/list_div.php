@@ -5,44 +5,49 @@ $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
 $order_type = isset($_GET['neworder']) ? $_GET['neworder'] : "";
 $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
 $type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
+$action = isset($_GET['action']) ? $_GET['action'] : "noAction";
+$recommend = isset($_GET['recommend']) ? $_GET['recommend'] : "";
+
 
 //$conn = pg_connect('host=localhost port=5432 dbname=mytableorder user=dodo password=net123') or die('Could not connect: '.pg_last_error());
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
-
-if ($search != "")
-  $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
-else if ($order_type == "추천") {
-  $sql = "select * from menu where trash = false and recommend = true order by new desc, id";
-
-  // if ($type == "술")
-  //   $sql = "select * from menu where trash = false and div in ('주류','와인') order by recommend desc, new desc, id";
-  // else if ($type == "all")
-  //   $sql = "select * from menu where trash = false order by recommend desc, new desc, id";
-  // else
-  //   $sql = "select * from menu where trash = false and div ='" . $type . "' order by recommend desc, new desc, id";
-} else if ($order_type == "판매량") {
-  if ($type == "술")
-    $sql = "select * from menu where trash = false and div in ('주류','와인') order by cnt, new desc, id";
-  else if ($type == "all")
-    $sql = "select * from menu where trash = false order by cnt, new desc, id";
-  else
-    $sql = "select * from menu where trash = false and div ='" . $type . "' order by cnt, new desc, id";
-} else if ($order_type == "맵기") {
-  if ($type == "술")
-    $sql = "select * from menu where trash = false and div in ('주류','와인') order by spicy desc, new desc, id";
-  else if ($type == "all")
-    $sql = "select * from menu where trash = false order by spicy desc, new desc, id";
-  else
-    $sql = "select * from menu where trash = false and div ='" . $type . "' order by spicy desc, new desc, id";
+if ($action != "noAction") {
+  $sql = "select * from menu where name in (" . $recommend . ") order by new desc, id";
 } else {
-  if ($type == "술")
-    $sql = "select * from menu where trash = false and div in ('주류','와인') order by new desc, id";
-  else if ($type == "all")
-    $sql = "select * from menu where trash = false order by new desc, id";
-  else
-    $sql = "select * from menu where trash = false and div ='" . $type . "' order by new desc, id";
-}
+  if ($search != "")
+    $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
+  else if ($order_type == "추천") {
+    $sql = "select * from menu where trash = false and recommend = true order by new desc, id";
 
+    // if ($type == "술")
+    //   $sql = "select * from menu where trash = false and div in ('주류','와인') order by recommend desc, new desc, id";
+    // else if ($type == "all")
+    //   $sql = "select * from menu where trash = false order by recommend desc, new desc, id";
+    // else
+    //   $sql = "select * from menu where trash = false and div ='" . $type . "' order by recommend desc, new desc, id";
+  } else if ($order_type == "판매량") {
+    if ($type == "술")
+      $sql = "select * from menu where trash = false and div in ('주류','와인') order by cnt, new desc, id";
+    else if ($type == "all")
+      $sql = "select * from menu where trash = false order by cnt, new desc, id";
+    else
+      $sql = "select * from menu where trash = false and div ='" . $type . "' order by cnt, new desc, id";
+  } else if ($order_type == "맵기") {
+    if ($type == "술")
+      $sql = "select * from menu where trash = false and div in ('주류','와인') order by spicy desc, new desc, id";
+    else if ($type == "all")
+      $sql = "select * from menu where trash = false order by spicy desc, new desc, id";
+    else
+      $sql = "select * from menu where trash = false and div ='" . $type . "' order by spicy desc, new desc, id";
+  } else {
+    if ($type == "술")
+      $sql = "select * from menu where trash = false and div in ('주류','와인') order by new desc, id";
+    else if ($type == "all")
+      $sql = "select * from menu where trash = false order by new desc, id";
+    else
+      $sql = "select * from menu where trash = false and div ='" . $type . "' order by new desc, id";
+  }
+}
 $result = pg_query($conn, $sql);
 if ($result) {
   $totalpage = pg_num_rows($result);
