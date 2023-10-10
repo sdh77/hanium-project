@@ -44,7 +44,7 @@ for ($days = 1; $days <= $day_count; $days++) {
   echo '<button class="showList"><div class="calendar_grid__day"><div class="calendar_grid__day__num';
   if ((substr($Date, 0, 8) . sprintf('%02d', $days)) == $Date)
     echo ' today';
-  echo '">' . $cnt . '</div>
+  echo '"><p>' . $cnt . '</p></div>
     <div class="calendar_grid__day__price">' . $totalPrice . '</div>
     </div></button>';
 }

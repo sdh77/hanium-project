@@ -74,6 +74,7 @@
 
 .salesPopupDisplay {
   position: relative;
+  place-items: center;
 }
 .salesPopupDisplay .salesTodayHeader {
   font-size: 8vh;

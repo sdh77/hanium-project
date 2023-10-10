@@ -79,12 +79,15 @@
 
 .showList .calendar_grid__day .calendar_grid__day__num {
   font-size: 4vh;
-  width: 4vh;
-  height: 4vh;
+  width: 6vh;
+  height: 6vh;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .showList .calendar_grid__day .calendar_grid__day__price {
-  font-size: 4vh;
+  font-size: 3vh;
 }
 
 .showList .today {

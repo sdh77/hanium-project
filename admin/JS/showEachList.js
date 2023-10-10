@@ -29,7 +29,7 @@ function hide() {
 }
 showDays.forEach((showDay) => {
   showDay.addEventListener("click", function () {
-    let day = showDay.querySelector(".calendar_grid__day__num").innerHTML;
+    let day = showDay.querySelector(".calendar_grid__day__num p").innerHTML;
     selectShowOrder(day);
   });
 });
