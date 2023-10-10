@@ -2,4 +2,41 @@
   display: grid;
   grid-template-columns: repeat(3, 16vw);
   grid-template-rows: repeat(4, 14vh);
+  place-items: center;
+}
+
+.totalSaleGrid .totalSaleGrid_item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.totalSaleGrid .totalSaleGrid_item .totalSaleGrid_item__select {
+  font-size: 5vh;
+}
+
+.totalSaleGrid .totalSaleGrid_item .totalSaleGrid_item__price {
+  font-size: 3vh;
+}
+.salesTodayHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.salesTodayHeader .salesTodayHeader__arr {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.salesTodayHeader .salesTodayHeader__arr .yearbtn {
+  border: none;
+  background-color: transparent;
+  width: 5vw;
+  text-align: center;
+  font-size: 5vh;
+  margin: 0;
 }
