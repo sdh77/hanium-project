@@ -12,9 +12,10 @@ selectLists.forEach((selectList) => {
 
 function showSelectSales(select) {
   selectPopup.classList.add("show");
-
+  console.log(date);
   let params = {
     action: select,
+    Date: Number(date.substr(0, 4)),
   };
   $.ajax({ url: "showtoDayOrderList.php", type: "get", data: params }).done(
     function (data) {
