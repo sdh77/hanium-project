@@ -9,12 +9,19 @@ var finishTables = document.querySelectorAll(
 );
 
 var newCnt = Menus.length;
+var clearCntCheck = clearMenus.length;
+console.log(newCnt);
+console.log(clearCntCheck);
 // console.log(newCnt);
-if (newCnt != Number(localStorage.getItem("menuCnt"))) {
-  alert("new");
-}
-localStorage.setItem("menuCnt", newCnt);
 
+if (clearCntCheck == 0) {
+  if (newCnt > Number(localStorage.getItem("menuCnt"))) {
+    alert("new");
+    localStorage.setItem("menuCnt", newCnt);
+  } else if (newCnt < Number(localStorage.getItem("menuCnt"))) {
+    localStorage.setItem("menuCnt", newCnt);
+  }
+}
 Menus.forEach(function (finishMenu) {
   finishMenu.addEventListener("click", function () {
     finishMenu.classList.add("clear");
@@ -23,8 +30,8 @@ Menus.forEach(function (finishMenu) {
       orderId: finishMenu.classList.item(1),
     };
     $.ajax({ url: "clearMenu.php", type: "get", data: params });
-    checkTable();
   });
+  checkTable();
 });
 
 function checkTable() {
@@ -42,7 +49,7 @@ function checkTable() {
       });
     // console.log(check, cnt);
     if (check == cnt) {
-      finishTable.classList.add("hide");
+      finishTable.className = "tableOrderItemCLEAR";
       finishTable
         .querySelectorAll(".orderdetail_list")
         .forEach(function (checkClear) {
@@ -59,17 +66,4 @@ function checkTable() {
       cnt = 0;
     }
   });
-  localStorage.setItem("clearTableNum", tableclearNum);
-  orderItem();
 }
-
-function scrollchef() {
-  const vh = window.innerWidth * 0.01;
-  clearTableNum = localStorage.getItem("clearTableNum");
-  // console.dir(vh * 16 * clearTableNum);
-  document
-    .querySelector(".main-screen .main-area")
-    .scrollTo(vh * 16 * clearTableNum, 0);
-}
-
-// document.querySelector(".main-screen .main-area").scrollTo(40000, 0);

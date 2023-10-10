@@ -69,7 +69,7 @@ console.log(chef_swipe);
 // 드래그(스와이프) 이벤트를 위한 변수 초기화
 let startPoint = 0;
 let endPoint = 0;
-
+let Tolerance = 100; //오차
 // PC 클릭 이벤트 (드래그)
 chef_swipe.addEventListener("mousedown", (e) => {
   console.log("mousedown", e.pageY);
@@ -79,7 +79,7 @@ chef_swipe.addEventListener("mousedown", (e) => {
 chef_swipe.addEventListener("mouseup", (e) => {
   console.log("mouseup", e.pageY);
   endPoint = e.pageY; // 마우스 드래그 끝 위치 저장
-  if (startPoint < endPoint || startPoint > endPoint) {
+  if (startPoint - endPoint > Tolerance || endPoint - startPoint > Tolerance) {
     let chefNowState = localStorage.getItem("chefMode");
     if (chefNowState == 2) {
       getOrderItem("notClear");
@@ -102,7 +102,7 @@ chef_swipe.addEventListener("touchstart", (e) => {
 chef_swipe.addEventListener("touchend", (e) => {
   console.log("touchend", e.changedTouches[0].pageY);
   endPoint = e.changedTouches[0].pageY; // 터치가 끝나는 위치 저장
-  if (startPoint < endPoint || startPoint > endPoint) {
+  if (startPoint - endPoint > Tolerance || endPoint - startPoint > Tolerance) {
     // 오른쪽으로 스와이프 된 경우
     let chefNowState = localStorage.getItem("chefMode");
     if (chefNowState == 2) {
