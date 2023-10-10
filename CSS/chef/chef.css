@@ -46,6 +46,7 @@
   word-break: keep-all;
 }
 
+.main-screen .main-area .tableOrderItemCLEAR,
 .main-screen .main-area .tableOrderItem {
   background-color: var(--main-color);
 
@@ -58,21 +59,24 @@
   height: 70vh;
   margin: 1vw;
 }
-.main-screen .main-area .tableclear {
+.main-screen .main-area .tableOrderItemCLEAR {
   opacity: 0.3;
   background-color: red;
 }
 
+.main-screen .main-area .tableOrderItemCLEAR .orderTableId,
 .main-screen .main-area .tableOrderItem .orderTableId {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 1vh;
 }
+.main-screen .main-area .tableOrderItemCLEAR .tableOrderItem__time,
 .main-screen .main-area .tableOrderItem .tableOrderItem__time {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 3vh;
 }
+.main-screen .main-area .tableOrderItemCLEAR .clear,
 .main-screen .main-area .tableOrderItem .clear {
   text-decoration: line-through;
 }

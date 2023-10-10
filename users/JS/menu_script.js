@@ -214,7 +214,7 @@ function change_check(targetElement) {
   clicklists.forEach(function (clicklist) {
     clicklist.classList.remove("click");
   });
-  
+
   if (targetElement) {
     targetElement.classList.add("click");
     targetElement.click();
@@ -322,4 +322,50 @@ function generateTableNumber() {
   return Math.floor(Math.random() * 10) + 1;
 }
 
-setInterval(loadpage_list, 10000);
+// setInterval(loadpage_list, 10000);
+
+const menuSwipe = document.querySelector(".menu-list");
+console.log(menuSwipe);
+
+// 드래그(스와이프) 이벤트를 위한 변수 초기화
+let startPoint = 0;
+let endPoint = 0;
+
+// PC 클릭 이벤트 (드래그)
+menuSwipe.addEventListener("mousedown", (e) => {
+  console.log("mousedown", e.pageX);
+  startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+});
+
+menuSwipe.addEventListener("mouseup", (e) => {
+  console.log("mouseup", e.pageX);
+  endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
+  if (startPoint < endPoint) {
+    // 마우스가 오른쪽으로 드래그 된 경우
+    console.log("prev move");
+    downpage();
+  } else if (startPoint > endPoint) {
+    // 마우스가 왼쪽으로 드래그 된 경우
+    console.log("next move");
+    uppage();
+  }
+});
+
+// 모바일 터치 이벤트 (스와이프)
+menuSwipe.addEventListener("touchstart", (e) => {
+  console.log("touchstart", e.touches[0].pageX);
+  startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+});
+menuSwipe.addEventListener("touchend", (e) => {
+  console.log("touchend", e.changedTouches[0].pageX);
+  endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장
+  if (startPoint < endPoint) {
+    // 오른쪽으로 스와이프 된 경우
+    console.log("prev move");
+    downpage();
+  } else if (startPoint > endPoint) {
+    // 왼쪽으로 스와이프 된 경우
+    console.log("next move");
+    uppage();
+  }
+});

@@ -16,7 +16,7 @@ if ($action == "recommend") {
 } else if ($action == "menubar") {
   $sql = "select * from menu where div = '{$menubar}' order by new desc, id";
 } else if ($action == "menubar") {
-}else {
+} else {
   if ($search != "")
     $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
   else if ($order_type == "추천") {

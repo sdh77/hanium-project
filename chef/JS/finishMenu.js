@@ -1,4 +1,4 @@
-var finishMenus = document.querySelectorAll(
+var Menus = document.querySelectorAll(
   ".main-screen .main-area .tableOrderItem .orderdetail_list"
 );
 var clearMenus = document.querySelectorAll(
@@ -8,14 +8,14 @@ var finishTables = document.querySelectorAll(
   ".main-screen .main-area .tableOrderItem"
 );
 
-var newCnt = finishMenus.length + clearMenus.length;
+var newCnt = Menus.length;
 // console.log(newCnt);
 if (newCnt != Number(localStorage.getItem("menuCnt"))) {
   alert("new");
 }
 localStorage.setItem("menuCnt", newCnt);
 
-finishMenus.forEach(function (finishMenu) {
+Menus.forEach(function (finishMenu) {
   finishMenu.addEventListener("click", function () {
     finishMenu.classList.add("clear");
     console.log(finishMenu.classList.item(1));
@@ -63,7 +63,6 @@ function checkTable() {
   orderItem();
 }
 
-scrollchef();
 function scrollchef() {
   const vh = window.innerWidth * 0.01;
   clearTableNum = localStorage.getItem("clearTableNum");
@@ -73,7 +72,4 @@ function scrollchef() {
     .scrollTo(vh * 16 * clearTableNum, 0);
 }
 
-window.onload = function () {
-  scrollchef();
-};
 // document.querySelector(".main-screen .main-area").scrollTo(40000, 0);

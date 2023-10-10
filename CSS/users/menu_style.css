@@ -160,6 +160,10 @@
 .main .middlearea .menu-list {
   width: 60vw;
   height: 72vh;
+  user-select: none;
+}
+.main .middlearea .menu-list * {
+  user-select: none;
 }
 
 .main .middlearea .menu-list .item_grid {
@@ -492,7 +496,8 @@
 }
 
 /* 장바구니 팝업창 */
-.shoppingCart-popup, .shoppingCart-popup2 {
+.shoppingCart-popup,
+.shoppingCart-popup2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -641,4 +646,12 @@
   justify-content: center;
   align-items: center;
   color: white;
+}
+#checkout-area #orderButton {
+  border: none;
+  border-radius: 15px;
+  background-color: #a6a5b8;
+  padding: 10px;
+  font-size: 3vh;
+  color: black;
 }

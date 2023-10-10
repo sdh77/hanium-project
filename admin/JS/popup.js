@@ -1,6 +1,7 @@
 const updateBtns = document.querySelectorAll(".list span .update");
 const popup = document.querySelector(".background");
-
+const window = document.querySelector(".window");
+window.addEventListener("click", hide);
 function show(target) {
   let id = target.parentNode.querySelector(".id").innerText;
   popup.classList.add("show");
