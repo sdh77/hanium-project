@@ -100,7 +100,17 @@
               <button class="shoppingCart-popup-okBtn">장바구니</button>
             </div>
           </div>
-          <div class="shoppingCart-popup2"></div>
+          <div class="shopcartAll-popup area-hidden">
+            <div class="shopcartAll-popup_top">
+              <button id="closeshopcartAll-popup-button">x</button>
+            </div>
+            <div class="shopcartAll_popup__list"></div>
+            <div class="shopcartAll-popup_bottom">
+              <button id="canselButton">취소</button>
+
+              <button id="orderButton">주문하기</button>
+            </div>
+          </div>
         </div>
 
         <!-- 채팅 -->
@@ -165,11 +175,12 @@
             </span>
             <span id="total-price">0</span>
           </div>
-          <button id="orderButton">주문하기</button>
+          <button id="orderButton_popup">주문하기</button>
 
         </div>
       </div>
     </div>
+
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
