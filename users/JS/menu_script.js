@@ -153,8 +153,40 @@ $(document).ready(function () {
     $(".bottomBtn-area").removeClass("area-hidden").addClass("area-visible");
     $(".shop-area").removeClass("area-visible").addClass("area-hidden");
   });*/
+
+  $("#canselButton").click(function () {
+    $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+  });
+  $("#closeshopcartAll-popup-button").click(function () {
+    $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+  });
+
+  $("#orderButton_popup").click(function () {
+    $(".shopcartAll-popup").removeClass("area-hideen").addClass("area-visible");
+    var cartItems = $(".cart-item:visible");
+    let names = [];
+    let quantitys = [];
+    cartItems.each(function () {
+      names.push($(this).find(".menu-name").text());
+      quantitys.push($(this).find(".quantity").text());
+    });
+    console.log(names);
+    let params = {
+      names: names,
+      quantitys: quantitys,
+    };
+    $.ajax({
+      url: "showShopAllList.php",
+      type: "get",
+      data: params,
+    }).done(function (data) {
+      $(".shopcartAll_popup__list").html(data);
+    });
+  });
+
   // do: 주문
   $("#orderButton").click(function () {
+    // 주문 정보를 서버에 전송
     var cartItems = $(".cart-item:visible");
 
     var order = {
@@ -171,7 +203,6 @@ $(document).ready(function () {
       order.items.push(item);
     });
 
-    // 주문 정보를 서버에 전송
     $.ajax({
       url: "orderdetail.php",
       type: "POST",
@@ -189,6 +220,7 @@ $(document).ready(function () {
     document.querySelector(".chatArea").style.display = "block";
     document.querySelector(".chatdisplayArea").style.display = "none";
     alert("주문 완료!!!");
+    $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
   });
 
   // 직원 호출 service. orderdetail DB로 전송
