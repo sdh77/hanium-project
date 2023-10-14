@@ -11,6 +11,10 @@ fetch("../config.json") // 설정 파일 로드
 
 $(document).ready(function () {
   addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
+  addMessageToChat("selector", "메뉴 검색");
+  addMessageToChat("selector", "오늘의 추천 메뉴");
+  addMessageToChat("selector", "메뉴 추천 서비스");
+  addMessageToChat("selector", "직원 호출");
 
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
@@ -34,28 +38,6 @@ $(document).ready(function () {
           const transcript = event.results[i][0].transcript.trim();
           console.log(transcript);
 
-          /*
-          if (transcript.includes("키오스키야") && !ListeningUserMessage) {
-            document.querySelector(".chatArea").style.display = "none";
-            document.querySelector(".chatdisplayArea").style.display = "block"; // jQuery 왜안됨
-
-            // 메시지를 chatbox에 추가
-            addMessageToChat(
-              "bot",
-              "어서오세요! 주문을 도와드리는 키오스키입니다^_^"
-            );
-            addMessageToChat("selector", "1. 메뉴 검색해줘");
-            addMessageToChat("selector", "2. 추천메뉴 알려줘");
-            addMessageToChat("selector", "3. 취향대로 추천해줘");
-            addMessageToChat("selector", "4. 주문 도와줘");
-            addMessageToChat("selector", "5. 직원 호출해 줘");
-
-            ListeningUserMessage = true;
-          } else if (ListeningUserMessage) {
-            addMessageToChat("user", transcript);
-
-	    flaskAjax(transcript);
-          } */
           flaskAjax(transcript);
         }
       }
@@ -125,6 +107,7 @@ function flaskAjax(transcript) {
               shoppingCartPopupFunction();
             });
             break;
+
           case "chat-shoppingCart-popup-Edit":
             quantityInit = window.menuQuantity2;
             quantityChange = data.quantity - quantityInit;
@@ -140,19 +123,37 @@ function flaskAjax(transcript) {
               }
             }
             break;
+
           case "chat-shoppingCart-popup-orderBtn":
             shoppingCartPopupOkBtn();
             break;
+
           case "chat-shoppingCart-popup-closeBtn":
             $(".shoppingCart-popup-closeBtn").trigger("click");
             break;
+
           case "orderBtn-click-trigger":
             $("#orderButton").trigger("click");
             break;
+
 	  case "loadpage":
 	    loadpage_menubar__voice(data.page);
             //localStorage.setItem("userState", 0);
 	    break;
+
+	  case "loadpage-search":
+	    search_list= "";
+	    search_lists= data.searchMenus.split(",");
+	    for (i=0; i<search_lists.length; i++) {
+	      if (i == search_lists.length - 1)
+	        search_list = `${search_list}'${search_list[i]}'`;
+	      else
+		search_list = `${search_list}'${search_lists[i]}', `;
+	    }
+	    loadpage_search__voice(search_list);
+	    localStorage.setItem("userState", 0);
+	    break;
+
 	  case "loadpage-recommend":
             recommend_list = "";
             recommend_lists = data.recommendMenus.split(",");
@@ -165,6 +166,7 @@ function flaskAjax(transcript) {
             loadpage_recommend__voice(recommend_list);
             localStorage.setItem("userState", 0);
             break;
+
           case "call":
             console.log(data.matchCall);
             // console.log($("#table-number").text());
@@ -180,17 +182,6 @@ function flaskAjax(transcript) {
               serviceText: "직원 호출",
             };
             $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
-        }
-      } else if (data.chatbotmessage) {
-        addMessageToChat("bot", `${data.chatbotmessage}`);
-
-        switch (data.action) {
-          case "chatbot-selector":
-            addMessageToChat("selector", "메뉴 검색");
-            addMessageToChat("selector", "오늘의 추천 메뉴");
-            addMessageToChat("selector", "메뉴 추천 서비스");
-            addMessageToChat("selector", "직원 호출");
-            break;
         }
       } else if (data.response) {
         // 일반 응답
@@ -221,6 +212,18 @@ function loadpage_menubar__voice(pagename) {
       change_check(this); 
       return false;
     }
+  });
+}
+// 검색 메뉴 페이지 출력
+function loadpage_search__voice(search_list) {
+  var params = {
+    action: "search",
+    search: search_list,
+  };
+  $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $("#menupage").html(data);
   });
 }
 // 추천 메뉴 페이지 출력
