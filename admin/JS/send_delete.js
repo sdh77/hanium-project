@@ -11,7 +11,7 @@ function thisDelete(id) {
     setTimeout(function () {
       messageBox.classList.add("hide");
       hide();
-    }, 2000);
+    }, 1000);
 
     loadpageList();
   }

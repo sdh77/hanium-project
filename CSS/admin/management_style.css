@@ -318,8 +318,7 @@ input[type="checkbox"] + label {
   position: relative;
 }
 
-input[id="newCheck"]:checked + label::after,
-input[id="recoCheck"]:checked + label::after {
+input[type="checkbox"]:checked + label::after {
   content: "✔";
   font-size: 25px;
   width: 30px;

@@ -11,6 +11,9 @@ echo '
 <div class="selectMenu">
 <button onclick="recoverAll()">모두 복구</button>
 <button onclick="deleteAll()">모두 삭제</button>
+<button onclick="selectAll()">모두 선택</button>
+<button onclick="recoverSelect()">선택 복구</button>
+<button onclick="deleteSelect()">선택 삭제</button>
 </div>
 <div class="scroll">
 <div class="trashGrid">';
@@ -19,9 +22,12 @@ if ($result) {
   $totalnum = pg_num_rows($result);
   if ($totalnum > 0) {
     while ($row = pg_fetch_assoc($result)) {
-      echo '<div class="trash__div"> <button class="trash__menu"><div><img id="trash-img" src="../admin/image/이미지(jpg)/'
-        . $row["name"] . '.jpg" alt="' . $row["name"] . '"></img></div><div class="id">'
-        . $row["id"] . '</div><div>' . $row["name"] . '</div></button></div>';
+      echo '<div class="trash__div">
+      <input id="' . $row["id"] . '" class="trash__check" type="checkbox"><label for="' . $row["id"] . '"></label>
+      <div class="id">'
+        . $row["id"] . '</div>
+        <div class="trash__name"><p>' . $row["name"] . '</p></div>
+        </div>';
     }
   }
 } else {
