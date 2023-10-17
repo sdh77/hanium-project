@@ -61,7 +61,7 @@ function addMessageToChat(sender, message) {
   const messageDiv = $("<div>").addClass(sender).text(message);
   $(".chatdisplayArea-messageDiv").append(messageDiv);
   const messageArea = document.querySelector(
-    ".main .middlearea .chatdisplayArea .chatdisplayArea-messageDiv"
+    ".chatdisplayArea .chatdisplayArea-messageDiv"
   );
   if (sender == "bot") {
     chromeTTS(message);
