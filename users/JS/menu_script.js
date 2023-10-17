@@ -356,9 +356,11 @@ function generateTableNumber() {
 
 // setInterval(loadpage_list, 10000);
 
+//document.addEventListener("DOMContentLoaded", function () {
 const menuSwipe = document.querySelector(".menu-list");
 console.log(menuSwipe);
 
+//if(menuSwipe) {
 // 드래그(스와이프) 이벤트를 위한 변수 초기화
 let startPoint = 0;
 let endPoint = 0;
@@ -401,3 +403,5 @@ menuSwipe.addEventListener("touchend", (e) => {
     uppage();
   }
 });
+//}
+//});

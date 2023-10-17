@@ -146,7 +146,7 @@ function flaskAjax(transcript) {
 	    search_lists= data.searchMenus.split(",");
 	    for (i=0; i<search_lists.length; i++) {
 	      if (i == search_lists.length - 1)
-	        search_list = `${search_list}'${search_list[i]}'`;
+	        search_list = `${search_list}'${search_lists[i]}'`;
 	      else
 		search_list = `${search_list}'${search_lists[i]}', `;
 	    }
@@ -165,6 +165,19 @@ function flaskAjax(transcript) {
             }
             loadpage_recommend__voice(recommend_list);
             localStorage.setItem("userState", 0);
+            break;
+
+	  case "loadpage-spicy":
+	    spicy_list = "";
+	    spicy_lists = data.spicyMenus.split(",");
+	    for (i = 0; i < spicy_lists.length; i++) {
+	      if (i == spicy_lists.length -1)
+		spicy_list = `${spicy_list}'${spicy_lists[i]}'`;
+	      else
+		spicy_list = `${spicy_list}'${spicy_lists[i]}', `;
+	    }
+            loadpage_spicy__voice(spicy_list);
+            //localStorage.setItem("userState", 0);
             break;
 
           case "call":
@@ -231,6 +244,18 @@ function loadpage_recommend__voice(recommend_list) {
   var params = {
     action: "recommend",
     recommend: recommend_list,
+  };
+  $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $("#menupage").html(data);
+  });
+}
+// 매운 메뉴 페이지 출력
+function loadpage_spicy__voice(spicy_list) {
+  var params = {
+    action: "spicy",
+    spicy: spicy_list,
   };
   $.ajax({ url: "list_div.php", type: "get", data: params }).done(function (
     data
