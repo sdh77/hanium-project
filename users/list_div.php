@@ -9,7 +9,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : "noAction";
 $menubar = isset($_GET['menubar']) ? $_GET['menubar'] : "";
 $recommend = isset($_GET['recommend']) ? $_GET['recommend'] : "";
 $search = isset($_GET['search']) ? $_GET['search'] : "";
-
+$spicy = isset($_GET['spicy']) ? $_GET['spicy'] : "";
 
 $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski password=aaa') or die('Could not connect: ' . pg_last_error());
 if ($action == "recommend") {
@@ -18,6 +18,8 @@ if ($action == "recommend") {
   $sql = "select * from menu where div = '{$menubar}' order by new desc, id";
 } else if ($action == "search") {
   $sql = "select * from menu where name in (" . $search . ") order by new desc, id";
+} else if ($action == "spicy") {
+  $sql = "select * from menu where spicy > 0 order by new desc, id";
 } else {
   if ($search != "")
     $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
