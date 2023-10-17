@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>판매 페이지</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../CSS/styles.css" />
+
+</head>
+
+<body>
+  <!-- 채팅 -->
+  <div class="chatArea">
+    <div class="chatArea-voicebox" style="width: 200px; height: 50px;">키오스키를 불러주세요!</div>
+  </div>
+  <div class="chatdisplayArea" style="display: none;">
+    <div class="chatdisplayArea-messageDiv"></div>
+    <div class="chatdisplayArea-messageInput">
+      <div class="chatdisplayArea-messageInput-group">
+        <div class="chatdisplayArea-messageInput-1">
+          <input type="text" class="chatdisplayArea-messageInput-text" placeholder="Input Message..">
+          <button class="chatdisplayArea-messageInput-sendBtn">send</button>
+        </div>
+        <div class="chatdisplayArea-messageInput-2">
+          <button id="startRecording">record</button>
+          <button id="stopRecording">stop</button>
+          <button id="stopChromeSTT">stopChromeSTT</button>
+          <audio id="audioPlayer" controls style="display: none;"></audio>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bodymain">
+    <!-- 좌측바 숨김
+    <div class="orderselect" style="display = none">
+      <div class="userSearchDiv">
+        <input class="searchtext" id="searchtext"></input>
+        <a class="searchBtn" onclick="mysearch();">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+      </div>
+      <a class="order" onclick="change_order(); set_order('추천');">추천</a>
+      <a class="order" onclick="change_order(); set_order('판매량');">인기순</a>
+      <a class="order" onclick="change_order(); set_order('맵기');">맵기순</a>
+      <div id="serv-bottom">
+        <button class="order" id="serv-button">직원 호출</button>
+      </div>
+    </div>
+    -->
+
+    <div class="serv-popup">
+      <div class="servtext-area">
+        <button id="closepopup-button">x</button>
+      </div>
+      <div class="servTextBtn-area">
+        <button class="servText">물</button>
+        <button class="servText">숟가락</button>
+        <button class="servText">젓가락</button>
+        <button class="servText">앞접시</button>
+        <button class="servText">앞치마</button>
+        <button class="servText">휴지</button>
+        <button class="servText">물티슈</button>
+        <button class="servText">직원 호출</button>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="menu_select">
+        <a class="menu click" onclick="change_check(); set_type('all');">
+          <p>전체</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('파스타');">
+          <p>파스타</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('라이스');">
+          <p>라이스</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('샐러드');">
+          <p>샐러드</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('피자');">
+          <p>피자</p>
+        </a>
+        <a class="menu middle_long" onclick="change_check(); set_type('스테이크');">
+          <p>스테이크</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('사이드');">
+          <p>사이드</p>
+        </a>
+        <a class="menu" onclick="change_check(); set_type('음료');">
+          <p>음료</p>
+        </a>
+        <a class="menu long" onclick="change_check(); set_type('술');">
+          <p>와인 및 주류</p>
+        </a>
+      </div>
+      <div class="middlearea">
+        <div class="menu-list">
+          <div class="item_grid" id="menupage"></div>
+          <!-- 메뉴 클릭하면 장바구니에 담기 전, 팝업 -->
+          <div class="shoppingCart-popup">
+            <div class="shoppingCart-popup-1">
+              <button class="shoppingCart-popup-closeBtn">x</button>
+            </div>
+            <div class="shoppingCart-popup-2">
+              <img class="shoppingCart-popup-img" src="" alt="Menu Image">
+            </div>
+            <div class="shoppingCart-popup-3">
+              <p class="shoppingCart-popup-informMenuDB"></p>
+              <p class="shoppingCart-popup-informQuantity">1</p>
+              <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+            </div>
+            <div class="shoppingCart-popup-4">
+              <p class="shoppingCart-popup-quantityText">수량 </p>
+              <p class="shoppingCart-popup-quantityInt">1</p>
+              <button class="shoppingCart-popup-quantityIncrease">+</button>
+              <button class="shoppingCart-popup-quantityDecrease">-</button>
+              <button class="shoppingCart-popup-okBtn">장바구니</button>
+            </div>
+          </div>
+          <div class="shopcartAll-popup area-hidden">
+            <div class="shopcartAll-popup_top">
+              <button id="closeshopcartAll-popup-button">x</button>
+            </div>
+            <div class="shopcartAll_popup__list"></div>
+            <div class="shopcartAll-popup_bottom">
+              <button id="canselButton">취소</button>
+
+              <button id="orderButton">주문하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shop-area" id="shop-area">
+    <div id="item-container">
+      <div id="table-number-area">
+        <span id="table-number-text">TableID
+        </span>
+        <span id="table-number"></span>
+      </div>
+      <div id="cart">
+        <div class="cart-item" style="display: none;">
+          <img class="menu-imgsrc" src="" alt="Menu Image">
+          <button class="cart-item-delete">
+            <p>X</p>
+          </button>
+          <p class="menu-name"></p>
+          <div class="cart-item-bottom">
+            <div class="quantity-area">
+              <p class="quantity">1</p>
+              <button class="decrease">
+                -
+              </button>
+              <button class="increase">
+                +
+              </button>
+            </div>
+            <p class="single-price" style="display:none;"></p>
+            <p class="fixed-price" style="display:none;"></p>
+            <p class="item-price"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="checkout-area">
+      <div id="total-price-area">
+        <span id="total-text">Total:
+        </span>
+        <span id="total-price">0</span>
+      </div>
+      <button id="orderButton_popup">주문하기</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
+  <script src="JS/shoppingCart_script.js"></script>
+  <script src="JS/menu_script.js?ver2"></script>
+  <script src="JS/chat_script.js"></script>
+  <script src="JS/stt_script.js"></script>
+  <!-- <script src="JS/tts_script.js"></script> -->
+  <script src="JS/call.js"></script>
+  <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

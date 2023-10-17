@@ -9,9 +9,8 @@
 
 .bodymain {
   display: flex;
-  height: 55vh;
-  position: absolute;
-  top:30vh;
+  width: 70vw;
+  height: 80vh;
   flex-direction: row;
 }
 
@@ -52,7 +51,7 @@
 
 .main {
   /* width: 85vw; */
-  width: 100vw;
+  width: 70vw;
   display: flex;
   flex-direction: column;
 }
@@ -117,9 +116,8 @@
 
 /* do: menu_select. 상단 메뉴바 */
 .menu_select {
-  /* width: 85vw;*/
-  width: 100vw;
-  height: 6vh;
+  width: 70vw;
+  height: 8vh;
   display: flex;
   color: white;
   background-color: #a6a5b8;
@@ -158,14 +156,14 @@
 .middlearea {
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  height: 49vh;
+  width: 70vw;
+  height: 72vh;
 }
 
 /* list. 디비 출력 */
 .main .middlearea .menu-list {
-  width: 100vw;
-  height: 49vh;
+  width: 75vw;
+  height: 72vh;
   user-select: none;
 }
 .main .middlearea .menu-list * {
@@ -173,14 +171,14 @@
 }
 
 .main .middlearea .menu-list .item_grid {
-  width: 100vw;
-  height: 49vh;
+  width: 70vw;
+  height: 72vh;
   border: none;
 }
 
 .gridmain {
   display: flex;
-  width: 100vw;
+  width: 70vw;
   height: 92%;
   align-items: center;
   background-color: #a6a5b8;
@@ -383,10 +381,11 @@
   flex-direction: column;
   justify-content: space-between;
   /* width: calc(100vw - 4px); */
-  width: 100vw;
+  width: 30vw;
   /* height: calc(30vh - 4px); */
-  height: 30vh;
+  height: 100vh;
   top: 0;
+  right: 0;
   /* 테두리값 뺀거임! */
   /*background-color: rgba(46,60,102, 0.8);*/
   background-color: #76758a;
@@ -456,19 +455,13 @@
 .chatdisplayArea-messageInput {
   position: absolute;
   bottom: 0;
-  height: 20%;
   width: 100%;
+  height: 20%;
   background-color: #76758a;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  border: none;
-}
-
-.chatdisplayArea-messageInput-group {
-  display: flex;
 }
 
 .chatdisplayArea-messageInput-1,
@@ -547,8 +540,9 @@
 .shop-area {
   position: absolute;
   justify-content: space-between;
-  height: 15vh;
-  width: 100vw;
+  height: 20vh;
+  width: 70vw;
+  left: 0;
   bottom: 0;
   background-color: white;
 }
@@ -627,7 +621,7 @@
 
 #item-container {
   display: flex;
-  width: 100vw;
+  width: 85%;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -656,7 +650,7 @@
   gap: 10px;
   background-color: #777;
   border: 2px solid #777;
-  width: 10vw;
+  width: 15%;
 }
 
 #total-price-area {
