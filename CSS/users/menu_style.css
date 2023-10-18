@@ -11,7 +11,7 @@
   display: flex;
   height: 55vh;
   position: absolute;
-  top:30vh;
+  top: 30vh;
   flex-direction: row;
 }
 
@@ -392,6 +392,13 @@
   overflow-y: auto;
   z-index: 80;
 }
+.chatArea {
+  align-items: center;
+}
+#webgl-container {
+  width: 50%;
+  height: 100%;
+}
 
 .chatArea-voicebox {
   width: 100px;
@@ -403,6 +410,10 @@
   margin: auto;
   color: ghostwhite;
   border: 2px solid ghostwhite;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
   /*border: 2px solid ghostwhite;*/
 }
 
