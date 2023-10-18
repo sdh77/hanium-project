@@ -12,7 +12,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
   echo '<div class="table-info">
       <div class="table-info__row">
         <div class="table-info__number">' . $tableID . '</div>';
-  $newCall = "select * from call where table_id = " . $tableID;
+  $newCall = "select * from call where table_id = " . $tableID. "and complete = false";
   $result = pg_query($conn, $newCall);
   echo '<div class="table-info__callList">';
   if ($result) {
@@ -108,4 +108,5 @@ pg_close($conn);
 ?>
 
 <script src="JS/changeTime.js"></script>
+<script src="JS/callFinish.js"></script>
 <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>

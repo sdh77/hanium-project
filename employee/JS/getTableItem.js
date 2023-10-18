@@ -52,4 +52,4 @@ function soldOutPage() {
 }
 
 customItems();
-setInterval(getTableItem, 10000);
+// setInterval(getTableItem, 10000);
