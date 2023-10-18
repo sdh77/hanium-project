@@ -6,10 +6,8 @@ const loader = new FBXLoader();
 const tgaLoader = new TGALoader();
 
 const tgaTexture = [
-  "JS/data/KumDori_Main_Body_MAT_Base_color.TGA",
-  "JS/data/KumDori_Baker_Cloth_MAT_Base_color.TGA",
-  "JS/data/KumDori_Main_Head_MAT_Base_color.TGA",
-  "JS/data/KumDori_Baker_Cap_MAT_Base_color.TGA",
+  "JS/data/default/KumDori_Main_Body_MAT_Base_color.TGA",
+  "JS/data/default/KumDori_Main_Head_MAT_Base_color.TGA",
 ];
 class App {
   constructor() {
@@ -138,7 +136,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("JS/data/KumDori_Baker_High.FBX", (object) => {
+    loader.load("JS/data/default/KumDori_Base_High.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -151,14 +149,14 @@ class App {
           3: 모자(하양)
           */
           for (let i = 0; i < child.material.length; i++) {
-            if (child.material[i].name === "KumDori_Main_Body_MAT19") {
+            if (child.material[i].name === "KumDori_Main_Body_MAT21") {
               const textureIndex = 0; // 원하는 텍스처 인덱스 설정
               const material = new THREE.MeshMatcapMaterial({
                 map: this._textures[textureIndex],
               });
               child.material[i] = material; // 메터리얼 변경
               console.log(textureIndex);
-            } else if (child.material[i].name === "KumDori_Baker_Cloth_MAT5") {
+            } else if (child.material[i].name === "KumDori_Main_Head_MAT21") {
               const textureIndex = 1; // 원하는 텍스처 인덱스 설정
               const material = new THREE.MeshMatcapMaterial({
                 map: this._textures[textureIndex],
