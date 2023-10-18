@@ -6,10 +6,10 @@ const loader = new FBXLoader();
 const tgaLoader = new TGALoader();
 
 const tgaTexture = [
-  "JS/data/shef/KumDori_Main_Body_MAT_Base_color.TGA",
-  "JS/data/shef/KumDori_Baker_Cloth_MAT_Base_color.TGA",
-  "JS/data/shef/KumDori_Main_Head_MAT_Base_color.TGA",
-  "JS/data/shef/KumDori_Baker_Cap_MAT_Base_color.TGA",
+  "data/shef/KumDori_Main_Body_MAT_Base_color.TGA",
+  "data/shef/KumDori_Baker_Cloth_MAT_Base_color.TGA",
+  "data/shef/KumDori_Main_Head_MAT_Base_color.TGA",
+  "data/shef/KumDori_Baker_Cap_MAT_Base_color.TGA",
 ];
 class App {
   constructor() {
@@ -138,7 +138,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("JS/data/shef/hello2.FBX", (object) => {
+    loader.load("data/hello.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -185,6 +185,7 @@ class App {
       });
 
       this._mixer = new THREE.AnimationMixer(object);
+
       // 로딩된 애니메이션 클립을 가져옴
       const clip = object.animations[0];
 
@@ -199,8 +200,9 @@ class App {
       const frameInterval = 5; // 2배로 느린 프레임 간격
       this._mixer.timeScale = 1 / frameInterval;
       this._scene.add(object);
+
       this._zoomFit(object, this._camera, "Z", true);
-      this._scene.background = new THREE.Color(0x76758a);
+      this._scene.background = new THREE.Color(0xffffff);
 
       this._clock = new THREE.Clock();
     });
