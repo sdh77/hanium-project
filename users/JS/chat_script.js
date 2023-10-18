@@ -132,9 +132,16 @@ function flaskAjax(transcript) {
             $(".shoppingCart-popup-closeBtn").trigger("click");
             break;
 
-          case "orderBtn-click-trigger":
+          case "orderBtn-popup-click-trigger":
+            $("#orderButton_popup").trigger("click");
+            break;
+	  case "orderBtn-click-trigger":
             $("#orderButton").trigger("click");
             break;
+	  case "orderBtn-close-click-trigger":
+            $("#canselButton").trigger("click");
+            break;
+
 
 	  case "loadpage":
 	    loadpage_menubar__voice(data.page);
