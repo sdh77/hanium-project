@@ -3,38 +3,18 @@ function deleteAll() {
     state: "delete",
   };
   $.ajax({ url: "DeleteOrRecoverAll.php", type: "get", data: params });
+  loadpageListDelete();
   hide();
-  loadpageList();
 }
 function recoverAll() {
   let params = {
     state: "recover",
   };
   $.ajax({ url: "DeleteOrRecoverAll.php", type: "get", data: params });
+  loadpageListDelete();
   hide();
-  loadpageList();
 }
 
-function DeleteOrRecover(trash) {
-  let trashId = trash.querySelector(".id").innerHTML;
-  console.log(trash);
-  if (confirm("삭제하려면 'yes'아니면 'cancel'을 누르세요") == true) {
-    let params = {
-      Id: trashId,
-      state: "delete",
-    };
-    $.ajax({ url: "DeleteOrRecoverSelect.php", type: "get", data: params });
-    hide();
-  } else {
-    let params = {
-      Id: trashId,
-      state: "recover",
-    };
-    $.ajax({ url: "DeleteOrRecoverSelect.php", type: "get", data: params });
-    hide();
-  }
-  loadpageList();
-}
 trashes = document.querySelectorAll(".trash__menu");
 console.log(trashes);
 trashes.forEach(function (trash) {
@@ -44,3 +24,63 @@ trashes.forEach(function (trash) {
 
   console.dir(trash.onclick);
 });
+
+var checkState = 0;
+
+function selectAll() {
+  console.log(checkState);
+
+  const trashChecks = document.querySelectorAll(".trash__check");
+  if (checkState == 0) {
+    trashChecks.forEach(function (trashCheck) {
+      trashCheck.checked = true;
+    });
+    checkState = 1;
+  } else {
+    trashChecks.forEach(function (trashCheck) {
+      trashCheck.checked = false;
+    });
+    checkState = 0;
+  }
+  console.log(checkState);
+}
+function recoverSelect() {
+  const trashChecks = document.querySelectorAll(".trash__check");
+  trashChecks.forEach(function (trashCheck) {
+    if (trashCheck.checked == true) {
+      let params = {
+        Id: trashCheck.id,
+        state: "recover",
+      };
+      $.ajax({ url: "DeleteOrRecoverSelect.php", type: "get", data: params });
+    }
+  });
+  loadpageListDelete();
+  hide();
+}
+function deleteSelect() {
+  const trashChecks = document.querySelectorAll(".trash__check");
+  trashChecks.forEach(function (trashCheck) {
+    if (trashCheck.checked == true) {
+      let params = {
+        Id: trashCheck.id,
+        state: "delete",
+      };
+      $.ajax({ url: "DeleteOrRecoverSelect.php", type: "get", data: params });
+    }
+  });
+  loadpageListDelete();
+  hide();
+}
+
+function loadpageListDelete() {
+  let params = {
+    newtype: "all",
+    newsearch: "",
+  };
+  $.ajax({ url: "showList.php", type: "get", data: params }).done(function (
+    data
+  ) {
+    $(".list").html(data);
+  });
+}

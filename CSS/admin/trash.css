@@ -38,32 +38,31 @@
   display: none;
 }
 .trashGrid {
-  place-items: center;
-  display: grid;
-  grid-template-columns: repeat(3, 15vw);
-  row-gap: 2vh;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .trash__div {
+  padding: 3px;
+  margin-top: 5px;
   width: 90%;
   height: auto;
   border: 1px solid black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+}
+.trash__div .trash__name {
+  display: flex;
+  align-items: center;
+  width: 85%;
   justify-items: center;
 }
-
-.trash__div div {
-  justify-items: center;
-  width: 15vw;
-}
-
-#trash-img {
-  width: 10vh;
-  height: 10vh;
-  margin: 0 25%;
-}
-.trash__div .trash__menu {
-  font-size: 2vh;
-  border: none;
+.trash__div .trash__name p {
+  font-size: 3vh;
 }

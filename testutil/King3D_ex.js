@@ -6,10 +6,10 @@ const loader = new FBXLoader();
 const tgaLoader = new TGALoader();
 
 const tgaTexture = [
-  "data/KumDori_Main_Body_MAT_Base_color.TGA",
-  "data/KumDori_Baker_Cloth_MAT_Base_color.TGA",
-  "data/KumDori_Main_Head_MAT_Base_color.TGA",
-  "data/KumDori_Baker_Cap_MAT_Base_color.TGA",
+  "data/king/KumDori_Main_Body_MAT_Base_color.TGA",
+  "data/king/KumDori_Main_Head_MAT_Base_color.TGA",
+  "data/king/KumDori_King_Hanbok_MAT_Base_color.TGA",
+  "data/king/KumDori_King_Hanbok_hat_MAT_Base_color.TGA",
 ];
 class App {
   constructor() {
@@ -138,7 +138,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/KumDori_Baker_High.FBX", (object) => {
+    loader.load("data/king/Kumdori_Hanbok_King_High.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -151,28 +151,30 @@ class App {
           3: 모자(하양)
           */
           for (let i = 0; i < child.material.length; i++) {
-            if (child.material[i].name === "KumDori_Main_Body_MAT19") {
+            if (child.material[i].name === "KumDori_Main_Body_MAT24") {
               const textureIndex = 0; // 원하는 텍스처 인덱스 설정
               const material = new THREE.MeshMatcapMaterial({
                 map: this._textures[textureIndex],
               });
               child.material[i] = material; // 메터리얼 변경
               console.log(textureIndex);
-            } else if (child.material[i].name === "KumDori_Baker_Cloth_MAT5") {
+            } else if (child.material[i].name === "KumDori_Main_Head_MAT24") {
               const textureIndex = 1; // 원하는 텍스처 인덱스 설정
               const material = new THREE.MeshMatcapMaterial({
                 map: this._textures[textureIndex],
               });
               child.material[i] = material;
               console.log(textureIndex);
-            } else if (child.material[i].name === "KumDori_Main_Head_MAT19") {
+            } else if (child.material[i].name === "KumDori_King_Hanbok_MAT3") {
               const textureIndex = 2; // 원하는 텍스처 인덱스 설정
               const material = new THREE.MeshMatcapMaterial({
                 map: this._textures[textureIndex],
               });
               child.material[i] = material;
               console.log(textureIndex);
-            } else if (child.material[i].name === "KumDori_Baker_Cap_MAT5") {
+            } else if (
+              child.material[i].name === "KumDori_King_Hanbok_hat_MAT3"
+            ) {
               const textureIndex = 3; // 원하는 텍스처 인덱스 설정
               const material = new THREE.MeshMatcapMaterial({
                 map: this._textures[textureIndex],
