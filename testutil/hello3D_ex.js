@@ -138,7 +138,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/hello.FBX", (object) => {
+    loader.load("data/moveshef.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -187,7 +187,7 @@ class App {
       this._mixer = new THREE.AnimationMixer(object);
 
       // 로딩된 애니메이션 클립을 가져옴
-      const clip = object.animations[0];
+      const clip = object.animations[1];
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       const desiredAnimationLength = 3;

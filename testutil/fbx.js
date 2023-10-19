@@ -119,7 +119,7 @@ class App {
   }
 
   update(time) {
-    time *= 0.00001; // second unit
+    time *= 0.001; // second unit
 
     const delta = this._clock.getDelta();
     if (this._mixer) this._mixer.update(delta);
