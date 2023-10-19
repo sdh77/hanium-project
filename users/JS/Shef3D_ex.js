@@ -134,11 +134,11 @@ class App {
     camera.lookAt(centerBox.x, centerBox.y, centerBox.z);
     this._controls.target.set(centerBox.x, centerBox.y, centerBox.z);
   }
-
+  _texture_set() {}
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("JS/data/shef/moveShef.FBX", (object) => {
+    loader.load("JS/data/shef/fastearShef.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -191,7 +191,8 @@ class App {
       1:점프
       2: 
       */
-      const clip = object.animations[3];
+      // const clip = object.animations[3];
+      const clip = object.animations[0];
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;
