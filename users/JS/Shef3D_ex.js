@@ -191,7 +191,7 @@ class App {
       1:점프
       2: 
       */
-      const clip = object.animations[2];
+      const clip = object.animations[3];
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;
