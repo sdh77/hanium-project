@@ -46,7 +46,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
       </div>';
   $sql = "SELECT orderdetail.name, menu.div, orderdetail.date
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
-      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('샐러드','파스타','라이스','피자','스테이크','사이드')";
+      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('샐러드','파스타','라이스','피자','스테이크','사이드')and completed = false";
   $result = pg_query($conn, $sql);
   if ($result) {
     if (pg_num_rows($result) > 0) {
@@ -75,7 +75,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
   }
   $sql = "SELECT orderdetail.name, menu.div, orderdetail.date
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
-      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('주류','와인','음료')";
+      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('주류','와인','음료') and completed = false";
   $result = pg_query($conn, $sql);
   if ($result) {
     $cnt = 0;
