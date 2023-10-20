@@ -138,7 +138,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/shef.FBX", (object) => {
+    loader.load("data/shef2.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -198,7 +198,7 @@ class App {
 
       */
 
-      const clip = object.animations[3];
+      const clip = object.animations[5];
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;
