@@ -12,7 +12,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
   echo '<div class="table-info">
       <div class="table-info__row">
         <div class="table-info__number">' . $tableID . '</div>';
-  $newCall = "select * from call where table_id = " . $tableID. "and complete = false";
+  $newCall = "select * from call where table_id = " . $tableID . "and complete = false";
   $result = pg_query($conn, $newCall);
   echo '<div class="table-info__callList">';
   if ($result) {
@@ -53,21 +53,26 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
       $cnt = 0;
       while ($row = pg_fetch_assoc($result)) {
         if ($cnt == 0) {
+          $cnt++;
+
           echo '<div class="table-info__info">
               <div class="table-info__column">
                 <div class="table-info__food">음식</div>
-                  <div class="table-info__food-info">' . $row["name"] . '</div>';
+                <div class="table-info__row">              <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
+                  <div class="table-info__food-num">' . $cnt . '</div>
+                  <div class="table-info__food-info">' . $row["name"] . '</div></div>';
           $time = (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
-          $cnt++;
         } else {
-          echo '<div class="table-info__food-info">' . $row["name"] . '</div>';
-          ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
           $cnt++;
+          echo '<div class="table-info__row">
+          <div class="table-info__food-num">' . $cnt . '</div>
+          <div class="table-info__food-info">' . $row["name"] . '</div></div>';
+          ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         }
       }
       echo '</div>';
     } else {
-      echo '<div class="table-info__info">
+      echo '<div class="table-info__info">                  <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
         <div class="table-info__column">
           <div class="table-info__food">음식</div>
             <div class="table-info__food-info"></div></div>';
@@ -82,15 +87,20 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
     if (pg_num_rows($result) > 0) {
       while ($row = pg_fetch_assoc($result)) {
         if ($cnt == 0) {
+          $cnt++;
           echo '<div class="table-info__column">
             <div class="table-info__drink">주류</div>
-              <div class="table-info__drink-info">' . $row["name"] . '</div>';
+            <div class="table-info__row">                    <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
+              <div class="table-info__drink-num">' . $cnt . '</div>
+              <div class="table-info__drink-info">' . $row["name"] . '</div></div>';
           ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
-          $cnt++;
         } else {
-          echo '<div class="table-info__drink-info">' . $row["name"] . '</div>';
-          ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
           $cnt++;
+          echo '<div class="table-info__row">                <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
+          <div class="table-info__drink-num">' . $cnt . '</div>
+          <div class="table-info__drink-info">' . $row["name"] . '</div>
+          </div>';
+          ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         }
       }
       echo '</div>';
