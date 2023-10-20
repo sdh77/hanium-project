@@ -138,7 +138,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("JS/data/shef/fastearShef.FBX", (object) => {
+    loader.load("JS/data/shef/shef.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -191,8 +191,8 @@ class App {
       1:점프
       2: 
       */
-      // const clip = object.animations[3];
-      const clip = object.animations[0];
+
+      const clip = object.animations[1];
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;

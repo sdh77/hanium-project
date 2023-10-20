@@ -138,7 +138,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/fastearShef.fbx", (object) => {
+    loader.load("data/shef.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -187,7 +187,18 @@ class App {
       this._mixer = new THREE.AnimationMixer(object);
 
       // 로딩된 애니메이션 클립을 가져옴
-      const clip = object.animations[0];
+
+      /*
+      0: 귀 움직임
+      1: 점프
+      2: 머리 왼쪽
+      3: 인사
+      4: 도리도리
+      5: 머리 오른쪽
+
+      */
+
+      const clip = object.animations[3];
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;
@@ -197,7 +208,7 @@ class App {
       console.log(object.animations);
       action.play();
       // action.setEffectiveTimeScale(0.001);
-      const frameInterval = 5; // 2배로 느린 프레임 간격
+      const frameInterval = 5; // 5배로 느린 프레임 간격
       this._mixer.timeScale = 1 / frameInterval;
       this._scene.add(object);
 
