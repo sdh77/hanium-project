@@ -29,11 +29,13 @@ if ($result) {
       <button class="shoppingCart-popup-quantityDecrease2">-</button>
       <button class="shoppingCart-popup-okBtn2">장바구니</button>
     </div>';
-    echo'<div class="popupPrice" style="display: none">' . $row["price"] . '</div>';
+      echo '<div class="popupPrice" style="display: none">' . $row["price"] . '</div>';
 
     }
   }
 }
+pg_close($conn);
+
 ?>
 
 <script src="JS/menu_script.js?ver2"></script>

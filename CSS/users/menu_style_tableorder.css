@@ -678,7 +678,7 @@
   font-size: 3vh;
   color: black;
 }
-
+.orderList-popup,
 .shopcartAll-popup {
   position: absolute;
   top: 50%;
@@ -691,6 +691,7 @@
   border: 2px solid black;
   align-items: center;
 }
+.orderList-popup .orderList-popup_top,
 .shopcartAll-popup .shopcartAll-popup_top {
   display: flex;
   width: 100%;
@@ -698,13 +699,16 @@
   color: white;
   background-color: black;
 }
+.orderList-popup .orderList-popup_top #closeshopcartAll-popup-button,
 .shopcartAll-popup .shopcartAll-popup_top #closeshopcartAll-popup-button {
   border: none;
   font-size: 2vh;
 }
 
+.orderList-popup .orderList-popup__list,
 .shopcartAll-popup .shopcartAll_popup__list {
   width: 90%;
+  height: 78%;
   margin-top: 5%;
 }
 .shopcartAll-popup .shopcartAll_popup__list .shopcartAll_popup__list__item {
@@ -745,4 +749,44 @@
   color: white;
   padding: 10px;
   border-radius: 15px;
+}
+
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Date {
+  font-size: 2.5vh;
+}
+
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Data {
+  font-size: 2vh;
+  border-bottom: 0.5px solid black;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.orderList-popup .orderList-popup_bottom button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 2vh;
+  margin: 5px;
+  border: none;
+  background-color: #76758a;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.orderListScroll {
+  overflow: auto;
+  height: 90%;
+}
+.orderListScroll::-webkit-scrollbar {
+  display: none;
 }

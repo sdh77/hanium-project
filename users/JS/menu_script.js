@@ -160,7 +160,24 @@ $(document).ready(function () {
   $("#closeshopcartAll-popup-button").click(function () {
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
   });
+  $("#orderList-popup__OkButton").click(function () {
+    $(".orderList-popup").removeClass("area-visible").addClass("area-hidden");
+  });
 
+  $("#orderListButton_popup").click(function () {
+    console.log($(".orderList-popup"));
+    $(".orderList-popup").removeClass("area-hideen").addClass("area-visible");
+    let params = {
+      tableID: tableID,
+    };
+    $.ajax({
+      url: "showOrderList.php",
+      type: "get",
+      data: params,
+    }).done(function (data) {
+      $(".orderList-popup__list").html(data);
+    });
+  });
   $("#orderButton_popup").click(function () {
     $(".shopcartAll-popup").removeClass("area-hideen").addClass("area-visible");
     var cartItems = $(".cart-item:visible");

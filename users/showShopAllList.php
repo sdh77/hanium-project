@@ -3,6 +3,7 @@ $quantity = isset($_GET["quantity"]) ? $_GET["quantity"] : 1;
 
 $names = isset($_GET["names"]) ? $_GET["names"] : "none";
 $quantitys = isset($_GET["quantitys"]) ? $_GET["quantitys"] : "none";
+echo "<div class='orderListScroll'>";
 
 if ($names != "none") {
   for ($i = 0; $i < count($names); $i++) {
@@ -11,4 +12,6 @@ if ($names != "none") {
     </div>';
   }
 }
+echo "</div>";
+
 ?>

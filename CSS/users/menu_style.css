@@ -573,7 +573,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
 }
 
 #cart {
@@ -587,7 +586,7 @@
   display: flex;
   position: relative;
   min-width: 20vw;
-  height: 11vh; 
+  height: 11vh;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -624,7 +623,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 20%
+  height: 20%;
 }
 
 .quantity-area {
@@ -646,7 +645,6 @@
   width: 2vh;
   margin-right: 1px;
 }
-
 
 #item-container {
   display: flex;
@@ -672,7 +670,6 @@
   white-space: nowrap;
 }
 
-
 #checkout-area {
   display: flex;
   flex-direction: column;
@@ -697,7 +694,7 @@
   font-size: 3vh;
   color: black;
 }
-
+.orderList-popup,
 .shopcartAll-popup {
   position: absolute;
   top: 50%;
@@ -710,6 +707,7 @@
   border: 2px solid black;
   align-items: center;
 }
+.orderList-popup .orderList-popup_top,
 .shopcartAll-popup .shopcartAll-popup_top {
   display: flex;
   width: 100%;
@@ -717,13 +715,15 @@
   color: white;
   background-color: black;
 }
+.orderList-popup .orderList-popup_top #closeshopcartAll-popup-button,
 .shopcartAll-popup .shopcartAll-popup_top #closeshopcartAll-popup-button {
   border: none;
   font-size: 2vh;
 }
-
+.orderList-popup .orderList-popup__list,
 .shopcartAll-popup .shopcartAll_popup__list {
   width: 90%;
+  height: 78%;
   margin-top: 5%;
 }
 .shopcartAll-popup .shopcartAll_popup__list .shopcartAll_popup__list__item {
@@ -734,6 +734,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .shopcartAll-popup
   .shopcartAll_popup__list
   .shopcartAll_popup__list__item
@@ -746,7 +747,6 @@
   :last-child {
   width: 20%;
 }
-
 .shopcartAll-popup .shopcartAll-popup_bottom {
   display: flex;
   flex-direction: row;
@@ -755,7 +755,6 @@
   bottom: 0;
   width: 100%;
 }
-
 .shopcartAll-popup .shopcartAll-popup_bottom button {
   font-size: 2vh;
   margin: 5px;
@@ -764,4 +763,43 @@
   color: white;
   padding: 10px;
   border-radius: 15px;
+}
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Date {
+  font-size: 2.5vh;
+}
+
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Data {
+  font-size: 2vh;
+  border-bottom: 0.5px solid black;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.orderList-popup .orderList-popup_bottom button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 2vh;
+  margin: 5px;
+  border: none;
+  background-color: #76758a;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.orderListScroll {
+  overflow: auto;
+  height: 90%;
+}
+.orderListScroll::-webkit-scrollbar {
+  display: none;
 }
