@@ -2,6 +2,14 @@ import * as THREE from "three";
 import { OrbitControls } from "OrbitControls";
 import { FBXLoader } from "https://cdn.jsdelivr.net/npm/three@0.138/examples/jsm/loaders/FBXLoader.js";
 import { TGALoader } from "https://cdn.jsdelivr.net/npm/three@0.138/examples/jsm/loaders/TGALoader.js";
+
+const hellobtn = document.querySelector(".hello");
+const shakeEyebtn = document.querySelector(".shakeEye");
+const shackHeadbtn = document.querySelector(".shackHead");
+const leftHeadbtn = document.querySelector(".leftHead");
+const rightHeadbtn = document.querySelector(".rightHead");
+const jumpbtn = document.querySelector(".jump");
+const shakeEarbtn = document.querySelector(".shakeEar");
 const loader = new FBXLoader();
 const tgaLoader = new TGALoader();
 
@@ -16,7 +24,7 @@ class App {
     const divContainer = document.querySelector("#webgl-container");
     this._divContainer = divContainer;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //alpha: true -> 배경화면 투명
     renderer.setPixelRatio(window.devicePixelRatio);
     divContainer.appendChild(renderer.domElement);
 
@@ -191,22 +199,94 @@ class App {
       1:점프
       2: 
       */
+      var before;
+      function stopAllAnimations() {
+        if (before != undefined) {
+          object.animations[before].stop();
+        }
+      }
 
-      const clip = object.animations[1];
+      console.dir(object.animations[0]);
+      const eyeShack = object.animations[0];
+      const eyeShackAction = this._mixer.clipAction(eyeShack);
+      shakeEyebtn.addEventListener("click", function () {
+        stopAllAnimations();
+        eyeShackAction.play();
+        before = 0;
+      });
+      const earShack = object.animations[1];
+      const earShackAction = this._mixer.clipAction(earShack);
+      earShackAction.play();
+      shakeEarbtn.addEventListener("click", function () {
+        stopAllAnimations();
+        earShackAction.play();
+        before = 1;
+      });
+      const headShack = object.animations[2];
+      const headShackAction = this._mixer.clipAction(headShack);
+      shackHeadbtn.addEventListener("click", function () {
+        stopAllAnimations();
+        headShackAction.play();
+        before = 2;
+      });
+      const jump = object.animations[3];
+      const jumpAction = this._mixer.clipAction(jump);
+      jumpbtn.addEventListener("click", function () {
+        stopAllAnimations();
+        jumpAction.play();
+        before = 3;
+      });
+      const headLeft = object.animations[4];
+      const headLeftAction = this._mixer.clipAction(headLeft);
+      headLeftAction.loop = THREE.LoopOnce;
+
+      leftHeadbtn.addEventListener("click", function () {
+        stopAllAnimations();
+        headLeftAction.play();
+        before = 4;
+      });
+      const hello = object.animations[5];
+      const helloAction = this._mixer.clipAction(hello);
+      helloAction.loop = THREE.LoopOnce;
+      helloAction.play();
+
+      hellobtn.addEventListener("click", function () {
+        stopAllAnimations();
+        helloAction.play();
+        before = 5;
+      });
+      const headRight = object.animations[6];
+      const headRightAction = this._mixer.clipAction(headRight);
+      headRightAction.loop = THREE.LoopOnce;
+
+      rightHeadbtn.addEventListener("click", function () {
+        stopAllAnimations();
+        headRightAction.play();
+        before = 6;
+      });
 
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;
       // clip.duration = desiredAnimationLength;
 
-      const action = this._mixer.clipAction(clip);
-      console.log(object.animations);
-      action.play();
+      // helloAction.play();
+      /*
+      helloAction.loop = THREE.LoopOnce;
+
+      helloAction.play();
+
+      // 애니메이션이 완료되면 이벤트를 처리할 수 있습니다.
+      helloAction.addEventListener("finished", function () {
+        earShackAction.play();
+      });
+      */
+
       // action.setEffectiveTimeScale(0.001);
       const frameInterval = 5; // 2배로 느린 프레임 간격
       this._mixer.timeScale = 1 / frameInterval;
       this._scene.add(object);
       this._zoomFit(object, this._camera, "Z", true);
-      this._scene.background = new THREE.Color(0x76758a);
+      // this._scene.background = new THREE.Color(0x76758a);
 
       this._clock = new THREE.Clock();
     });

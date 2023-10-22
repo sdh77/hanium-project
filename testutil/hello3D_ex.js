@@ -5,12 +5,17 @@ import { TGALoader } from "https://cdn.jsdelivr.net/npm/three@0.138/examples/jsm
 const loader = new FBXLoader();
 const tgaLoader = new TGALoader();
 
+const btn1 = document.getElementById("1");
+const btn2 = document.getElementById("2");
+const btn3 = document.getElementById("3");
+
 const tgaTexture = [
   "data/shef/KumDori_Main_Body_MAT_Base_color.TGA",
   "data/shef/KumDori_Baker_Cloth_MAT_Base_color.TGA",
   "data/shef/KumDori_Main_Head_MAT_Base_color.TGA",
   "data/shef/KumDori_Baker_Cap_MAT_Base_color.TGA",
 ];
+let check = 0;
 class App {
   constructor() {
     const divContainer = document.querySelector("#webgl-container");
@@ -198,15 +203,36 @@ class App {
 
       */
 
-      const clip = object.animations[5];
+      const eyeShack = object.animations[0];
+      const eyeShackAction = this._mixer.clipAction(eyeShack);
+      const earShack = object.animations[1];
+      const earShackAction = this._mixer.clipAction(earShack);
+      const headShack = object.animations[2];
+      const headShackAction = this._mixer.clipAction(headShack);
+      const jump = object.animations[3];
+      const jumpAction = this._mixer.clipAction(jump);
+      const headLeft = object.animations[4];
+      const headLeftAction = this._mixer.clipAction(headLeft);
+      const hello = object.animations[5];
+      const helloAction = this._mixer.clipAction(hello);
+      const headRight = object.animations[6];
+      const headRightAction = this._mixer.clipAction(headRight);
 
-      // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
-      // const desiredAnimationLength = 3;
-      // clip.duration = desiredAnimationLength;
+      helloAction.loop = THREE.LoopOnce;
+      btn1.addEventListener("click", function () {
+        helloAction.reset().play();
+      });
+      btn2.addEventListener("click", function () {
+        earShackAction.reset().play();
+      });
 
-      const action = this._mixer.clipAction(clip);
-      console.log(object.animations);
-      action.play();
+      /*
+      const animationDuration = 2000; // 5초를 밀리초로 변환
+
+      setTimeout(() => {
+        earShackAction.reset().play();
+      }, animationDuration);
+*/
       // action.setEffectiveTimeScale(0.001);
       const frameInterval = 5; // 5배로 느린 프레임 간격
       this._mixer.timeScale = 1 / frameInterval;

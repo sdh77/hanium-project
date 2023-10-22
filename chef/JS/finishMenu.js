@@ -10,8 +10,8 @@ var finishTables = document.querySelectorAll(
 
 var newCnt = Menus.length;
 var clearCntCheck = clearMenus.length;
-console.log(newCnt);
-console.log(clearCntCheck);
+// console.log(newCnt);
+// console.log(clearCntCheck);
 // console.log(newCnt);
 
 if (clearCntCheck == 0) {
