@@ -46,7 +46,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
       </div>';
   $sql = "SELECT orderdetail.name, menu.div, orderdetail.date
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
-      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('샐러드','파스타','라이스','피자','스테이크','사이드')and completed = false";
+      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('샐러드','파스타','라이스','피자','스테이크','사이드')and completed = false and exit = false";
   $result = pg_query($conn, $sql);
   if ($result) {
     if (pg_num_rows($result) > 0) {
@@ -58,7 +58,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
           echo '<div class="table-info__info">
               <div class="table-info__column">
                 <div class="table-info__food">음식</div>
-                <div class="table-info__row">              <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
+                <div class="table-info__row select-row">              <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
                   <div class="table-info__food-num">' . $cnt . '</div>
                   <div class="table-info__food-info">' . $row["name"] . '</div></div>';
           $time = (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
@@ -80,7 +80,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
   }
   $sql = "SELECT orderdetail.name, menu.div, orderdetail.date
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
-      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('주류','와인','음료') and completed = false";
+      WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('주류','와인','음료') and completed = false and exit = false";
   $result = pg_query($conn, $sql);
   if ($result) {
     $cnt = 0;

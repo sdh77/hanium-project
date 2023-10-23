@@ -17,43 +17,63 @@ function handleToDoClick(event) {
     tableNumber: event.target.parentNode.previousSibling.innerHTML
   };
 
-  console.log(callinfoObj);
+  // console.log(callinfoObj);
 
   $.ajax({url: "callFinish.php", type: "get", data: callinfoObj});
   
   getTableItem();
 }
 
+//////////////////////////////////////////////////////////////////////////////
 
-//아이콘을 전체를 찾아서 아이콘 전체에 클릭 액션을 넣어야하고, <-- 포이치가 필요해...
-//전체 아이콘을.......................커리셀렉트올을 하래..
-
-//////////////////////
-
-const foodCall = document.querySelectorAll(".table-info__food-info");
-const drinkCall = document.querySelectorAll(".table-info__drink-info");
+const foodCall = document.querySelectorAll(".select-row");
+const drinkCall = document.querySelectorAll(".select-row");
 
 
 foodCall.forEach((element) => {
-  foodTableNum = element.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number");
+  // let foodTableNum = element.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number");
   element.addEventListener("click", handleToDoFoodDrinkClick);
 });
 
 drinkCall.forEach((element) => {
-  drinkTableNum = element.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number");
+  // let drinkTableNum = element.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number");
   element.addEventListener("click", handleToDoFoodDrinkClick);
 });
 
 
 function handleToDoFoodDrinkClick(event){
+
+  console.dir(event);
   
-  drinkFoodCallObj = {
-    Name : event.target.innerHTML,
-    Table : event.target.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number").innerHTML
+  const drinkFoodCallObj = {
+    Name : event.target.parentElement.lastChild.innerHTML,
+    Table : event.target.parentElement.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number").innerHTML
   };
   $.ajax({url: "drinkFoodFinish.php", type: "get", data: drinkFoodCallObj});
 
   console.log(drinkFoodCallObj);
 
+  getTableItem();
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+const tableFinish = document.querySelectorAll(".table-info__number");
+
+// console.log(tableFinish);
+
+tableFinish.forEach((element) => {
+  element.addEventListener("click", handleToDoTableClick);
+  // console.log(element);
+});
+
+
+function handleToDoTableClick(event){
+  console.log(event);
+  const tableFinishObj = {
+    number : event.target.innerHTML
+  };
+  
+  $.ajax({url: "tableFinish.php", type: "get", data: tableFinishObj});
   getTableItem();
 }
