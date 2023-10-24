@@ -142,7 +142,6 @@ class App {
     camera.lookAt(centerBox.x, centerBox.y, centerBox.z);
     this._controls.target.set(centerBox.x, centerBox.y, centerBox.z);
   }
-  _texture_set() {}
   _setupModel() {
     this._clock = new THREE.Clock();
 
@@ -193,28 +192,28 @@ class App {
       });
 
       this._mixer = new THREE.AnimationMixer(object);
-      // 로딩된 애니메이션 클립을 가져옴
+      console.dir(object.animations);
+
+      const test = object.animations[8];
+      const testAction = this._mixer.clipAction(test);
+      testAction.play();
       /*
-      0:오른쪽 갸우뚱
-      1:점프
-      2: 
-      */
       var before;
       function stopAllAnimations() {
         if (before != undefined) {
           object.animations[before].stop();
         }
       }
-
+      console.dir(object.animations);
       console.dir(object.animations[0]);
-      const eyeShack = object.animations[0];
+      const eyeShack = object.animations[5];
       const eyeShackAction = this._mixer.clipAction(eyeShack);
       shakeEyebtn.addEventListener("click", function () {
         stopAllAnimations();
         eyeShackAction.play();
         before = 0;
       });
-      const earShack = object.animations[1];
+      const earShack = object.animations[6];
       const earShackAction = this._mixer.clipAction(earShack);
       earShackAction.play();
       shakeEarbtn.addEventListener("click", function () {
@@ -222,21 +221,21 @@ class App {
         earShackAction.play();
         before = 1;
       });
-      const headShack = object.animations[2];
+      const headShack = object.animations[3];
       const headShackAction = this._mixer.clipAction(headShack);
       shackHeadbtn.addEventListener("click", function () {
         stopAllAnimations();
         headShackAction.play();
         before = 2;
       });
-      const jump = object.animations[3];
+      const jump = object.animations[4];
       const jumpAction = this._mixer.clipAction(jump);
       jumpbtn.addEventListener("click", function () {
         stopAllAnimations();
         jumpAction.play();
         before = 3;
       });
-      const headLeft = object.animations[4];
+      const headLeft = object.animations[0];
       const headLeftAction = this._mixer.clipAction(headLeft);
       headLeftAction.loop = THREE.LoopOnce;
 
@@ -245,7 +244,7 @@ class App {
         headLeftAction.play();
         before = 4;
       });
-      const hello = object.animations[5];
+      const hello = object.animations[2];
       const helloAction = this._mixer.clipAction(hello);
       helloAction.loop = THREE.LoopOnce;
       helloAction.play();
@@ -255,7 +254,7 @@ class App {
         helloAction.play();
         before = 5;
       });
-      const headRight = object.animations[6];
+      const headRight = object.animations[1];
       const headRightAction = this._mixer.clipAction(headRight);
       headRightAction.loop = THREE.LoopOnce;
 
@@ -264,7 +263,7 @@ class App {
         headRightAction.play();
         before = 6;
       });
-
+*/
       // 애니메이션 클립의 길이를 수정 (예: 0.5초로 제한)
       // const desiredAnimationLength = 3;
       // clip.duration = desiredAnimationLength;

@@ -202,7 +202,7 @@ class App {
       5: 머리 오른쪽
 
       */
-
+      console.log(object.animations);
       const eyeShack = object.animations[0];
       const eyeShackAction = this._mixer.clipAction(eyeShack);
       const earShack = object.animations[1];
@@ -217,8 +217,12 @@ class App {
       const helloAction = this._mixer.clipAction(hello);
       const headRight = object.animations[6];
       const headRightAction = this._mixer.clipAction(headRight);
-
-      helloAction.loop = THREE.LoopOnce;
+      const surprized = object.animations[5];
+      const surprizedAction = this._mixer.clipAction(surprized);
+      const walk = object.animations[8];
+      const walkAction = this._mixer.clipAction(walk);
+      // helloAction.loop = THREE.LoopOnce;
+      walkAction.play();
       btn1.addEventListener("click", function () {
         helloAction.reset().play();
       });
