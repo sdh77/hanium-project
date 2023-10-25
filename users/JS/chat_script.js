@@ -35,20 +35,29 @@ $(document).ready(function () {
   if ("webkitSpeechRecognition" in window) {
     const recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
-    recognition.interimResults = true;
+    recognition.interimResults = false;
 
-    let ListeningUserMessage = false;
+    let silenceTimer = null; 
+    let hasProcessed = false;
+      console.log("도대체 왜 반복 ...");
 
     recognition.onresult = function (event) {
       console.log("음성 대기 중 ...");
-      for (let i = event.resultIndex; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          const transcript = event.results[i][0].transcript.trim();
-          console.log(transcript);
 
-          flaskAjax(transcript);
-        }
+      if (silenceTimer) {
+        clearTimeout(silenceTimer);
+	hasProcessed = false;
       }
+
+      let lastTranscript = event.results[event.results.length - 1][0].transcript.trim();
+
+      silenceTimer = setTimeout(() => {
+        if (!hasProcessed) {
+          console.log(lastTranscript);
+          flaskAjax(lastTranscript);
+          hasProcessed = true;
+	}
+      }, 1000);
     };
 
     recognition.start();
@@ -56,8 +65,12 @@ $(document).ready(function () {
     // 상시대기 STT 종료
     $("#stopChromeSTT").click(function () {
       recognition.stop();
-      ListeningUserMessage = false;
       console.log("상시 대기 모드 종료");
+    });
+    // 상시대기 stt 시작
+    $("#startChromeSTT").click(function () {
+      recognition.start();
+      console.log("상시 대기 모드 시작");
     });
   } else {
     console.error("Browser does not support webkitSpeechRecognition.");
@@ -97,10 +110,11 @@ function flaskAjax(transcript) {
 
       // 딕셔너리 형태의 응답 중, data가 message가 있다면
       if (data.message) {
-        addMessageToChat("bot", `${data.message}`);
+        //addMessageToChat("bot", `${data.message}`);
 
         switch (data.action) {
           case "chat-shoppingCart-popup":
+	    addMessageToChat("bot", `${data.message}`);
             // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업
             var params = {
               menu: data.menu,
@@ -120,6 +134,7 @@ function flaskAjax(transcript) {
             break;
 
           case "chat-shoppingCart-popup-Edit":
+	    addMessageToChat("bot", `${data.message}`);
             quantityInit = window.menuQuantity2;
             quantityChange = data.quantity - quantityInit;
 
@@ -136,29 +151,51 @@ function flaskAjax(transcript) {
             break;
 
           case "chat-shoppingCart-popup-orderBtn":
+	    addMessageToChat("bot", `${data.message}`);
             shoppingCartPopupOkBtn();
             break;
 
           case "chat-shoppingCart-popup-closeBtn":
+	    addMessageToChat("bot", `${data.message}`);
             $(".shoppingCart-popup-closeBtn").trigger("click");
             break;
 
           case "orderBtn-popup-click-trigger":
-            $("#orderButton_popup").trigger("click");
+	    if($(".cart-item:visible").length > 0) {
+	      addMessageToChat("bot", `${data.message}`);
+              $("#orderButton_popup").trigger("click");
+	    } else {
+	      addMessageToChat("bot", `${data.message2}`);
+	      //alert("장바구니 비어있음!!!");
+	      $.ajax({
+	        url: "/flask-app/update_state",
+		type: "POST",
+		contentType: "application/json",
+		data: JSON.stringify({ new_state: "initial"}),
+		dataType: "json",
+		success: function(response) {
+	 	    console.log("State updated successful!!");
+		}
+	      });
+	    }
             break;
           case "orderBtn-click-trigger":
+	    addMessageToChat("bot", `${data.message}`);
             $("#orderButton").trigger("click");
             break;
           case "orderBtn-close-click-trigger":
+	    addMessageToChat("bot", `${data.message}`);
             $("#canselButton").trigger("click");
             break;
 
           case "loadpage":
+	    addMessageToChat("bot", `${data.message}`);
             loadpage_menubar__voice(data.page);
             //localStorage.setItem("userState", 0);
             break;
 
           case "loadpage-search":
+	    addMessageToChat("bot", `${data.message}`);
             search_list = "";
             search_lists = data.searchMenus.split(",");
             for (i = 0; i < search_lists.length; i++) {
@@ -171,6 +208,7 @@ function flaskAjax(transcript) {
             break;
 
           case "loadpage-recommend":
+	    addMessageToChat("bot", `${data.message}`);
             recommend_list = "";
             recommend_lists = data.recommendMenus.split(",");
             for (i = 0; i < recommend_lists.length; i++) {
@@ -184,6 +222,7 @@ function flaskAjax(transcript) {
             break;
 
           case "loadpage-spicy":
+	    addMessageToChat("bot", `${data.message}`);
             spicy_list = "";
             spicy_lists = data.spicyMenus.split(",");
             for (i = 0; i < spicy_lists.length; i++) {
@@ -196,8 +235,8 @@ function flaskAjax(transcript) {
             break;
 
           case "call":
+	    addMessageToChat("bot", `${data.message}`);
             console.log(data.matchCall);
-            // console.log($("#table-number").text());
             let matchCall = {
               tableid: $("#table-number").text(),
               serviceText: data.matchCall,
@@ -205,6 +244,7 @@ function flaskAjax(transcript) {
             if (data.matchCall != -1)
               $.ajax({ url: "callSend.php", type: "get", data: matchCall });
           case "callEmployee":
+	    addMessageToChat("bot", `${data.message}`);
             let callEmployee = {
               tableid: $("#table-number").text(),
               serviceText: "직원 호출",

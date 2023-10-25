@@ -179,6 +179,7 @@ $(document).ready(function () {
     });
   });
   $("#orderButton_popup").click(function () {
+    if($(".cart-item:visible").length > 0) {
     $(".shopcartAll-popup").removeClass("area-hideen").addClass("area-visible");
     var cartItems = $(".cart-item:visible");
     let names = [];
@@ -199,6 +200,9 @@ $(document).ready(function () {
     }).done(function (data) {
       $(".shopcartAll_popup__list").html(data);
     });
+    } else {
+      alert("장바구니 비어있음!!!");
+    }
   });
 
   // do: 주문
@@ -364,6 +368,12 @@ document
   .addEventListener("click", function () {
     document.querySelector(".chatArea").style.display = "none";
     document.querySelector(".chatdisplayArea").style.display = "block";
+  });
+document
+  .querySelector(".chatdisplayArea-exitBtn")
+  .addEventListener("click", function () {
+    document.querySelector(".chatdisplayArea").style.display = "none";
+    document.querySelector(".chatArea").style.display = "block";
   });
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
