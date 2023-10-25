@@ -205,8 +205,8 @@ class App {
           object.animations[before].stop();
         }
       }
-
-      console.dir(object.animations[0]);
+      console.log(object.animations);
+      // console.dir(object.animations[0]);
       const eyeShack = object.animations[0];
       const eyeShackAction = this._mixer.clipAction(eyeShack);
       shakeEyebtn.addEventListener("click", function () {
