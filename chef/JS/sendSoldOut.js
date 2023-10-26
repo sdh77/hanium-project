@@ -9,10 +9,12 @@ function alterSoldOut(target) {
     target.classList.remove("yes");
     console.log(target.className);
     sendSoldOut(name, 0);
+    chromeTTS(name + "가 판매상태가 되었습니다.");
   } else {
     target.classList.add("yes");
     console.log(target.className);
     sendSoldOut(name, 1);
+    chromeTTS(name + "가 품절 되었습니다.");
   }
 }
 

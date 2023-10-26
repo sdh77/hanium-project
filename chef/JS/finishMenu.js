@@ -30,6 +30,10 @@ Menus.forEach(function (finishMenu) {
       orderId: finishMenu.classList.item(1),
     };
     $.ajax({ url: "clearMenu.php", type: "get", data: params });
+    const menuName = finishMenu.querySelector(".orderdetail_name").innerHTML;
+    const tableNumber =
+      finishMenu.parentElement.querySelector(".orderTableId").innerHTML;
+    chromeTTS(tableNumber + menuName + "가 조리완료 되었습니다.");
   });
   checkTable();
 });

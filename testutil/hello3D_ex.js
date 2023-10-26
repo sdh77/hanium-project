@@ -218,7 +218,7 @@ class App {
       const headRight = object.animations[6];
       const headRightAction = this._mixer.clipAction(headRight);
 
-      this._mixer.clipAction(object.animations[11]).play();
+      this._mixer.clipAction(object.animations[10]).play();
 
       /*
       const animationDuration = 2000; // 5초를 밀리초로 변환

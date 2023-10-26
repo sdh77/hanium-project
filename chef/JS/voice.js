@@ -49,6 +49,7 @@ $(document).ready(function () {
                   console.log("번호를 확인");
                 } else {
                   clearTable(data.table);
+                  chromeTTS(data.table + "번 테이블이 완료되었습니다.");
                 }
               } else if (data.action === "completeMenuName") {
                 console.log("re: " + data.table + "번 테이블");
@@ -72,6 +73,7 @@ $(document).ready(function () {
                     });
                   }
                 }
+                chromeTTS(data.soldOutMenu + "가 판매상태가 되었습니다.");
               } else if (data.action == "soldOutMenu") {
                 console.log("re: " + data.soldOutMenu + " 품절");
                 if (data.soldOutMenu === "no menu") {
@@ -86,6 +88,7 @@ $(document).ready(function () {
                     });
                   }
                 }
+                chromeTTS(data.soldOutMenu + "가 품절 되었습니다.");
               }
             },
           });
