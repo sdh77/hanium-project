@@ -143,7 +143,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/moving.FBX", (object) => {
+    loader.load("data/moving2.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -218,7 +218,7 @@ class App {
       const headRight = object.animations[6];
       const headRightAction = this._mixer.clipAction(headRight);
 
-      this._mixer.clipAction(object.animations[10]).play();
+      this._mixer.clipAction(object.animations[2]).play();
 
       /*
       const animationDuration = 2000; // 5초를 밀리초로 변환
