@@ -48,25 +48,29 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
       FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name 
       WHERE DATE(orderdetail.date) = '" . $Date . "' and tableid = " . $tableID . "and div in('샐러드','파스타','라이스','피자','스테이크','사이드')and completed = false and exit = false";
   $result = pg_query($conn, $sql);
+  $count = 0;
+
   if ($result) {
     if (pg_num_rows($result) > 0) {
       $cnt = 0;
       while ($row = pg_fetch_assoc($result)) {
         if ($cnt == 0) {
           $cnt++;
-
+          $count++;
+          
           echo '<div class="table-info__info">
-              <div class="table-info__column">
-                <div class="table-info__food">음식</div>
-                <div class="table-info__row select-row">              <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
-                  <div class="table-info__food-num">' . $cnt . '</div>
-                  <div class="table-info__food-info">' . $row["name"] . '</div></div>';
+          <div class="table-info__column">
+          <div class="table-info__food">음식</div>
+          <div class="table-info__row select-row">              <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
+          <div class="table-info__food-num foodDrinkNum">' . $count . '</div>
+          <div class="table-info__food-info foodDrinkName">' . $row["name"] . '</div></div>';
           $time = (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         } else {
           $cnt++;
+          $count++;
           echo '<div class="table-info__row">
-          <div class="table-info__food-num">' . $cnt . '</div>
-          <div class="table-info__food-info">' . $row["name"] . '</div></div>';
+          <div class="table-info__food-num foodDrinkNum">' . $count . '</div>
+          <div class="table-info__food-info foodDrinkName">' . $row["name"] . '</div></div>';
           ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         }
       }
@@ -88,17 +92,19 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
       while ($row = pg_fetch_assoc($result)) {
         if ($cnt == 0) {
           $cnt++;
+          $count++;
           echo '<div class="table-info__column">
             <div class="table-info__drink">주류</div>
             <div class="table-info__row">                    <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
-              <div class="table-info__drink-num">' . $cnt . '</div>
-              <div class="table-info__drink-info">' . $row["name"] . '</div></div>';
+              <div class="table-info__drink-num foodDrinkNum">' . $count . '</div>
+              <div class="table-info__drink-info foodDrinkName">' . $row["name"] . '</div></div>';
           ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         } else {
           $cnt++;
+          $count++;
           echo '<div class="table-info__row">                <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
-          <div class="table-info__drink-num">' . $cnt . '</div>
-          <div class="table-info__drink-info">' . $row["name"] . '</div>
+          <div class="table-info__drink-num foodDrinkNum">' . $count . '</div>
+          <div class="table-info__drink-info foodDrinkName">' . $row["name"] . '</div>
           </div>';
           ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         }

@@ -1,5 +1,5 @@
 const tableNums = document.querySelectorAll(".table-info__number");
-console.log(tableNums);
+// console.log(tableNums);
 
 fetch("../config.json") // 설정 파일 로드
   .then((response) => response.json())
@@ -59,6 +59,7 @@ recognition.maxAlternatives : 숫자가 적을 수록 발음대로 작성 숫자
                   console.log("번호를 확인");
                 } else {
                   console.log(data.matchMenu);
+                  clearTable(data.table);
                   clearMenuName(data.matchMenu, data.table);
                 }
               } else if (data.action == "completeMenuName") {
@@ -122,8 +123,53 @@ recognition.maxAlternatives : 숫자가 적을 수록 발음대로 작성 숫자
   }
 });
 
-function clearCall(searchtable) {
-  let doclick = 0;
+const tableInfos = document.querySelectorAll(".table-info");
+// console.log(tableInfo);
+// clearMenuNum(1, 5);
+function clearMenuNum(searchnum, searchtable) {
+  tableInfos.forEach((tableInfo) => {
+    let thisTable = tableInfo.children[0].querySelector(".table-info__number");
+    // console.log(thisTable);
+    if (searchtable == thisTable.innerHTML) {
+      let menuNumLists =
+        thisTable.parentElement.nextElementSibling.querySelectorAll(
+          ".table-info__row"
+        );
 
-  console.log(searchtable);
+      menuNumLists.forEach((menuNumList) => {
+        let menuNum = menuNumList.querySelector(".foodDrinkNum");
+        // console.log(menuNum);
+        if (menuNum.innerHTML == searchnum) {
+          menuNum.click();
+        }
+      });
+    }
+  });
+}
+
+function clearMenuName(searchName, searchTable) {
+  tableInfos.forEach((tableInfo) => {
+    let thisTable = tableInfo.children[0].querySelector(".table-info__number");
+    if (searchTable == thisTable.innerHTML) {
+      let menuNameLists =
+        thisTable.parentElement.nextElementSibling.querySelectorAll(
+          ".table-info__row"
+        );
+      menuNameLists.forEach((menuNameList) => {
+        let menuName = menuNameList.querySelector(".foodDrinkName");
+        if (menuName.innerHTML == searchName) {
+          menuName.click();
+        }
+      });
+    }
+  });
+}
+
+function clearTable(searchTable) {
+  tableInfos.forEach((tableInfo) => {
+    let thisTable = tableInfo.children[0].querySelector(".table-info__number");
+    if (thisTable.innerHTML == searchTable) {
+      thisTable.click();
+    }
+  });
 }
