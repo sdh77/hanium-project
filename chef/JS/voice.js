@@ -118,8 +118,7 @@ function clearMenuNum(searchnum, searchtable) {
         if (thisItem.innerHTML == searchnum + "." && doclick == 0) {
           // console.log(thisItem);
           thisItem.click();
-          let check = thisItem.parentElement.classList.item(2);
-          if (check != "clear") doclick = 1;
+          doclick = 1;
         }
       });
     }
@@ -132,9 +131,7 @@ function clearTable(searchtable) {
     let thisTable = finishTable.querySelector(".orderTableId");
     if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
       thisTable.parentElement.click();
-      let check = thisTable.parentElement.classList.item(1);
-      // console.log(check);
-      if (check != "tableclear") doclick = 1;
+      doclick = 1;
     }
   });
 }
@@ -153,8 +150,7 @@ function clearMenuName(searchName, searchtable) {
         let thisItem = thisTableList.querySelector(".orderdetail_name");
         if (thisItem.innerHTML == searchName && doclick == 0) {
           thisItem.click();
-          let check = thisItem.parentElement.classList.item(2);
-          if (check != "clear") doclick = 1;
+          doclick = 1;
         }
       });
     }
