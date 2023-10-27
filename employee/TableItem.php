@@ -119,4 +119,6 @@ pg_close($conn);
 
 <script src="JS/changeTime.js"></script>
 <script src="JS/callFinish.js"></script>
+<script src="JS/chatBot.js"></script>
+
 <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>

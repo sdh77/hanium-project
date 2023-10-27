@@ -132,6 +132,7 @@ function clearTable(searchtable) {
     if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
       thisTable.parentElement.click();
       doclick = 1;
+
     }
   });
 }

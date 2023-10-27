@@ -1,3 +1,6 @@
+const tableNums = document.querySelectorAll(".table-info__number");
+console.log(tableNums);
+
 fetch("../config.json") // 설정 파일 로드
   .then((response) => response.json())
   .then((data) => {
@@ -94,8 +97,19 @@ recognition.maxAlternatives : 숫자가 적을 수록 발음대로 작성 숫자
                     });
                   }
                 }
-              } else {
-                console.log("Asd");
+              } else if (data.action == "completeCall") {
+                console.log("re: " + data.table + "번 테이블");
+                tableNums.forEach((element) => {
+                  if (element.innerHTML == data.table) {
+                    console.log(element);
+                    let callLists = element.parentElement.querySelectorAll(
+                      ".table-info__callList i"
+                    );
+                    callLists.forEach((element) => {
+                      element.click();
+                    });
+                  }
+                });
               }
             },
           });
@@ -107,3 +121,9 @@ recognition.maxAlternatives : 숫자가 적을 수록 발음대로 작성 숫자
     console.error("Browser does not support webkitSpeechRecognition.");
   }
 });
+
+function clearCall(searchtable) {
+  let doclick = 0;
+
+  console.log(searchtable);
+}
