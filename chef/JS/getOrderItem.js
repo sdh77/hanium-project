@@ -118,5 +118,10 @@ chef_swipe.addEventListener("touchend", (e) => {
   }
 });
 
+function chromeTTS(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(utterance);
+}
+
 orderItem();
 setInterval(getOrderNotClearItem, 1000);
