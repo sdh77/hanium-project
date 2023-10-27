@@ -7,7 +7,6 @@ var clearMenus = document.querySelectorAll(
 var finishTables = document.querySelectorAll(
   ".main-screen .main-area .tableOrderItem"
 );
-
 var newCnt = Menus.length;
 var clearCntCheck = clearMenus.length;
 // console.log(newCnt);
@@ -22,10 +21,31 @@ if (clearCntCheck == 0) {
     localStorage.setItem("menuCnt", newCnt);
   }
 }
+finishTables.forEach(function (finishTable) {
+  finishTable.addEventListener("click", function () {
+    const selectTableLists = finishTable.querySelectorAll(".orderdetail_list");
+    let menuId = "(";
+    selectTableLists.forEach(function (selectTableList, cnt = 1) {
+      // console.log(selectTableList.classList.item(1));
+      if (cnt == selectTableLists.length - 1)
+        menuId = menuId + selectTableList.classList.item(1) + ")";
+      else menuId = menuId + selectTableList.classList.item(1) + ", ";
+      cnt++;
+    });
+    let params = {
+      orderList: menuId,
+    };
+    $.ajax({ url: "clearAllMenu.php", type: "get", data: params });
+    const tableNumber = finishTable.querySelector(".orderTableId").innerHTML;
+    chromeTTS(tableNumber + "이 조리완료 되었습니다.");
+  });
+  checkTable();
+});
 Menus.forEach(function (finishMenu) {
   finishMenu.addEventListener("click", function () {
     finishMenu.classList.add("clear");
-    console.log(finishMenu.classList.item(1));
+    // console.log(finishMenu);
+    // console.log(finishMenu.classList.item(1));
     let params = {
       orderId: finishMenu.classList.item(1),
     };
@@ -71,3 +91,11 @@ function checkTable() {
     }
   });
 }
+
+var screenArea = document.querySelector(".main-screen .main-area");
+
+// console.log(screenArea);
+screenArea.addEventListener("scroll", function () {
+  if (screenArea.scrollLeft <= 10) localStorage.setItem("chefMode", 1);
+  else localStorage.setItem("chefMode", 0);
+});

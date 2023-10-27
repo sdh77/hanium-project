@@ -143,7 +143,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/moving2.FBX", (object) => {
+    loader.load("data/shef.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;

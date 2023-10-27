@@ -131,18 +131,9 @@ function clearTable(searchtable) {
   finishTables.forEach(function (finishTable) {
     let thisTable = finishTable.querySelector(".orderTableId");
     if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
-      console.log(thisTable);
-      let thisTableLists =
-        thisTable.parentElement.querySelectorAll(".orderdetail_list");
-      console.log(thisTableLists);
-      thisTableLists.forEach(function (thisTableList) {
-        let thisItem = thisTableList.querySelector(".tableOrderItem__menu");
-        thisItem.click();
-      });
-      console.log(thisTable.parentElement);
-
+      thisTable.parentElement.click();
       let check = thisTable.parentElement.classList.item(1);
-      console.log(check);
+      // console.log(check);
       if (check != "tableclear") doclick = 1;
     }
   });
