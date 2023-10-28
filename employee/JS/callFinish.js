@@ -36,16 +36,18 @@ foodDrinkCall.forEach((element) => {
 function handleToDoFoodDrinkClick(event) {
   console.dir(event);
   event.target.parentElement.classList.add("Finish-line");
-  // const drinkFoodCallObj = {
-  //   Name: event.target.parentElement.lastChild.innerHTML,
-  //   Table:
-  //     event.target.parentElement.parentElement.parentElement.previousElementSibling.querySelector(
-  //       ".table-info__number"
-  //     ).innerHTML,
-  // };
-  // $.ajax({ url: "drinkFoodFinish.php", type: "get", data: drinkFoodCallObj });
+  const drinkFoodCallObj = {
+    orderId: event.target.parentElement.classList[2],
+    Table:
+      event.target.parentElement.parentElement.parentElement.previousElementSibling.querySelector(
+        ".table-info__number"
+      ).innerHTML,
+  };
+  $.ajax({ url: "drinkFoodFinish.php", type: "get", data: drinkFoodCallObj });
 
-  // console.log(drinkFoodCallObj);
+  console.dir(
+    event.target.parentElement.querySelector(".foodDrinkName").innerHTML
+  );
 
   getTableItem();
 }
