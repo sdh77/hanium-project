@@ -143,7 +143,7 @@ class App {
   _setupModel() {
     this._clock = new THREE.Clock();
 
-    loader.load("data/shef2.FBX", (object) => {
+    loader.load("data/shef.FBX", (object) => {
       object.traverse((child) => {
         if (child.isMesh) {
           let texture;
@@ -202,7 +202,7 @@ class App {
       5: 머리 오른쪽
 
       */
-
+      console.log(object.animations);
       const eyeShack = object.animations[0];
       const eyeShackAction = this._mixer.clipAction(eyeShack);
       const earShack = object.animations[1];
@@ -218,13 +218,7 @@ class App {
       const headRight = object.animations[6];
       const headRightAction = this._mixer.clipAction(headRight);
 
-      helloAction.loop = THREE.LoopOnce;
-      btn1.addEventListener("click", function () {
-        helloAction.reset().play();
-      });
-      btn2.addEventListener("click", function () {
-        earShackAction.reset().play();
-      });
+      this._mixer.clipAction(object.animations[2]).play();
 
       /*
       const animationDuration = 2000; // 5초를 밀리초로 변환

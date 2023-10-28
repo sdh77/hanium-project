@@ -49,6 +49,7 @@ $(document).ready(function () {
                   console.log("번호를 확인");
                 } else {
                   clearTable(data.table);
+                  chromeTTS(data.table + "번 테이블이 완료되었습니다.");
                 }
               } else if (data.action === "completeMenuName") {
                 console.log("re: " + data.table + "번 테이블");
@@ -72,6 +73,7 @@ $(document).ready(function () {
                     });
                   }
                 }
+                chromeTTS(data.soldOutMenu + "가 판매상태가 되었습니다.");
               } else if (data.action == "soldOutMenu") {
                 console.log("re: " + data.soldOutMenu + " 품절");
                 if (data.soldOutMenu === "no menu") {
@@ -86,6 +88,7 @@ $(document).ready(function () {
                     });
                   }
                 }
+                chromeTTS(data.soldOutMenu + "가 품절 되었습니다.");
               }
             },
           });
@@ -115,8 +118,7 @@ function clearMenuNum(searchnum, searchtable) {
         if (thisItem.innerHTML == searchnum + "." && doclick == 0) {
           // console.log(thisItem);
           thisItem.click();
-          let check = thisItem.parentElement.classList.item(2);
-          if (check != "clear") doclick = 1;
+          doclick = 1;
         }
       });
     }
@@ -128,19 +130,9 @@ function clearTable(searchtable) {
   finishTables.forEach(function (finishTable) {
     let thisTable = finishTable.querySelector(".orderTableId");
     if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
-      console.log(thisTable);
-      let thisTableLists =
-        thisTable.parentElement.querySelectorAll(".orderdetail_list");
-      console.log(thisTableLists);
-      thisTableLists.forEach(function (thisTableList) {
-        let thisItem = thisTableList.querySelector(".tableOrderItem__menu");
-        thisItem.click();
-      });
-      console.log(thisTable.parentElement);
+      thisTable.parentElement.click();
+      doclick = 1;
 
-      let check = thisTable.parentElement.classList.item(1);
-      console.log(check);
-      if (check != "tableclear") doclick = 1;
     }
   });
 }
@@ -159,8 +151,7 @@ function clearMenuName(searchName, searchtable) {
         let thisItem = thisTableList.querySelector(".orderdetail_name");
         if (thisItem.innerHTML == searchName && doclick == 0) {
           thisItem.click();
-          let check = thisItem.parentElement.classList.item(2);
-          if (check != "clear") doclick = 1;
+          doclick = 1;
         }
       });
     }
