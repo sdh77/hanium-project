@@ -39,7 +39,6 @@ $(document).ready(function () {
 
     let silenceTimer = null; 
     let hasProcessed = false;
-      console.log("도대체 왜 반복 ...");
 
     recognition.onresult = function (event) {
       console.log("음성 대기 중 ...");
