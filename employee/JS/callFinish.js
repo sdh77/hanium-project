@@ -13,45 +13,39 @@ function handleToDoClick(event) {
   // console.log(event.target.classList.item(1));
 
   const callinfoObj = {
-    call : event.target.classList.item(1),
-    tableNumber: event.target.parentNode.previousSibling.innerHTML
+    call: event.target.classList.item(1),
+    tableNumber: event.target.parentNode.previousSibling.innerHTML,
   };
 
   // console.log(callinfoObj);
 
-  $.ajax({url: "callFinish.php", type: "get", data: callinfoObj});
-  
+  $.ajax({ url: "callFinish.php", type: "get", data: callinfoObj });
+
   getTableItem();
 }
 
 //////////////////////////////////////////////////////////////////////////////
 
-const foodCall = document.querySelectorAll(".select-row");
-const drinkCall = document.querySelectorAll(".select-row");
+const foodDrinkCall = document.querySelectorAll(".select-row");
 
-
-foodCall.forEach((element) => {
+foodDrinkCall.forEach((element) => {
   // let foodTableNum = element.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number");
   element.addEventListener("click", handleToDoFoodDrinkClick);
 });
 
-drinkCall.forEach((element) => {
-  // let drinkTableNum = element.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number");
-  element.addEventListener("click", handleToDoFoodDrinkClick);
-});
-
-
-function handleToDoFoodDrinkClick(event){
-
+function handleToDoFoodDrinkClick(event) {
   console.dir(event);
-  
-  const drinkFoodCallObj = {
-    Name : event.target.parentElement.lastChild.innerHTML,
-    Table : event.target.parentElement.parentElement.parentElement.previousElementSibling.querySelector(".table-info__number").innerHTML
-  };
-  $.ajax({url: "drinkFoodFinish.php", type: "get", data: drinkFoodCallObj});
+  event.target.parentElement.classList.add("Finish-line");
+  // const drinkFoodCallObj = {
+  //   Name: event.target.parentElement.lastChild.innerHTML,
+  //   Table:
+  //     event.target.parentElement.parentElement.parentElement.previousElementSibling.querySelector(
+  //       ".table-info__number"
+  //     ).innerHTML,
+  // };
+  // $.ajax({ url: "drinkFoodFinish.php", type: "get", data: drinkFoodCallObj });
 
-  console.log(drinkFoodCallObj);
+  // console.log(drinkFoodCallObj);
 
   getTableItem();
 }
@@ -67,13 +61,15 @@ tableFinish.forEach((element) => {
   // console.log(element);
 });
 
-
-function handleToDoTableClick(event){
+function handleToDoTableClick(event) {
   console.log(event);
+
   const tableFinishObj = {
-    number : event.target.innerHTML
+    number: event.target.innerHTML,
   };
-  
-  $.ajax({url: "tableFinish.php", type: "get", data: tableFinishObj});
+
+  $.ajax({ url: "tableFinish.php", type: "get", data: tableFinishObj });
+  $.ajax({ url: "tableCallFinish.php", type: "get", data: tableFinishObj });
+
   getTableItem();
 }
