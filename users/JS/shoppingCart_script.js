@@ -43,7 +43,9 @@ function decreaseQuantity(quantityElement) {
 }
 function popupdecreaseQuantity(quantityElement) {
   let quantity = parseInt(quantityElement.text());
-  quantityElement.text(quantity - 1);
+  if (quantity > 1) {
+    quantityElement.text(quantity - 1);
+  }
 }
 
 // 장바구니 가격 업데이트

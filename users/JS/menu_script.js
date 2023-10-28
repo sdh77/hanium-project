@@ -38,20 +38,6 @@ $(document).ready(function () {
       });
       $(".shoppingCart-popup-img").attr("src", menuImg);
       $(".shoppingCart-popup-informMenuDB").text(menuName);
-      /*$(".shoppingCart-popup-quantityIncrease")
-        .off("click")
-        .on("click", function () {
-          popupincreaseQuantity(
-            $(this).siblings(".shoppingCart-popup-quantityInt")
-          );
-          menuQuantity = parseInt($(".shoppingCart-popup-quantityInt").text());
-          popupincreaseQuantity(
-            $(this)
-              .closest(".shoppingCart-popup-4")
-              .siblings(".shoppingCart-popup-3")
-              .find(".shoppingCart-popup-informQuantity")
-          );
-      });*/ 
       $(".shoppingCart-popup-quantityIncrease").off("click").on("click", popupIncreaseClickBtn);
       $(".shoppingCart-popup-quantityDecrease").off("click").on("click", popupDecreaseClickBtn);
     });
