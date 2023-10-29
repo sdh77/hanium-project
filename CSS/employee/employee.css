@@ -97,6 +97,7 @@
 
 .Finish-line {
   color: red;
+  text-decoration: line-through;
 }
 
 .table-info__food {
