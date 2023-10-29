@@ -64,12 +64,14 @@ where div in('파스타','라이스','샐러드','피자','스테이크','사이
         if ($row["tableid"] != $oldtableId) {
 
           if ($oldtableId != 0)
-            echo '</div>';
+            echo '</div></div>';
 
           echo '<div class="tableOrderItemCLEAR">';
           if ($row["tableid"] != $oldtableId) {
             echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>
-            <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">조리 완료</p>';
+            <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">조리 완료</p>
+            <div class="orderdetail_scroll">';
+
             $id = 1;
           }
           echo '<div class="orderdetail_list  ' . $row["orderdetail_id"];

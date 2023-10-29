@@ -89,3 +89,7 @@
   overflow-x: hidden;
   height: 59vh;
 }
+
+.orderdetail_scroll::-webkit-scrollbar {
+  display: none;
+}
