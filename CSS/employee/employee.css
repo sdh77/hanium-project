@@ -35,6 +35,10 @@
   overflow-x: hidden;
 }
 
+.table-info__list::-webkit-scrollbar {
+  display: none;
+}
+
 .table-info__column:first-child {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
