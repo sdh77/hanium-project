@@ -9,6 +9,8 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  /* float: left; */
+
 }
 
 .table-info__info {
@@ -27,6 +29,8 @@
   width: 9vw;
   height: 22vh;
   box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden
 }
 
 .table-info__column:first-child {
@@ -83,6 +87,7 @@
   font-size: 2.6vh;
   margin-top: 5%;
 }
+
 .table-info__time {
   width: 5vw;
   text-align: right;
@@ -90,4 +95,25 @@
 
 .Finish-line {
   color: red;
+}
+
+.table-info__food {
+  position: fixed;
+  clear: both;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.select-row {
+  justify-content: left;
+  align-items: center;
+}
+
+.foodDrinkNum {
+  margin-right: 0.5vw;
+}
+
+.foodDrinkName {
+  /* position: absolute; */
+  top: -0.5vh;
 }
