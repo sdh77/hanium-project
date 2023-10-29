@@ -10,7 +10,6 @@
   justify-content: space-between;
   padding: 5px;
   /* float: left; */
-
 }
 
 .table-info__info {
@@ -29,8 +28,11 @@
   width: 9vw;
   height: 22vh;
   box-sizing: border-box;
+}
+
+.table-info__list {
   overflow-y: auto;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 .table-info__column:first-child {
@@ -98,8 +100,8 @@
 }
 
 .table-info__food {
-  position: fixed;
-  clear: both;
+  /* position: fixed; */
+  /* clear: both; */
   box-sizing: border-box;
   display: flex;
 }

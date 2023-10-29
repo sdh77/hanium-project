@@ -63,6 +63,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
           echo '<div class="table-info__info">
           <div class="table-info__column">
           <div class="table-info__food">음식</div>
+          <div class="table-info__list">
           <div class="table-info__row select-row  ' . $row['orderdetail_id'];
           if ($row['completed'] == 't')
             echo ' Finish-line';
@@ -82,7 +83,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
           ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         }
       }
-      echo '</div>';
+      echo '</div></div>';
     } else {
       echo '<div class="table-info__info">                  <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
         <div class="table-info__column">
@@ -105,7 +106,8 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
           $count++;
           echo '<div class="table-info__column">
             <div class="table-info__drink">주류</div>
-            <div class="table-info__row select-row ' . $row['orderdetail_id'];
+          <div class="table-info__list">
+          <div class="table-info__row select-row ' . $row['orderdetail_id'];
           if ($row['completed'] == 't')
             echo ' Finish-line';
           echo '">                    <!--여기가 번호 출력하는 부분이야!!!!!!!!!-->
@@ -125,7 +127,7 @@ for ($tableID = 1; $tableID <= 15; $tableID++) {
           ($time < ((int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2))) ? $time : (int) substr($row["date"], 11, 2) * 3600 + (int) substr($row["date"], 14, 2) * 60 + (int) substr($row["date"], 17, 2);
         }
       }
-      echo '</div>';
+      echo '</div></div>';
     } else {
       echo '<div class="table-info__column">
           <div class="table-info__drink">주류</div>
