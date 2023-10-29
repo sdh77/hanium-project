@@ -9,12 +9,12 @@ $totalPrice = 0;
 
 if ($Action == "") {
   echo '<p class="salesTodayHeader">' . $Date . '</p>';
-  $sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price,
+  $sql = "SELECT orderdetail.name, sum(orderdetail.quantity) AS cnt, menu.price,
    menu.div FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name WHERE DATE(orderdetail.date) = '"
     . $Date . "' GROUP BY orderdetail.name, menu.price, menu.div  order by count(menu.div) desc";
 
   $result = pg_query($conn, $sql);
-  echo '<button onclick="hide()">닫기</button>';
+  echo '<button onclick="hide()">X</button>';
 
 
 
@@ -46,7 +46,7 @@ if ($Action == "월 매출") {
   <button class="yearbtn yearbtn_left"><</button>
   <p class="salesTodayHeader">' . substr($Date, 0, 4) . '</p>
   <button class="yearbtn yearbtn_right">></button></div></div>';
-  echo '<button onclick="hide()">닫기</button>';
+  echo '<button onclick="hide()">X</button>';
 
   $monthCnt = 1;
   if ($result) {
@@ -61,7 +61,7 @@ if ($Action == "월 매출") {
             $monthCnt++;
           } else if ($monthCnt == $row["month"]) {
             echo '<div class="totalSaleGrid_item"><div class="totalSaleGrid_item__select">' . $row["month"] . '월</div>
-            <div class="totalSaleGrid_item__price">' . $row["sumprice"] . '원</div></div>';
+            <div class="totalSaleGrid_item__price">' . number_format($row["sumprice"], 0, ',', ',') . '원</div></div>';
             $monthCnt++;
             break;
           }
@@ -82,14 +82,14 @@ if ($Action == "월 매출") {
   } else
     echo "오류 발생: " . pg_last_error($conn);
 
-} else if ($Action == "년 매출") {
+} else if ($Action == "연 매출") {
   $sql = "SELECT extract (year from date) as year , sum(price * quantity) as sumprice
   from orderdetail left join menu on orderdetail.name = menu.name 
   group by extract (year from date)";
 
   $result = pg_query($conn, $sql);
-  echo '<p class="salesTodayHeader"> 년 매출 </p>';
-  echo '<button onclick="hide()">닫기</button>';
+  echo '<p class="salesTodayHeader"> 연 매출 </p>';
+  echo '<button onclick="hide()">X</button>';
 
   if ($result) {
     $totalnum = pg_num_rows($result);
@@ -98,7 +98,7 @@ if ($Action == "월 매출") {
 
       while ($row = pg_fetch_assoc($result)) {
         echo '<div class="totalSaleGrid_item"><div class="totalSaleGrid_item__select">' . $row["year"] . '년</div>
-        <div class="totalSaleGrid_item__price">' . $row["sumprice"] . '원</div></div>';
+        <div class="totalSaleGrid_item__price">' . number_format($row["sumprice"], 0, ',', ',') . '원</div></div>';
       }
 
       echo '</div>';

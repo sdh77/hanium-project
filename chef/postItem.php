@@ -22,13 +22,15 @@ if ($action == "notClear") {
         if ($row["tableid"] != $oldtableId) {
 
           if ($oldtableId != 0)
-            echo '</div>';
+            echo '</div></div>';
 
           echo '<div class="tableOrderItem">';
           if ($row["tableid"] != $oldtableId) {
             echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>
-            <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>';
+            <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>
+            <div class="orderdetail_scroll">';
             $id = 1;
+
           }
           echo '<div class="orderdetail_list  ' . $row["orderdetail_id"];
           if ($row["clear"] == "t")

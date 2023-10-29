@@ -23,7 +23,7 @@ for ($i = 0; $i < $firstDayWeek; $i++)
   echo '<div class="calendar_grid__day hide"></div>';
 
 for ($days = 1; $days <= $day_count; $days++) {
-  $sql = "SELECT orderdetail.name, COUNT(orderdetail.name) AS cnt, menu.price
+  $sql = "SELECT orderdetail.name, sum(orderdetail.quantity) AS cnt, menu.price
     FROM orderdetail INNER JOIN menu ON orderdetail.name = menu.name WHERE DATE(orderdetail.date) = '" . substr($Date, 0, 8) . $days . "' 
     GROUP BY orderdetail.name, menu.price";
   $result = pg_query($conn, $sql);
@@ -45,9 +45,10 @@ for ($days = 1; $days <= $day_count; $days++) {
   if ((substr($Date, 0, 8) . sprintf('%02d', $days)) == $Date)
     echo ' today';
   echo '"><p>' . $cnt . '</p></div>
-    <div class="calendar_grid__day__price">' . $totalPrice . '</div>
+    <div class="calendar_grid__day__price">' . number_format($totalPrice, 0, ',', ',') . '</div>
     </div></button>';
 }
+
 echo '
   </div>
 </div>

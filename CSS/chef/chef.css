@@ -80,3 +80,7 @@
 .main-screen .main-area .tableOrderItem .clear {
   text-decoration: line-through;
 }
+
+.orderdetail_scroll {
+  overflow-y: scroll;
+}

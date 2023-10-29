@@ -10,7 +10,7 @@
 .calendar_grid {
   display: grid;
   grid-template-columns: repeat(7, 13vw);
-  grid-template-rows: 6vh 8vh repeat(6, 11.5vh);
+  grid-template-rows: 6vh 8vh repeat(6, 11vh);
   border: 0px solid rgba(0, 0, 0, 0.4);
   height: 75vh;
   gap: 5px;
@@ -25,6 +25,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--main-color);
+  border: none;
 }
 .calendar_grid__week p {
   border: none;
@@ -78,16 +80,16 @@
 }
 
 .showList .calendar_grid__day .calendar_grid__day__num {
-  font-size: 4vh;
-  width: 6vh;
-  height: 6vh;
-  margin-top: 10px;
+  font-size: 3vh;
+  width: 5vh;
+  height: 5vh;
+  /* margin-top: 3px; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .showList .calendar_grid__day .calendar_grid__day__price {
-  font-size: 3vh;
+  font-size: 3.5vh;
 }
 
 .showList .today {
