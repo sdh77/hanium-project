@@ -56,7 +56,7 @@ $(document).ready(function () {
           flaskAjax(lastTranscript);
           hasProcessed = true;
 	}
-      }, 1000);
+      }, 500);
     };
 
     recognition.start();
