@@ -15,15 +15,31 @@ fetch("../config.json") // 설정 파일 로드
 $(document).ready(function () {
   if ("webkitSpeechRecognition" in window) {
     const recognition = new webkitSpeechRecognition();
-    //웹 음성인식 API 사용
     recognition.continuous = true;
-    //웹 상시 음성인식 기능 ON
-    recognition.interimResults = true;
-    /* //true : 연속된 단어를 종합하여 문장으로 인식 false : 단일 단어로 인식 ecognition.lang : 기본값 en-US,
-* 한국어 사용 :ko-KR
-recognition.maxAlternatives : 숫자가 적을 수록 발음대로 작성 숫자가 크면 이상한 단어도
-* 적합하게 수정
-*/
+    recognition.interimResults = false;
+
+    let silenceTimer = null;
+    let hasProcessed = false;
+
+    recognition.onresult = function (event) {
+      console.log("음성 대기 중 ...");
+
+      if (silenceTimer) {
+        clearTimeout(silenceTimer);
+        hasProcessed = false;
+      }
+
+      let lastTranscript =
+        event.results[event.results.length - 1][0].transcript.trim();
+
+      silenceTimer = setTimeout(() => {
+        if (!hasProcessed) {
+          console.log(lastTranscript);
+          flaskAjax(lastTranscript);
+          hasProcessed = true;
+        }
+      }, 500);
+    };
     let ListeningUserMessage = false;
 
     recognition.onresult = function (event) {

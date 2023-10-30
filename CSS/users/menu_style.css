@@ -149,7 +149,7 @@
 }
 
 .menu_select a p {
-  margin: 1vh 2.5vw;
+  margin: 1vh 2vw;
 }
 
 /*중간 부분*/
@@ -188,7 +188,7 @@
   display: grid;
   width: 95vw;
   height: 40vh;
-  grid-template-columns: repeat(3, 33.3%);
+  grid-template-columns: repeat(3, 30%);
   grid-template-rows: repeat(2, 50%);
   gap: 1vh 3vh;
   align-items: center;
@@ -282,7 +282,7 @@
   /* max-width: 28vw; */
   max-height: 14vh;
   margin-top: 1vh;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
   object-fit: cover;
 }
 
