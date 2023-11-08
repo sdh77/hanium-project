@@ -12,8 +12,30 @@ $(document).ready(function () {
   if ("webkitSpeechRecognition" in window) {
     const recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
-    recognition.interimResults = true;
+    recognition.interimResults = false;
 
+    let silenceTimer = null;
+    let hasProcessed = false;
+
+    recognition.onresult = function (event) {
+      console.log("음성 대기 중 ...");
+
+      if (silenceTimer) {
+        clearTimeout(silenceTimer);
+        hasProcessed = false;
+      }
+
+      let lastTranscript =
+        event.results[event.results.length - 1][0].transcript.trim();
+
+      silenceTimer = setTimeout(() => {
+        if (!hasProcessed) {
+          console.log(lastTranscript);
+          flaskAjax(lastTranscript);
+          hasProcessed = true;
+        }
+      }, 500);
+    };
     let ListeningUserMessage = false;
 
     recognition.onresult = function (event) {
@@ -132,7 +154,6 @@ function clearTable(searchtable) {
     if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
       thisTable.parentElement.click();
       doclick = 1;
-
     }
   });
 }

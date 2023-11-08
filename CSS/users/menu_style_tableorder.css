@@ -149,7 +149,7 @@
 }
 
 .menu_select a p {
-  margin: 1vh 2.5vw;
+  margin: 1vh 1.5vw;
 }
 
 /*중간 부분*/
@@ -189,7 +189,7 @@
 .grid {
   display: grid;
   width: 95vw;
-  height: 40vh;
+  height: 60vh;
   grid-template-columns: repeat(3, 33.3%);
   grid-template-rows: repeat(2, 50%);
   gap: 1vh 3vh;
@@ -201,7 +201,7 @@
 
 .grid_item {
   background-color: white;
-  height: 20vh;
+  height: 28vh;
   display: flex;
   flex-direction: column;
   align-items: center;

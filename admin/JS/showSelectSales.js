@@ -23,3 +23,9 @@ function showSelectSales(select) {
     }
   );
 }
+
+window.addEventListener("click", function (event) {
+  if (event.target.className == "window") {
+    selectPopup.classList.remove("show");
+  }
+});

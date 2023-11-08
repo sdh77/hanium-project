@@ -59,6 +59,7 @@
   height: 70vh;
   margin: 1vw;
 }
+
 .main-screen .main-area .tableOrderItemCLEAR {
   opacity: 0.3;
   background-color: red;
@@ -70,13 +71,25 @@
   font-size: 2vw;
   padding-bottom: 1vh;
 }
+
 .main-screen .main-area .tableOrderItemCLEAR .tableOrderItem__time,
 .main-screen .main-area .tableOrderItem .tableOrderItem__time {
   text-align: center;
   font-size: 2vw;
   padding-bottom: 3vh;
 }
+
 .main-screen .main-area .tableOrderItemCLEAR .clear,
 .main-screen .main-area .tableOrderItem .clear {
   text-decoration: line-through;
+}
+
+.orderdetail_scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 59vh;
+}
+
+.orderdetail_scroll::-webkit-scrollbar {
+  display: none;
 }

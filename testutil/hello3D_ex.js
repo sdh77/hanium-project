@@ -218,7 +218,7 @@ class App {
       const headRight = object.animations[6];
       const headRightAction = this._mixer.clipAction(headRight);
 
-      this._mixer.clipAction(object.animations[2]).play();
+      this._mixer.clipAction(object.animations[12]).play();
 
       /*
       const animationDuration = 2000; // 5초를 밀리초로 변환
@@ -233,7 +233,7 @@ class App {
       this._scene.add(object);
 
       this._zoomFit(object, this._camera, "Z", true);
-      this._scene.background = new THREE.Color(0xffffff);
+      this._scene.background = new THREE.Color(0x000000);
 
       this._clock = new THREE.Clock();
     });

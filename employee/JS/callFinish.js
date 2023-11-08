@@ -36,10 +36,11 @@ foodDrinkCall.forEach((element) => {
 function handleToDoFoodDrinkClick(event) {
   console.dir(event);
   event.target.parentElement.classList.add("Finish-line");
+
   const drinkFoodCallObj = {
     orderId: event.target.parentElement.classList[2],
     Table:
-      event.target.parentElement.parentElement.parentElement.previousElementSibling.querySelector(
+      event.target.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(
         ".table-info__number"
       ).innerHTML,
   };
