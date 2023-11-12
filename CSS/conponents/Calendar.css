@@ -16,8 +16,9 @@
   gap: 5px;
   border: none;
 }
+
 .calendar_grid * {
-  border: 1px solid black;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .calendar_grid__week {
@@ -28,6 +29,7 @@
   background-color: var(--main-color);
   border: none;
 }
+
 .calendar_grid__week p {
   border: none;
 }
@@ -40,6 +42,7 @@
   border: none;
   font-size: 6vh;
 }
+
 .Month .yearMonth {
   display: flex;
   flex-direction: row;
@@ -47,6 +50,7 @@
   width: auto;
   justify-content: center;
 }
+
 .Month .yearMonth .resetCalendar {
   position: absolute;
   right: -50px;
@@ -57,12 +61,14 @@
 .Month * {
   border: none;
 }
+
 .Month button {
   width: 10vw;
   height: 6vh;
   background-color: transparent;
   font-size: 6vh;
 }
+
 .showList {
   background-color: transparent;
   display: flex;
@@ -73,6 +79,7 @@
 .showList * {
   border: none;
 }
+
 .showList .calendar_grid__day {
   display: flex;
   flex-direction: column;
@@ -80,14 +87,16 @@
 }
 
 .showList .calendar_grid__day .calendar_grid__day__num {
-  font-size: 3vh;
-  width: 5vh;
-  height: 5vh;
+  font-size: 2.5vh;
+  width: 3.5vh;
+  height: 3.5vh;
   /* margin-top: 3px; */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: -10vw;
 }
+
 .showList .calendar_grid__day .calendar_grid__day__price {
   font-size: 3.5vh;
 }
@@ -95,7 +104,9 @@
 .showList .today {
   border-radius: 50%;
   background-color: tomato;
+  opacity: 90%;
 }
+
 /* .sunday {
   background-color: red;
 }
