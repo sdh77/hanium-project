@@ -10,13 +10,19 @@ $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski p
 
 echo '
 <div class="calendar">
-<div class="calendar_grid">
+  <div class="calendar_grid">
     <div class="calendar_grid__day Month">
-    <button class="moveLeft"><</button>
-    <div class="yearMonth">' . substr($Date, 0, 4) . '년 ' . substr($Date, 5, 2) . '월
-    <button class="resetCalendar" onclick="resetCalendar()">🥕</button>
-    </div>
-    <button class="moveRight">></button></div>';
+      <button class="moveLeft"><</button>
+      
+      <div class="yearMonth">' . substr($Date, 0, 4) . '년 ' . substr($Date, 5, 2) . '월
+      </div>
+      <div class="calendar_grid__day__column">
+        <button class="resetCalendar maechul">월 매출</button>
+        <button class="resetCalendar maechul">연 매출</button>
+        <button class="resetCalendar" onclick="resetCalendar()">오늘</button>
+        </div>
+        <button class="moveRight">></button>
+    </div>';
 for ($i = 0; $i < 7; $i++)
   echo '<div class="calendar_grid__week"><p>' . $week[$i] . '</p></div>';
 for ($i = 0; $i < $firstDayWeek; $i++)
@@ -58,3 +64,4 @@ pg_close($conn);
 ?>
 <script src="JS/moveMonth.js"></script>
 <script src="JS/showEachList.js"></script>
+<script src="JS/showSelectSales.js"></script>

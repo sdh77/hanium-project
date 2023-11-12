@@ -1,6 +1,6 @@
 const selectPopup = document.querySelector(".background");
 
-const selectLists = document.querySelectorAll(".resetCalendar");
+const selectLists = document.querySelectorAll(".maechul");
 
 selectLists.forEach((selectList) => {
   selectList.addEventListener("click", function () {
