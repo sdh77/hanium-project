@@ -38,8 +38,12 @@ $(document).ready(function () {
       });
       $(".shoppingCart-popup-img").attr("src", menuImg);
       $(".shoppingCart-popup-informMenuDB").text(menuName);
-      $(".shoppingCart-popup-quantityIncrease").off("click").on("click", popupIncreaseClickBtn);
-      $(".shoppingCart-popup-quantityDecrease").off("click").on("click", popupDecreaseClickBtn);
+      $(".shoppingCart-popup-quantityIncrease")
+        .off("click")
+        .on("click", popupIncreaseClickBtn);
+      $(".shoppingCart-popup-quantityDecrease")
+        .off("click")
+        .on("click", popupDecreaseClickBtn);
     });
 
     $(".shoppingCart-popup-okBtn")
@@ -155,27 +159,29 @@ $(document).ready(function () {
     });
   });
   $("#orderButton_popup").click(function () {
-    if($(".cart-item:visible").length > 0) {
-    $(".shopcartAll-popup").removeClass("area-hideen").addClass("area-visible");
-    var cartItems = $(".cart-item:visible");
-    let names = [];
-    let quantitys = [];
-    cartItems.each(function () {
-      names.push($(this).find(".menu-name").text());
-      quantitys.push($(this).find(".quantity").text());
-    });
-    console.log(names);
-    let params = {
-      names: names,
-      quantitys: quantitys,
-    };
-    $.ajax({
-      url: "showShopAllList.php",
-      type: "get",
-      data: params,
-    }).done(function (data) {
-      $(".shopcartAll_popup__list").html(data);
-    });
+    if ($(".cart-item:visible").length > 0) {
+      $(".shopcartAll-popup")
+        .removeClass("area-hideen")
+        .addClass("area-visible");
+      var cartItems = $(".cart-item:visible");
+      let names = [];
+      let quantitys = [];
+      cartItems.each(function () {
+        names.push($(this).find(".menu-name").text());
+        quantitys.push($(this).find(".quantity").text());
+      });
+      console.log(names);
+      let params = {
+        names: names,
+        quantitys: quantitys,
+      };
+      $.ajax({
+        url: "showShopAllList.php",
+        type: "get",
+        data: params,
+      }).done(function (data) {
+        $(".shopcartAll_popup__list").html(data);
+      });
     } else {
       alert("장바구니 비어있음!!!");
     }
@@ -214,8 +220,8 @@ $(document).ready(function () {
     });
     $("#total-price").text(0);
     $(".cart-item").not(":first").remove();
-    document.querySelector(".chatArea").style.display = "block";
-    document.querySelector(".chatdisplayArea").style.display = "none";
+    // document.querySelector(".chatArea").style.display = "block";
+    // document.querySelector(".chatdisplayArea").style.display = "none";
     alert("주문 완료!!!");
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
   });
