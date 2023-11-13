@@ -10,8 +10,8 @@ $oldtablecomplete = "f";
 echo '<div class="main-area">';
 if ($action == "notClear") {
   $sql = "select * from orderdetail left join menu on orderdetail.name = menu.name 
-  where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = false order by tablecomplete desc, orderdetail_id";
-  // where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = false and DATE(date) = '" . $today . "' order by orderdetail_id";  
+  where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = false and DATE(date) = '" . $today . "' order by tablecomplete desc, orderdetail_id";
+  // where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = false order by tablecomplete desc, orderdetail_id";
 
 
   $result = pg_query($conn, $sql);
@@ -52,9 +52,9 @@ if ($action == "notClear") {
     }
   }
 } else if ($action == "clear") {
-  $sql = "select * from orderdetail left join menu on orderdetail.name = menu.name 
-where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = true order by tablecomplete desc, orderdetail_id";
-  // where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = true and DATE(date) = '" . $today . "' order by orderdetail_id";
+  $sql = "select * from orderdetail left join menu on orderdetail.name = menu.name
+  where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = true and DATE(date) = '" . $today . "' order by tablecomplete desc, orderdetail_id";
+  // where div in('파스타','라이스','샐러드','피자','스테이크','사이드') and tablecomplete = true order by tablecomplete desc, orderdetail_id";
 
   $result = pg_query($conn, $sql);
   if ($result) {

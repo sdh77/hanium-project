@@ -62,7 +62,7 @@
 
 .main-screen .main-area .tableOrderItemCLEAR {
   opacity: 0.3;
-  background-color: red;
+  background-color: var(--main-color);
 }
 
 .main-screen .main-area .tableOrderItemCLEAR .orderTableId,

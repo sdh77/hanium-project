@@ -13,14 +13,15 @@ var clearCntCheck = clearMenus.length;
 // console.log(clearCntCheck);
 // console.log(newCnt);
 
-if (clearCntCheck == 0) {
-  if (newCnt > Number(localStorage.getItem("menuCnt"))) {
-    alert("new");
-    localStorage.setItem("menuCnt", newCnt);
-  } else if (newCnt < Number(localStorage.getItem("menuCnt"))) {
+if (newCnt > Number(localStorage.getItem("menuCnt"))) {
+  alert("new");
+  localStorage.setItem("menuCnt", newCnt);
+} else if (newCnt < Number(localStorage.getItem("menuCnt"))) {
+  if (localStorage.getItem("chefMode") == 1) {
     localStorage.setItem("menuCnt", newCnt);
   }
 }
+
 finishTables.forEach(function (finishTable) {
   finishTable.addEventListener("click", function () {
     const selectTableLists = finishTable.querySelectorAll(".orderdetail_list");

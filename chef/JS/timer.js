@@ -16,10 +16,12 @@ function set_time() {
     const newS = Number(a.substr(6, 2));
     time.innerHTML = count(h - newH, m - newM, s - newS) + "분";
   });
-  // }
 }
 
 function count(h, m, s) {
-  const set = h * 60 + m + Math.round(s / 60);
+  let set = h * 60 + m + Math.round(s / 60);
+  if (set < 0) {
+    set = 1440 + set;
+  }
   return set;
 }
