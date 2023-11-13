@@ -380,12 +380,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* width: calc(100vw - 4px); */
   width: 100vw;
-  /* height: calc(30vh - 4px); */
   height: 30vh;
   top: 0;
-  /* 테두리값 뺀거임! */
   /*background-color: rgba(46,60,102, 0.8);*/
   background-color: #76758a;
   /* border: 2px solid #76758a; */
@@ -398,12 +395,12 @@
 #webgl-container {
   width: 50%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 25%;
 }
 
 .chatArea-voicebox {
-  width: 100px;
-  height: 50px;
-  top: 500px;
   text-align: center;
   line-height: 50px;
   cursor: pointer;
