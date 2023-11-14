@@ -17,7 +17,7 @@ if ($Action == "") {
   echo '<button onclick="hide()">X</button>';
 
 
-
+  echo '<div class="toDayOrder__listScroll">';
   if ($result) {
     $totalnum = pg_num_rows($result);
     if ($totalnum > 0) {
@@ -34,6 +34,7 @@ if ($Action == "") {
   } else {
     echo "오류 발생: " . pg_last_error($conn);
   }
+  echo "</div>";
 }
 if ($Action == "월 매출") {
   $sql = "SELECT extract (year from date) as year , extract (month from date) as month, sum(price * quantity) as sumprice

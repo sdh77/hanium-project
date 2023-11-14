@@ -75,6 +75,13 @@
 .salesPopupDisplay {
   position: relative;
 }
+.toDayOrder__listScroll {
+  overflow: auto;
+  height: 85%;
+}
+.toDayOrder__listScroll::-webkit-scrollbar {
+  visibility: hidden;
+}
 .salesPopupDisplay .salesTodayHeader {
   font-size: 8vh;
   width: 100%;
