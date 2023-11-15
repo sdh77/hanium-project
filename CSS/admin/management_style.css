@@ -209,7 +209,7 @@
 
 .popup .right button {
   border: none;
-  background-color: gray;
+  background-color: transparent;
   font-size: 3vh;
   margin: 0.5vh;
   width: 5vw;
@@ -254,7 +254,7 @@
 }
 
 .popup .popupmain .popupcenter div div .spicy {
-  background-color: gray;
+  background-color: transparent;
   font-size: 3vh;
   padding: 1vh;
 }
@@ -303,7 +303,7 @@
   text-align: center;
   border: none;
   padding: 0.5vw;
-  background-color: gray;
+  background-color: transparent;
 }
 
 input[type="checkbox"] {

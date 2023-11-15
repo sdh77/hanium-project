@@ -26,8 +26,12 @@ if ($action == "notClear") {
 
           echo '<div class="tableOrderItem">';
           if ($row["tableid"] != $oldtableId) {
-            echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>
-            <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>
+            if ($row["tableid"] >= 100)
+              echo '<p class="orderTableId">' . $row["tableid"] . '번</p>';
+            else
+              echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>';
+
+            echo '<p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">0 분</p>
             <div class="orderdetail_scroll">';
             $id = 1;
 
@@ -68,8 +72,12 @@ if ($action == "notClear") {
 
           echo '<div class="tableOrderItemCLEAR">';
           if ($row["tableid"] != $oldtableId) {
-            echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>
-            <p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">조리 완료</p>
+            if ($row["tableid"] >= 100)
+              echo '<p class="orderTableId">' . $row["tableid"] . '번</p>';
+            else
+              echo '<p class="orderTableId">' . $row["tableid"] . '번 테이블</p>';
+
+            echo '<p class="tableOrderItem__time ' . substr($row["date"], 11, 8) . '">조리 완료</p>
             <div class="orderdetail_scroll">';
 
             $id = 1;

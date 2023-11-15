@@ -44,7 +44,7 @@
         <div class="chatdisplayArea-messageInput-2">
           <button id="startRecording">record</button>
           <button id="stopRecording">stop</button>
-	  <button id="startChromeSTT">startChromeSTT</button> <!--꿈돌이터치로-->
+          <button id="startChromeSTT">startChromeSTT</button> <!--꿈돌이터치로-->
           <button id="stopChromeSTT">stopChromeSTT</button>
           <audio id="audioPlayer" controls style="display: none;"></audio>
         </div>
@@ -129,13 +129,15 @@
             </div>
             <div class="shoppingCart-popup-3">
               <p class="shoppingCart-popup-informMenuDB"></p>
-              <p class="shoppingCart-popup-informQuantity">1</p>
-              <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+              <div class="shoppingCart-row">
+                <p class="shoppingCart-popup-informQuantity">1</p>
+                <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+              </div>
             </div>
             <div class="shoppingCart-popup-4">
+              <button class="shoppingCart-popup-quantityDecrease">-</button>
               <p class="shoppingCart-popup-quantityText">수량 </p>
               <p class="shoppingCart-popup-quantityInt">1</p>
-              <button class="shoppingCart-popup-quantityDecrease">-</button>
               <button class="shoppingCart-popup-quantityIncrease">+</button>
               <button class="shoppingCart-popup-okBtn">장바구니</button>
             </div>
@@ -168,7 +170,7 @@
   <div class="shop-area" id="shop-area">
     <div id="item-container">
       <div id="table-number-area">
-        <span id="table-number-text">TableID
+        <span id="table-number-text">주문내역(order list)
         </span>
         <span id="table-number"></span>
       </div>
@@ -181,10 +183,10 @@
           <p class="menu-name"></p>
           <div class="cart-item-bottom">
             <div class="quantity-area">
-              <p class="quantity">1</p>
               <button class="decrease">
                 -
               </button>
+              <p class="quantity">1</p>
               <button class="increase">
                 +
               </button>
@@ -192,6 +194,7 @@
             <p class="single-price" style="display:none;"></p>
             <p class="fixed-price" style="display:none;"></p>
             <p class="item-price"></p>
+            <p class="item-price-won">원</p>
           </div>
         </div>
       </div>
@@ -201,9 +204,10 @@
         <span id="total-text">Total:
         </span>
         <span id="total-price">0</span>
+        <p id="total-price">원</p>
       </div>
       <button id="orderButton_popup">주문하기</button>
-      <button id="orderListButton_popup">주문내역</button>
+      <!-- <button id="orderListButton_popup">주문내역</button> -->
     </div>
   </div>
   <div style="visibility: hide;">

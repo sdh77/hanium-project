@@ -7,7 +7,7 @@ $row = pg_fetch_assoc($result);
 
 echo '
     <div class="right">
-      <button onclick="hide()">닫기</button>
+      <button onclick="hide()">X</button>
     </div>
     <div class="header">세부 수정</div>
     <div class="popupmain" id="updatePopup">

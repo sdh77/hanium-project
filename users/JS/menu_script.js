@@ -1,5 +1,6 @@
 $(document).ready(function () {
   // do: 주문 시작 시 테이블 번호 생성. (지금은 랜덤이고 추후에 각각 설정)
+
   localStorage.setItem("userState", 1);
   console.log("Order Start!!");
   const tableID = generateTableNumber();
@@ -60,6 +61,11 @@ $(document).ready(function () {
             olditemprice = parseInt(
               $(this).find(".item-price").text().replace(",", "")
             );
+            menuQuantity = Number(
+              document.querySelector(".shoppingCart-popup-informQuantity")
+                .innerHTML
+            );
+            console.log(menuQuantity);
 
             cartquantity += menuQuantity;
             newitemprice = menuPrice * menuQuantity;
@@ -85,6 +91,10 @@ $(document).ready(function () {
           }
         });
         if (!isExist) {
+          menuQuantity = Number(
+            document.querySelector(".shoppingCart-popup-informQuantity")
+              .innerHTML
+          );
           addToCart3(menuImg, menuName, menuPrice, menuQuantity);
         } else {
           console.log("장바구니에 이미 있음");
@@ -223,7 +233,16 @@ $(document).ready(function () {
     // document.querySelector(".chatArea").style.display = "block";
     // document.querySelector(".chatdisplayArea").style.display = "none";
     alert("주문 완료!!!");
+    localStorage.setItem(
+      "orderNum",
+      Number(localStorage.getItem("orderNum")) + 1
+    );
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+    if ($("#table-number").text() >= 100) {
+      window.location.href = "index_kioski.html";
+    } else {
+      window.location.href = "index_tableorder.html";
+    }
   });
 
   // 직원 호출 service. orderdetail DB로 전송
@@ -360,7 +379,17 @@ document
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
-  return Math.floor(Math.random() * 10) + 1;
+  const nowUrl = window.location.pathname.split("/");
+  nowMode = nowUrl[nowUrl.length - 1];
+  console.log(nowMode);
+  if (nowMode == "menu_tableorder.html") {
+    return Math.floor(Math.random() * 10) + 1;
+  } else {
+    if (!localStorage.getItem("orderNum")) {
+      localStorage.setItem("orderNum", 100);
+    }
+    return localStorage.getItem("orderNum");
+  }
 }
 
 // setInterval(loadpage_list, 10000);

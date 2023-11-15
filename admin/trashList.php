@@ -6,7 +6,7 @@ $result = pg_query($conn, $sql);
 echo '
 <div class="popupHeader">휴지통</div>
 <div class="popupRight">
-  <button onclick="hide()">닫기</button>
+  <button onclick="hide()">X</button>
 </div>
 <div class="selectMenu">
 <button onclick="recoverAll()">모두 복구</button>
