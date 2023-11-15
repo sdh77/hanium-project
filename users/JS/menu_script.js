@@ -228,6 +228,7 @@ $(document).ready(function () {
       Number(localStorage.getItem("orderNum")) + 1
     );
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+    location.reload();
   });
 
   // 직원 호출 service. orderdetail DB로 전송
