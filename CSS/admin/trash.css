@@ -18,12 +18,13 @@
   position: absolute;
   right: 0.5vh;
   top: 0.5vh;
-  background-color: gray;
+  background-color: transparent;
 }
 
 .popupRight button {
   border: none;
   font-size: 3vh;
+  background-color: transparent;
   width: 5vw;
 }
 .scroll {

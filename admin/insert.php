@@ -1,7 +1,7 @@
 <?php
 echo '
     <div class="right">
-      <button onclick="hide()">닫기</button>
+      <button onclick="hide()">X</button>
     </div>
     <div class="header">메뉴 추가</div>
     <div class="popupmain" id="insertPopup">
