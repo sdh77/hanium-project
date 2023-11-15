@@ -9,7 +9,7 @@
 
 .bodymain {
   display: flex;
-  height: 55vh;
+  height: 50.5vh;
   position: absolute;
   top: 30vh;
   flex-direction: row;
@@ -120,7 +120,7 @@
   /* width: 85vw;*/
   font-size: 2.2vw;
   width: 100vw;
-  height: 6vh;
+  height: 3vh;
   display: flex;
   color: white;
   background-color: #a6a5b8;
@@ -297,7 +297,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 8%;
+  height: 5%;
   background-color: #a6a5b8;
 }
 
@@ -561,11 +561,19 @@
   flex-direction: column;
   height: 12%;
   margin-left: 5%;
-  font-size: 1.2vh;
+  font-size: 2vh;
 }
 .shoppingCart-popup-4 {
   display: flex;
   height: 12%;
+  background-color: transparent;
+  margin-left: 5%;
+  align-items: center;
+  font-size: 2vh;
+}
+.shoppingCart-popup-4 button {
+  border: none;
+  font-size: 2vh;
   background-color: transparent;
 }
 .shoppingCart-popup-img {
@@ -576,12 +584,15 @@
   margin-bottom: 1vh;
   object-fit: cover;
 }
-
+.shoppingCart-row {
+  display: flex;
+  flex-direction: row;
+}
 /* 장바구니 */
 .shop-area {
   position: absolute;
   justify-content: space-between;
-  height: 15vh;
+  height: 19.5vh;
   width: 100vw;
   bottom: 0;
   background-color: white;

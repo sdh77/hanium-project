@@ -44,7 +44,7 @@
         <div class="chatdisplayArea-messageInput-2">
           <button id="startRecording">record</button>
           <button id="stopRecording">stop</button>
-	  <button id="startChromeSTT">startChromeSTT</button> <!--꿈돌이터치로-->
+          <button id="startChromeSTT">startChromeSTT</button> <!--꿈돌이터치로-->
           <button id="stopChromeSTT">stopChromeSTT</button>
           <audio id="audioPlayer" controls style="display: none;"></audio>
         </div>
@@ -129,8 +129,10 @@
             </div>
             <div class="shoppingCart-popup-3">
               <p class="shoppingCart-popup-informMenuDB"></p>
-              <p class="shoppingCart-popup-informQuantity">1</p>
-              <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+              <div class="shoppingCart-row">
+                <p class="shoppingCart-popup-informQuantity">1</p>
+                <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+              </div>
             </div>
             <div class="shoppingCart-popup-4">
               <p class="shoppingCart-popup-quantityText">수량 </p>
@@ -168,9 +170,9 @@
   <div class="shop-area" id="shop-area">
     <div id="item-container">
       <div id="table-number-area">
-        <span id="table-number-text">TableID
+        <span id="table-number-text">주문내역
         </span>
-        <span id="table-number"></span>
+        <!-- <span id="table-number"></span> -->
       </div>
       <div id="cart">
         <div class="cart-item" style="display: none;">
@@ -203,7 +205,7 @@
         <span id="total-price">0</span>
       </div>
       <button id="orderButton_popup">주문하기</button>
-      <button id="orderListButton_popup">주문내역</button>
+      <!-- <button id="orderListButton_popup">주문내역</button> -->
     </div>
   </div>
   <div style="visibility: hide;">
