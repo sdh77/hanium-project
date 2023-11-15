@@ -223,6 +223,10 @@ $(document).ready(function () {
     // document.querySelector(".chatArea").style.display = "block";
     // document.querySelector(".chatdisplayArea").style.display = "none";
     alert("주문 완료!!!");
+    localStorage.setItem(
+      "orderNum",
+      Number(localStorage.getItem("orderNum")) + 1
+    );
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
   });
 
@@ -360,7 +364,10 @@ document
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
-  return Math.floor(Math.random() * 10) + 1;
+  if (!localStorage.getItem("orderNum")) {
+    localStorage.setItem("orderNum", 100);
+  }
+  return localStorage.getItem("orderNum");
 }
 
 // setInterval(loadpage_list, 10000);

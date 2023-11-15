@@ -612,6 +612,10 @@
   overflow-x: auto;
 }
 
+#table-number {
+  visibility: hidden;
+}
+
 #cart {
   display: flex;
   width: 100%;
