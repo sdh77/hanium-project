@@ -1,5 +1,6 @@
 $(document).ready(function () {
   // do: 주문 시작 시 테이블 번호 생성. (지금은 랜덤이고 추후에 각각 설정)
+
   localStorage.setItem("userState", 1);
   console.log("Order Start!!");
   const tableID = generateTableNumber();
@@ -228,7 +229,11 @@ $(document).ready(function () {
       Number(localStorage.getItem("orderNum")) + 1
     );
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
-    location.reload();
+    if ($("#table-number").text() >= 100) {
+      window.location.href = "index_kioski.html";
+    } else {
+      window.location.href = "index_tableorder.html";
+    }
   });
 
   // 직원 호출 service. orderdetail DB로 전송
@@ -365,10 +370,17 @@ document
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
-  if (!localStorage.getItem("orderNum")) {
-    localStorage.setItem("orderNum", 100);
+  const nowUrl = window.location.pathname.split("/");
+  nowMode = nowUrl[nowUrl.length - 1];
+  console.log(nowMode);
+  if (nowMode == "menu_tableorder.html") {
+    return Math.floor(Math.random() * 10) + 1;
+  } else {
+    if (!localStorage.getItem("orderNum")) {
+      localStorage.setItem("orderNum", 100);
+    }
+    return localStorage.getItem("orderNum");
   }
-  return localStorage.getItem("orderNum");
 }
 
 // setInterval(loadpage_list, 10000);

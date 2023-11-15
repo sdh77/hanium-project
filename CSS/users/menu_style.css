@@ -576,6 +576,11 @@
   font-size: 2vh;
   background-color: transparent;
 }
+.shoppingCart-popup-okBtn {
+  position: absolute;
+  right: 5%;
+}
+
 .shoppingCart-popup-img {
   width: auto;
   height: auto;
