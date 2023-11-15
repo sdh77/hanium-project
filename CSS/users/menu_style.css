@@ -243,7 +243,7 @@
   position: absolute;
   top: 1vh;
   right: 1vw;
-  font-size: 1vw;
+  font-size: 2.5vw;
   color: tomato;
 }
 
@@ -627,13 +627,12 @@
 }
 
 #item-container {
+  height: 19.5vh;
   display: flex;
   width: 80vw;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 #table-number {
@@ -644,6 +643,8 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .cart-item {
@@ -865,8 +866,11 @@
 }
 
 #table-number-text {
+  display: flex;
   font-size: 3vw;
-  padding: 0.5vh;
+  padding: 0.3vh;
+  align-items: center;
+  justify-content: center;
 }
 
 #orderButton_popup {
@@ -875,7 +879,7 @@
   padding: 1vh;
   background-color: #76758a;
   color: white;
-  border-color: #76758a;
+  border: none;
 }
 
 #total-text,
@@ -895,4 +899,9 @@
   right: 6vw;
   align-items: center;
   justify-content: center;
+}
+
+#table-number-area {
+  height: 2.5vh;
+  align-items: center;
 }
