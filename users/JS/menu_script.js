@@ -61,6 +61,11 @@ $(document).ready(function () {
             olditemprice = parseInt(
               $(this).find(".item-price").text().replace(",", "")
             );
+            menuQuantity = Number(
+              document.querySelector(".shoppingCart-popup-informQuantity")
+                .innerHTML
+            );
+            console.log(menuQuantity);
 
             cartquantity += menuQuantity;
             newitemprice = menuPrice * menuQuantity;
@@ -86,6 +91,10 @@ $(document).ready(function () {
           }
         });
         if (!isExist) {
+          menuQuantity = Number(
+            document.querySelector(".shoppingCart-popup-informQuantity")
+              .innerHTML
+          );
           addToCart3(menuImg, menuName, menuPrice, menuQuantity);
         } else {
           console.log("장바구니에 이미 있음");
