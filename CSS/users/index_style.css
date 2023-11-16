@@ -20,9 +20,38 @@
   font-size: 3vw;
   text-align: center;
   margin-top: 7vh;
+  width: 100%;
 }
 
 .usermain #touch img {
   width: auto;
   height: 70vh;
+}
+
+.Kiosk_usermain {
+  border-top: 5vh solid rgb(235, 235, 235);
+  border-bottom: 5vh solid rgb(235, 235, 235);
+  border-left: 5vh solid rgb(235, 235, 235);
+  border-right: 5vh solid rgb(235, 235, 235);
+  width: calc(100vw -10vh);
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Kiosk_usermain h1 {
+  font-size: 4vh;
+  text-align: center;
+}
+.Kiosk_usermain #Kiosk_touch {
+  font-size: 3vw;
+  text-align: center;
+  margin-top: 7vh;
+  width: 100%;
+}
+
+.Kiosk_usermain #Kiosk_touch img {
+  width: 90%;
+  height: auto;
 }
