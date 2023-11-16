@@ -3,7 +3,7 @@ function deleteAll() {
     state: "delete",
   };
   $.ajax({ url: "DeleteOrRecoverAll.php", type: "get", data: params });
-  loadpageListDelete();
+  setTimeout(loadpageListDelete, 100);
   hide();
 }
 function recoverAll() {
@@ -11,7 +11,7 @@ function recoverAll() {
     state: "recover",
   };
   $.ajax({ url: "DeleteOrRecoverAll.php", type: "get", data: params });
-  loadpageListDelete();
+  setTimeout(loadpageListDelete, 100);
   hide();
 }
 
@@ -55,7 +55,7 @@ function recoverSelect() {
       $.ajax({ url: "DeleteOrRecoverSelect.php", type: "get", data: params });
     }
   });
-  loadpageListDelete();
+  setTimeout(loadpageListDelete, 100);
   hide();
 }
 function deleteSelect() {
@@ -69,7 +69,7 @@ function deleteSelect() {
       $.ajax({ url: "DeleteOrRecoverSelect.php", type: "get", data: params });
     }
   });
-  loadpageListDelete();
+  setTimeout(loadpageListDelete, 100);
   hide();
 }
 
