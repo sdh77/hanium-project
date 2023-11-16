@@ -1,3 +1,11 @@
+.body {
+  /* overflow-y: hidden; */
+  /* overflow-x: hidden; */
+  width: 100vw;
+  height: 100vh;
+}
+
+
 /* 영역 감춤, 노출 클래스 */
 .area-hidden {
   display: none;
@@ -9,7 +17,7 @@
 
 .bodymain {
   display: flex;
-  height: 50.5vh;
+  height: 50vh;
   position: absolute;
   top: 30vh;
   flex-direction: row;
@@ -55,6 +63,8 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  border: none;
 }
 
 /* serv-popup 창 */
@@ -126,7 +136,7 @@
   /* width: 85vw;*/
   font-size: 2.2vw;
   width: 100vw;
-  height: 3vh;
+  height: 7%;
   display: flex;
   color: white;
   background-color: #a6a5b8;
@@ -164,23 +174,25 @@
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 49vh;
+  height: 93%;
 }
 
 /* list. 디비 출력 */
 .main .middlearea .menu-list {
   width: 100vw;
-  height: 49vh;
+  height: 100%;
   user-select: none;
 }
 
-.main .middlearea .menu-list * {
+.main .middlearea .menu-list *:not(.shoppingCart-popup-okBtn) {
   user-select: none;
+  /* border: none; */
+
 }
 
 .main .middlearea .menu-list .item_grid {
   width: 100vw;
-  height: 49vh;
+  height: 100%;
   border: none;
 }
 
@@ -251,16 +263,18 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  justify-content: center;
+  text-align: center;
 }
 
 .recItem {
   /* position: absolute;
   top: px;
   left: 0px; */
-  font-size: 1vw;
+  font-size: 1.6vw;
   color: white;
   padding: 0.8vh;
-  width: 2.5vw;
+  width: 3.2vw;
   background-color: purple;
 }
 
@@ -268,11 +282,14 @@
   /* position: absolute;
   top: 0px;
   left: 0px; */
-  font-size: 1vw;
+  font-size: 1.6vw;
   color: white;
   padding: 0.8vh;
-  width: 2.5vw;
-
+  width: 3.2vw;
+  /* box-sizing: border-box; */
+  /* align-items: center;
+  justify-content: center;
+  text-align: center; */
   background-color: #0067a3;
 }
 
@@ -287,11 +304,12 @@
 .grid_item img {
   width: auto;
   height: auto;
-  max-width: 28vw;
+  max-width: 19vw;
   max-height: 12vh;
   margin-top: 1vh;
   margin-bottom: 1vh;
   object-fit: cover;
+  border-radius: 20%;
 }
 
 .error {
@@ -304,7 +322,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 5%;
+  height: 8%;
   background-color: #a6a5b8;
 }
 
@@ -590,11 +608,25 @@
   border: none;
   font-size: 2vh;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoppingCart-popup-4 button:not(.shoppingCart-popup-okBtn) {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 3vw;
+  height: 3vw;
+  margin: 0 10px;
 }
 
 .shoppingCart-popup-okBtn {
   position: absolute;
   right: 5%;
+  padding: 1vh;
+  background-color: #76758a;
+  /* color: white; */
 }
 
 .shoppingCart-popup-img {
@@ -613,9 +645,10 @@
 
 /* 장바구니 */
 .shop-area {
+  border: none;
   position: absolute;
   justify-content: space-between;
-  height: 19.5vh;
+  height: 20vh;
   width: 100vw;
   bottom: 0;
   background-color: white;
@@ -630,6 +663,7 @@
   height: 19.5vh;
   display: flex;
   width: 80vw;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -661,6 +695,7 @@
   /* border: 1px solid #333; */
   margin: 5px 0px;
   margin-left: 8px;
+  overflow-y: hidden;
 }
 
 .menu-imgsrc {
@@ -715,13 +750,14 @@
   align-items: center;
   align-items: center;
   position: absolute;
-  left: 20vw;
+  left: 50vw;
 }
 
 .quantity-area .quantity {
   margin-right: 10px;
   margin-left: 10px;
   justify-content: center;
+  font-size: 1.5vh;
 }
 
 .quantity-area button {
@@ -732,6 +768,10 @@
   height: 2vh;
   width: 2vh;
   margin-right: 1px;
+  font-size: 2.0vh;
+  align-items: center;
+  justify-content: center;
+  top: -3px;
 }
 
 #checkout-area {
@@ -740,9 +780,10 @@
   align-items: center;
   gap: 10px;
   background-color: #a6a5b8;
-  border: 2px solid #a6a5b8;
+  /* border: 2px solid #a6a5b8; */
+  border: none;
   width: 20vw;
-  height: 19.5vh;
+  height: 100%;
 }
 
 #total-price-area {
@@ -895,6 +936,7 @@
   right: 8vw;
   align-items: center;
   justify-content: center;
+  font-size: 1.5vh;
 }
 
 .item-price-won {
@@ -902,9 +944,14 @@
   right: 6vw;
   align-items: center;
   justify-content: center;
+  font-size: 1.5vh;
 }
 
 #table-number-area {
   height: 2.5vh;
   align-items: center;
+}
+
+.shoppingCart-popup {
+  z-index: 100;
 }
