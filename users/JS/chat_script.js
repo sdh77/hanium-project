@@ -81,6 +81,11 @@ $(document).ready(function () {
       document.dispatchEvent(new Event('doridos'));
     }); 
 
+    // 상시대기 STT 종료, chatArea에서 키오스키를 불러주세요! 바로 아래 위치
+    $(".chatArea-stopSTT").off('click').on('click', function () {
+      recognition.stop();
+      console.log("상시 대기 모드 종료");
+    }); 
     // 상시대기 STT 종료
     $("#stopChromeSTT").off('click').on('click', function () {
       recognition.stop();

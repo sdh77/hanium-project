@@ -421,6 +421,17 @@
   top: 10px;
   right: 10px;
 }
+.chatArea-stopSTT {
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  margin: auto;
+  color: #76758a;
+  /*border: 2px solid ghostwhite;*/
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
 
 .chatArea-voicebox:hover {
   /*background-color: darkslateblue;*/
