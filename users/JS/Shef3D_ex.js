@@ -24,6 +24,9 @@ class App {
     const divContainer = document.querySelector("#webgl-container");
     this._divContainer = divContainer;
 
+    // stopAllAnimations 에서 사용할 배열 초기화. (모든 동작 넣어놓은 배열)
+    this._animationActions = [];
+
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //alpha: true -> 배경화면 투명
     renderer.setPixelRatio(window.devicePixelRatio);
     divContainer.appendChild(renderer.domElement);
@@ -199,21 +202,67 @@ class App {
       1:점프
       2: 
       */
+      // 읭? 애니메이션 다시 정리..?
+      /* 3: 눈감기
+       * 2: 안녕
+       * 1: 고개도리도리 (디폴트)
+       * */
+      /*  
       var before;
       function stopAllAnimations() {
         if (before != undefined) {
           object.animations[before].stop();
         }
-      }
+      } */
       console.log(object.animations);
       // console.dir(object.animations[0]);
-      const eyeShack = object.animations[0];
+      // 고개 도리도리 (default)
+      const dorido = object.animations[1];
+      const doridoAction = this._mixer.clipAction(dorido);
+      this._animationActions.push(doridoAction);
+      document.addEventListener('doridos', () => {
+        this.stopAllAnimations();
+        doridoAction.play();
+      }); 
+      // 안녕
+      const hellodo = object.animations[2];
+      const hellodoAction = this._mixer.clipAction(hellodo);
+      this._animationActions.push(hellodoAction);
+      document.addEventListener('hellodos', () => {
+        this.stopAllAnimations();
+        hellodoAction.play();
+      }); 
+      // 잠들기
+      const eyeShack = object.animations[3];
       const eyeShackAction = this._mixer.clipAction(eyeShack);
-      shakeEyebtn.addEventListener("click", function () {
-        stopAllAnimations();
+      this._animationActions.push(eyeShackAction);
+      shakeEyebtn.addEventListener("click", () => {
+        this.stopAllAnimations();
         eyeShackAction.play();
         before = 0;
+      }); 
+      document.addEventListener('closeEyes', () => {
+        this.stopAllAnimations();
+        eyeShackAction.play();
       });
+      // 귀 쫑긋
+      const eardo = object.animations[4];
+      const eardoAction = this._mixer.clipAction(eardo);
+      this._animationActions.push(eardoAction);
+      document.addEventListener('eardos', () => {
+        this.stopAllAnimations();
+        eardoAction.play();
+      });
+      // 말하기? --> 2번과 다를게 없음
+      const speakdo = object.animations[5];
+      const speakdoAction = this._mixer.clipAction(speakdo);
+      this._animationActions.push(speakdoAction);
+      document.addEventListener('speakdos', () => {
+        this.stopAllAnimations();
+        speakdoAction.play();
+      });
+
+
       const earShack = object.animations[1];
       const earShackAction = this._mixer.clipAction(earShack);
       earShackAction.play();
@@ -290,6 +339,12 @@ class App {
 
       this._clock = new THREE.Clock();
     });
+  }
+
+  stopAllAnimations() {
+    this._animationActions.forEach(action => {
+      action.stop();
+    }); 
   }
 
   _setupCamera() {

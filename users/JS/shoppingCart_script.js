@@ -36,9 +36,9 @@ function decreaseQuantity(quantityElement) {
   let quantity = parseInt(quantityElement.text());
   if (quantity > 1) {
     quantityElement.text(quantity - 1);
-  } else {
-    quantityElement.closest(".cart-item").remove();
-  }
+  } //else {
+  //  quantityElement.closest(".cart-item").remove();
+  //}
   updatePrice();
 }
 function popupdecreaseQuantity(quantityElement) {
