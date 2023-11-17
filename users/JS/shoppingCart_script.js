@@ -93,6 +93,8 @@ function shoppingCartPopupFunction () {
   // 장바구니 팝업창 수량 증감 버튼
   $(".shoppingCart-popup-quantityIncrease2").off("click").on("click", popupIncreaseClickBtn);
   $(".shoppingCart-popup-quantityDecrease2").off("click").on("click", popupDecreaseClickBtn); 
+$(".shoppingCart-popup-okBtn2").off("click").on("click", shoppingCartPopupOkBtn);
+
 }
 // 장바구니 담기 버튼
 function shoppingCartPopupOkBtn () {

@@ -19,6 +19,7 @@ fetch("../config.json") // 설정 파일 로드
 
 var silenceTimer = null;
 var hasProcessed = false;
+let isRecognitionActive = false;
 
 function createNewRecognition() {
   var newRecognition = new webkitSpeechRecognition();
@@ -27,6 +28,7 @@ function createNewRecognition() {
 
   newRecognition.onresult = function (event) {
     console.log("음성 대기 중 ...");
+    document.dispatchEvent(new Event('eardos'));
 
     if (silenceTimer) {
       clearTimeout(silenceTimer);
@@ -48,6 +50,7 @@ function createNewRecognition() {
   newRecognition.onend = function() {
     console.log("상시 대기 모드 종료...");
     document.dispatchEvent(new Event('closeEyes'));
+    isRecognitionActive = false;
   };
 
   return newRecognition;
@@ -59,6 +62,11 @@ $(document).ready(function () {
   addMessageToChat("selector", "오늘의 추천 메뉴");
   addMessageToChat("selector", "메뉴 추천 서비스");
   addMessageToChat("selector", "직원 호출");
+
+  setTimeout(function () {
+    document.dispatchEvent(new Event('hellodos'));
+  }, 500);
+  document.dispatchEvent(new Event('doridos'));
 
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
@@ -75,10 +83,13 @@ $(document).ready(function () {
 
     // STT가 종료되어 잠들어있는 꿈돌이 터치해서 깨우기
     $("#webgl-container").off('click').on('click', function () {
-      console.log("상시 대기 모드 시작...");
-      recognition = createNewRecognition();
-      recognition.start();
-      document.dispatchEvent(new Event('doridos'));
+      if(!isRecognitionActive) {
+        console.log("상시 대기 모드 시작...");
+        recognition = createNewRecognition();
+        recognition.start();
+	isRecognitionActive = true;
+        document.dispatchEvent(new Event('doridos'));
+      }
     }); 
 
     // 상시대기 STT 종료, chatArea에서 키오스키를 불러주세요! 바로 아래 위치
