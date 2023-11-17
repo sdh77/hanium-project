@@ -622,14 +622,15 @@
   align-items: center;
 }
 
-.shoppingCart-popup-4 button:not(.shoppingCart-popup-okBtn) {
+.shoppingCart-popup-4
+  button:not(.shoppingCart-popup-okBtn2, .shoppingCart-popup-okBtn) {
   border: 1px solid black;
   border-radius: 50%;
   width: 3vw;
   height: 3vw;
   margin: 0 10px;
 }
-
+.shoppingCart-popup-okBtn2,
 .shoppingCart-popup-okBtn {
   position: absolute;
   right: 5%;
