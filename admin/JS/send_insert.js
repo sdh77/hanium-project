@@ -35,8 +35,8 @@ function sendInsert() {
     $.ajax({ url: "insertDo.php", type: "get", data: params });
     inputImg(newName);
     alert("추가 완료");
+    setTimeout(loadpageList, 100);
     hide();
-    loadpageList();
   }
 }
 

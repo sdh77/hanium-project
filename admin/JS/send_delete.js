@@ -13,6 +13,6 @@ function thisDelete(id) {
       hide();
     }, 1000);
 
-    loadpageList();
+    setTimeout(loadpageList, 100);
   }
 }

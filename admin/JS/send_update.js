@@ -2,7 +2,7 @@ function change_spicy() {
   const spicys = document.getElementsByClassName("spicy");
   const spicysArray = Array.from(spicys); // Convert HTMLCollection to Array
 
-  spicysArray.forEach(spicy => spicy.classList.remove('thisSpicy'));
+  spicysArray.forEach((spicy) => spicy.classList.remove("thisSpicy"));
   event.currentTarget.classList.add("thisSpicy");
 }
 
@@ -48,20 +48,19 @@ function thisUpdate(id) {
     $.ajax({ url: "updateDo.php", type: "get", data: params });
     alert("수정 완료");
     changeImg(newName);
+    setTimeout(loadpageList, 100);
     hide();
-    loadpageList();
   }
 }
 
-function changeImg(newName){
-
+function changeImg(newName) {
   let formData = new FormData();
   formData.append("newName", newName);
-  formData.append("newImg", $('#fileToUpload')[0].files[0]);
+  formData.append("newImg", $("#fileToUpload")[0].files[0]);
 
   $.ajax({
-    url: "imgUpload.php", 
-    type: "post", 
+    url: "imgUpload.php",
+    type: "post",
     dataType: "html",
     enctype: "multipart/form-data",
     processData: false,
@@ -70,7 +69,8 @@ function changeImg(newName){
     async: false,
     cache: false,
     timeout: 600000,
-    error: function(){ alert("실패");}
+    error: function () {
+      alert("실패");
+    },
   });
 }
-
