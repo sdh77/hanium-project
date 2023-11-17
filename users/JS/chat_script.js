@@ -17,6 +17,42 @@ fetch("../config.json") // 설정 파일 로드
     console.error("Error loading config.json:", error);
   });
 
+var silenceTimer = null;
+var hasProcessed = false;
+
+function createNewRecognition() {
+  var newRecognition = new webkitSpeechRecognition();
+  newRecognition.continuous = true;
+  newRecognition.interimResults = false;
+
+  newRecognition.onresult = function (event) {
+    console.log("음성 대기 중 ...");
+
+    if (silenceTimer) {
+      clearTimeout(silenceTimer);
+      hasProcessed = false;
+    }   
+
+    let lastTranscript = event.results[event.results.length - 1][0].transcript.trim();
+
+    silenceTimer = setTimeout(() => {
+      if (!hasProcessed) {
+        console.log(lastTranscript);
+        flaskAjax(lastTranscript);
+        hasProcessed = true;
+      }   
+    }, 500);
+  };  
+
+  // STT가 종료되었을 때
+  newRecognition.onend = function() {
+    console.log("상시 대기 모드 종료...");
+    document.dispatchEvent(new Event('closeEyes'));
+  };
+
+  return newRecognition;
+}
+
 $(document).ready(function () {
   addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
   addMessageToChat("selector", "메뉴 검색");
@@ -33,44 +69,29 @@ $(document).ready(function () {
 
   // 음성으로 입력할 때 챗봇
   if ("webkitSpeechRecognition" in window) {
-    const recognition = new webkitSpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = false;
-
-    let silenceTimer = null; 
-    let hasProcessed = false;
-
-    recognition.onresult = function (event) {
-      console.log("음성 대기 중 ...");
-
-      if (silenceTimer) {
-        clearTimeout(silenceTimer);
-	hasProcessed = false;
-      }
-
-      let lastTranscript = event.results[event.results.length - 1][0].transcript.trim();
-
-      silenceTimer = setTimeout(() => {
-        if (!hasProcessed) {
-          console.log(lastTranscript);
-          flaskAjax(lastTranscript);
-          hasProcessed = true;
-	}
-      }, 500);
-    };
+    let recognition = createNewRecognition();
 
     recognition.start();
 
+    // STT가 종료되어 잠들어있는 꿈돌이 터치해서 깨우기
+    $("#webgl-container").off('click').on('click', function () {
+      console.log("상시 대기 모드 시작...");
+      recognition = createNewRecognition();
+      recognition.start();
+      document.dispatchEvent(new Event('doridos'));
+    }); 
+
     // 상시대기 STT 종료
-    $("#stopChromeSTT").click(function () {
+    $("#stopChromeSTT").off('click').on('click', function () {
       recognition.stop();
       console.log("상시 대기 모드 종료");
-    });
+    }); 
     // 상시대기 stt 시작
-    $("#startChromeSTT").click(function () {
+    $("#startChromeSTT").off('click').on('click', function () {
+      recognition = createNewRecognition();
       recognition.start();
       console.log("상시 대기 모드 시작");
-    });
+    }); 
   } else {
     console.error("Browser does not support webkitSpeechRecognition.");
   }
