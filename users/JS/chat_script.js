@@ -64,10 +64,12 @@ $(document).ready(function () {
   addMessageToChat("selector", "메뉴 추천 서비스");
   addMessageToChat("selector", "직원 호출");
 
-  document.dispatchEvent(new Event("hellodos"));
+  setTimeout(function () {
+    document.dispatchEvent(new Event("hellodos"));
+  }, 5000);
   setTimeout(function () {
     document.dispatchEvent(new Event("doridos"));
-  }, 500);
+  }, 8000);
 
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
