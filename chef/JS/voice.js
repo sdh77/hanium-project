@@ -111,6 +111,8 @@ $(document).ready(function () {
                   }
                 }
                 chromeTTS(data.soldOutMenu + "가 품절 되었습니다.");
+              } else if (data.action == "noAction") {
+                console.log("asd");
               }
             },
           });

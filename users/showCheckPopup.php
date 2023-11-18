@@ -19,14 +19,15 @@ if ($result) {
     </div>
     <div class="shoppingCart-popup-3">
       <p class="shoppingCart-popup-informMenuDB">' . $name . '</p>
+    <div class="shoppingCart-row">
       <p class="shoppingCart-popup-informQuantity">' . $quantity . '</p>
       <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
     </div>
+    </div>
     <div class="shoppingCart-popup-4">
-      <p class="shoppingCart-popup-quantityText">수량 </p>
+      <button class="shoppingCart-popup-quantityDecrease2">-</button>
       <p class="shoppingCart-popup-quantityInt">' . $quantity . '</p>
       <button class="shoppingCart-popup-quantityIncrease2">+</button>
-      <button class="shoppingCart-popup-quantityDecrease2">-</button>
       <button class="shoppingCart-popup-okBtn2">장바구니</button>
     </div>';
       echo '<div class="popupPrice" style="display: none">' . $row["price"] . '</div>';
