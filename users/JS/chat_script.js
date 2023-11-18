@@ -63,10 +63,10 @@ $(document).ready(function () {
   addMessageToChat("selector", "메뉴 추천 서비스");
   addMessageToChat("selector", "직원 호출");
 
+  document.dispatchEvent(new Event('hellodos'));
   setTimeout(function () {
-    document.dispatchEvent(new Event('hellodos'));
+    document.dispatchEvent(new Event('doridos'));
   }, 500);
-  document.dispatchEvent(new Event('doridos'));
 
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
@@ -166,6 +166,7 @@ function flaskAjax(transcript) {
                 .addClass("area-visible");
               $(".shoppingCart-popup").html(data);
               shoppingCartPopupFunction();
+  	      document.dispatchEvent(new Event('headRdos'));
             });
             break;
 
@@ -189,17 +190,26 @@ function flaskAjax(transcript) {
           case "chat-shoppingCart-popup-orderBtn":
 	    addMessageToChat("bot", `${data.message}`);
             shoppingCartPopupOkBtn();
+  	    document.dispatchEvent(new Event('jumpdos'));
+	    setTimeout(function () {
+  	      document.dispatchEvent(new Event('doridos'));
+	    }, 500);
             break;
 
           case "chat-shoppingCart-popup-closeBtn":
 	    addMessageToChat("bot", `${data.message}`);
             $(".shoppingCart-popup-closeBtn").trigger("click");
+  	    document.dispatchEvent(new Event('suprizedos'));
+	    setTimeout(function () {
+  	      document.dispatchEvent(new Event('doridos'));
+	    }, 500);
             break;
 
           case "orderBtn-popup-click-trigger":
 	    if($(".cart-item:visible").length > 0) {
 	      addMessageToChat("bot", `${data.message}`);
               $("#orderButton_popup").trigger("click");
+  	      document.dispatchEvent(new Event('headRdos'));
 	    } else {
 	      addMessageToChat("bot", `${data.message2}`);
 	      //alert("장바구니 비어있음!!!");
@@ -213,15 +223,25 @@ function flaskAjax(transcript) {
 	 	    console.log("State updated successful!!");
 		}
 	      });
+              $(".shoppingCart-popup-closeBtn").trigger("click");
+  	      document.dispatchEvent(new Event('suprizedos'));
+	      setTimeout(function () {
+  	        document.dispatchEvent(new Event('doridos'));
+	      }, 500);
 	    }
             break;
           case "orderBtn-click-trigger":
 	    addMessageToChat("bot", `${data.message}`);
             $("#orderButton").trigger("click");
+  	    document.dispatchEvent(new Event('doridos'));
             break;
           case "orderBtn-close-click-trigger":
 	    addMessageToChat("bot", `${data.message}`);
             $("#canselButton").trigger("click");
+  	    document.dispatchEvent(new Event('suprizedos'));
+	    setTimeout(function () {
+  	      document.dispatchEvent(new Event('doridos'));
+	    }, 500);
             break;
 
           case "loadpage":

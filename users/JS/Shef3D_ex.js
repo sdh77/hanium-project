@@ -253,7 +253,7 @@ class App {
         this.stopAllAnimations();
         eardoAction.play();
       });
-      // 말하기? --> 2번과 다를게 없음
+      // 말하기? --> 고개 이상하게 까닥거림
       const speakdo = object.animations[5];
       const speakdoAction = this._mixer.clipAction(speakdo);
       this._animationActions.push(speakdoAction);
@@ -261,8 +261,32 @@ class App {
         this.stopAllAnimations();
         speakdoAction.play();
       });
+      // 깜짝놀람 --> 고개 뒤로 까닥거림
+      const suprizedo = object.animations[6];
+      const suprizedoAction = this._mixer.clipAction(suprizedo);
+      this._animationActions.push(suprizedoAction);
+      document.addEventListener('suprizedos', () => {
+        this.stopAllAnimations();
+        suprizedoAction.play();
+      });
+      // 점프
+      const jumpdo = object.animations[7];
+      const jumpdoAction = this._mixer.clipAction(jumpdo);
+      this._animationActions.push(jumpdoAction);
+      document.addEventListener('jumpdos', () => {
+        this.stopAllAnimations();
+        jumpdoAction.play();
+      });
+      // 갸우뚱
+      const headRdo = object.animations[8];
+      const headRdoAction = this._mixer.clipAction(headRdo);
+      this._animationActions.push(headRdoAction);
+      document.addEventListener('headRdos', () => {
+        this.stopAllAnimations();
+        headRdoAction.play();
+      });
 
-
+      /*
       const earShack = object.animations[1];
       const earShackAction = this._mixer.clipAction(earShack);
       earShackAction.play();
