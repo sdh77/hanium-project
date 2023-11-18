@@ -196,10 +196,10 @@
 .grid {
   display: grid;
   width: 95vw;
-  height: 60vh;
+  /* height: 60vh; */
   grid-template-columns: repeat(3, 33.3%);
   grid-template-rows: repeat(2, 50%);
-  gap: 1vh 3vh;
+  gap: 1.5vh 1.5vh;
   align-items: center;
   justify-content: center;
   background-color: #a6a5b8;
@@ -304,7 +304,7 @@
 .pagebuttons {
   display: flex;
   justify-content: center;
-  align-content: center;
+  /* align-items: center; */
   height: 8%;
   background-color: #a6a5b8;
 }
