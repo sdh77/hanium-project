@@ -20,8 +20,7 @@ function handleToDoClick(event) {
   // console.log(callinfoObj);
 
   $.ajax({ url: "callFinish.php", type: "get", data: callinfoObj });
-
-  getTableItem();
+  setTimeout(getTableItem, 100);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -49,8 +48,7 @@ function handleToDoFoodDrinkClick(event) {
   console.dir(
     event.target.parentElement.querySelector(".foodDrinkName").innerHTML
   );
-
-  getTableItem();
+  setTimeout(getTableItem, 100);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -74,5 +72,5 @@ function handleToDoTableClick(event) {
   $.ajax({ url: "tableFinish.php", type: "get", data: tableFinishObj });
   $.ajax({ url: "tableCallFinish.php", type: "get", data: tableFinishObj });
 
-  getTableItem();
+  setTimeout(getTableItem, 100);
 }
