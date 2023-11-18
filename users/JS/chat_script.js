@@ -28,28 +28,29 @@ function createNewRecognition() {
 
   newRecognition.onresult = function (event) {
     console.log("음성 대기 중 ...");
-    document.dispatchEvent(new Event('eardos'));
+    document.dispatchEvent(new Event("eardos"));
 
     if (silenceTimer) {
       clearTimeout(silenceTimer);
       hasProcessed = false;
-    }   
+    }
 
-    let lastTranscript = event.results[event.results.length - 1][0].transcript.trim();
+    let lastTranscript =
+      event.results[event.results.length - 1][0].transcript.trim();
 
     silenceTimer = setTimeout(() => {
       if (!hasProcessed) {
         console.log(lastTranscript);
         flaskAjax(lastTranscript);
         hasProcessed = true;
-      }   
+      }
     }, 500);
-  };  
+  };
 
   // STT가 종료되었을 때
-  newRecognition.onend = function() {
+  newRecognition.onend = function () {
     console.log("상시 대기 모드 종료...");
-    document.dispatchEvent(new Event('closeEyes'));
+    document.dispatchEvent(new Event("closeEyes"));
     isRecognitionActive = false;
   };
 
@@ -63,9 +64,9 @@ $(document).ready(function () {
   addMessageToChat("selector", "메뉴 추천 서비스");
   addMessageToChat("selector", "직원 호출");
 
-  document.dispatchEvent(new Event('hellodos'));
+  document.dispatchEvent(new Event("hellodos"));
   setTimeout(function () {
-    document.dispatchEvent(new Event('doridos'));
+    document.dispatchEvent(new Event("doridos"));
   }, 500);
 
   // 직접 텍스트 입력했을 때 챗봇
@@ -82,32 +83,40 @@ $(document).ready(function () {
     recognition.start();
 
     // STT가 종료되어 잠들어있는 꿈돌이 터치해서 깨우기
-    $("#webgl-container").off('click').on('click', function () {
-      if(!isRecognitionActive) {
-        console.log("상시 대기 모드 시작...");
-        recognition = createNewRecognition();
-        recognition.start();
-	isRecognitionActive = true;
-        document.dispatchEvent(new Event('doridos'));
-      }
-    }); 
+    $("#webgl-container")
+      .off("click")
+      .on("click", function () {
+        if (!isRecognitionActive) {
+          console.log("상시 대기 모드 시작...");
+          recognition = createNewRecognition();
+          recognition.start();
+          isRecognitionActive = true;
+          document.dispatchEvent(new Event("doridos"));
+        }
+      });
 
     // 상시대기 STT 종료, chatArea에서 키오스키를 불러주세요! 바로 아래 위치
-    $(".chatArea-stopSTT").off('click').on('click', function () {
-      recognition.stop();
-      console.log("상시 대기 모드 종료");
-    }); 
+    $(".chatArea-stopSTT")
+      .off("click")
+      .on("click", function () {
+        recognition.stop();
+        console.log("상시 대기 모드 종료");
+      });
     // 상시대기 STT 종료
-    $("#stopChromeSTT").off('click').on('click', function () {
-      recognition.stop();
-      console.log("상시 대기 모드 종료");
-    }); 
+    $("#stopChromeSTT")
+      .off("click")
+      .on("click", function () {
+        recognition.stop();
+        console.log("상시 대기 모드 종료");
+      });
     // 상시대기 stt 시작
-    $("#startChromeSTT").off('click').on('click', function () {
-      recognition = createNewRecognition();
-      recognition.start();
-      console.log("상시 대기 모드 시작");
-    }); 
+    $("#startChromeSTT")
+      .off("click")
+      .on("click", function () {
+        recognition = createNewRecognition();
+        recognition.start();
+        console.log("상시 대기 모드 시작");
+      });
   } else {
     console.error("Browser does not support webkitSpeechRecognition.");
   }
@@ -150,7 +159,7 @@ function flaskAjax(transcript) {
 
         switch (data.action) {
           case "chat-shoppingCart-popup":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             // 응답 딕셔너리 중, 메뉴 이름과 수량을 php로 넘겨서 장바구니 팝업
             var params = {
               menu: data.menu,
@@ -166,12 +175,75 @@ function flaskAjax(transcript) {
                 .addClass("area-visible");
               $(".shoppingCart-popup").html(data);
               shoppingCartPopupFunction();
-  	      document.dispatchEvent(new Event('headRdos'));
+              document.dispatchEvent(new Event("headRdos"));
+              $(".shoppingCart-popup-okBtn2")
+                .off("click")
+                .on("click", function () {
+                  // 이미 장바구니에 담은 메뉴라면?
+                  let isExist = false;
+                  let cartquantity, newitemprice, olditemprice;
+                  $("#cart .cart-item:visible").each(function () {
+                    if ($(this).find(".menu-name").text() == window.menuName2) {
+                      console.log(window.menuName2);
+                      let totalPriceText = $("#total-price").text();
+                      let totalPrice = parseInt(
+                        totalPriceText.replace(/,/g, "")
+                      );
+                      cartquantity = parseInt($(this).find(".quantity").text());
+                      olditemprice = parseInt(
+                        $(this).find(".item-price").text().replace(",", "")
+                      );
+
+                      cartquantity += window.menuQuantity2;
+                      newitemprice = window.menuPrice2 * window.menuQuantity2;
+                      olditemprice += newitemprice;
+                      totalPrice += newitemprice;
+
+                      $(this).find(".quantity").text(cartquantity);
+                      $(this)
+                        .find(".item-price")
+                        .text(
+                          olditemprice
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                        );
+                      $(this)
+                        .find(".single-price")
+                        .text(
+                          olditemprice
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                        );
+                      $("#total-price").text(
+                        totalPrice
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                      );
+                      isExist = true;
+                      return false;
+                    }
+                  });
+                  if (!isExist) {
+                    addToCart4(
+                      window.menuImg2,
+                      window.menuName2,
+                      window.menuPrice2,
+                      window.menuQuantity2
+                    );
+                  } else {
+                    console.log("장바구니에 이미 있음");
+                  }
+                  $(".shoppingCart-popup")
+                    .removeClass("area-visible")
+                    .addClass("area-hidden");
+                  $(".shoppingCart-popup-informQuantity").text("1");
+                  $(".shoppingCart-popup-quantityInt").text("1");
+                });
             });
             break;
 
           case "chat-shoppingCart-popup-Edit":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             quantityInit = window.menuQuantity2;
             quantityChange = data.quantity - quantityInit;
 
@@ -188,70 +260,70 @@ function flaskAjax(transcript) {
             break;
 
           case "chat-shoppingCart-popup-orderBtn":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             shoppingCartPopupOkBtn();
-  	    document.dispatchEvent(new Event('jumpdos'));
-	    setTimeout(function () {
-  	      document.dispatchEvent(new Event('doridos'));
-	    }, 500);
+            document.dispatchEvent(new Event("jumpdos"));
+            setTimeout(function () {
+              document.dispatchEvent(new Event("doridos"));
+            }, 500);
             break;
 
           case "chat-shoppingCart-popup-closeBtn":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             $(".shoppingCart-popup-closeBtn").trigger("click");
-  	    document.dispatchEvent(new Event('suprizedos'));
-	    setTimeout(function () {
-  	      document.dispatchEvent(new Event('doridos'));
-	    }, 500);
+            document.dispatchEvent(new Event("suprizedos"));
+            setTimeout(function () {
+              document.dispatchEvent(new Event("doridos"));
+            }, 500);
             break;
 
           case "orderBtn-popup-click-trigger":
-	    if($(".cart-item:visible").length > 0) {
-	      addMessageToChat("bot", `${data.message}`);
+            if ($(".cart-item:visible").length > 0) {
+              addMessageToChat("bot", `${data.message}`);
               $("#orderButton_popup").trigger("click");
-  	      document.dispatchEvent(new Event('headRdos'));
-	    } else {
-	      addMessageToChat("bot", `${data.message2}`);
-	      //alert("장바구니 비어있음!!!");
-	      $.ajax({
-	        url: "/flask-app/update_state",
-		type: "POST",
-		contentType: "application/json",
-		data: JSON.stringify({ new_state: "initial"}),
-		dataType: "json",
-		success: function(response) {
-	 	    console.log("State updated successful!!");
-		}
-	      });
+              document.dispatchEvent(new Event("headRdos"));
+            } else {
+              addMessageToChat("bot", `${data.message2}`);
+              //alert("장바구니 비어있음!!!");
+              $.ajax({
+                url: "/flask-app/update_state",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ new_state: "initial" }),
+                dataType: "json",
+                success: function (response) {
+                  console.log("State updated successful!!");
+                },
+              });
               $(".shoppingCart-popup-closeBtn").trigger("click");
-  	      document.dispatchEvent(new Event('suprizedos'));
-	      setTimeout(function () {
-  	        document.dispatchEvent(new Event('doridos'));
-	      }, 500);
-	    }
+              document.dispatchEvent(new Event("suprizedos"));
+              setTimeout(function () {
+                document.dispatchEvent(new Event("doridos"));
+              }, 500);
+            }
             break;
           case "orderBtn-click-trigger":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             $("#orderButton").trigger("click");
-  	    document.dispatchEvent(new Event('doridos'));
+            document.dispatchEvent(new Event("doridos"));
             break;
           case "orderBtn-close-click-trigger":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             $("#canselButton").trigger("click");
-  	    document.dispatchEvent(new Event('suprizedos'));
-	    setTimeout(function () {
-  	      document.dispatchEvent(new Event('doridos'));
-	    }, 500);
+            document.dispatchEvent(new Event("suprizedos"));
+            setTimeout(function () {
+              document.dispatchEvent(new Event("doridos"));
+            }, 500);
             break;
 
           case "loadpage":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             loadpage_menubar__voice(data.page);
             //localStorage.setItem("userState", 0);
             break;
 
           case "loadpage-search":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             search_list = "";
             search_lists = data.searchMenus.split(",");
             for (i = 0; i < search_lists.length; i++) {
@@ -264,7 +336,7 @@ function flaskAjax(transcript) {
             break;
 
           case "loadpage-recommend":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             recommend_list = "";
             recommend_lists = data.recommendMenus.split(",");
             for (i = 0; i < recommend_lists.length; i++) {
@@ -278,7 +350,7 @@ function flaskAjax(transcript) {
             break;
 
           case "loadpage-spicy":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             spicy_list = "";
             spicy_lists = data.spicyMenus.split(",");
             for (i = 0; i < spicy_lists.length; i++) {
@@ -291,7 +363,7 @@ function flaskAjax(transcript) {
             break;
 
           case "call":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             console.log(data.matchCall);
             let matchCall = {
               tableid: $("#table-number").text(),
@@ -300,7 +372,7 @@ function flaskAjax(transcript) {
             if (data.matchCall != -1)
               $.ajax({ url: "callSend.php", type: "get", data: matchCall });
           case "callEmployee":
-	    addMessageToChat("bot", `${data.message}`);
+            addMessageToChat("bot", `${data.message}`);
             let callEmployee = {
               tableid: $("#table-number").text(),
               serviceText: "직원 호출",

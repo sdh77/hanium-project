@@ -10,9 +10,7 @@ function popupIncreaseClickBtn() {
   );
 }
 function popupDecreaseClickBtn() {
-  popupdecreaseQuantity(
-    $(this).siblings(".shoppingCart-popup-quantityInt")
-  );
+  popupdecreaseQuantity($(this).siblings(".shoppingCart-popup-quantityInt"));
   window.menuQuantity2 = parseInt($(".shoppingCart-popup-quantityInt").text());
   popupdecreaseQuantity(
     $(this)
@@ -75,7 +73,7 @@ function updatePrice() {
 let menuImg2, menuName2, menuPrice2, menuQuantity2;
 
 // 장바구니 팝업창 기능 부여
-function shoppingCartPopupFunction () {
+function shoppingCartPopupFunction() {
   window.menuImg2 = $(".shoppingCart-popup-img").attr("src");
   window.menuName2 = $(".shoppingCart-popup-informMenuDB").text();
   window.menuPrice2 = parseInt($(".popupPrice").text());
@@ -91,13 +89,19 @@ function shoppingCartPopupFunction () {
     $(".shoppingCart-popup-quantityInt").text("1");
   });
   // 장바구니 팝업창 수량 증감 버튼
-  $(".shoppingCart-popup-quantityIncrease2").off("click").on("click", popupIncreaseClickBtn);
-  $(".shoppingCart-popup-quantityDecrease2").off("click").on("click", popupDecreaseClickBtn); 
-$(".shoppingCart-popup-okBtn2").off("click").on("click", shoppingCartPopupOkBtn);
-
+  $(".shoppingCart-popup-quantityIncrease2")
+    .off("click")
+    .on("click", popupIncreaseClickBtn);
+  $(".shoppingCart-popup-quantityDecrease2")
+    .off("click")
+    .on("click", popupDecreaseClickBtn);
+  $(".shoppingCart-popup-okBtn2")
+    .off("click")
+    .on("click", shoppingCartPopupOkBtn);
 }
 // 장바구니 담기 버튼
-function shoppingCartPopupOkBtn () {
+function shoppingCartPopupOkBtn() {
+  /*
   $(".shoppingCart-popup-okBtn2")
     .off("click")
     .on("click", function () {
@@ -106,7 +110,7 @@ function shoppingCartPopupOkBtn () {
       let cartquantity, newitemprice, olditemprice;
       $("#cart .cart-item:visible").each(function () {
         if ($(this).find(".menu-name").text() == window.menuName2) {
-	  console.log(window.menuName2);
+          console.log(window.menuName2);
           let totalPriceText = $("#total-price").text();
           let totalPrice = parseInt(totalPriceText.replace(/,/g, ""));
           cartquantity = parseInt($(this).find(".quantity").text());
@@ -138,7 +142,12 @@ function shoppingCartPopupOkBtn () {
         }
       });
       if (!isExist) {
-        addToCart4(window.menuImg2, window.menuName2, window.menuPrice2, window.menuQuantity2);
+        addToCart4(
+          window.menuImg2,
+          window.menuName2,
+          window.menuPrice2,
+          window.menuQuantity2
+        );
       } else {
         console.log("장바구니에 이미 있음");
       }
@@ -147,7 +156,8 @@ function shoppingCartPopupOkBtn () {
         .addClass("area-hidden");
       $(".shoppingCart-popup-informQuantity").text("1");
       $(".shoppingCart-popup-quantityInt").text("1");
-  });
+    });
+    */
   $(".shoppingCart-popup-okBtn2").trigger("click");
 }
 
@@ -209,4 +219,3 @@ function addToCart4(menuImg2, menuName2, menuPrice2, menuQuantity2) {
 
   cartItem.show();
 }
-

@@ -171,24 +171,7 @@ class App {
       });
 
       this._mixer = new THREE.AnimationMixer(object);
-      // 로딩된 애니메이션 클립을 가져옴
-      /*
-      0:오른쪽 갸우뚱
-      1:점프
-      2: 
-      */
-      // 읭? 애니메이션 다시 정리..?
-      /* 3: 눈감기
-       * 2: 안녕
-       * 1: 고개도리도리 (디폴트)
-       * */
-      /*  
-      var before;
-      function stopAllAnimations() {
-        if (before != undefined) {
-          object.animations[before].stop();
-        }
-      } */
+
       console.log(object.animations);
       // console.dir(object.animations[0]);
       // 고개 도리도리 (default)
