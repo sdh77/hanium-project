@@ -72,31 +72,6 @@ class App {
     window.onresize = this.resize.bind(this);
     this.resize();
     this._loadedTextures = 0;
-
-    Promise.all(
-      tgaTexture.map((tgaTexturePath) => {
-        return new Promise((resolve, reject) => {
-          tgaLoader.load(
-            tgaTexturePath,
-            (texture) => {
-              this._loadedTextures++;
-              resolve(texture);
-            },
-            undefined,
-            reject
-          );
-        });
-      })
-    )
-      .then((textures) => {
-        // 모든 텍스처 로딩이 완료된 후에 모델 렌더링을 시작
-        this._textures = textures;
-        this.render();
-      })
-      .catch((error) => {
-        console.error("Error loading TGA textures:", error);
-      });
-    requestAnimationFrame(this.render.bind(this));
   }
 
   _setupControls() {
@@ -220,18 +195,18 @@ class App {
       const dorido = object.animations[1];
       const doridoAction = this._mixer.clipAction(dorido);
       this._animationActions.push(doridoAction);
-      document.addEventListener('doridos', () => {
+      document.addEventListener("doridos", () => {
         this.stopAllAnimations();
         doridoAction.play();
-      }); 
+      });
       // 안녕
       const hellodo = object.animations[2];
       const hellodoAction = this._mixer.clipAction(hellodo);
       this._animationActions.push(hellodoAction);
-      document.addEventListener('hellodos', () => {
+      document.addEventListener("hellodos", () => {
         this.stopAllAnimations();
         hellodoAction.play();
-      }); 
+      });
       // 잠들기
       const eyeShack = object.animations[3];
       const eyeShackAction = this._mixer.clipAction(eyeShack);
@@ -240,8 +215,8 @@ class App {
         this.stopAllAnimations();
         eyeShackAction.play();
         before = 0;
-      }); 
-      document.addEventListener('closeEyes', () => {
+      });
+      document.addEventListener("closeEyes", () => {
         this.stopAllAnimations();
         eyeShackAction.play();
       });
@@ -249,7 +224,7 @@ class App {
       const eardo = object.animations[4];
       const eardoAction = this._mixer.clipAction(eardo);
       this._animationActions.push(eardoAction);
-      document.addEventListener('eardos', () => {
+      document.addEventListener("eardos", () => {
         this.stopAllAnimations();
         eardoAction.play();
       });
@@ -257,7 +232,7 @@ class App {
       const speakdo = object.animations[5];
       const speakdoAction = this._mixer.clipAction(speakdo);
       this._animationActions.push(speakdoAction);
-      document.addEventListener('speakdos', () => {
+      document.addEventListener("speakdos", () => {
         this.stopAllAnimations();
         speakdoAction.play();
       });
@@ -265,7 +240,7 @@ class App {
       const suprizedo = object.animations[6];
       const suprizedoAction = this._mixer.clipAction(suprizedo);
       this._animationActions.push(suprizedoAction);
-      document.addEventListener('suprizedos', () => {
+      document.addEventListener("suprizedos", () => {
         this.stopAllAnimations();
         suprizedoAction.play();
       });
@@ -273,7 +248,7 @@ class App {
       const jumpdo = object.animations[7];
       const jumpdoAction = this._mixer.clipAction(jumpdo);
       this._animationActions.push(jumpdoAction);
-      document.addEventListener('jumpdos', () => {
+      document.addEventListener("jumpdos", () => {
         this.stopAllAnimations();
         jumpdoAction.play();
       });
@@ -281,7 +256,7 @@ class App {
       const headRdo = object.animations[8];
       const headRdoAction = this._mixer.clipAction(headRdo);
       this._animationActions.push(headRdoAction);
-      document.addEventListener('headRdos', () => {
+      document.addEventListener("headRdos", () => {
         this.stopAllAnimations();
         headRdoAction.play();
       });
@@ -366,9 +341,9 @@ class App {
   }
 
   stopAllAnimations() {
-    this._animationActions.forEach(action => {
+    this._animationActions.forEach((action) => {
       action.stop();
-    }); 
+    });
   }
 
   _setupCamera() {
