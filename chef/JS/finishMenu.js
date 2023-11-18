@@ -40,7 +40,7 @@ finishTables.forEach(function (finishTable) {
     const tableNumber = finishTable.querySelector(".orderTableId").innerHTML;
     chromeTTS(tableNumber + "이 조리완료 되었습니다.");
   });
-  checkTable();
+  setTimeout(checkTable, 100);
 });
 Menus.forEach(function (finishMenu) {
   finishMenu.addEventListener("click", function () {
@@ -56,7 +56,7 @@ Menus.forEach(function (finishMenu) {
       finishMenu.parentElement.querySelector(".orderTableId").innerHTML;
     chromeTTS(tableNumber + menuName + "가 조리완료 되었습니다.");
   });
-  checkTable();
+  setTimeout(checkTable, 100);
 });
 
 function checkTable() {
