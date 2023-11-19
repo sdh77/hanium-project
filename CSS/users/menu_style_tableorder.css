@@ -57,21 +57,29 @@
 }
 
 /* serv-popup 창 */
-.serv-popup,
+.serv-popup-txt,
 .servtext-area {
   justify-content: center;
   align-items: center;
 }
-
 .serv-popup {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 101;
+}
+.serv-popup-txt {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 300px;
+  width: 50vw;
+  height: 50vh;
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   flex-direction: column;
   z-index: 1000;
 }
@@ -81,15 +89,15 @@
   width: 100%;
   height: 10%;
   color: white;
-  background-color: black;
+  /* background-color: black; */
 }
 
 #closepopup-button {
-  margin-left: auto;
-  height: 100%;
-  width: 2vw;
+  position: absolute;
+  right: 10px;
   border: none;
-  font-size: 2.5vh;
+  font-size: 4vh;
+  background-color: transparent;
 }
 
 .servTextBtn-area {
@@ -520,14 +528,18 @@
   border: none;
   border-radius: 25px;
 }
-.shoppingCart-background {
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-}
+
 /* 장바구니 팝업창 */
-.shoppingCart-popup,
-.shoppingCart-popup2 {
+.shoppingCart-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 200;
+}
+.shoppingCart-txt {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -536,7 +548,7 @@
   width: 45vw;
   height: 50vh;
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .shoppingCart-popup-1 {
@@ -745,6 +757,15 @@
 
 .orderList-popup,
 .shopcartAll-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 101;
+}
+.shopcartAll-txt {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -753,8 +774,9 @@
   width: 20vw;
   height: 60vh;
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   align-items: center;
+  display: flex;
 }
 
 .orderList-popup .orderList-popup_top,
@@ -767,19 +789,25 @@
 }
 
 .orderList-popup .orderList-popup_top #closeshopcartAll-popup-button,
-.shopcartAll-popup .shopcartAll-popup_top #closeshopcartAll-popup-button {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll-popup_top
+  #closeshopcartAll-popup-button {
   border: none;
   font-size: 2vh;
 }
 
 .orderList-popup .orderList-popup__list,
-.shopcartAll-popup .shopcartAll_popup__list {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list {
   width: 90%;
   height: 78%;
   margin-top: 5%;
 }
 
-.shopcartAll-popup .shopcartAll_popup__list .shopcartAll_popup__list__item {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;
@@ -789,6 +817,7 @@
 }
 
 .shopcartAll-popup
+  .shopcartAll-txt
   .shopcartAll_popup__list
   .shopcartAll_popup__list__item
   :first-child {
@@ -796,13 +825,14 @@
 }
 
 .shopcartAll-popup
+  .shopcartAll-txt
   .shopcartAll_popup__list
   .shopcartAll_popup__list__item
   :last-child {
   width: 20%;
 }
 
-.shopcartAll-popup .shopcartAll-popup_bottom {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll-popup_bottom {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -811,7 +841,7 @@
   width: 100%;
 }
 
-.shopcartAll-popup .shopcartAll-popup_bottom button {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll-popup_bottom button {
   font-size: 2vh;
   margin: 5px;
   border: none;

@@ -436,7 +436,7 @@ function loadpage_list() {
 }
 
 // do: 채팅 기능 chat-area 화면 전환 버튼 -> chat_script.js
-document
+/* document
   .querySelector(".chatArea-voicebox")
   .addEventListener("click", function () {
     document.querySelector(".chatArea").style.display = "none";
@@ -447,7 +447,7 @@ document
   .addEventListener("click", function () {
     document.querySelector(".chatdisplayArea").style.display = "none";
     document.querySelector(".chatArea").style.display = "block";
-  });
+  }); */
 
 // do: 장바구니 테이블 번호. 지금은 랜덤으로
 function generateTableNumber() {
@@ -518,6 +518,7 @@ menuSwipe.addEventListener("touchend", (e) => {
 
 const shoppingCartPopUp = document.querySelector(".shoppingCart-popup");
 const shopcartAllPopUp = document.querySelector(".shopcartAll-popup");
+const servPopUp = document.querySelector(".serv-popup");
 window.onclick = function (event) {
   if (event.target == shoppingCartPopUp) {
     $(".shoppingCart-popup")
@@ -525,5 +526,7 @@ window.onclick = function (event) {
       .addClass("area-hidden");
   } else if (event.target == shopcartAllPopUp) {
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+  } else if (event.target == servPopUp) {
+    $(".serv-popup").removeClass("area-visible").addClass("area-hidden");
   }
 };

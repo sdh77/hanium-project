@@ -13,7 +13,7 @@
             "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js"
 
         }
-    }
+    } 
 </script>
   <!-- <script type="module" src="JS/King3D_ex.js" defer></script> -->
   <script type="module" src="JS/Shef3D_ex.js" defer></script>
@@ -69,18 +69,20 @@
     -->
 
     <div class="serv-popup">
-      <div class="servtext-area">
-        <button id="closepopup-button">x</button>
-      </div>
-      <div class="servTextBtn-area">
-        <button class="servText">물</button>
-        <button class="servText">숟가락</button>
-        <button class="servText">젓가락</button>
-        <button class="servText">앞접시</button>
-        <button class="servText">앞치마</button>
-        <button class="servText">휴지</button>
-        <button class="servText">물티슈</button>
-        <button class="servText">직원 호출</button>
+      <div class="serv-popup-txt">
+        <div class="servtext-area">
+          <button id="closepopup-button">x</button>
+        </div>
+        <div class="servTextBtn-area">
+          <button class="servText">물</button>
+          <button class="servText">숟가락</button>
+          <button class="servText">젓가락</button>
+          <button class="servText">앞접시</button>
+          <button class="servText">앞치마</button>
+          <button class="servText">휴지</button>
+          <button class="servText">물티슈</button>
+          <button class="servText">직원 호출</button>
+        </div>
       </div>
     </div>
 
@@ -119,34 +121,40 @@
           <div class="item_grid" id="menupage"></div>
           <!-- 메뉴 클릭하면 장바구니에 담기 전, 팝업 -->
           <div class="shoppingCart-popup">
-            <div class="shoppingCart-popup-1">
-              <button class="shoppingCart-popup-closeBtn">x</button>
-            </div>
-            <div class="shoppingCart-popup-2">
-              <img class="shoppingCart-popup-img" src="" alt="Menu Image">
-            </div>
-            <div class="shoppingCart-popup-3">
-              <p class="shoppingCart-popup-informMenuDB"></p>
-              <p class="shoppingCart-popup-informQuantity">1</p>
-              <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
-            </div>
-            <div class="shoppingCart-popup-4">
-              <button class="shoppingCart-popup-quantityDecrease">-</button>
-              <!-- <p class="shoppingCart-popup-quantityText">수량 </p> -->
-              <p class="shoppingCart-popup-quantityInt">1</p>
-              <button class="shoppingCart-popup-quantityIncrease">+</button>
-              <button class="shoppingCart-popup-okBtn">장바구니</button>
+            <div class="shoppingCart-txt">
+
+              <div class="shoppingCart-popup-1">
+                <button class="shoppingCart-popup-closeBtn">x</button>
+              </div>
+              <div class="shoppingCart-popup-2">
+                <img class="shoppingCart-popup-img" src="" alt="Menu Image">
+              </div>
+              <div class="shoppingCart-popup-3">
+                <p class="shoppingCart-popup-informMenuDB"></p>
+                <p class="shoppingCart-popup-informQuantity">1</p>
+                <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+              </div>
+              <div class="shoppingCart-popup-4">
+                <button class="shoppingCart-popup-quantityDecrease">-</button>
+                <!-- <p class="shoppingCart-popup-quantityText">수량 </p> -->
+                <p class="shoppingCart-popup-quantityInt">1</p>
+                <button class="shoppingCart-popup-quantityIncrease">+</button>
+                <button class="shoppingCart-popup-okBtn">장바구니</button>
+              </div>
             </div>
           </div>
           <div class="shopcartAll-popup area-hidden">
-            <!-- <div class="shopcartAll-popup_top">
+            <div class="shopcartAll-txt">
+
+              <!-- <div class="shopcartAll-popup_top">
               <button id="closeshopcartAll-popup-button">x</button>
             </div> -->
-            <div class="shopcartAll_popup__list"></div>
-            <div class="shopcartAll-popup_bottom">
-              <button id="canselButton">취소</button>
+              <div class="shopcartAll_popup__list"></div>
+              <div class="shopcartAll-popup_bottom">
+                <button id="canselButton">취소</button>
 
-              <button id="orderButton">주문하기</button>
+                <button id="orderButton">주문하기</button>
+              </div>
             </div>
           </div>
           <div class="orderList-popup area-hidden">
@@ -215,6 +223,7 @@
     <button class="jump"></button>
     <button class="shakeEar"></button>
   </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
   <script src="JS/shoppingCart_script.js"></script>
