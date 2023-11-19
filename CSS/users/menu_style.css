@@ -852,6 +852,7 @@
   background-color: white;
   border: 2px solid rgba(0, 0, 0, 0.5);
   align-items: center;
+  display: flex;
 }
 
 .orderList-popup .orderList-popup_top,
