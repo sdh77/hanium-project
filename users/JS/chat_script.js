@@ -19,7 +19,7 @@ fetch("../config.json") // 설정 파일 로드
 
 var silenceTimer = null;
 var hasProcessed = false;
-let isRecognitionActive = false;
+let isRecognitionActive = true;
 
 function createNewRecognition() {
   var newRecognition = new webkitSpeechRecognition();
@@ -94,6 +94,9 @@ $(document).ready(function () {
           recognition.start();
           isRecognitionActive = true;
           document.dispatchEvent(new Event("doridos"));
+        } else if (isRecognitionActive) {
+          recognition.stop();
+          // document.dispatchEvent(new Event("doridos"));
         }
       });
 
