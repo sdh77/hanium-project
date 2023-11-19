@@ -599,7 +599,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
-  width: 45vw;
+  width: 50vw;
   height: 50vh;
   background-color: white;
   border: 2px solid rgba(0, 0, 0, 0.5);

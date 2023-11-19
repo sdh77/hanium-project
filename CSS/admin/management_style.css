@@ -80,9 +80,16 @@
 
 .list .headerdiv {
   height: 8vh;
-  /* position: fixed; */
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
 }
-
+.list .list_txt {
+  position: relative;
+  top: 8vh;
+  /* margin-top: 20vh; */
+}
 .list span div:not(.id, .lastDiv *) {
   border: 1px solid gray;
   font-size: 5vh;
