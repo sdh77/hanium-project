@@ -72,7 +72,7 @@
 
 .list span {
   display: grid;
-  grid-template-columns: 60vw 10vw;
+  grid-template-columns: 55vw 15vw;
   justify-content: center;
   text-align: center;
   height: auto;
