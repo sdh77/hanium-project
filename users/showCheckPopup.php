@@ -39,4 +39,4 @@ pg_close($conn);
 
 ?>
 
-<script src="JS/menu_script.js?ver2"></script>
+<!-- <script src="JS/menu_script.js?ver2"></script> -->

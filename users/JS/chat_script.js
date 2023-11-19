@@ -175,7 +175,7 @@ function flaskAjax(transcript) {
               $(".shoppingCart-popup")
                 .removeClass("area-hidden")
                 .addClass("area-visible");
-              $(".shoppingCart-popup").html(data);
+              $(".shoppingCart-txt").html(data);
               shoppingCartPopupFunction();
               document.dispatchEvent(new Event("headRdos"));
               $(".shoppingCart-popup-okBtn2")

@@ -520,7 +520,11 @@
   border: none;
   border-radius: 25px;
 }
-
+.shoppingCart-background {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
 /* 장바구니 팝업창 */
 .shoppingCart-popup,
 .shoppingCart-popup2 {
