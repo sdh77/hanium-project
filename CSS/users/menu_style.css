@@ -642,7 +642,8 @@
   color: white; */
 }
 
-.shoppingCart-popup-4 button:not(.shoppingCart-popup-okBtn2, .shoppingCart-popup-okBtn) {
+.shoppingCart-popup-4
+  button:not(.shoppingCart-popup-okBtn2, .shoppingCart-popup-okBtn) {
   border: 1px solid black;
   background-color: transparent;
   border-radius: 50%;
@@ -881,7 +882,10 @@
   margin-top: 5%;
 }
 
-.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;
@@ -890,11 +894,19 @@
   justify-content: space-between;
 }
 
-.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item :first-child {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item
+  :first-child {
   width: 75%;
 }
 
-.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item :last-child {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item
+  :last-child {
   width: 20%;
 }
 
@@ -917,11 +929,17 @@
   border-radius: 15px;
 }
 
-.orderList-popup .orderList-popup__list .orderList_popup__list__item .orderList_Date {
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Date {
   font-size: 2.5vh;
 }
 
-.orderList-popup .orderList-popup__list .orderList_popup__list__item .orderList_Data {
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Data {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;

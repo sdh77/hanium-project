@@ -891,3 +891,52 @@
 .orderListScroll::-webkit-scrollbar {
   display: none;
 }
+
+.order-complete-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+}
+.order-complete-background__popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 8vh;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  font-size: 2.5vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.no-orderlist-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2005;
+}
+.no-orderlist-background__popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 8vh;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  font-size: 2.5vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

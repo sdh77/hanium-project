@@ -265,7 +265,15 @@ $(document).ready(function () {
         $(".shopcartAll_popup__list").html(data);
       });
     } else {
-      alert("장바구니 비어있음!!!");
+      // alert("장바구니 비어있음!!!");
+      $(".no-orderlist-background")
+        .removeClass("area-hideen")
+        .addClass("area-visible");
+      setTimeout(function () {
+        $(".no-orderlist-background")
+          .removeClass("area-visible")
+          .addClass("area-hideen");
+      }, 1000);
     }
   });
 
@@ -304,17 +312,25 @@ $(document).ready(function () {
     $(".cart-item").not(":first").remove();
     // document.querySelector(".chatArea").style.display = "block";
     // document.querySelector(".chatdisplayArea").style.display = "none";
-    alert("주문 완료!!!");
-    localStorage.setItem(
-      "orderNum",
-      Number(localStorage.getItem("orderNum")) + 1
-    );
+    // alert("주문 완료!!!");
+    $(".order-complete-background")
+      .removeClass("area-hideen")
+      .addClass("area-visible");
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
-    if ($("#table-number").text() >= 100) {
-      window.location.href = "index_kioski.html";
-    } else {
-      window.location.href = "index_tableorder.html";
-    }
+    setTimeout(function () {
+      $(".order-complete-background")
+        .removeClass("area-visible")
+        .addClass("area-hideen");
+      localStorage.setItem(
+        "orderNum",
+        Number(localStorage.getItem("orderNum")) + 1
+      );
+      if ($("#table-number").text() >= 100) {
+        window.location.href = "index_kioski.html";
+      } else {
+        window.location.href = "index_tableorder.html";
+      }
+    }, 2000);
   });
 
   // 직원 호출 service. orderdetail DB로 전송
