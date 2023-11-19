@@ -515,3 +515,15 @@ menuSwipe.addEventListener("touchend", (e) => {
 });
 //}
 //});
+
+const shoppingCartPopUp = document.querySelector(".shoppingCart-popup");
+const shopcartAllPopUp = document.querySelector(".shopcartAll-popup");
+window.onclick = function (event) {
+  if (event.target == shoppingCartPopUp) {
+    $(".shoppingCart-popup")
+      .removeClass("area-visible")
+      .addClass("area-hidden");
+  } else if (event.target == shopcartAllPopUp) {
+    $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+  }
+};
