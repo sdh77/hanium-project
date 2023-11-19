@@ -21,7 +21,7 @@ if ($result) {
       <p class="shoppingCart-popup-informMenuDB">' . $name . '</p>
     <div class="shoppingCart-row">
       <p class="shoppingCart-popup-informQuantity">' . $quantity . '</p>
-      <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+      <p class="shoppingCart-popup-informText">개 장바구니에 담으시겠습니까?</p>
     </div>
     </div>
     <div class="shoppingCart-popup-4">

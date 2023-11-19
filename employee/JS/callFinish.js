@@ -74,3 +74,21 @@ function handleToDoTableClick(event) {
 
   setTimeout(getTableItem, 100);
 }
+
+//////////////////////////////////////////////////////////////////////////////
+
+const foodFinishs = document.querySelectorAll(".table-info__food");
+
+// console.log(foodFinish);
+
+foodFinishs.forEach((foodFinish) => {
+  foodFinish.addEventListener("click", handleToDoFoodClick);
+});
+
+function handleToDoFoodClick(event) {
+  console.log(event);
+
+  const foodFinishObj = {
+    food: event.target.innerHTML,
+  };
+}

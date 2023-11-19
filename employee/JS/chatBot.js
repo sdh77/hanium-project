@@ -189,3 +189,7 @@ function clearTable(searchTable) {
     }
   });
 }
+
+function clearFood(searchName) {
+  ta;
+}
