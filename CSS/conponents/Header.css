@@ -6,6 +6,7 @@
   border-radius: 20px;
   background-color: var(--main-color);
   margin-right: 1vw;
+  color: black;
 }
 
 .Header-fix {
