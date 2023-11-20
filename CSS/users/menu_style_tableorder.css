@@ -177,6 +177,7 @@
   width: 70vw;
   height: 71vh;
 }
+
 .middlearea * {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -725,6 +726,7 @@
   display: flex;
   position: relative;
   max-width: 12vw;
+  min-width: 12vw;
   height: 16vh;
   flex-direction: column;
   justify-content: space-between;
