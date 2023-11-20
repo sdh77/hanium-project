@@ -112,7 +112,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 101;
+  z-index: 1001;
 }
 
 .neworder-popup-background__inform {
@@ -126,7 +126,7 @@
   background-color: white;
   border: 2px solid rgba(0, 0, 0, 0.5);
   flex-direction: column;
-  z-index: 100;
+  z-index: 1005;
   text-align: center;
   /* align-items: center; */
   justify-content: center;
