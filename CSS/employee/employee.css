@@ -12,6 +12,10 @@
   /* float: left; */
 }
 
+.table-info__select {
+  height: 4vh;
+}
+
 .table-info__info {
   height: 22vh;
   background-color: var(--main-color);
@@ -33,6 +37,7 @@
 .table-info__list {
   overflow-y: auto;
   overflow-x: hidden;
+  height: 19vh;
 }
 
 .table-info__list::-webkit-scrollbar {
@@ -47,7 +52,7 @@
 .table-info__food-info {
   margin-top: 0.5vw;
   font-size: 1.5vh;
-  width: 6vw;
+  width: 5vw;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -113,18 +118,57 @@
   /* clear: both; */
   box-sizing: border-box;
   display: flex;
+  height: 3vh;
+}
+
+.table-info__drink {
+  box-sizing: border-box;
+  display: flex;
+  height: 3vh;
 }
 
 .select-row {
   justify-content: left;
   align-items: center;
+  height: 2vh;
 }
 
 .foodDrinkNum {
   margin-right: 0.5vw;
+  height: 100%;
 }
 
 .foodDrinkName {
   /* position: absolute; */
-  top: -0.5vh;
+  margin-top: -0.01vh;
+  font-size: 1.6vh;
+  /* height: 2vh; */
+}
+
+.employee-neworder-popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.employee-neworder-popup-background__inform {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  z-index: 1005;
+  text-align: center;
+  /* align-items: center; */
+  justify-content: center;
+
 }
