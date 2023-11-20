@@ -4,7 +4,7 @@ $cnt = 0;
 $pagenum = isset($_GET['newpage']) ? $_GET['newpage'] : 0;
 $order_type = isset($_GET['neworder']) ? $_GET['neworder'] : "";
 $search = isset($_GET['newsearch']) ? $_GET['newsearch'] : "";
-$type = isset($_GET['newtype']) ? $_GET['newtype'] : "all";
+$type = isset($_GET['newtype']) ? $_GET['newtype'] : "전체";
 $action = isset($_GET['action']) ? $_GET['action'] : "noAction";
 $menubar = isset($_GET['menubar']) ? $_GET['menubar'] : "";
 $recommend = isset($_GET['recommend']) ? $_GET['recommend'] : "";
@@ -35,21 +35,21 @@ if ($action == "recommend") {
   } else if ($order_type == "판매량") {
     if ($type == "술")
       $sql = "select * from menu where trash = false and div in ('주류','와인') order by cnt, new desc, id";
-    else if ($type == "all")
+    else if ($type == "전체")
       $sql = "select * from menu where trash = false order by cnt, new desc, id";
     else
       $sql = "select * from menu where trash = false and div ='" . $type . "' order by cnt, new desc, id";
   } else if ($order_type == "맵기") {
     if ($type == "술")
       $sql = "select * from menu where trash = false and div in ('주류','와인') order by spicy desc, new desc, id";
-    else if ($type == "all")
+    else if ($type == "전체")
       $sql = "select * from menu where trash = false order by spicy desc, new desc, id";
     else
       $sql = "select * from menu where trash = false and div ='" . $type . "' order by spicy desc, new desc, id";
   } else {
     if ($type == "술")
       $sql = "select * from menu where trash = false and div in ('주류','와인') order by new desc, id";
-    else if ($type == "all")
+    else if ($type == "전체")
       $sql = "select * from menu where trash = false order by new desc, id";
     else
       $sql = "select * from menu where trash = false and div ='" . $type . "' order by new desc, id";
