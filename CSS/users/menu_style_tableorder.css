@@ -607,6 +607,11 @@
   height: 69%;
   justify-content: center;
 }
+.shoppingCart-popup-informMenuDB {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 .shoppingCart-popup-3 {
   display: flex;
@@ -614,7 +619,6 @@
   height: 12%;
   margin-left: 10%;
   font-size: 3vh;
-
 }
 
 .shoppingCart-popup-4 {
@@ -715,7 +719,6 @@
   position: fixed;
   margin-top: 4px;
   font-size: 2.5vh;
-
 }
 
 #table-number {
@@ -759,6 +762,10 @@
   display: flex;
   height: 20%;
   margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
 }
 
 .cart-item-bottom {
@@ -857,7 +864,10 @@
 }
 
 .orderList-popup .orderList-popup_top #closeshopcartAll-popup-button,
-.shopcartAll-popup .shopcartAll-txt .shopcartAll-popup_top #closeshopcartAll-popup-button {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll-popup_top
+  #closeshopcartAll-popup-button {
   border: none;
   font-size: 2vh;
 }
@@ -869,7 +879,10 @@
   margin-top: 5%;
 }
 
-.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;
@@ -878,11 +891,19 @@
   justify-content: space-between;
 }
 
-.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item :first-child {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item
+  :first-child {
   width: 75%;
 }
 
-.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item :last-child {
+.shopcartAll-popup
+  .shopcartAll-txt
+  .shopcartAll_popup__list
+  .shopcartAll_popup__list__item
+  :last-child {
   width: 20%;
 }
 
@@ -905,11 +926,17 @@
   border-radius: 15px;
 }
 
-.orderList-popup .orderList-popup__list .orderList_popup__list__item .orderList_Date {
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Date {
   font-size: 2.5vh;
 }
 
-.orderList-popup .orderList-popup__list .orderList_popup__list__item .orderList_Data {
+.orderList-popup
+  .orderList-popup__list
+  .orderList_popup__list__item
+  .orderList_Data {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;
@@ -938,7 +965,6 @@
 
 .orderListScroll::-webkit-scrollbar {
   display: none;
-
 }
 
 .order-complete-background {
