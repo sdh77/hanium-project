@@ -27,7 +27,7 @@ function createNewRecognition() {
   newRecognition.interimResults = false;
   newRecognition.onresult = function (event) {
     console.log("음성 대기 중 ...");
-    console.log(window.speechSynthesis.onvoiceschanged);
+    //console.log(window.speechSynthesis.onvoiceschanged);
     document.dispatchEvent(new Event("eardos"));
 
     if (silenceTimer) {
@@ -70,6 +70,21 @@ $(document).ready(function () {
     document.dispatchEvent(new Event("doridos"));
   }, 6000);
 
+  $(".chatArea-stopSTT").off("click").on("click", function () {
+    $.ajax({
+      url: '/flask-app/update_state2',
+      type: 'POST', 
+      contentType: 'application/json',
+      data: JSON.stringify({status: 'initial'}),
+      success: function(response) {
+        document.dispatchEvent(new Event("doridos"));
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  });
+
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
     let transcript = $(".chatdisplayArea-messageInput-text").val();
@@ -100,12 +115,12 @@ $(document).ready(function () {
       });
 
     // 상시대기 STT 종료, chatArea에서 키오스키를 불러주세요! 바로 아래 위치
-    $(".chatArea-stopSTT")
-      .off("click")
-      .on("click", function () {
-        recognition.stop();
-        console.log("상시 대기 모드 종료");
-      });
+    //$(".chatArea-stopSTT")
+    //  .off("click")
+    //  .on("click", function () {
+    //    recognition.stop();
+    //    console.log("상시 대기 모드 종료");
+    //  });
     // 상시대기 STT 종료
     $("#stopChromeSTT")
       .off("click")
@@ -281,7 +296,7 @@ function flaskAjax(transcript) {
             }, 500);
             break;
 
-	  case "rollback-base":
+	  case "rollbackbase":
 	    addMessageToChat("bot", `${data.message}`);
 	    if($(".shoppingCart-popup").is(":visible")) {
 	      $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
