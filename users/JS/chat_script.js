@@ -19,15 +19,15 @@ fetch("../config.json") // 설정 파일 로드
 
 var silenceTimer = null;
 var hasProcessed = false;
-let isRecognitionActive = false;
+let isRecognitionActive = true;
 
 function createNewRecognition() {
   var newRecognition = new webkitSpeechRecognition();
   newRecognition.continuous = true;
   newRecognition.interimResults = false;
-
   newRecognition.onresult = function (event) {
     console.log("음성 대기 중 ...");
+    console.log(window.speechSynthesis.onvoiceschanged);
     document.dispatchEvent(new Event("eardos"));
 
     if (silenceTimer) {
@@ -94,6 +94,9 @@ $(document).ready(function () {
           recognition.start();
           isRecognitionActive = true;
           document.dispatchEvent(new Event("doridos"));
+        } else if (isRecognitionActive) {
+          recognition.stop();
+          // document.dispatchEvent(new Event("doridos"));
         }
       });
 

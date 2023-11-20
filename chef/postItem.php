@@ -39,7 +39,7 @@ if ($action == "notClear") {
           echo '<div class="orderdetail_list  ' . $row["orderdetail_id"];
           if ($row["clear"] == "t")
             echo ' clear';
-          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p> : " . $row["quantity"] . '</p></div>
+          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p class='orderdetail_quantity'> : " . $row["quantity"] . '</p></div>
         <hr>';
           $oldtableId = $row["tableid"];
           $id++;
@@ -47,7 +47,7 @@ if ($action == "notClear") {
           echo '<div class="orderdetail_list  ' . $row["orderdetail_id"];
           if ($row["clear"] == "t")
             echo ' clear ';
-          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p> : " . $row["quantity"] . '</p></div>
+          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p class='orderdetail_quantity'> : " . $row["quantity"] . '</p></div>
         <hr>';
           $id++;
         }
@@ -85,7 +85,7 @@ if ($action == "notClear") {
           echo '<div class="orderdetail_list  ' . $row["orderdetail_id"];
           if ($row["clear"] == "t")
             echo ' clear';
-          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p> : " . $row["quantity"] . '</p></div>
+          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p class='orderdetail_quantity'> : " . $row["quantity"] . '</p></div>
         <hr>';
           $oldtableId = $row["tableid"];
           $id++;
@@ -93,7 +93,7 @@ if ($action == "notClear") {
           echo '<div class="orderdetail_list  ' . $row["orderdetail_id"];
           if ($row["clear"] == "t")
             echo ' clear ';
-          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p> : " . $row["quantity"] . '</p></div>
+          echo '"><p class="tableOrderItem__menu">' . $id . ".</p><div class='orderdetail_name'>" . $row["name"] . "</div><p class='orderdetail_quantity'> : " . $row["quantity"] . '</p></div>
         <hr>';
           $id++;
         }
