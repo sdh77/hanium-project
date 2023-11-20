@@ -9,11 +9,14 @@ body {
   padding: 4rem 0;
   overflow: hidden;
 }
-
+.ss {
+  width: 50%;
+  height: 50vh;
+  overflow: hidden;
+}
 .list {
   padding: 1rem 0;
   width: 100%;
-  display: flex;
   transform: translate(0, 0);
 }
 
