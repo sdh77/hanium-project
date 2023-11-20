@@ -10,7 +10,7 @@ $conn = pg_connect('host=localhost port=5432 dbname=ilprimo user=hanium_kioski p
 for ($tableID = 1; $tableID <= 15; $tableID++) {
   $time = 0;
   echo '<div class="table-info">
-      <div class="table-info__row">
+      <div class="table-info__row table-info__select">
         <div class="table-info__number">' . $tableID . '</div>';
   $newCall = "select * from call where table_id = " . $tableID . "and complete = false";
   $result = pg_query($conn, $newCall);

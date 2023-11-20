@@ -124,4 +124,4 @@ function chromeTTS(text) {
 }
 
 orderItem();
-setInterval(getOrderNotClearItem, 1000);
+// setInterval(getOrderNotClearItem, 1000);
