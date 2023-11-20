@@ -734,6 +734,11 @@
 #cart::-webkit-scrollbar {
   display: none;
 }
+#cart-hidden {
+  width: 80vw;
+  height: 17vh;
+  overflow: hidden;
+}
 .cart-item {
   display: flex;
   position: relative;

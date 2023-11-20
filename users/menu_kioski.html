@@ -181,27 +181,31 @@
         </span>
         <span id="table-number"></span>
       </div>
-      <div id="cart">
-        <div class="cart-item" style="display: none;">
-          <img class="menu-imgsrc" src="" alt="Menu Image">
-          <button class="cart-item-delete">
-            <p>X</p>
-          </button>
-          <p class="menu-name"></p>
-          <div class="cart-item-bottom">
-            <div class="quantity-area">
-              <button class="decrease">
-                -
+      <div>
+        <div id="cart-hidden">
+          <div id="cart">
+            <div class="cart-item" style="display: none;">
+              <img class="menu-imgsrc" src="" alt="Menu Image">
+              <button class="cart-item-delete">
+                <p>X</p>
               </button>
-              <p class="quantity">1</p>
-              <button class="increase">
-                +
-              </button>
+              <p class="menu-name"></p>
+              <div class="cart-item-bottom">
+                <div class="quantity-area">
+                  <button class="decrease">
+                    -
+                  </button>
+                  <p class="quantity">1</p>
+                  <button class="increase">
+                    +
+                  </button>
+                </div>
+                <p class="single-price" style="display:none;"></p>
+                <p class="fixed-price" style="display:none;"></p>
+                <p class="item-price"></p>
+                <p class="item-price-won">원</p>
+              </div>
             </div>
-            <p class="single-price" style="display:none;"></p>
-            <p class="fixed-price" style="display:none;"></p>
-            <p class="item-price"></p>
-            <p class="item-price-won">원</p>
           </div>
         </div>
       </div>
@@ -248,6 +252,7 @@
   <script src="JS/stt_script.js"></script>
   <!-- <script src="JS/tts_script.js"></script> -->
   <script src="JS/call.js"></script>
+  <script src="JS/menuScroll.js"></script>
   <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>
 
 </body>

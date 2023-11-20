@@ -1,28 +1,28 @@
 const list = document.querySelector(".list");
-const listScrollWidth = list.scrollWidth;
-const listClientWidth = list.clientWidth;
+const listScrollHeight = list.scrollHeight;
+const listClientHeight = list.clientHeight;
 console.log(list);
 // 이벤트마다 갱신될 값
-let startX = 0;
-let nowX = 0;
-let endX = 0;
-let listX = 0;
+let startY = 0;
+let nowY = 0;
+let endY = 0;
+let listY = 0;
 
-const getClientX = (e) => {
+const getClientY = (e) => {
   const isTouches = e.touches ? true : false;
-  return isTouches ? e.touches[0].clientX : e.clientX;
+  return isTouches ? e.touches[0].clientY : e.clientY;
 };
 
-const getTranslateX = () => {
+const getTranslateY = () => {
   return parseInt(getComputedStyle(list).transform.split(/[^\-0-9]+/g)[5]);
 };
 
-const setTranslateX = (x) => {
-  list.style.transform = `translateX(${x}px)`;
+const setTranslateY = (y) => {
+  list.style.transform = `translateY(${y}px)`;
 };
 
 const onScrollStart = (e) => {
-  startX = getClientX(e);
+  startY = getClientY(e);
   list.addEventListener("mousemove", onScrollMove);
   list.addEventListener("touchmove", onScrollMove);
   list.addEventListener("mouseup", onScrollEnd);
@@ -30,21 +30,21 @@ const onScrollStart = (e) => {
 };
 
 const onScrollMove = (e) => {
-  nowX = getClientX(e);
-  setTranslateX(listX + nowX - startX);
+  nowY = getClientY(e);
+  setTranslateY(listY + nowY - startY);
 };
 
 const onScrollEnd = (e) => {
-  endX = getClientX(e);
-  listX = getTranslateX();
-  if (listX > 0) {
-    setTranslateX(0);
+  endY = getClientY(e);
+  listY = getTranslateY();
+  if (listY > 0) {
+    setTranslateY(0);
     list.style.transition = `all 0.3s ease`;
-    listX = 0;
-  } else if (listX < listClientWidth - listScrollWidth) {
-    setTranslateX(listClientWidth - listScrollWidth);
+    listY = 0;
+  } else if (listY < listClientHeight - listScrollHeight) {
+    setTranslateX(listClientHeight - listScrollHeight);
     list.style.transition = `all 0.3s ease`;
-    listX = listClientWidth - listScrollWidth;
+    listX = listClientHeight - listScrollHeight;
   }
 
   list.removeEventListener("mousemove", onScrollMove);
