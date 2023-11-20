@@ -37,10 +37,17 @@ $(document).ready(function () {
         $(".shoppingCart-popup-okBtn2")[0].parentElement.removeChild(
           $(".shoppingCart-popup-okBtn2")[0]
         );
+        //여기
         $(".shoppingCart-popup-okBtn")
           .off("click")
           .on("click", function () {
             // 이미 장바구니에 담은 메뉴라면?
+            $.ajax({
+              url: "/flask-app/update_state2",
+              type: "POST",
+              contentType: "application/json",
+              data: JSON.stringify({ status: "initial" }),
+            });
             let isExist = false;
             let cartquantity, newitemprice, olditemprice;
             $("#cart .cart-item:visible").each(function () {
@@ -102,10 +109,17 @@ $(document).ready(function () {
       } else {
         console.log("없어");
       }
+      //여기
       $(".shoppingCart-popup-closeBtn").click(function () {
         $(".shoppingCart-popup")
           .removeClass("area-visible")
           .addClass("area-hidden");
+        $.ajax({
+          url: "/flask-app/update_state2",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ status: "initial" }),
+        });
         $(".shoppingCart-popup-informQuantity").text("1");
         $(".shoppingCart-popup-quantityInt").text("1");
       });
@@ -118,11 +132,17 @@ $(document).ready(function () {
         .off("click")
         .on("click", popupDecreaseClickBtn);
     });
-
+    //여기
     $(".shoppingCart-popup-okBtn")
       .off("click")
       .on("click", function () {
         // 이미 장바구니에 담은 메뉴라면?
+        $.ajax({
+          url: "/flask-app/update_state2",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ status: "initial" }),
+        });
         let isExist = false;
         let cartquantity, newitemprice, olditemprice;
         $("#cart .cart-item:visible").each(function () {
@@ -216,8 +236,15 @@ $(document).ready(function () {
     $(".shop-area").removeClass("area-visible").addClass("area-hidden");
   });*/
 
+  //여기
   $("#canselButton").click(function () {
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+    $.ajax({
+      url: "/flask-app/update_state2",
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({ status: "initial" }),
+    });
   });
   $("#closeshopcartAll-popup-button").click(function () {
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
@@ -240,6 +267,7 @@ $(document).ready(function () {
       $(".orderList-popup__list").html(data);
     });
   });
+  //여기
   $("#orderButton_popup").click(function () {
     if ($(".cart-item:visible").length > 0) {
       $(".shopcartAll-popup")
@@ -263,6 +291,12 @@ $(document).ready(function () {
         data: params,
       }).done(function (data) {
         $(".shopcartAll_popup__list").html(data);
+      });
+      $.ajax({
+        url: "/flask-app/update_state2",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ status: "initial" }),
       });
     } else {
       // alert("장바구니 비어있음!!!");
@@ -540,9 +574,22 @@ window.onclick = function (event) {
     $(".shoppingCart-popup")
       .removeClass("area-visible")
       .addClass("area-hidden");
+    $.ajax({
+      url: "/flask-app/update_state2",
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({ status: "initial" }),
+    });
   } else if (event.target == shopcartAllPopUp) {
     $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+    $.ajax({
+      url: "/flask-app/update_state2",
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({ status: "initial" }),
+    });
   } else if (event.target == servPopUp) {
     $(".serv-popup").removeClass("area-visible").addClass("area-hidden");
   }
 };
+//여기

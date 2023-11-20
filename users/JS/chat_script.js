@@ -70,20 +70,23 @@ $(document).ready(function () {
     document.dispatchEvent(new Event("doridos"));
   }, 6000);
 
-  $(".chatArea-stopSTT").off("click").on("click", function () {
-    $.ajax({
-      url: '/flask-app/update_state2',
-      type: 'POST', 
-      contentType: 'application/json',
-      data: JSON.stringify({status: 'initial'}),
-      success: function(response) {
-        document.dispatchEvent(new Event("doridos"));
-      },
-      error: function(error) {
-        console.log(error);
-      }
+
+  $(".chatArea-stopSTT")
+    .off("click")
+    .on("click", function () {
+      $.ajax({
+        url: "/flask-app/update_state2",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ status: "initial" }),
+        success: function (response) {
+          document.dispatchEvent(new Event("doridos"));
+        },
+        error: function (error) {
+          console.log(error);
+        },
+      });
     });
-  });
 
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
@@ -296,18 +299,25 @@ function flaskAjax(transcript) {
             }, 500);
             break;
 
-	  case "rollbackbase":
-	    addMessageToChat("bot", `${data.message}`);
-	    if($(".shoppingCart-popup").is(":visible")) {
-	      $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
-	    }
-	    if($(".shopcartAll-popup").is(":visible")) {
-	      $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
-	    }
-	    if($(".orderList-popup").is(":visible")) {
-	      $(".orderList-popup").removeClass("area-visible").addClass("area-hidden");
-	    }
-	    break;
+
+          case "rollbackbase":
+            addMessageToChat("bot", `${data.message}`);
+            if ($(".shoppingCart-popup").is(":visible")) {
+              $(".shoppingCart-popup")
+                .removeClass("area-visible")
+                .addClass("area-hidden");
+            }
+            if ($(".shopcartAll-popup").is(":visible")) {
+              $(".shopcartAll-popup")
+                .removeClass("area-visible")
+                .addClass("area-hidden");
+            }
+            if ($(".orderList-popup").is(":visible")) {
+              $(".orderList-popup")
+                .removeClass("area-visible")
+                .addClass("area-hidden");
+            }
+            break;
           case "orderBtn-popup-click-trigger":
             if ($(".cart-item:visible").length > 0) {
               addMessageToChat("bot", `${data.message}`);
