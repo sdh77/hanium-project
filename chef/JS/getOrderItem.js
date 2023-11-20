@@ -124,4 +124,17 @@ function chromeTTS(text) {
 }
 
 orderItem();
-// setInterval(getOrderNotClearItem, 1000);
+setInterval(getOrderNotClearItem, 1000);
+
+let newPopupClick = document.querySelector(".neworder-popup-background");
+let newPopupClick_txt = document.querySelector(
+  ".neworder-popup-background__inform"
+);
+
+window.addEventListener("click", function (event) {
+  console.log(event.target);
+  if (event.target == newPopupClick || event.target == newPopupClick_txt) {
+    newPopupClick.classList.add("area-hidden");
+    newPopupClick.classList.remove("area-visible");
+  }
+});
