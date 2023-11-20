@@ -10,7 +10,7 @@
 .bodymain {
   display: flex;
   width: 70vw;
-  height: 80vh;
+  height: 79vh;
   flex-direction: row;
 }
 
@@ -62,6 +62,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .serv-popup {
   position: fixed;
   top: 0;
@@ -71,6 +72,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 101;
 }
+
 .serv-popup-txt {
   position: absolute;
   top: 50%;
@@ -136,6 +138,7 @@
   color: white;
   background-color: #a6a5b8;
   border: none;
+  align-items: center;
 }
 
 .menu_select a:hover {
@@ -149,7 +152,7 @@
 }
 
 .menu_select a {
-  margin: 0.7vw;
+  margin: 0.5vw;
   /* width: 8vw; */
   width: auto;
   height: 5vh;
@@ -160,6 +163,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 2.2vh;
 }
 
 .menu_select a p {
@@ -171,13 +175,13 @@
   display: flex;
   flex-direction: row;
   width: 70vw;
-  height: 72vh;
+  height: 71vh;
 }
 
 /* list. 디비 출력 */
 .main .middlearea .menu-list {
   width: 75vw;
-  height: 72vh;
+  height: 71vh;
   user-select: none;
   position: relative;
 }
@@ -188,7 +192,7 @@
 
 .main .middlearea .menu-list .item_grid {
   width: 70vw;
-  height: 72vh;
+  height: 71vh;
   border: none;
 }
 
@@ -313,7 +317,7 @@
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  height: 8%;
+  /* height: 1lvh; */
   background-color: #a6a5b8;
 }
 
@@ -327,6 +331,7 @@
   align-items: center;
   background-color: #a6a5b8;
   /* margin-top: 2vh; */
+  color: black;
 }
 
 #thispage {
@@ -367,22 +372,31 @@
   bottom: 5vh;
 }
 
+#orderButton_popup,
+#orderListButton_popup,
 #serv-button {
   display: block;
   cursor: pointer;
   text-align: center;
-  font-size: 1em bold;
-  height: 60px;
+  height: 4vh;
+  font-size: 2vh;
+  width: 7vw;
+  padding: 1vh;
+  background-color: #76758a;
   color: white;
-  background-color: #555;
-  border-radius: 25px;
-  /*둥글게!*/
-  border: 2px solid #555;
+  /* color: #4d4a41;
+  background-color: white; */
+  border: none;
+  border-radius: 5%;
 }
 
+#orderButton_popup:hover,
+#orderListButton_popup:hover,
 #serv-button:hover {
   color: #4d4a41;
-  background-color: #fcefbb;
+  background-color: white;
+  /* background-color: #76758a;
+  color: white; */
 }
 
 .chatArea *,
@@ -495,6 +509,14 @@
 .chatdisplayArea-messageInput-1,
 .chatdisplayArea-messageInput-2 {
   display: flex;
+  /* color: black; */
+}
+
+#startRecording,
+#stopRecording,
+#stopChromeSTT,
+.chatdisplayArea-messageInput-sendBtn {
+  color: black;
 }
 
 .chatdisplayArea-messageInput-text {
@@ -539,14 +561,15 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 200;
 }
+
 .shoppingCart-txt {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
-  width: 45vw;
-  height: 50vh;
+  width: 36vw;
+  height: 68vh;
   background-color: white;
   border: 2px solid rgba(0, 0, 0, 0.5);
 }
@@ -563,6 +586,7 @@
   font-size: 3vw;
   width: 15%;
   border: none;
+  color: black;
 }
 
 .shoppingCart-popup-2 {
@@ -573,43 +597,49 @@
 
 .shoppingCart-popup-3 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 12%;
-  margin-left: 5%;
-  font-size: 2vh;
+  margin-left: 10%;
+  font-size: 3vh;
+
 }
 
 .shoppingCart-popup-4 {
   display: flex;
-  height: 12%;
+  height: 8%;
   background-color: transparent;
   margin-left: 5%;
+  /* margin-bottom: -5vh; */
   align-items: center;
   font-size: 3vh;
 }
 
 .shoppingCart-popup-4 button {
   border: none;
-  font-size: 2vh;
-  background-color: transparent;
+  font-size: 2.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3vh;
+  padding: 1vh;
+  background-color: #76758a;
 }
+
 .shoppingCart-popup-4 button:not(.shoppingCart-popup-okBtn) {
+  background-color: transparent;
   border: 1px solid black;
   border-radius: 50%;
   width: 3vw;
   height: 3vw;
   margin: 0 10px;
 }
+
 .shoppingCart-popup-okBtn {
+  color: white;
   position: absolute;
   right: 5%;
   padding: 1vh;
   background-color: #76758a;
-  /* color: white; */
 }
 
 .shoppingCart-popup-img {
@@ -630,7 +660,7 @@
 .shop-area {
   position: absolute;
   justify-content: space-between;
-  height: 20vh;
+  height: 23.5vh;
   width: 70vw;
   left: 0;
   bottom: 0;
@@ -655,14 +685,34 @@
 #cart {
   display: flex;
   width: 60vw;
-  height: 85%;
+  height: 23.5vh;
   flex-direction: row;
+  align-items: center;
+}
+
+#table-number-text {
+  align-items: center;
+  display: flex;
+}
+
+#table-number-area {
+  display: flex;
+  /* height: 1.5vh; */
+  align-items: center;
+  position: fixed;
+  margin-top: 4px;
+  font-size: 2.5vh;
+
+}
+
+#table-number {
+  font-size: 3vh;
 }
 
 .cart-item {
   display: flex;
   position: relative;
-  min-width: 10vw;
+  max-width: 12vw;
   height: 16vh;
   flex-direction: column;
   justify-content: space-between;
@@ -694,14 +744,16 @@
 .menu-name {
   display: flex;
   height: 20%;
+  margin-top: 5px;
 }
 
 .cart-item-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 20%;
+  height: 25%;
+  margin-top: -5px;
 }
 
 .quantity-area {
@@ -710,9 +762,10 @@
 }
 
 .quantity-area .quantity {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 3px;
+  margin-left: 3px;
   justify-content: center;
+  /* color: black; */
 }
 
 .quantity-area button {
@@ -734,8 +787,8 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background-color: #777;
-  border: 2px solid #777;
+  background-color: #a6a5b8;
+  border: none;
   width: 10vw;
 }
 
@@ -765,6 +818,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 101;
 }
+
 .shopcartAll-txt {
   position: absolute;
   top: 50%;
@@ -789,10 +843,7 @@
 }
 
 .orderList-popup .orderList-popup_top #closeshopcartAll-popup-button,
-.shopcartAll-popup
-  .shopcartAll-txt
-  .shopcartAll-popup_top
-  #closeshopcartAll-popup-button {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll-popup_top #closeshopcartAll-popup-button {
   border: none;
   font-size: 2vh;
 }
@@ -804,10 +855,7 @@
   margin-top: 5%;
 }
 
-.shopcartAll-popup
-  .shopcartAll-txt
-  .shopcartAll_popup__list
-  .shopcartAll_popup__list__item {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;
@@ -816,19 +864,11 @@
   justify-content: space-between;
 }
 
-.shopcartAll-popup
-  .shopcartAll-txt
-  .shopcartAll_popup__list
-  .shopcartAll_popup__list__item
-  :first-child {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item :first-child {
   width: 75%;
 }
 
-.shopcartAll-popup
-  .shopcartAll-txt
-  .shopcartAll_popup__list
-  .shopcartAll_popup__list__item
-  :last-child {
+.shopcartAll-popup .shopcartAll-txt .shopcartAll_popup__list .shopcartAll_popup__list__item :last-child {
   width: 20%;
 }
 
@@ -851,17 +891,11 @@
   border-radius: 15px;
 }
 
-.orderList-popup
-  .orderList-popup__list
-  .orderList_popup__list__item
-  .orderList_Date {
+.orderList-popup .orderList-popup__list .orderList_popup__list__item .orderList_Date {
   font-size: 2.5vh;
 }
 
-.orderList-popup
-  .orderList-popup__list
-  .orderList_popup__list__item
-  .orderList_Data {
+.orderList-popup .orderList-popup__list .orderList_popup__list__item .orderList_Data {
   font-size: 2vh;
   border-bottom: 0.5px solid black;
   padding: 3px;
@@ -890,6 +924,7 @@
 
 .orderListScroll::-webkit-scrollbar {
   display: none;
+
 }
 
 .order-complete-background {
@@ -901,6 +936,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 2000;
 }
+
 .order-complete-background__popup {
   position: absolute;
   top: 50%;
@@ -916,6 +952,7 @@
   align-items: center;
   display: flex;
 }
+
 .no-orderlist-background {
   position: fixed;
   top: 0;
@@ -925,6 +962,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 2005;
 }
+
 .no-orderlist-background__popup {
   position: absolute;
   top: 50%;
@@ -939,4 +977,14 @@
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.shoppingCart-popup-quantityDecrease,
+.shoppingCart-popup-quantityIncrease {
+  color: black;
+}
+
+.decrease,
+.increase {
+  color: black;
 }
