@@ -25,9 +25,9 @@ function createNewRecognition() {
   var newRecognition = new webkitSpeechRecognition();
   newRecognition.continuous = true;
   newRecognition.interimResults = false;
-
   newRecognition.onresult = function (event) {
     console.log("음성 대기 중 ...");
+    console.log(window.speechSynthesis.onvoiceschanged);
     document.dispatchEvent(new Event("eardos"));
 
     if (silenceTimer) {

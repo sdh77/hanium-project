@@ -624,6 +624,11 @@
   height: 69%;
   justify-content: center;
 }
+.shoppingCart-popup-informMenuDB {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 .shoppingCart-popup-3 {
   display: flex;
@@ -686,6 +691,7 @@
 .shoppingCart-row {
   display: flex;
   flex-direction: row;
+  height: 3.5vh;
 }
 
 /* 장바구니 */
@@ -725,7 +731,9 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-
+#cart::-webkit-scrollbar {
+  display: none;
+}
 .cart-item {
   display: flex;
   position: relative;
