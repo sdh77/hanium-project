@@ -144,3 +144,31 @@
   font-size: 1.6vh;
   /* height: 2vh; */
 }
+
+.employee-neworder-popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.employee-neworder-popup-background__inform {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  z-index: 1005;
+  text-align: center;
+  /* align-items: center; */
+  justify-content: center;
+
+}
