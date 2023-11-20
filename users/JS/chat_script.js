@@ -58,18 +58,17 @@ function createNewRecognition() {
 }
 
 $(document).ready(function () {
-  addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
-  addMessageToChat("selector", "메뉴 검색");
-  addMessageToChat("selector", "오늘의 추천 메뉴");
-  addMessageToChat("selector", "메뉴 추천 서비스");
-  addMessageToChat("selector", "직원 호출");
-
   setTimeout(function () {
     document.dispatchEvent(new Event("hellodos"));
-  }, 5000);
+    addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
+    addMessageToChat("selector", "메뉴 검색");
+    addMessageToChat("selector", "오늘의 추천 메뉴");
+    addMessageToChat("selector", "메뉴 추천 서비스");
+    addMessageToChat("selector", "직원 호출");
+  }, 4000);
   setTimeout(function () {
     document.dispatchEvent(new Event("doridos"));
-  }, 8000);
+  }, 6000);
 
   // 직접 텍스트 입력했을 때 챗봇
   $(".chatdisplayArea-messageInput-sendBtn").click(function () {
@@ -282,6 +281,18 @@ function flaskAjax(transcript) {
             }, 500);
             break;
 
+	  case "rollback-base":
+	    addMessageToChat("bot", `${data.message}`);
+	    if($(".shoppingCart-popup").is(":visible")) {
+	      $(".shoppingCart-popup").removeClass("area-visible").addClass("area-hidden");
+	    }
+	    if($(".shopcartAll-popup").is(":visible")) {
+	      $(".shopcartAll-popup").removeClass("area-visible").addClass("area-hidden");
+	    }
+	    if($(".orderList-popup").is(":visible")) {
+	      $(".orderList-popup").removeClass("area-visible").addClass("area-hidden");
+	    }
+	    break;
           case "orderBtn-popup-click-trigger":
             if ($(".cart-item:visible").length > 0) {
               addMessageToChat("bot", `${data.message}`);
