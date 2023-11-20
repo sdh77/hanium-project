@@ -47,6 +47,10 @@
 .table-info__food-info {
   margin-top: 0.5vw;
   font-size: 1.5vh;
+  width: 6vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .main-screen {
@@ -95,7 +99,7 @@
 }
 
 .table-info__time {
-  width: 5vw;
+  width: 5.5vw;
   text-align: right;
 }
 

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>판매 페이지</title>
+  <title>키오스크 판매 페이지</title>
 
   <script type="importmap">
     {
@@ -124,36 +124,40 @@
           <div class="item_grid" id="menupage"></div>
           <!-- 메뉴 클릭하면 장바구니에 담기 전, 팝업 -->
           <div class="shoppingCart-popup">
-            <div class="shoppingCart-popup-1">
-              <button class="shoppingCart-popup-closeBtn">x</button>
-            </div>
-            <div class="shoppingCart-popup-2">
-              <img class="shoppingCart-popup-img" src="" alt="Menu Image">
-            </div>
-            <div class="shoppingCart-popup-3">
-              <p class="shoppingCart-popup-informMenuDB"></p>
-              <div class="shoppingCart-row">
-                <p class="shoppingCart-popup-informQuantity">1</p>
-                <p class="shoppingCart-popup-informText">개 주문하시겠습니까?</p>
+            <div class="shoppingCart-txt">
+              <div class="shoppingCart-popup-1">
+                <button class="shoppingCart-popup-closeBtn">x</button>
               </div>
-            </div>
-            <div class="shoppingCart-popup-4">
-              <button class="shoppingCart-popup-quantityDecrease">-</button>
-              <!-- <p class="shoppingCart-popup-quantityText">수량 </p> -->
-              <p class="shoppingCart-popup-quantityInt">1</p>
-              <button class="shoppingCart-popup-quantityIncrease">+</button>
-              <button class="shoppingCart-popup-okBtn">장바구니</button>
+              <div class="shoppingCart-popup-2">
+                <img class="shoppingCart-popup-img" src="" alt="Menu Image">
+              </div>
+              <div class="shoppingCart-popup-3">
+                <p class="shoppingCart-popup-informMenuDB"></p>
+                <div class="shoppingCart-row">
+                  <p class="shoppingCart-popup-informQuantity">1</p>
+                  <p class="shoppingCart-popup-informText">개 장바구니에 담으시겠습니까?</p>
+                </div>
+              </div>
+              <div class="shoppingCart-popup-4">
+                <button class="shoppingCart-popup-quantityDecrease">-</button>
+                <!-- <p class="shoppingCart-popup-quantityText">수량 </p> -->
+                <p class="shoppingCart-popup-quantityInt">1</p>
+                <button class="shoppingCart-popup-quantityIncrease">+</button>
+                <button class="shoppingCart-popup-okBtn">장바구니</button>
+              </div>
             </div>
           </div>
           <div class="shopcartAll-popup area-hidden">
             <!-- <div class="shopcartAll-popup_top">
             <button id="closeshopcartAll-popup-button">x</button>
             </div> -->
-            <div class="shopcartAll_popup__list"></div>
-            <div class="shopcartAll-popup_bottom">
-              <button id="canselButton">취소</button>
+            <div class="shopcartAll-txt">
+              <div class="shopcartAll_popup__list"></div>
+              <div class="shopcartAll-popup_bottom">
+                <button id="canselButton">취소</button>
 
-              <button id="orderButton">주문하기</button>
+                <button id="orderButton">주문하기</button>
+              </div>
             </div>
           </div>
           <div class="orderList-popup area-hidden">
@@ -222,10 +226,24 @@
     <button class="jump"></button>
     <button class="shakeEar"></button>
   </div>
+
+  <div class="order-complete-background area-hidden">
+    <div class="order-complete-background__popup">
+      주문이 완료되었습니다.
+    </div>
+  </div>
+
+  <div class="no-orderlist-background area-hidden">
+    <div class="no-orderlist-background__popup">
+      장바구니가 비었습니다.
+    </div>
+  </div>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/recordrtc"></script>
   <script src="JS/shoppingCart_script.js"></script>
-  <script src="JS/menu_script.js?ver2"></script>
+  <script src="JS/menu_script.js"></script>
   <script src="JS/chat_script.js"></script>
   <script src="JS/stt_script.js"></script>
   <!-- <script src="JS/tts_script.js"></script> -->

@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 2vh;
+  margin-top: 3vh;
 }
 
 .adminmain {
@@ -72,7 +72,7 @@
 
 .list span {
   display: grid;
-  grid-template-columns: 60vw 10vw;
+  grid-template-columns: 55vw 15vw;
   justify-content: center;
   text-align: center;
   height: auto;
@@ -80,8 +80,16 @@
 
 .list .headerdiv {
   height: 8vh;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
 }
-
+.list .list_txt {
+  position: relative;
+  top: 8vh;
+  /* margin-top: 20vh; */
+}
 .list span div:not(.id, .lastDiv *) {
   border: 1px solid gray;
   font-size: 5vh;

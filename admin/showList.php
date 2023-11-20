@@ -16,6 +16,7 @@ else {
 }
 $result = pg_query($conn, $sql);
 echo "<span class='headerdiv'><div>이름</div><div>판매현황</div></span>";
+echo "<div class='list_txt'>";
 if ($result) {
   $totalnum = pg_num_rows($result);
   if ($totalnum > 0) {
@@ -34,6 +35,7 @@ if ($result) {
   echo "오류 발생: " . pg_last_error($conn);
 }
 echo "<span class='lastDiv'><div></div><div></div></span>";
+echo '</div>';
 pg_close($conn);
 ?>
 <script src="JS/send_sold_out.js?ver3"></script>

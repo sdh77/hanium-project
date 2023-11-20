@@ -46,11 +46,14 @@
 }
 
 .main-screen .main-area .orderdetail_list .orderdetail_name {
-  width: 13vw;
-  white-space: pre-wrap;
-  word-break: keep-all;
+  width: 12vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
+.main-screen .main-area .orderdetail_list .orderdetail_quantity {
+  width: 3vw;
+}
 .main-screen .main-area .tableOrderItemCLEAR,
 .main-screen .main-area .tableOrderItem {
   background-color: var(--main-color);

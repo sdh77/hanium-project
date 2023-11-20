@@ -6,11 +6,12 @@
   border-radius: 20px;
   background-color: var(--main-color);
   margin-right: 1vw;
+  color: black;
 }
 
 .Header-fix {
   position: fixed;
-  height: 14vh;
+  /* height: 14vh; */
   width: 100vw;
   z-index: 900;
   background-color: white;
@@ -38,7 +39,7 @@
 
 .Header-column:nth-child(2) {
   text-align: center;
-  margin-top: 2vh;
+  margin-top: 3vh;
 }
 
 .Header-column:last-child {
