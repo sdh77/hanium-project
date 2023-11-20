@@ -12,9 +12,10 @@ var clearCntCheck = clearMenus.length;
 // console.log(newCnt);
 // console.log(clearCntCheck);
 // console.log(newCnt);
-
 if (newCnt > Number(localStorage.getItem("menuCnt"))) {
-  alert("new");
+  const newPopup = document.querySelector(".neworder-popup-background");
+  // alert("new");
+  newPopup.classList.add("area-visible");
   localStorage.setItem("menuCnt", newCnt);
 } else if (newCnt < Number(localStorage.getItem("menuCnt"))) {
   if (localStorage.getItem("chefMode") == 1) {

@@ -53,3 +53,17 @@ function soldOutPage() {
 
 customItems();
 setInterval(getTableItem, 1000);
+
+const newPopupClick = document.querySelector(
+  ".employee-neworder-popup-background"
+);
+const newPopupClick_txt = document.querySelector(
+  ".employee-neworder-popup-background__inform"
+);
+
+window.addEventListener("click", function (event) {
+  if (event.target == newPopupClick || event.target == newPopupClick_txt) {
+    newPopupClick.classList.remove("area-visible");
+    newPopupClick.classList.add("area-hidden");
+  }
+});
