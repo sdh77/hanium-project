@@ -166,14 +166,15 @@ class App {
       console.log(object.animations);
       // console.dir(object.animations[0]);
       // 고개 도리도리 (default)
-      /*     const dorido = object.animations[1];
-      const doridoAction = this._mixer.clipAction(dorido);
-      this._animationActions.push(doridoAction);
-      document.addEventListener("doridos", () => {
-        this.stopAllAnimations();
-        doridoAction.play();
-      });
+      const walk = object.animations[10];
+      const walkAction = this._mixer.clipAction(walk);
+      this._animationActions.push(walkAction);
+      // document.addEventListener("walkdos", () => {
+      walkAction.play();
+      // });
+
       // 안녕
+      /*
       const hellodo = object.animations[2];
       const hellodoAction = this._mixer.clipAction(hellodo);
       hellodoAction.loop = THREE.LoopOnce; //애니메이션 1회만 실행하는 설정이야!
