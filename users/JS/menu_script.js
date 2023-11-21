@@ -431,7 +431,7 @@ function downpage() {
 }
 
 //목차 변경
-type = "all";
+type = "전체";
 function set_type(newtype) {
   type = newtype;
   page = 0;
