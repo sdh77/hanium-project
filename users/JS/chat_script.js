@@ -59,8 +59,9 @@ function createNewRecognition() {
 
 $(document).ready(function () {
   setTimeout(function () {
-    document.dispatchEvent(new Event("hellodos"));
-    addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
+    // document.dispatchEvent(new Event("hellodos"));
+    document.dispatchEvent(new Event("jumpdos"));
+    // addMessageToChat("bot", "어서오세요. 주문을 도와드리는 키오스키입니다.");
     addMessageToChat("selector", "메뉴 검색");
     addMessageToChat("selector", "오늘의 추천 메뉴");
     addMessageToChat("selector", "메뉴 추천 서비스");
@@ -68,8 +69,7 @@ $(document).ready(function () {
   }, 4000);
   setTimeout(function () {
     document.dispatchEvent(new Event("doridos"));
-  }, 6000);
-
+  }, 6500);
 
   $(".chatArea-stopSTT")
     .off("click")
@@ -298,7 +298,6 @@ function flaskAjax(transcript) {
               document.dispatchEvent(new Event("doridos"));
             }, 500);
             break;
-
 
           case "rollbackbase":
             addMessageToChat("bot", `${data.message}`);

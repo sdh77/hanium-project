@@ -43,7 +43,7 @@
             const transcript = event.results[i][0].transcript.trim();
             console.log(transcript);
 
-            if (transcript.includes("키오스키") && transcript.includes("키오스키야") && transcript.includes("키 오 스 키 아") && transcript.includes("키오 스퀘어") && transcript.includes("티오스키") && transcript.includes("티오 스키") && transcript.includes("키오 새끼") && transcript.includes("키즈 키야") && !ListeningUserMessage) {
+            if (transcript.includes("키오스키") || transcript.includes("띄어쓰기야") || transcript.includes("디오스퀘어") || transcript.includes("기호스키") || transcript.includes("키오스키야") || transcript.includes("키 오 스 키 아") || transcript.includes("키오 스퀘어") || transcript.includes("키오스퀘어") || transcript.includes("키요 새끼야") || transcript.includes("티오스키") || transcript.includes("티오 스키") || transcript.includes("키오 새끼") || transcript.includes("키즈 키야") || transcript.includes("키요 스키야") || transcript.includes("키요 스키야") && !ListeningUserMessage) {
               start();
             };
           }
@@ -56,7 +56,15 @@
     }
 
     function start() {
-      window.location.href = "menu_kioski.html";
+      document.dispatchEvent(new Event("hellodos"));
+      chromeTTS("어서오세요. 주문을 도와드리는 키오스키입니다.")
+      setTimeout(() => {
+        window.location.href = "menu_kioski.html";
+      }, 2500);
+    }
+    function chromeTTS(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
     }
   </script>
 
