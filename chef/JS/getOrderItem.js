@@ -1,5 +1,6 @@
 const btn = document.querySelector(".Header .change-page");
 const header = document.querySelector(".Header .Header-column span");
+const audio = new Audio("../dingdong.mp3");
 
 let selectYear = new Date().getFullYear();
 let selectMonth = String(new Date().getMonth() + 1).padStart(2, "0");

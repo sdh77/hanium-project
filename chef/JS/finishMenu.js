@@ -9,12 +9,16 @@ var finishTables = document.querySelectorAll(
 );
 var newCnt = Menus.length;
 var clearCntCheck = clearMenus.length;
+
 // console.log(newCnt);
 // console.log(clearCntCheck);
 // console.log(newCnt);
 if (newCnt > Number(localStorage.getItem("menuCnt"))) {
   const newPopup = document.querySelector(".neworder-popup-background");
   // alert("new");
+  audio.load();
+  audio.loop = false;
+  audio.play();
   newPopup.classList.add("area-visible");
   localStorage.setItem("menuCnt", newCnt);
 } else if (newCnt < Number(localStorage.getItem("menuCnt"))) {

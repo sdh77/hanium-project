@@ -6,6 +6,9 @@ if (newCnt > Number(localStorage.getItem("menuCnt_employee"))) {
   const newPopup = document.querySelector(
     ".employee-neworder-popup-background"
   );
+  audio.load();
+  audio.loop = false;
+  audio.play();
   newPopup.classList.add("area-visible");
   localStorage.setItem("menuCnt_employee", newCnt);
 } else if (newCnt < Number(localStorage.getItem("menuCnt_employee"))) {

@@ -2,6 +2,7 @@ let selectYear = new Date().getFullYear();
 let selectMonth = String(new Date().getMonth() + 1).padStart(2, "0");
 let selectDate = String(new Date().getDate()).padStart(2, "0");
 let date = `${selectYear}-${selectMonth}-${selectDate}`;
+const audio = new Audio("../dingdong.mp3");
 
 const btn = document.querySelector(".Header .change-page");
 const header = document.querySelector(".Header .Header-column span");
