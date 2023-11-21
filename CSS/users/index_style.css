@@ -1,51 +1,34 @@
-.usermain {
-  border-top: 5vh solid rgb(235, 235, 235);
-  border-bottom: 5vh solid rgb(235, 235, 235);
-  border-left: 5vh solid rgb(235, 235, 235);
-  border-right: 5vh solid rgb(235, 235, 235);
-  width: calc(100vw -10vh);
-  height: 90vh;
+.usermain_background {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 90vw;
+  height: 95vh;
+  box-sizing: border-box;
+  background-color: white;
+  border: 10vh solid white;
+  border-radius: 10vh;
   justify-content: center;
-}
-
-.usermain h1 {
-  font-size: 5vh;
-  text-align: center;
-}
-
-.usermain #touch {
-  font-size: 3vw;
-  text-align: center;
-  margin-top: 7vh;
-  width: 100%;
-}
-
-.usermain #touch img {
-  width: auto;
-  height: 70vh;
+  align-items: center;
+  flex-direction: column;
 }
 
 .Kiosk_usermain {
-  border-top: 5vh solid rgb(235, 235, 235);
-  border-bottom: 5vh solid rgb(235, 235, 235);
-  border-left: 5vh solid rgb(235, 235, 235);
-  border-right: 5vh solid rgb(235, 235, 235);
-  width: calc(100vw -10vh);
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #a6a5b8
+  box-sizing: border-box;
+  background-color: #a6a5b8;
+
 }
 
 .Kiosk_usermain h1 {
-  font-size: 4vh;
+  display: flex;
+  justify-content: center;
+  font-size: 5vh;
   text-align: center;
-  /* margin-bottom: 20vh; */
+  width: 100vw;
+  margin-bottom: 5vh;
 }
 
 .Kiosk_usermain #Kiosk_touch {
@@ -60,9 +43,33 @@
   height: auto;
 }
 
+.Kiosk_usermain i {
+  font-size: 7vh;
+  display: flex;
+  position: absolute;
+  right: 13vw;
+  bottom: 7vh;
+  animation: bounce 0.8s linear infinite;
+
+}
+
 #webgl-container-index {
-  width: 120vw;
+  width: 100vw;
   height: 55vh;
   display: flex;
-  margin-left: -30vw;
+  margin-left: -40vw;
+}
+
+@keyframes bounce {
+  0% {
+    transform: 0;
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: 0;
+  }
 }

@@ -22,9 +22,11 @@
 </head>
 
 <body class="Kiosk_usermain" onclick="start()">
-
-  <h1>주문을 원하시면 키오스키를 불러주시거나 눌러주세요</h1>
-  <div id="webgl-container-index"></div>
+  <div class="usermain_background">
+    <h1>주문을 원하시면 <br> 키오스키를 불러주세요</h1>
+    <div id="webgl-container-index"></div>
+    <div><i class="fa-regular fa-hand-point-up"></i></div>
+  </div>
 
 
   <script>
@@ -67,7 +69,7 @@
       window.speechSynthesis.speak(utterance);
     }
   </script>
-
+  <script src="https://kit.fontawesome.com/8a7266dac6.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
