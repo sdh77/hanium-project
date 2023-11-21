@@ -19,7 +19,7 @@ if ($action == "recommend") {
 } else if ($action == "search") {
   $sql = "select * from menu where name in (" . $search . ") order by new desc, id";
 } else if ($action == "spicy") {
-  $sql = "select * from menu where spicy > 0 order by new desc, id";
+  $sql = "select * from menu where spicy > 0 order by spicy desc, new desc, id";
 } else {
   if ($search != "")
     $sql = "select * from menu where trash = false and name like '%" . $search . "%' order by new desc, id";
