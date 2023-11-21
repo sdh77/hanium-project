@@ -5,16 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>키오스크 유저 화면</title>
-  <link rel="stylesheet" href="../CSS/styles.css" />
+  <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+            "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js"
+        }
+    }
+  </script>
+  <!-- <script type="module" src="JS/King3D_ex.js" defer></script> -->
+  <script type="module" src="JS/index Shef3D_ex.js" defer></script>
+  <!-- <script type="module" src="JS/Default3D_ex.js" defer></script> -->
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../CSS/styles.css" />
 </head>
 
 <body class="Kiosk_usermain" onclick="start()">
 
   <h1>주문을 원하시면 키오스키를 불러주시거나 눌러주세요</h1>
-  <div id="Kiosk_touch">
-    <img src="touch.png"></img>
-  </div>
+  <div id="webgl-container-index"></div>
+
 
   <script>
     // 음성으로 입력할 때 챗봇

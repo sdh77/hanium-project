@@ -55,3 +55,8 @@
   width: 90%;
   height: auto;
 }
+
+#webgl-container-index {
+  width: 100%;
+  height: 50%;
+}
