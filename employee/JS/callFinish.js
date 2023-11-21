@@ -1,7 +1,20 @@
 const call = document.querySelectorAll(".table-info__callList i");
+const Menus = document.querySelectorAll(".foodDrinkName");
 
 // console.log(call);
 
+var newCnt = Menus.length;
+if (newCnt > Number(localStorage.getItem("menuCnt_employee"))) {
+  const newPopup = document.querySelector(
+    ".employee-neworder-popup-background"
+  );
+  newPopup.classList.add("area-visible");
+  localStorage.setItem("menuCnt_employee", newCnt);
+} else if (newCnt < Number(localStorage.getItem("menuCnt_employee"))) {
+  if (localStorage.getItem("employeeMode") == 1) {
+    localStorage.setItem("menuCnt_employee", newCnt);
+  }
+}
 call.forEach((element) => {
   let tableNumber = element.parentNode.previousSibling;
   element.addEventListener("click", handleToDoClick);

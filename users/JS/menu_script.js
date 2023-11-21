@@ -1,3 +1,5 @@
+let rightBtns;
+let rightBtn;
 $(document).ready(function () {
   // do: 주문 시작 시 테이블 번호 생성. (지금은 랜덤이고 추후에 각각 설정)
 
@@ -9,6 +11,9 @@ $(document).ready(function () {
 
   $.ajax({ url: "list_div.php", type: "get" }).done(function (data) {
     $("#menupage").html(data);
+
+    rightBtns = document.querySelectorAll("#menupage a");
+    rightBtn = rightBtns[rightBtns.length - 1];
 
     let menuImg, menuName, menuPrice, menuQuantity;
 
@@ -481,6 +486,8 @@ function loadpage_list() {
       data
     ) {
       $("#menupage").html(data);
+      rightBtns = document.querySelectorAll("#menupage a");
+      rightBtn = rightBtns[rightBtns.length - 1];
     });
   }
 }
@@ -541,7 +548,8 @@ menuSwipe.addEventListener("mouseup", (e) => {
   } else if (startPoint > endPoint) {
     // 마우스가 왼쪽으로 드래그 된 경우
     console.log("next move");
-    uppage();
+    // uppage();
+    rightBtn.click();
   }
 });
 
@@ -560,7 +568,8 @@ menuSwipe.addEventListener("touchend", (e) => {
   } else if (startPoint > endPoint) {
     // 왼쪽으로 스와이프 된 경우
     console.log("next move");
-    uppage();
+    // uppage();
+    rightBtn.click();
   }
 });
 //}

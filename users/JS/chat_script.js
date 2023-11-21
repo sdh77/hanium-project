@@ -70,7 +70,6 @@ $(document).ready(function () {
     document.dispatchEvent(new Event("doridos"));
   }, 6000);
 
-
   $(".chatArea-stopSTT")
     .off("click")
     .on("click", function () {
@@ -298,7 +297,6 @@ function flaskAjax(transcript) {
               document.dispatchEvent(new Event("doridos"));
             }, 500);
             break;
-
 
           case "rollbackbase":
             addMessageToChat("bot", `${data.message}`);
