@@ -295,12 +295,13 @@ $(document).ready(function () {
       }).done(function (data) {
         $(".shopcartAll_popup__list").html(data);
       });
+      /*
       $.ajax({
         url: "/flask-app/update_state2",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ status: "initial" }),
-      });
+      }); 여기때매 오류 */
     } else {
       // alert("장바구니 비어있음!!!");
       $(".no-orderlist-background")
