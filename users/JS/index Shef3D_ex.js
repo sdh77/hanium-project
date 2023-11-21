@@ -172,7 +172,14 @@ class App {
       // document.addEventListener("walkdos", () => {
       walkAction.play();
       // });
-
+      const hellodo = object.animations[2];
+      const hellodoAction = this._mixer.clipAction(hellodo);
+      hellodoAction.loop = THREE.LoopOnce; //애니메이션 1회만 실행하는 설정이야!
+      this._animationActions.push(hellodoAction);
+      document.addEventListener("hellodos", () => {
+        this.stopAllAnimations();
+        hellodoAction.play();
+      });
       // 안녕
       /*
       const hellodo = object.animations[2];

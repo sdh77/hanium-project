@@ -68,10 +68,9 @@ list_container.addEventListener("mousedown", onScrollStart);
 list_container.addEventListener("touchstart", onScrollStart);
  */
 
-const list_container = document.querySelector("#item-container");
+const list_container = document.querySelector("#cart-hidden");
 const list = document.querySelector("#cart");
-const listScrollHeight = list.scrollHeight;
-const listClientHeight = list.clientHeight;
+const listScrollHeight = list_container.scrollHeight;
 
 // 이벤트마다 갱신될 값
 let startY = 0;
@@ -110,9 +109,11 @@ const onScrollEnd = (e) => {
   endY = getClientY(e);
   listY = getTranslateY();
   const lastItem = list.lastElementChild; // 마지막 아이템
-
+  const listClientHeight = list.clientHeight;
+  console.log(listScrollHeight, listClientHeight, listY);
   // 리스트의 마지막 아이템이 화면에 보이는지 확인
   const lastItemRect = lastItem.getBoundingClientRect();
+  /*
   if (lastItemRect.bottom <= listClientHeight) {
     setTranslateY(listClientHeight - listScrollHeight);
     list.style.transition = `all 0.3s ease`;
@@ -122,7 +123,20 @@ const onScrollEnd = (e) => {
     list.style.transition = `all 0.3s ease`;
     listY = 0;
   }
-
+  */
+  if (listY > 0) {
+    setTranslateY(0);
+    list.style.transition = `all 0.3s ease`;
+    listY = 0;
+  } else if (listClientHeight < listScrollHeight) {
+    setTranslateY(0);
+    list.style.transition = `all 0.3s ease`;
+    listY = 0;
+  } else if (listY < listClientHeight - listScrollHeight) {
+    setTranslateY(-listClientHeight + listScrollHeight);
+    list.style.transition = `all 0.3s ease`;
+    listY = -listClientHeight + listScrollHeight;
+  }
   list_container.removeEventListener("mousemove", onScrollMove);
   list_container.removeEventListener("touchmove", onScrollMove);
   list_container.removeEventListener("mouseup", onScrollEnd);
