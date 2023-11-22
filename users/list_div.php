@@ -59,7 +59,7 @@ $result = pg_query($conn, $sql);
 if ($result) {
   $totalpage = pg_num_rows($result);
 
-  echo '<div class="gridmain"><a ';
+  echo '<div class="gridmain"><a  class="downPageBtn" ';
   if ($pagenum != 0) {
     echo 'onclick="downpage();"';
   }
@@ -120,7 +120,7 @@ echo '</div>';
 
 
 $totalpage = $totalpage / 6;
-echo ' <a ';
+echo ' <a class="upPageBtn" ';
 if ($pagenum < $totalpage - 1)
   echo 'onclick="uppage();"';
 echo '><div class="rightimg"></div></a></div>';
