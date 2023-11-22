@@ -20,6 +20,11 @@ if (newCnt > Number(localStorage.getItem("menuCnt"))) {
   audio.loop = false;
   audio.play();
   newPopup.classList.add("area-visible");
+  newPopup.classList.remove("area-hidden");
+  setTimeout(() => {
+    newPopup.classList.remove("area-visible");
+    newPopup.classList.add("area-hidden");
+  }, 4000);
   localStorage.setItem("menuCnt", newCnt);
 } else if (newCnt < Number(localStorage.getItem("menuCnt"))) {
   if (localStorage.getItem("chefMode") == 1) {
