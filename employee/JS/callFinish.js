@@ -10,6 +10,11 @@ if (newCnt > Number(localStorage.getItem("menuCnt_employee"))) {
   audio.loop = false;
   audio.play();
   newPopup.classList.add("area-visible");
+  newPopup.classList.remove("area-hidden");
+  setTimeout(() => {
+    newPopup.classList.remove("area-visible");
+    newPopup.classList.add("area-hidden");
+  }, 4000);
   localStorage.setItem("menuCnt_employee", newCnt);
 } else if (newCnt < Number(localStorage.getItem("menuCnt_employee"))) {
   if (localStorage.getItem("employeeMode") == 1) {
