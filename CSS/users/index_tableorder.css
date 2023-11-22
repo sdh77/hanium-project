@@ -1,0 +1,66 @@
+.usermain {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #a6a5b8;
+
+}
+
+.tableOrder_usermain_background {
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  box-sizing: border-box;
+  background-color: white;
+  border: 10vh solid white;
+  border-radius: 10vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.usermain h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 8.5vh;
+  text-align: center;
+  width: 100vw;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+
+#webgl-container-index {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  margin-left: -10vw;
+}
+
+.usermain i {
+  font-size: 14vh;
+  display: flex;
+  position: absolute;
+  right: 13vw;
+  bottom: 10vh;
+  animation: bounce 0.8s linear infinite;
+
+}
+
+
+@keyframes bounce {
+  0% {
+    transform: 0;
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: 0;
+  }
+}
