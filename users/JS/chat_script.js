@@ -74,7 +74,7 @@ $(document).ready(function () {
   $(".chatArea-stopSTT")
     .off("click")
     .on("click", function () {
-    /*
+      /*
       $.ajax({
         url: "/flask-app/update_state2",
         type: "POST",
@@ -420,6 +420,12 @@ function flaskAjax(transcript) {
               serviceText: "직원 호출",
             };
             $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
+          case "downpage":
+            console.log("downPage");
+            $(".downPageBtn").trigger("click");
+          case "uppage":
+            console.log("upPage");
+            $(".upPageBtn").trigger("click");
         }
       } else if (data.response) {
         // 일반 응답
