@@ -1,5 +1,6 @@
-let rightBtns;
-let rightBtn;
+let pageBtns;
+let upBtn;
+let downBtn;
 $(document).ready(function () {
   // do: 주문 시작 시 테이블 번호 생성. (지금은 랜덤이고 추후에 각각 설정)
 
@@ -11,8 +12,9 @@ $(document).ready(function () {
 
   $.ajax({ url: "list_div.php", type: "get" }).done(function (data) {
     $("#menupage").html(data);
-    rightBtns = document.querySelectorAll("#menupage a");
-    rightBtn = rightBtns[rightBtns.length - 1];
+    pageBtns = document.querySelectorAll("#menupage a");
+    upBtn = pageBtns[pageBtns.length - 1];
+    downBtn = pageBtns[0];
     let menuImg, menuName, menuPrice, menuQuantity;
 
     // do: 메뉴 클릭 이벤트 핸들러 (메뉴 장바구니에 담기)
@@ -485,8 +487,8 @@ function loadpage_list() {
       data
     ) {
       $("#menupage").html(data);
-      rightBtns = document.querySelectorAll("#menupage a");
-      rightBtn = rightBtns[rightBtns.length - 1];
+      pageBtns = document.querySelectorAll("#menupage a");
+      upBtn = pageBtns[pageBtns.length - 1];
     });
   }
 }
@@ -531,8 +533,8 @@ console.log(menuSwipe);
 let startPoint = 0;
 let endPoint = 0;
 
-console.log(rightBtns);
-console.log(rightBtn);
+console.log(pageBtns);
+console.log(upBtn);
 // PC 클릭 이벤트 (드래그)
 menuSwipe.addEventListener("mousedown", (e) => {
   console.log("mousedown", e.pageX);
@@ -550,7 +552,7 @@ menuSwipe.addEventListener("mouseup", (e) => {
     // 마우스가 왼쪽으로 드래그 된 경우
     console.log("next move");
     // uppage();
-    rightBtn.click();
+    upBtn.click();
   }
 });
 
@@ -569,7 +571,7 @@ menuSwipe.addEventListener("touchend", (e) => {
   } else if (startPoint > endPoint) {
     // 왼쪽으로 스와이프 된 경우
     console.log("next move");
-    rightBtn.click();
+    upBtn.click();
     // uppage();
   }
 });

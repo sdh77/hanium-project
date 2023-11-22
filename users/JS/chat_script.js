@@ -422,10 +422,14 @@ function flaskAjax(transcript) {
             $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
           case "downpage":
             console.log("downPage");
-            $(".downPageBtn").trigger("click");
+            const loadUpPageBtns = document.querySelectorAll("#menupage a");
+            const UpBtn = loadUpPageBtns[pageBtns.length - 1];
+            upBtn.click();
           case "uppage":
             console.log("upPage");
-            $(".upPageBtn").trigger("click");
+            const loadDownPageBtns = document.querySelectorAll("#menupage a");
+            const DownBtn = loadDownPageBtns[0];
+            downBtn.click();
         }
       } else if (data.response) {
         // 일반 응답
