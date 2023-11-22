@@ -74,6 +74,7 @@ $(document).ready(function () {
   $(".chatArea-stopSTT")
     .off("click")
     .on("click", function () {
+    /*
       $.ajax({
         url: "/flask-app/update_state2",
         type: "POST",
@@ -85,7 +86,8 @@ $(document).ready(function () {
         error: function (error) {
           console.log(error);
         },
-      });
+      });*/
+      window.location.href = "index_kioski.html";
     });
 
   // 직접 텍스트 입력했을 때 챗봇
