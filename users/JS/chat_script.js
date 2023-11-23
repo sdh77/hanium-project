@@ -74,7 +74,7 @@ $(document).ready(function () {
   $(".chatArea-stopSTT")
     .off("click")
     .on("click", function () {
-    /*
+      /*
       $.ajax({
         url: "/flask-app/update_state2",
         type: "POST",
@@ -420,6 +420,16 @@ function flaskAjax(transcript) {
               serviceText: "직원 호출",
             };
             $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
+          case "downpage":
+            console.log("downPage");
+            const loadUpPageBtns = document.querySelectorAll("#menupage a");
+            const UpBtn = loadUpPageBtns[pageBtns.length - 1];
+            upBtn.click();
+          case "uppage":
+            console.log("upPage");
+            const loadDownPageBtns = document.querySelectorAll("#menupage a");
+            const DownBtn = loadDownPageBtns[0];
+            downBtn.click();
         }
       } else if (data.response) {
         // 일반 응답
