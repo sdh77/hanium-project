@@ -413,6 +413,7 @@ function flaskAjax(transcript) {
             };
             if (data.matchCall != -1)
               $.ajax({ url: "callSend.php", type: "get", data: matchCall });
+	    break;
           case "callEmployee":
             addMessageToChat("bot", `${data.message}`);
             let callEmployee = {
@@ -420,16 +421,20 @@ function flaskAjax(transcript) {
               serviceText: "직원 호출",
             };
             $.ajax({ url: "callSend.php", type: "get", data: callEmployee });
-          case "downpage":
-            console.log("downPage");
-            const loadUpPageBtns = document.querySelectorAll("#menupage a");
-            const UpBtn = loadUpPageBtns[pageBtns.length - 1];
-            upBtn.click();
+	    break;
           case "uppage":
             console.log("upPage");
+            const loadUpPageBtns = document.querySelectorAll("#menupage a");
+            const upBtn = loadUpPageBtns[pageBtns.length - 1];
+            upBtn.click();
+	    break;
+          case "downpage":
+            console.log("downPage");
             const loadDownPageBtns = document.querySelectorAll("#menupage a");
-            const DownBtn = loadDownPageBtns[0];
+            const downBtn = loadDownPageBtns[0];
+	    console.log(downBtn);
             downBtn.click();
+	    break;
         }
       } else if (data.response) {
         // 일반 응답
