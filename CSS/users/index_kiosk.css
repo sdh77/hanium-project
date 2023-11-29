@@ -6,7 +6,6 @@
   align-items: center;
   box-sizing: border-box;
   background-color: #a6a5b8;
-
 }
 
 .usermain_background {
@@ -22,7 +21,6 @@
   flex-direction: column;
 }
 
-
 .Kiosk_usermain h1 {
   display: flex;
   justify-content: center;
@@ -33,7 +31,7 @@
 }
 
 #webgl-container-index {
-  width: 100vw;
+  width: 140vw;
   height: 55vh;
   display: flex;
   margin-left: -40vw;
@@ -46,9 +44,7 @@
   right: 13vw;
   bottom: 7vh;
   animation: bounce 0.8s linear infinite;
-
 }
-
 
 @keyframes bounce {
   0% {
