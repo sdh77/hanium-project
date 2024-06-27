@@ -154,7 +154,29 @@ function clearTable(searchtable) {
   finishTables.forEach(function (finishTable) {
     let thisTable = finishTable.querySelector(".orderTableId");
     if (thisTable.innerHTML == searchtable + "번 테이블" && doclick == 0) {
-      thisTable.parentElement.click();
+      console.log(
+        thisTable.parentElement
+          .querySelector(".orderdetail_scroll")
+          .querySelectorAll(".orderdetail_list")
+      );
+      const selectTableLists = thisTable.parentElement
+        .querySelector(".orderdetail_scroll")
+        .querySelectorAll(".orderdetail_list");
+      let menuId = "(";
+
+      selectTableLists.forEach(function (selectTableList, cnt = 1) {
+        // console.log(selectTableList.classList.item(1));
+        if (cnt == selectTableLists.length - 1)
+          menuId = menuId + selectTableList.classList.item(1) + ")";
+        else menuId = menuId + selectTableList.classList.item(1) + ", ";
+        console.log(menuId);
+        cnt++;
+      });
+      let params = {
+        orderList: menuId,
+      };
+      $.ajax({ url: "clearAllMenu.php", type: "get", data: params });
+      const tableNumber = thisTable.innerHTML;
       doclick = 1;
     }
   });
